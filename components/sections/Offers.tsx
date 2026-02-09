@@ -30,15 +30,15 @@ export function Offers({ className }: OffersProps) {
           </p>
         </div>
         <div className="grid gap-4 text-sm text-slate-200 sm:grid-cols-3">
-          <div className="rounded-xl border border-sky-500/30 bg-sky-500/5 p-5">
-            <p className="mb-2 text-sm font-semibold text-sky-200">Strategic Advisory</p>
+          <div className="rounded-xl border border-foreground/20 bg-foreground/5 p-5">
+            <p className="mb-2 text-sm font-semibold text-foreground">Strategic Advisory</p>
             <p className="mt-2 text-xs leading-relaxed text-slate-300">
               Retained guidance on architecture, technical strategy, and key decisions.
               Ideal for founders who need a sounding board and strategic oversight.
             </p>
           </div>
-          <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-5">
-            <p className="mb-2 text-sm font-semibold text-emerald-200">
+          <div className="rounded-xl border border-foreground/20 bg-foreground/5 p-5">
+            <p className="mb-2 text-sm font-semibold text-foreground">
               Build & Launch
             </p>
             <p className="mt-2 text-xs leading-relaxed text-slate-300">
@@ -46,8 +46,8 @@ export function Offers({ className }: OffersProps) {
               you need to move fast on a specific product or technical milestone.
             </p>
           </div>
-          <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-5">
-            <p className="mb-2 text-sm font-semibold text-amber-200">
+          <div className="rounded-xl border border-foreground/20 bg-foreground/5 p-5">
+            <p className="mb-2 text-sm font-semibold text-foreground">
               Technical Audit
             </p>
             <p className="mt-2 text-xs leading-relaxed text-slate-300">

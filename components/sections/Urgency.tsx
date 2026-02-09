@@ -25,8 +25,8 @@ export function Urgency({ className }: UrgencyProps) {
           future decisions.
         </p>
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-lg border border-rose-500/20 bg-rose-500/5 p-4">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-rose-300">
+          <div className="rounded-lg border border-foreground/20 bg-foreground/5 p-4">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-foreground">
               Missed Windows
             </p>
             <p className="text-sm text-slate-300">
@@ -34,8 +34,8 @@ export function Urgency({ className }: UrgencyProps) {
               approaches. Competitors move faster with clearer technical strategy.
             </p>
           </div>
-          <div className="rounded-lg border border-amber-500/20 bg-amber-500/5 p-4">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-amber-300">
+          <div className="rounded-lg border border-foreground/20 bg-foreground/5 p-4">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-foreground">
               Compounding Debt
             </p>
             <p className="text-sm text-slate-300">

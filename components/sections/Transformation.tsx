@@ -32,14 +32,14 @@ export function Transformation({ className }: TransformationProps) {
           </p>
         </div>
         <div className="grid gap-4 text-sm text-slate-200 sm:grid-cols-2">
-          <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-4">
-            <p className="mb-1 text-[11px] font-medium uppercase tracking-[0.16em] text-emerald-300">
+          <div className="rounded-xl border border-foreground/20 bg-foreground/5 p-4">
+            <p className="mb-1 text-[11px] font-medium uppercase tracking-[0.16em] text-foreground">
               PRODUCT
             </p>
             <p>Roadmap, scope, and technical constraints aligned from day one.</p>
           </div>
-          <div className="rounded-xl border border-sky-500/30 bg-sky-500/5 p-4">
-            <p className="mb-1 text-[11px] font-medium uppercase tracking-[0.16em] text-sky-300">
+          <div className="rounded-xl border border-foreground/20 bg-foreground/5 p-4">
+            <p className="mb-1 text-[11px] font-medium uppercase tracking-[0.16em] text-foreground">
               ENGINEERING
             </p>
             <p>Teams executing against clear standards, guardrails, and interfaces.</p>

@@ -16,7 +16,7 @@ export function FinalCTA({ className }: FinalCTAProps) {
   return (
     <section
       id="cta"
-      className={`rounded-2xl border border-primary/40 bg-gradient-to-br from-background via-background to-primary/20 px-6 py-10 sm:px-10 lg:px-12 ${className ?? ''}`}
+      className={`rounded-2xl border border-foreground/20 bg-gradient-to-br from-background via-background to-foreground/5 px-6 py-10 sm:px-10 lg:px-12 ${className ?? ''}`}
     >
       {!showForm ? (
         <motion.div
@@ -38,7 +38,7 @@ export function FinalCTA({ className }: FinalCTAProps) {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <Button
               onClick={() => setShowForm(true)}
-              className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground shadow-lg shadow-primary/35 transition hover:-translate-y-[1px] hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2.5 text-sm font-medium text-background shadow-lg shadow-foreground/20 transition hover:-translate-y-[1px] hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               Request a strategy call
             </Button>
@@ -55,14 +55,14 @@ export function FinalCTA({ className }: FinalCTAProps) {
           className="space-y-4"
         >
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-semibold text-slate-50 sm:text-3xl">
+            <h2 className="text-2xl font-semibold text-foreground sm:text-3xl">
               Get in touch
             </h2>
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setShowForm(false)}
-              className="text-slate-400 hover:text-slate-50"
+              className="text-foreground/60 hover:text-foreground"
             >
               <X className="h-5 w-5" />
             </Button>

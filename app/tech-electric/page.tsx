@@ -11,7 +11,6 @@ import { RiskReversal } from '@/components/sections/RiskReversal';
 import { FAQ } from '@/components/sections/FAQ';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import { Footer } from '@/components/Footer';
-import { ThemeSelector } from '@/components/ThemeSelector';
 import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 
 const pageVariants = {
@@ -43,7 +42,6 @@ export default function TechElectricPage() {
       <FAQ />
       <FinalCTA />
       <Footer />
-      <ThemeSelector />
       <ThemeSwitcher />
     </motion.main>
   );

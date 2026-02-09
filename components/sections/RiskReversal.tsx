@@ -24,8 +24,8 @@ export function RiskReversal({ className }: RiskReversalProps) {
           Start with a focused project. Expand only if the value is clear.
         </p>
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
-          <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-4">
-            <p className="mb-2 text-xs font-semibold text-emerald-300">
+          <div className="rounded-lg border border-foreground/20 bg-foreground/5 p-4">
+            <p className="mb-2 text-xs font-semibold text-foreground">
               Clear Milestones
             </p>
             <p className="text-xs text-slate-300">
@@ -33,8 +33,8 @@ export function RiskReversal({ className }: RiskReversalProps) {
               getting and when.
             </p>
           </div>
-          <div className="rounded-lg border border-sky-500/20 bg-sky-500/5 p-4">
-            <p className="mb-2 text-xs font-semibold text-sky-300">
+          <div className="rounded-lg border border-foreground/20 bg-foreground/5 p-4">
+            <p className="mb-2 text-xs font-semibold text-foreground">
               Flexible Scope
             </p>
             <p className="text-xs text-slate-300">
@@ -42,8 +42,8 @@ export function RiskReversal({ className }: RiskReversalProps) {
               clear and you want to continue.
             </p>
           </div>
-          <div className="rounded-lg border border-cyan-500/20 bg-cyan-500/5 p-4">
-            <p className="mb-2 text-xs font-semibold text-cyan-300">
+          <div className="rounded-lg border border-foreground/20 bg-foreground/5 p-4">
+            <p className="mb-2 text-xs font-semibold text-foreground">
               Transparent Process
             </p>
             <p className="text-xs text-slate-300">

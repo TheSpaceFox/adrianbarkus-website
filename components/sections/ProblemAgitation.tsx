@@ -34,7 +34,7 @@ export function ProblemAgitation({ className }: ProblemAgitationProps) {
         </div>
         <div className="grid gap-4 text-sm text-slate-200 sm:grid-cols-2">
           <div className="rounded-xl border border-slate-800/80 bg-slate-950/60 p-4 shadow-sm shadow-slate-950/60">
-            <p className="mb-1 text-[11px] font-medium uppercase tracking-[0.16em] text-amber-300">
+            <p className="mb-1 text-[11px] font-medium uppercase tracking-[0.16em] text-foreground">
               COMMON PATTERN
             </p>
             <p className="text-sm text-slate-200">
@@ -43,7 +43,7 @@ export function ProblemAgitation({ className }: ProblemAgitationProps) {
             </p>
           </div>
           <div className="rounded-xl border border-slate-800/80 bg-slate-950/60 p-4 shadow-sm shadow-slate-950/60">
-            <p className="mb-1 text-[11px] font-medium uppercase tracking-[0.16em] text-rose-300">
+            <p className="mb-1 text-[11px] font-medium uppercase tracking-[0.16em] text-foreground">
               HIDDEN COST
             </p>
             <p className="text-sm text-slate-200">

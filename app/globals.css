@@ -1,26 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colors */
-  --color-background: #0f172a;
-  --color-foreground: #f1f5f9;
-  --color-primary: #3b82f6;
-  --color-primary-foreground: #0b1120;
-  --color-accent: #06b6d4;
-  --color-accent-foreground: #0b1120;
-  --color-success: #10b981;
-  --color-success-foreground: #022c22;
-  --color-warning: #f59e0b;
-  --color-warning-foreground: #451a03;
-  --color-muted: #1e293b;
-  --color-border: #1e293b;
+  /* Colors - Monochromatic Precision (Dark Mode Default) */
+  --color-background: #121212;
+  --color-foreground: #E0E0E0;
+  --color-primary: #FFFFFF;
+  --color-primary-foreground: #000000;
+  --color-accent: #888888;
+  --color-accent-foreground: #FFFFFF;
+  --color-success: #E0E0E0;
+  --color-success-foreground: #121212;
+  --color-warning: #E0E0E0;
+  --color-warning-foreground: #121212;
+  --color-muted: #1A1A1A;
+  --color-border: #2A2A2A;
 
-  /* Background Images */
-  --background-image-hero-radial: radial-gradient(circle at top, rgba(59,130,246,0.28), transparent 60%);
-  --background-image-section-gradient: linear-gradient(to bottom right, rgba(15,23,42,1), rgba(15,23,42,0.85));
+  /* Background Images - Minimal gradients */
+  --background-image-hero-radial: radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 60%);
+  --background-image-section-gradient: linear-gradient(to bottom right, rgba(18,18,18,1), rgba(18,18,18,0.98));
 
-  /* Shadows */
-  --box-shadow-soft-xl: 0 22px 45px rgba(15,23,42,0.75), 0 0 0 1px rgba(15,23,42,0.9);
+  /* Shadows - Subtle */
+  --box-shadow-soft-xl: 0 22px 45px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.1);
 
   /* Border Radius */
   --border-radius-xl: 1rem;
@@ -52,16 +52,23 @@
   color-scheme: dark;
 }
 
-/* Light mode support */
+/* Light mode - Monochromatic Precision */
 :root.light {
-  --color-background: #F4F4F4;
-  --color-foreground: #1A1A1A;
-  --color-primary: #3b82f6;
+  --color-background: #FAFAFA;
+  --color-foreground: #000000;
+  --color-primary: #000000;
   --color-primary-foreground: #FFFFFF;
-  --color-muted: #E5E5E5;
-  --color-border: #D1D5DB;
-  --background-image-hero-radial: radial-gradient(circle at top, rgba(59,130,246,0.15), transparent 60%);
-  --background-image-section-gradient: linear-gradient(to bottom right, rgba(244,244,244,1), rgba(244,244,244,0.95));
+  --color-accent: #888888;
+  --color-accent-foreground: #FFFFFF;
+  --color-success: #000000;
+  --color-success-foreground: #FAFAFA;
+  --color-warning: #000000;
+  --color-warning-foreground: #FAFAFA;
+  --color-muted: #F0F0F0;
+  --color-border: #E0E0E0;
+  --background-image-hero-radial: radial-gradient(circle at top, rgba(0,0,0,0.03), transparent 60%);
+  --background-image-section-gradient: linear-gradient(to bottom right, rgba(250,250,250,1), rgba(250,250,250,0.98));
+  --box-shadow-soft-xl: 0 22px 45px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05);
   color-scheme: light;
 }
 
