@@ -17,15 +17,15 @@ export function FAQ({ className }: FAQProps) {
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className="space-y-4"
       >
-        <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
+        <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-foreground-tertiary">
           QUESTIONS FOUNDERS ASK
         </h2>
         <div className="mt-6 space-y-4">
-          <details className="group rounded-lg border border-slate-800/80 bg-slate-950/60 p-4">
-            <summary className="cursor-pointer text-sm font-medium text-slate-200 hover:text-slate-50">
+          <details className="group rounded-lg border border-border bg-surface-elevated p-4">
+            <summary className="cursor-pointer text-sm font-medium text-foreground hover:text-primary transition-colors">
               How do engagements typically start?
             </summary>
-            <p className="mt-3 text-sm leading-relaxed text-slate-300">
+            <p className="mt-3 text-sm leading-relaxed text-foreground-secondary" style={{ lineHeight: '1.6' }}>
               Most engagements begin with a strategy call to understand your situation,
               challenges, and goals. From there, we define a focused initial project or
               advisory scope. This could be an architecture review, a specific build
