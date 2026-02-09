@@ -1,6 +1,52 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-background: #0f172a;
+  --color-foreground: #f1f5f9;
+  --color-primary: #3b82f6;
+  --color-primary-foreground: #0b1120;
+  --color-accent: #06b6d4;
+  --color-accent-foreground: #0b1120;
+  --color-success: #10b981;
+  --color-success-foreground: #022c22;
+  --color-warning: #f59e0b;
+  --color-warning-foreground: #451a03;
+  --color-muted: #1e293b;
+  --color-border: #1e293b;
+
+  /* Background Images */
+  --background-image-hero-radial: radial-gradient(circle at top, rgba(59,130,246,0.28), transparent 60%);
+  --background-image-section-gradient: linear-gradient(to bottom right, rgba(15,23,42,1), rgba(15,23,42,0.85));
+
+  /* Shadows */
+  --box-shadow-soft-xl: 0 22px 45px rgba(15,23,42,0.75), 0 0 0 1px rgba(15,23,42,0.9);
+
+  /* Border Radius */
+  --border-radius-xl: 1rem;
+  --border-radius-2xl: 1.25rem;
+}
+
+@keyframes fade-up {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@theme {
+  --animate-fade-up: fade-up 0.6s ease-out both;
+  --animate-fade-in: fade-in 0.4s ease-out both;
+  --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
+}
 
 :root {
   color-scheme: dark;
@@ -8,7 +54,10 @@
 
 html,
 body {
-  @apply bg-background text-foreground antialiased;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -16,10 +65,28 @@ body {
 }
 
 main {
-  @apply min-h-screen bg-hero-radial;
+  min-height: 100vh;
+  background-image: var(--background-image-hero-radial);
 }
 
 .container {
-  @apply mx-auto px-4 sm:px-6 lg:px-8;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
