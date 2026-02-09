@@ -1,7 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { useRef, useState } from 'react';
 import { ContactForm } from '@/components/ContactForm';
 import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
@@ -12,6 +12,8 @@ export interface FinalCTAProps {
 
 export function FinalCTA({ className }: FinalCTAProps) {
   const [showForm, setShowForm] = useState(false);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
     <section
@@ -21,10 +23,10 @@ export function FinalCTA({ className }: FinalCTAProps) {
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
         {!showForm ? (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            ref={ref}
+            initial={{ opacity: 0, y: 50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
             className="rounded-2xl border border-border bg-surface p-8 sm:p-12 lg:p-16"
           >
             <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
@@ -38,9 +40,9 @@ export function FinalCTA({ className }: FinalCTAProps) {
               </div>
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                 <Button
-                  onClick={() => setShowForm(true)}
+                  onClick={() => window.open('https://calendar.app.google/koCBUPrhiwLc4zFv7', '_blank')}
                   size="lg"
-                  className="bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 px-8 py-6 text-base font-medium rounded-full transition-all hover:-translate-y-[2px]"
+                  className="bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 px-8 py-6 text-base font-medium rounded-full transition-all hover:-translate-y-[2px] hover:scale-105"
                 >
                   Book Free SaaS Audit
                 </Button>

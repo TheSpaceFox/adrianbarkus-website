@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import { Check } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -41,30 +42,10 @@ const fractionalCTOIdealFor = [
   'Companies needing speed'
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1] as const
-    }
-  }
-};
-
 export function Offers({ className }: OffersProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
   return (
     <section
       id="offers"
@@ -72,24 +53,25 @@ export function Offers({ className }: OffersProps) {
     >
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          ref={ref}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className="space-y-12"
         >
           {/* Section Headline */}
-          <motion.h2
-            variants={itemVariants}
-            className="text-3xl font-bold text-foreground text-center sm:text-4xl lg:text-5xl"
-          >
+          <h2 className="text-3xl font-bold text-foreground text-center sm:text-4xl lg:text-5xl">
             Two Ways I Can Help You This Month
-          </motion.h2>
+          </h2>
 
           {/* Two Cards Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Card 1 - SaaS Detox Sprint (Primary with brass border) */}
-            <motion.div variants={itemVariants}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+            >
               <Card className="h-full border-2 border-primary bg-surface hover:shadow-lg transition-all duration-300">
                 <CardHeader className="space-y-2">
                   <CardTitle className="text-2xl font-bold text-foreground">
@@ -157,7 +139,8 @@ export function Offers({ className }: OffersProps) {
                   {/* CTA Button */}
                   <Button
                     size="lg"
-                    className="w-full bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 transition-all hover:-translate-y-[2px]"
+                    onClick={() => window.open('https://calendar.app.google/koCBUPrhiwLc4zFv7', '_blank')}
+                    className="w-full bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 transition-all hover:-translate-y-[2px] hover:scale-105"
                   >
                     Book SaaS Audit Call
                   </Button>
@@ -166,7 +149,11 @@ export function Offers({ className }: OffersProps) {
             </motion.div>
 
             {/* Card 2 - Fractional CTO + Rapid Build */}
-            <motion.div variants={itemVariants}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+            >
               <Card className="h-full border-border bg-surface hover:shadow-lg transition-all duration-300">
                 <CardHeader className="space-y-2">
                   <CardTitle className="text-2xl font-bold text-foreground">
@@ -228,7 +215,8 @@ export function Offers({ className }: OffersProps) {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="w-full border-border bg-surface-elevated hover:bg-surface text-foreground"
+                    onClick={() => window.open('https://calendar.app.google/koCBUPrhiwLc4zFv7', '_blank')}
+                    className="w-full border-border bg-surface-elevated hover:bg-surface text-foreground hover:scale-105 transition-transform duration-200"
                   >
                     Book Strategy Call
                   </Button>

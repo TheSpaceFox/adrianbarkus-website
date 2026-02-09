@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 
@@ -30,30 +31,10 @@ const trustBadges = [
   'Fortune 500'
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1] as const
-    }
-  }
-};
-
 export function Credibility({ className }: CredibilityProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
   return (
     <section
       id="credibility"
@@ -61,22 +42,19 @@ export function Credibility({ className }: CredibilityProps) {
     >
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          ref={ref}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className="space-y-12"
         >
           {/* Section Headline */}
-          <motion.h2
-            variants={itemVariants}
-            className="text-3xl font-bold text-foreground text-center sm:text-4xl lg:text-5xl"
-          >
+          <h2 className="text-3xl font-bold text-foreground text-center sm:text-4xl lg:text-5xl">
             19 Years Turning Enterprise Chaos Into Profit
-          </motion.h2>
+          </h2>
 
           {/* Two-Column Tabs Layout */}
-          <motion.div variants={itemVariants}>
+          <div>
             <Tabs defaultValue="background" className="w-full">
               <TabsList className="grid w-full grid-cols-2 bg-surface-elevated border-border">
                 <TabsTrigger value="background" className="data-[state=active]:bg-surface data-[state=active]:text-foreground">
@@ -103,11 +81,13 @@ export function Credibility({ className }: CredibilityProps) {
                 ))}
               </TabsContent>
             </Tabs>
-          </motion.div>
+          </div>
 
           {/* Trust Badges Row */}
           <motion.div
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
             className="flex flex-wrap items-center justify-center gap-4 pt-8"
           >
             {trustBadges.map((badge, index) => (

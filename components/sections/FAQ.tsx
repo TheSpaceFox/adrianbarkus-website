@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 export interface FAQProps {
   className?: string;
@@ -29,30 +30,10 @@ const faqs = [
   }
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1] as const
-    }
-  }
-};
-
 export function FAQ({ className }: FAQProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
   return (
     <section
       id="faq"
@@ -60,26 +41,25 @@ export function FAQ({ className }: FAQProps) {
     >
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          ref={ref}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className="space-y-8"
         >
           {/* Section Headline */}
-          <motion.h2
-            variants={itemVariants}
-            className="text-3xl font-bold text-foreground text-center sm:text-4xl lg:text-5xl"
-          >
+          <h2 className="text-3xl font-bold text-foreground text-center sm:text-4xl lg:text-5xl">
             Questions About SaaS Replacement
-          </motion.h2>
+          </h2>
 
           {/* FAQ Items */}
           <div className="space-y-4 max-w-3xl mx-auto">
             {faqs.map((faq, index) => (
               <motion.details
                 key={index}
-                variants={itemVariants}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.6, delay: index * 0.05, ease: 'easeOut' }}
                 className="group rounded-lg border border-border bg-surface-elevated p-5 hover:bg-surface transition-colors"
               >
                 <summary className="cursor-pointer text-base font-semibold text-foreground hover:text-primary transition-colors list-none">

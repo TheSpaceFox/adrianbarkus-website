@@ -1,24 +1,27 @@
 # Style Guide
 ## Monochromatic Precision with Leica Brass
+## Jeton.com-Inspired Ultra-Minimalist Design
 
 **Last Updated:** 2024  
 **Theme:** Monochromatic Precision with Leica Brass Accent  
-**Design Philosophy:** Minimalist, sophisticated, timeless. Soft dark mode (Claude.ai-inspired) with a single luxurious accent color.
+**Design Philosophy:** Ultra-minimalist, sophisticated, timeless. Jeton.com-inspired spacing and messaging. Soft dark mode (Claude.ai-inspired) with a single luxurious accent color.
 
 ---
 
 ## Table of Contents
 
 1. [Design Philosophy](#design-philosophy)
-2. [Color Palette](#color-palette)
-3. [Typography](#typography)
-4. [Spacing & Layout](#spacing--layout)
-5. [Component Styles](#component-styles)
-6. [Brass Accent Usage](#brass-accent-usage)
-7. [Dark/Light Mode](#darklight-mode)
-8. [Animation Guidelines](#animation-guidelines)
-9. [Accessibility](#accessibility)
-10. [String Formatting & HTML Entities](#string-formatting--html-entities)
+2. [Messaging Principles](#messaging-principles)
+3. [Color Palette](#color-palette)
+4. [Typography](#typography)
+5. [Spacing & Layout](#spacing--layout)
+6. [Visual Hierarchy](#visual-hierarchy)
+7. [Component Styles](#component-styles)
+8. [Brass Accent Usage](#brass-accent-usage)
+9. [Dark/Light Mode](#darklight-mode)
+10. [Animation Guidelines](#animation-guidelines)
+11. [Accessibility](#accessibility)
+12. [String Formatting & HTML Entities](#string-formatting--html-entities)
 
 ---
 
@@ -41,6 +44,44 @@
 - ❌ Overuse brass—it should be rare and special
 - ❌ Crowd elements—maintain generous spacing
 - ❌ Use harsh contrasts—keep it comfortable
+- ❌ Long headlines (max 5-7 words)
+- ❌ Fluff words ("amazing", "incredible", "revolutionary")
+- ❌ Multiple ideas per section
+
+---
+
+## Messaging Principles
+
+### Core Rules (Jeton.com-Inspired)
+
+**1. Headline Length: Maximum 5-7 words. No exceptions.**
+- ✅ "One app for all needs" (Jeton)
+- ✅ "Escape the SaaS Tax" (Your site)
+- ❌ "Your SaaS Bill Just Hit £80k/Year. You Use 20% of It." (Too long)
+
+**2. Subheadline: Single sentence. Maximum 10 words.**
+- ✅ "Single account for all your payments." (Jeton)
+- ✅ "Custom systems built in weeks, not months." (Your site)
+- ❌ Long paragraphs explaining the value proposition
+
+**3. Section Headlines: 2-4 words maximum.**
+- ✅ "Unify your finances" (Jeton)
+- ✅ "Simple, fast & safe" (Jeton)
+- ✅ "Replace. Build. Scale." (Your site)
+- ❌ "What If You Could Ship Custom Systems in 4 Weeks Instead of 6 Months?"
+
+**4. Feature Descriptions: One sentence per feature. Period.**
+- ✅ "Send money anywhere in the EU, effortlessly." (Jeton)
+- ✅ "Replace £60k/year SaaS with £12k custom build." (Your site)
+- ❌ Multi-paragraph explanations
+
+**5. No Fluff Words:**
+- Remove: "amazing", "incredible", "revolutionary", "game-changing"
+- Keep: Facts, numbers, outcomes
+- Use present tense, active voice
+- Direct benefits only
+
+**Mantra:** "If Jeton wouldn't say it, delete it. If Jeton wouldn't show it, remove it."
 
 ---
 
@@ -118,22 +159,41 @@
 - Variable: `--font-mono`
 - Usage: Code snippets, technical details, inline code
 
-### Type Scale
+### Type Scale (Updated - Jeton.com Style)
 
-**Headings:**
-- H1 (Hero): `text-3xl sm:text-4xl lg:text-5xl lg:text-6xl` (48px → 96px)
-- H2 (Section): `text-2xl sm:text-3xl lg:text-4xl` (24px → 36px)
-- H3 (Subsection): `text-xl sm:text-2xl` (20px → 24px)
+**H1 (Main Headlines):**
+- OLD: `text-5xl md:text-7xl` (60px-72px)
+- NEW: `text-6xl md:text-8xl` (60px-96px desktop)
+- Weight: `font-bold`
+- Tracking: `tracking-tight`
+- Leading: `leading-tight`
+
+**H2 (Subheadlines):**
+- OLD: `text-2xl md:text-4xl`
+- NEW: `text-xl md:text-2xl` (20px-24px)
+- Weight: `font-normal` (NOT bold)
+- Color: `text-[#A0A0A0]` (secondary color)
+- Leading: `leading-relaxed`
+
+**H3 (Section Headlines):**
+- OLD: `text-3xl md:text-5xl`
+- NEW: `text-4xl md:text-6xl` (36px-60px)
+- Weight: `font-bold`
+- Tracking: `tracking-tight`
 
 **Body Text:**
-- Base: `18px` (1.125rem)
-- Line Height: `1.6` (comfortable reading)
-- Large: `text-lg` (20px) for emphasis
-- Small: `text-sm` (14px) for captions
+- Size: `text-base md:text-lg` (16px-18px)
+- Leading: `leading-relaxed` (1.625)
+- Color: `text-[#ECECEC]`
 
-**Labels:**
-- Section Labels: `text-sm font-semibold uppercase tracking-[0.2em]`
-- Card Labels: `text-xs font-medium uppercase tracking-[0.16em]`
+**Feature Titles (Card Headlines):**
+- Size: `text-lg md:text-xl`
+- Weight: `font-semibold`
+
+**Feature Descriptions:**
+- Size: `text-base`
+- Weight: `font-normal`
+- Color: `text-[#A0A0A0]`
 
 ### Typography Classes
 
@@ -153,25 +213,78 @@ className="text-xs font-medium uppercase tracking-[0.16em] text-foreground-terti
 
 ---
 
-## Spacing & Layout
+## Spacing & Layout (Updated - Jeton.com Ultra-Minimalist)
 
-### Container
+### Vertical Spacing Rules
 
-- Max width: Responsive container with padding
-- Padding: `1rem` mobile → `1.5rem` tablet → `2rem` desktop
-- Centered: `mx-auto`
+**1. Section Padding:**
+- Desktop: `py-32` (128px top/bottom) - DOUBLE current spacing
+- Mobile: `py-20` (80px top/bottom)
+- Between sections: Add `mb-32` on desktop, `mb-20` on mobile
 
-### Section Spacing
+**2. Headline to Subheadline:**
+- Gap: `mb-6` (24px)
+- No more, no less
 
-- Between sections: `space-y-24 sm:space-y-28 lg:space-y-32` (96px → 128px)
-- Section padding: `px-6 py-10 sm:px-10 sm:py-14 lg:px-14 lg:py-20`
-- Internal spacing: `gap-4` (16px) for cards, `gap-6` (24px) for larger elements
+**3. Subheadline to Content:**
+- Gap: `mt-16 md:mt-24` (64px-96px)
+- Creates visual breathing room
 
-### Card Spacing
+**4. Content Blocks (Cards, Features):**
+- Between cards: `gap-12 md:gap-16` (48px-64px)
+- Inside card padding: `p-8 md:p-10` (32px-40px)
 
-- Card padding: `p-4` (16px) small, `p-5` (20px) medium
-- Card gap: `gap-4` (16px) between cards
-- Border radius: `rounded-xl` (12px) or `rounded-2xl` (16px)
+**5. Metrics/Stats Row:**
+- Separate from content: `mt-20 md:mt-32`
+- Between metrics: `gap-12 md:gap-16`
+
+### Horizontal Spacing Rules
+
+**1. Container Width:**
+- Max-width: `max-w-6xl` (1152px) instead of `max-w-7xl`
+- Tighter = more focused
+- Hero section: `max-w-4xl` (896px) for text
+
+**2. Padding:**
+- Container: `px-8 md:px-12` (32px-48px sides)
+- More breathing room on edges
+
+**3. Content Alignment:**
+- Hero: Center everything (`text-center`)
+- Sections: Left-align headlines, center containers
+- Cards: Consistent internal padding
+
+### Card Spacing (Updated)
+
+- Card padding: `p-10 md:p-12` (40px-48px) - MUCH larger
+- Card gap: `gap-12 md:gap-16` (48px-64px) - More space between
+- Border: Subtle `1px #404040` (remove heavy borders)
+- Cards should float in space, not stack tightly
+
+---
+
+## Visual Hierarchy Rules
+
+**1. One Message Per Section:**
+- Each section should communicate ONE clear idea
+- If a section has 3+ ideas, split into multiple sections
+- More sections with space between = better than cramming
+
+**2. Minimal Elements Per Viewport:**
+- On desktop: User should see 1-2 key elements at once
+- Scroll should reveal next element with whitespace buffer
+- Never overwhelm with too much on screen
+
+**3. Card Design:**
+- Remove heavy borders (use subtle 1px #404040)
+- Increase internal padding (`p-10` instead of `p-6`)
+- Add more space between cards (`gap-16` instead of `gap-6`)
+- Cards should float in space, not stack tightly
+
+**4. Button Spacing:**
+- Primary CTA: Standalone, generous margin around it (`my-8`)
+- Secondary CTA: Below primary with `mt-4`
+- Button size: `px-8 py-4` (larger hit area)
 
 ---
 

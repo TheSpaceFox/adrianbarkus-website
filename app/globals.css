@@ -116,6 +116,10 @@
   color-scheme: light;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   background-color: var(--color-background);
@@ -125,6 +129,24 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
   font-size: 18px;
   line-height: 1.6;
+}
+
+/* Better scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2D2D2D;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C9A962;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D4B876;
 }
 
 body {

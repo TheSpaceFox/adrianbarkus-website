@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import { Zap, PiggyBank, Shield } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -38,30 +39,10 @@ const proofMetrics = [
   { value: '£55M', label: 'Acquisition Enabled' }
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1] as const
-    }
-  }
-};
-
 export function Transformation({ className }: TransformationProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
   return (
     <section
       id="transformation"
@@ -69,26 +50,28 @@ export function Transformation({ className }: TransformationProps) {
     >
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          ref={ref}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className="space-y-16"
         >
           {/* Section Headline */}
-          <motion.h2
-            variants={itemVariants}
-            className="text-3xl font-bold text-foreground text-center sm:text-4xl lg:text-5xl max-w-4xl mx-auto"
-          >
+          <h2 className="text-3xl font-bold text-foreground text-center sm:text-4xl lg:text-5xl max-w-4xl mx-auto">
             What If You Could Ship Custom Systems in 4 Weeks Instead of 6 Months?
-          </motion.h2>
+          </h2>
 
           {/* Three Benefits Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
-                <motion.div key={index} variants={itemVariants}>
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                  transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
+                >
                   <Card className="h-full border-border bg-surface hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                     <CardContent className="p-6 space-y-4">
                       {/* Icon and Badge */}
@@ -119,7 +102,9 @@ export function Transformation({ className }: TransformationProps) {
 
           {/* Proof Metrics Row */}
           <motion.div
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
             className="pt-8 border-t border-border"
           >
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
