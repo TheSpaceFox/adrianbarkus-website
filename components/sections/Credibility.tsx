@@ -1,67 +1,126 @@
+'use client';
+
 import { motion } from 'framer-motion';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Badge } from '@/components/ui/badge';
 
 export interface CredibilityProps {
   className?: string;
 }
 
+const background = [
+  'Thomson Reuters - Global enterprise architecture',
+  'Woolworths - Supply chain optimization',
+  'Soudal - Multi-market ERP strategy',
+  'Top Secret Security Clearance (expired)',
+  'Salesforce (19 years) | MS Dynamics 365 | SAP | Oracle'
+];
+
+const modernStack = [
+  'Next.js, TypeScript, PostgreSQL',
+  'Supabase, Azure, Vercel',
+  'Cursor AI + Claude (10x acceleration)',
+  'Built IndiFind.com solo'
+];
+
+const trustBadges = [
+  '19 Years',
+  'Top Secret',
+  'AI-Accelerated',
+  'Fortune 500'
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1] as const
+    }
+  }
+};
+
 export function Credibility({ className }: CredibilityProps) {
   return (
     <section
       id="credibility"
-      className={`rounded-2xl border border-border bg-surface px-6 py-10 sm:px-10 lg:px-12 ${className ?? ''}`}
+      className={`py-12 sm:py-16 lg:py-20 bg-surface ${className ?? ''}`}
     >
-      <motion.div
-        initial={{ opacity: 0, y: 18 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.35 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="space-y-6"
-      >
-        <div className="max-w-3xl">
-          <h2 className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-foreground-tertiary">
-            CREDIBILITY
-          </h2>
-          <p className="text-balance text-2xl font-semibold text-foreground sm:text-3xl lg:text-4xl">
-            Built and scaled technical teams and products across multiple industries and
-            stages.
-          </p>
-          <p className="mt-3 text-base text-foreground-secondary sm:text-lg" style={{ lineHeight: '1.6' }}>
-            From early-stage startups to growth companies, I&apos;ve helped founders
-            navigate technical complexity, build scalable systems, and make decisions that
-            compound over time.
-          </p>
-        </div>
-        <div className="grid gap-4 text-sm sm:grid-cols-3">
-          <div className="rounded-xl border border-border bg-surface-elevated p-5">
-            <p className="text-xs font-medium uppercase tracking-wide text-foreground-tertiary">
-              Experience
-            </p>
-            <p className="mt-2 text-2xl font-semibold text-primary">15+ years</p>
-            <p className="mt-1 text-xs text-foreground-secondary">
-              Building and leading technical teams
-            </p>
-          </div>
-          <div className="rounded-xl border border-border bg-surface-elevated p-5">
-            <p className="text-xs font-medium uppercase tracking-wide text-foreground-tertiary">
-              Focus Areas
-            </p>
-            <p className="mt-2 text-2xl font-semibold text-foreground">SaaS & B2B</p>
-            <p className="mt-1 text-xs text-foreground-secondary">
-              Product-led growth and enterprise platforms
-            </p>
-          </div>
-          <div className="rounded-xl border border-border bg-surface-elevated p-5">
-            <p className="text-xs font-medium uppercase tracking-wide text-foreground-tertiary">
-              Approach
-            </p>
-            <p className="mt-2 text-2xl font-semibold text-foreground">Pragmatic</p>
-            <p className="mt-1 text-xs text-foreground-secondary">
-              Balance speed, quality, and long-term scalability
-            </p>
-          </div>
-        </div>
-      </motion.div>
+      <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="space-y-12"
+        >
+          {/* Section Headline */}
+          <motion.h2
+            variants={itemVariants}
+            className="text-3xl font-bold text-foreground text-center sm:text-4xl lg:text-5xl"
+          >
+            19 Years Turning Enterprise Chaos Into Profit
+          </motion.h2>
+
+          {/* Two-Column Tabs Layout */}
+          <motion.div variants={itemVariants}>
+            <Tabs defaultValue="background" className="w-full">
+              <TabsList className="grid w-full grid-cols-2 bg-surface-elevated border-border">
+                <TabsTrigger value="background" className="data-[state=active]:bg-surface data-[state=active]:text-foreground">
+                  Background
+                </TabsTrigger>
+                <TabsTrigger value="modern" className="data-[state=active]:bg-surface data-[state=active]:text-foreground">
+                  Modern Stack
+                </TabsTrigger>
+              </TabsList>
+
+              <TabsContent value="background" className="mt-6 space-y-3">
+                {background.map((item, index) => (
+                  <div key={index} className="text-base text-foreground-secondary" style={{ lineHeight: '1.6' }}>
+                    {item}
+                  </div>
+                ))}
+              </TabsContent>
+
+              <TabsContent value="modern" className="mt-6 space-y-3">
+                {modernStack.map((item, index) => (
+                  <div key={index} className="text-base text-foreground-secondary" style={{ lineHeight: '1.6' }}>
+                    {item}
+                  </div>
+                ))}
+              </TabsContent>
+            </Tabs>
+          </motion.div>
+
+          {/* Trust Badges Row */}
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-wrap items-center justify-center gap-4 pt-8"
+          >
+            {trustBadges.map((badge, index) => (
+              <Badge
+                key={index}
+                className="bg-primary/10 text-primary border-primary/30 px-4 py-2 text-sm font-medium"
+              >
+                {badge}
+              </Badge>
+            ))}
+          </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 }
-
