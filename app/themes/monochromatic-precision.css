@@ -53,6 +53,19 @@
   color-scheme: dark;
 }
 
+/* Light mode - Monochromatic Precision */
+:root.light {
+  --color-background: #FAFAFA;
+  --color-foreground: #000000;
+  --color-primary: #000000;
+  --color-primary-foreground: #FFFFFF;
+  --color-muted: #F0F0F0;
+  --color-border: #E0E0E0;
+  --background-image-hero-radial: radial-gradient(circle at top, rgba(0,0,0,0.03), transparent 60%);
+  --background-image-section-gradient: linear-gradient(to bottom right, rgba(250,250,250,1), rgba(250,250,250,0.98));
+  color-scheme: light;
+}
+
 html,
 body {
   background-color: var(--color-background);

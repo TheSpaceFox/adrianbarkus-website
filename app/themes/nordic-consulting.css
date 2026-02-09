@@ -53,6 +53,19 @@
   color-scheme: dark;
 }
 
+/* Light mode - Nordic Consulting */
+:root.light {
+  --color-background: #FFFFFF;
+  --color-foreground: #333333;
+  --color-primary: #01c16a;
+  --color-primary-foreground: #FFFFFF;
+  --color-muted: #F5F5F5;
+  --color-border: #E0E0E0;
+  --background-image-hero-radial: radial-gradient(circle at top, rgba(1,193,106,0.12), transparent 60%);
+  --background-image-section-gradient: linear-gradient(to bottom right, rgba(255,255,255,1), rgba(255,255,255,0.98));
+  color-scheme: light;
+}
+
 html,
 body {
   background-color: var(--color-background);

@@ -12,6 +12,7 @@ import { FAQ } from '@/components/sections/FAQ';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import { Footer } from '@/components/Footer';
 import { ThemeSelector } from '@/components/ThemeSelector';
+import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 
 const pageVariants = {
   hidden: { opacity: 0 },
@@ -43,6 +44,7 @@ export default function LandingPage() {
       <FinalCTA />
       <Footer />
       <ThemeSelector />
+      <ThemeSwitcher />
     </motion.main>
   );
 }

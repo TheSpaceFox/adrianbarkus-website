@@ -53,6 +53,19 @@
   color-scheme: dark;
 }
 
+/* Light mode - Tech Electric */
+:root.light {
+  --color-background: #F4F4F4;
+  --color-foreground: #1A1A1A;
+  --color-primary: #1E90FF;
+  --color-primary-foreground: #FFFFFF;
+  --color-muted: #E5E5E5;
+  --color-border: #D1D5DB;
+  --background-image-hero-radial: radial-gradient(circle at top, rgba(30,144,255,0.15), transparent 60%);
+  --background-image-section-gradient: linear-gradient(to bottom right, rgba(244,244,244,1), rgba(244,244,244,0.95));
+  color-scheme: light;
+}
+
 html,
 body {
   background-color: var(--color-background);
