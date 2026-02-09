@@ -3,16 +3,44 @@ import { createClient, SupabaseClient } from '@supabase/supabase-js';
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-// Create Supabase client with fallback values for build time
-// This prevents build failures when env vars aren't set in Vercel
-// At runtime, if env vars are missing, operations will fail gracefully
-export const supabase: SupabaseClient = createClient(
-  supabaseUrl || 'https://placeholder.supabase.co',
-  supabaseAnonKey || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBsYWNlaG9sZGVyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NDUxOTIwMDAsImV4cCI6MTk2MDc2ODAwMH0.placeholder',
-  {
-    auth: {
-      persistSession: typeof window !== 'undefined' && !!supabaseUrl && !!supabaseAnonKey
-    }
+// Lazy-load Supabase client to prevent build-time initialization issues
+// This allows the build to complete even when env vars aren't set
+let supabaseInstance: SupabaseClient | null = null;
+
+function getSupabaseClient(): SupabaseClient {
+  if (supabaseInstance) {
+    return supabaseInstance;
   }
-);
+
+  if (!supabaseUrl || !supabaseAnonKey) {
+    // During build or when env vars aren't set, return a mock client
+    // that will throw helpful errors at runtime
+    supabaseInstance = {
+      from: () => {
+        throw new Error(
+          'Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY environment variables.'
+        );
+      }
+    } as unknown as SupabaseClient;
+    return supabaseInstance;
+  }
+
+  supabaseInstance = createClient(supabaseUrl, supabaseAnonKey, {
+    auth: {
+      persistSession: typeof window !== 'undefined'
+    }
+  });
+
+  return supabaseInstance;
+}
+
+// Export a getter function instead of the client directly
+// This prevents initialization during static generation
+export const supabase = new Proxy({} as SupabaseClient, {
+  get(_target, prop) {
+    const client = getSupabaseClient();
+    const value = (client as any)[prop];
+    return typeof value === 'function' ? value.bind(client) : value;
+  }
+});
 
