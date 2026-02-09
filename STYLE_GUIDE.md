@@ -456,12 +456,89 @@ Before adding new components or sections:
 
 ---
 
+## String Formatting & HTML Entities
+
+### Apostrophes and Quotes
+
+**❌ NEVER Use HTML Entities in JavaScript Strings:**
+```tsx
+// BAD - Don't use HTML entities
+const text = "You can't do this";
+const copy = 'He said "hello"';
+```
+
+**✅ DO Use Regular Characters with Proper Escaping:**
+```tsx
+// GOOD - Use double quotes for strings with apostrophes
+const text = "You can't do this";
+const copy = "He said \"hello\"";
+
+// GOOD - Use single quotes for strings with double quotes
+const text = 'He said "hello"';
+const copy = 'You can\'t do this';
+
+// GOOD - Use template literals for complex strings
+const text = `You can't do this and he said "hello"`;
+```
+
+### Common Patterns
+
+**Apostrophes in Text:**
+```tsx
+// ✅ Correct
+const headline = "I can't identify savings";
+const copy = "You're wasting money";
+const text = "That's £420k saved";
+
+// ❌ Incorrect
+const headline = "I can&apos;t identify savings";
+const copy = "You&apos;re wasting money";
+```
+
+**Quotes in Text:**
+```tsx
+// ✅ Correct
+const text = 'He said "hello"';
+const copy = "The \"right time\" never comes";
+
+// ❌ Incorrect
+const text = 'He said &quot;hello&quot;';
+```
+
+**Mixed Apostrophes and Quotes:**
+```tsx
+// ✅ Correct - Use template literals
+const text = `You can't say "I'll do it later"`;
+
+// ✅ Correct - Escape properly
+const text = "You can't say \"I'll do it later\"";
+```
+
+### Why This Matters
+
+- HTML entities (`&apos;`, `&quot;`) are for HTML/JSX content, not JavaScript strings
+- They display literally in strings instead of rendering as characters
+- Regular characters with proper escaping are cleaner and more maintainable
+- TypeScript/JavaScript handles escaping automatically
+
+### Quick Reference
+
+| Situation | Solution |
+|-----------|----------|
+| Apostrophe in string | Use double quotes: `"can't"` |
+| Double quote in string | Use single quotes: `'said "hello"'` or escape: `"said \"hello\""` |
+| Both in string | Use template literal: `` `can't say "hello"` `` |
+| JSX content | Use regular characters: `<p>You can't do this</p>` |
+
+---
+
 ## Notes
 
 - This style guide reflects the current implementation as of the latest commit
 - All color values are defined in `app/globals.css` as CSS variables
 - Theme switching is handled by `next-themes` via `ThemeProvider`
 - Components should use theme variables, not hardcoded colors
+- **Never use HTML entities (`&apos;`, `&quot;`) in JavaScript strings** - use regular characters with proper escaping
 - When in doubt, refer to existing section components as examples
 
 ---
