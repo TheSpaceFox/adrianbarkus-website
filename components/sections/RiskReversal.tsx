@@ -11,7 +11,7 @@ export interface RiskReversalProps {
 const guarantees = [
   {
     headline: 'ROI Guarantee',
-    copy: 'If I can&apos;t identify £100k+ in 3-year savings during the audit, you don&apos;t pay. Zero risk.',
+    copy: "If I can't identify £100k+ in 3-year savings during the audit, you don't pay. Zero risk.",
     icon: Check
   },
   {

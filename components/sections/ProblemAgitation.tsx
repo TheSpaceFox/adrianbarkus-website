@@ -13,13 +13,13 @@ const painPoints = [
   {
     icon: TrendingDown,
     headline: '£50k-£100k/Year Wasted',
-    copy: "Salesforce. HubSpot. Dynamics. You&apos;re paying for 100% of features. Using 20%. Your CFO knows it. You know it. But who has time to fix it?",
+    copy: "Salesforce. HubSpot. Dynamics. You're paying for 100% of features. Using 20%. Your CFO knows it. You know it. But who has time to fix it?",
     badge: 'Waste'
   },
   {
     icon: Clock,
     headline: '6-Month Agency Quotes',
-    copy: 'Traditional dev shops want £60k and 6 months. By the time they deliver, your needs have changed. You&apos;re stuck managing contractors, not growing.',
+    copy: "Traditional dev shops want £60k and 6 months. By the time they deliver, your needs have changed. You're stuck managing contractors, not growing.",
     badge: 'Delay'
   },
   {

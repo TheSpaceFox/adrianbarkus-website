@@ -33,7 +33,7 @@ export function FinalCTA({ className }: FinalCTAProps) {
                   Ready to Cut Your SaaS Bill by 70%?
                 </h2>
                 <p className="text-lg text-foreground-secondary sm:text-xl" style={{ lineHeight: '1.6' }}>
-                  Book a free 30-minute SaaS audit. I&apos;ll identify £100k+ in savings opportunities. If I can&apos;t, you don&apos;t pay. Zero risk.
+                  Book a free 30-minute SaaS audit. I'll identify £100k+ in savings opportunities. If I can't, you don't pay. Zero risk.
                 </p>
               </div>
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center">

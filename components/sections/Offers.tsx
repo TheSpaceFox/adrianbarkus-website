@@ -150,7 +150,7 @@ export function Offers({ className }: OffersProps) {
                   {/* ROI Guarantee Alert */}
                   <Alert className="bg-primary/10 border-primary/30">
                     <AlertDescription className="text-sm text-foreground">
-                      <strong className="text-primary">ROI Guarantee:</strong> If I can&apos;t identify £100k+ in 3-year savings, you don&apos;t pay.
+                      <strong className="text-primary">ROI Guarantee:</strong> If I can't identify £100k+ in 3-year savings, you don't pay.
                     </AlertDescription>
                   </Alert>
 

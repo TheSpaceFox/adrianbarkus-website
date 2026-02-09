@@ -20,7 +20,7 @@ const benefits = [
   {
     icon: PiggyBank,
     headline: '70% Cost Reduction',
-    copy: 'Replace £60k/year SaaS with £12k custom build. That&apos;s £420k saved over 3 years. Your CFO will love you.',
+    copy: "Replace £60k/year SaaS with £12k custom build. That's £420k saved over 3 years. Your CFO will love you.",
     badge: 'Savings'
   },
   {

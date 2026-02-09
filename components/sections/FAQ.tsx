@@ -8,16 +8,16 @@ export interface FAQProps {
 
 const faqs = [
   {
-    question: 'How do I know if I&apos;m wasting money on SaaS?',
-    answer: 'If you&apos;re paying for Salesforce, HubSpot, or Dynamics and using less than 30% of features, you&apos;re likely wasting £50k-£100k per year. The free 30-minute audit will identify exact savings opportunities.'
+    question: "How do I know if I'm wasting money on SaaS?",
+    answer: "If you're paying for Salesforce, HubSpot, or Dynamics and using less than 30% of features, you're likely wasting £50k-£100k per year. The free 30-minute audit will identify exact savings opportunities."
   },
   {
     question: 'Can you really build a custom system in 4 weeks?',
-    answer: 'Yes. Using AI-accelerated development (Cursor AI + Claude), I build full-stack systems solo in 2-4 weeks. No contractors. No delays. No overhead. I&apos;ve done it for multiple clients—see the £420k save case study.'
+    answer: "Yes. Using AI-accelerated development (Cursor AI + Claude), I build full-stack systems solo in 2-4 weeks. No contractors. No delays. No overhead. I've done it for multiple clients—see the £420k save case study."
   },
   {
-    question: 'What if the custom system doesn&apos;t work?',
-    answer: 'ROI Guarantee: If I can&apos;t identify £100k+ in 3-year savings during the audit, you don&apos;t pay. Plus, you get 30 days of post-launch support included. I&apos;m not going anywhere.'
+    question: "What if the custom system doesn't work?",
+    answer: "ROI Guarantee: If I can't identify £100k+ in 3-year savings during the audit, you don't pay. Plus, you get 30 days of post-launch support included. I'm not going anywhere."
   },
   {
     question: 'How is this different from hiring an agency?',
@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     question: 'What if I need ongoing support after the build?',
-    answer: 'That&apos;s what the Fractional CTO + Rapid Build offer is for. You get 8 hours/week strategy + 32-40 hours/month building. Perfect for companies that need ongoing tech leadership without the full-time CTO cost.'
+    answer: "That's what the Fractional CTO + Rapid Build offer is for. You get 8 hours/week strategy + 32-40 hours/month building. Perfect for companies that need ongoing tech leadership without the full-time CTO cost."
   }
 ];
 

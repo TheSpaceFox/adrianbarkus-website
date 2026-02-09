@@ -10,12 +10,12 @@ export interface UrgencyProps {
 const urgencyPoints = [
   {
     headline: 'Every Month = £5k-£8k Wasted',
-    copy: 'While you wait for &quot;the right time&quot; to fix your SaaS stack, you&apos;re burning £5k-£8k every single month. That&apos;s £60k-£96k per year down the drain.',
+    copy: 'While you wait for "the right time" to fix your SaaS stack, you\'re burning £5k-£8k every single month. That\'s £60k-£96k per year down the drain.',
     emphasis: '£60k-£96k/year'
   },
   {
     headline: 'Competitors Are Moving Faster',
-    copy: 'While you&apos;re managing 5 different SaaS platforms, your competitors are shipping custom solutions in weeks. They&apos;re faster, leaner, and more profitable.',
+    copy: 'While you\'re managing 5 different SaaS platforms, your competitors are shipping custom solutions in weeks. They\'re faster, leaner, and more profitable.',
     emphasis: 'Weeks vs Months'
   }
 ];
