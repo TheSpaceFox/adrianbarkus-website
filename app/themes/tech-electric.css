@@ -1,0 +1,92 @@
+/* Tech Electric Theme - Professional & Modern */
+@import "tailwindcss";
+
+@theme {
+  /* Colors - Tech Electric */
+  --color-background: #0D0D0D;
+  --color-foreground: #FFFFFF;
+  --color-primary: #1E90FF;
+  --color-primary-foreground: #FFFFFF;
+  --color-accent: #1E90FF;
+  --color-accent-foreground: #FFFFFF;
+  --color-success: #10b981;
+  --color-success-foreground: #FFFFFF;
+  --color-warning: #f59e0b;
+  --color-warning-foreground: #FFFFFF;
+  --color-muted: #1A1A1A;
+  --color-border: #2A2A2A;
+
+  /* Background Images */
+  --background-image-hero-radial: radial-gradient(circle at top, rgba(30,144,255,0.25), transparent 60%);
+  --background-image-section-gradient: linear-gradient(to bottom right, rgba(13,13,13,1), rgba(13,13,13,0.95));
+
+  /* Shadows */
+  --box-shadow-soft-xl: 0 22px 45px rgba(13,13,13,0.75), 0 0 0 1px rgba(30,144,255,0.2);
+
+  /* Border Radius */
+  --border-radius-xl: 1rem;
+  --border-radius-2xl: 1.25rem;
+}
+
+@keyframes fade-up {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@theme {
+  --animate-fade-up: fade-up 0.6s ease-out both;
+  --animate-fade-in: fade-in 0.4s ease-out both;
+  --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-feature-settings: 'rlig' 1, 'calt' 1;
+}
+
+main {
+  min-height: 100vh;
+  background-image: var(--background-image-hero-radial);
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}

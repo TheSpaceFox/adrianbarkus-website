@@ -17,12 +17,12 @@ export function Hero({ className }: HeroProps) {
         transition={{ duration: 0.65, ease: 'easeOut' }}
         className="mx-auto max-w-3xl text-center"
       >
-        <p className="mb-4 inline-flex rounded-full border border-sky-500/40 bg-sky-500/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-sky-300">
+        <p className="mb-4 inline-flex rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-primary">
           Fractional CTO for high-velocity founders
         </p>
-        <h1 className="mb-4 text-balance text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl lg:text-5xl">
+        <h1 className="mb-4 text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
           Senior technical leadership,
-          <span className="bg-gradient-to-r from-sky-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
+          <span className="text-primary">
             {' '}
             exactly when you need it.
           </span>
@@ -32,10 +32,10 @@ export function Hero({ className }: HeroProps) {
           justify a full-time CTO—but can&apos;t afford to get technology decisions wrong.
         </p>
         <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-          <button className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground shadow-lg shadow-blue-500/35 transition hover:-translate-y-[1px] hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
+          <button className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground shadow-lg shadow-primary/35 transition hover:-translate-y-[1px] hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background">
             Request a strategy call
           </button>
-          <button className="inline-flex items-center justify-center rounded-full border border-slate-700/80 bg-slate-950/50 px-5 py-2 text-xs font-medium text-slate-200 backdrop-blur transition hover:border-slate-500 hover:text-slate-50">
+          <button className="inline-flex items-center justify-center rounded-full border border-border bg-muted/50 px-5 py-2 text-xs font-medium text-foreground backdrop-blur transition hover:border-primary/50 hover:bg-muted">
             View typical engagements
           </button>
         </div>

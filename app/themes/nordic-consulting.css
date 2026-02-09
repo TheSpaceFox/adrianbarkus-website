@@ -1,0 +1,92 @@
+/* Nordic Consulting Theme - Sophisticated & Clean */
+@import "tailwindcss";
+
+@theme {
+  /* Colors - Nordic Consulting */
+  --color-background: #1A1A1A;
+  --color-foreground: #E0E0E0;
+  --color-primary: #01c16a;
+  --color-primary-foreground: #FFFFFF;
+  --color-accent: #01c16a;
+  --color-accent-foreground: #FFFFFF;
+  --color-success: #01c16a;
+  --color-success-foreground: #FFFFFF;
+  --color-warning: #f59e0b;
+  --color-warning-foreground: #FFFFFF;
+  --color-muted: #2A2A2A;
+  --color-border: #333333;
+
+  /* Background Images */
+  --background-image-hero-radial: radial-gradient(circle at top, rgba(1,193,106,0.2), transparent 60%);
+  --background-image-section-gradient: linear-gradient(to bottom right, rgba(26,26,26,1), rgba(26,26,26,0.95));
+
+  /* Shadows */
+  --box-shadow-soft-xl: 0 22px 45px rgba(26,26,26,0.75), 0 0 0 1px rgba(1,193,106,0.15);
+
+  /* Border Radius */
+  --border-radius-xl: 1rem;
+  --border-radius-2xl: 1.25rem;
+}
+
+@keyframes fade-up {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@theme {
+  --animate-fade-up: fade-up 0.6s ease-out both;
+  --animate-fade-in: fade-in 0.4s ease-out both;
+  --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-feature-settings: 'rlig' 1, 'calt' 1;
+}
+
+main {
+  min-height: 100vh;
+  background-image: var(--background-image-hero-radial);
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}

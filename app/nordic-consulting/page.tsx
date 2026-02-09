@@ -24,7 +24,7 @@ const pageVariants = {
   }
 };
 
-export default function LandingPage() {
+export default function NordicConsultingPage() {
   return (
     <motion.main
       className="container space-y-24 pb-24 pt-12 sm:space-y-28 sm:pt-16 lg:space-y-32 lg:pt-20"
@@ -46,4 +46,3 @@ export default function LandingPage() {
     </motion.main>
   );
 }
-
