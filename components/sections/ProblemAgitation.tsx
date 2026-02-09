@@ -1,59 +1,115 @@
+'use client';
+
 import { motion } from 'framer-motion';
+import { TrendingDown, Clock, AlertTriangle } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
 export interface ProblemAgitationProps {
   className?: string;
 }
 
+const painPoints = [
+  {
+    icon: TrendingDown,
+    headline: '£50k-£100k/Year Wasted',
+    copy: "Salesforce. HubSpot. Dynamics. You&apos;re paying for 100% of features. Using 20%. Your CFO knows it. You know it. But who has time to fix it?",
+    badge: 'Waste'
+  },
+  {
+    icon: Clock,
+    headline: '6-Month Agency Quotes',
+    copy: 'Traditional dev shops want £60k and 6 months. By the time they deliver, your needs have changed. You&apos;re stuck managing contractors, not growing.',
+    badge: 'Delay'
+  },
+  {
+    icon: AlertTriangle,
+    headline: 'CTO Search = 4-6 Months',
+    copy: '£150k salary + equity. 4-6 month hiring process. Meanwhile, tech debt piles up and opportunities slip away.',
+    badge: 'Risk'
+  }
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1] as const
+    }
+  }
+};
+
 export function ProblemAgitation({ className }: ProblemAgitationProps) {
   return (
     <section
       id="problems"
-      className={`rounded-2xl border border-border bg-surface px-6 py-10 sm:px-10 lg:px-12 ${className ?? ''}`}
+      className={`py-12 sm:py-16 lg:py-20 bg-surface ${className ?? ''}`}
     >
-      <motion.div
-        initial={{ opacity: 0, y: 18 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.35 }}
-        transition={{ duration: 0.55, ease: 'easeOut' }}
-        className="grid gap-8 lg:grid-cols-[1.15fr,1.1fr]"
-      >
-        <div>
-          <h2 className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-foreground-tertiary">
-            THE REAL RISK
-          </h2>
-          <p className="mb-4 text-balance text-2xl font-semibold text-foreground sm:text-3xl lg:text-4xl">
-            Your product isn&apos;t limited by engineering effort. It&apos;s limited by
-            technical decisions made in uncertainty.
-          </p>
-          <p className="max-w-xl text-base text-foreground-secondary sm:text-lg" style={{ lineHeight: '1.6' }}>
-            Without senior technical leadership, teams over-build, under-architect, and
-            accumulate debt that quietly taxes every new feature. You feel the drag in
-            missed timelines, brittle systems, and an engineering team that&apos;s
-            constantly firefighting.
-          </p>
-        </div>
-        <div className="grid gap-4 text-sm sm:grid-cols-2">
-          <div className="rounded-xl border border-border bg-surface-elevated p-4">
-            <p className="mb-1 text-[11px] font-medium uppercase tracking-[0.16em] text-foreground-tertiary">
-              COMMON PATTERN
-            </p>
-            <p className="text-sm text-foreground-secondary" style={{ lineHeight: '1.6' }}>
-              Architecture shaped by immediate feature demands rather than a clear
-              product roadmap.
-            </p>
+      <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="space-y-12"
+        >
+          {/* Section Headline */}
+          <motion.h2
+            variants={itemVariants}
+            className="text-3xl font-bold text-foreground text-center sm:text-4xl lg:text-5xl"
+          >
+            The SaaS Tax Is Killing Your Margins
+          </motion.h2>
+
+          {/* Three Pain Points Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {painPoints.map((point, index) => {
+              const Icon = point.icon;
+              return (
+                <motion.div key={index} variants={itemVariants}>
+                  <Card className="h-full border-border bg-surface-elevated hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <CardContent className="p-6 space-y-4">
+                      {/* Icon and Badge */}
+                      <div className="flex items-start justify-between">
+                        <div className="p-3 rounded-lg bg-foreground/5 border border-border">
+                          <Icon className="h-6 w-6 text-foreground-secondary" />
+                        </div>
+                        <Badge variant="destructive" className="text-xs">
+                          {point.badge}
+                        </Badge>
+                      </div>
+
+                      {/* Headline */}
+                      <h3 className="text-xl font-semibold text-foreground">
+                        {point.headline}
+                      </h3>
+
+                      {/* Copy */}
+                      <p className="text-base text-foreground-secondary leading-relaxed" style={{ lineHeight: '1.6' }}>
+                        {point.copy}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
-          <div className="rounded-xl border border-border bg-surface-elevated p-4">
-            <p className="mb-1 text-[11px] font-medium uppercase tracking-[0.16em] text-foreground-tertiary">
-              HIDDEN COST
-            </p>
-            <p className="text-sm text-foreground-secondary" style={{ lineHeight: '1.6' }}>
-              Every quarter, velocity slows as onboarding, coordination, and debugging get
-              more expensive.
-            </p>
-          </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 }
-
