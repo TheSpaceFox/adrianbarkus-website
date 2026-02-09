@@ -18,6 +18,7 @@
 7. [Dark/Light Mode](#darklight-mode)
 8. [Animation Guidelines](#animation-guidelines)
 9. [Accessibility](#accessibility)
+10. [String Formatting & HTML Entities](#string-formatting--html-entities)
 
 ---
 
@@ -453,6 +454,7 @@ Before adding new components or sections:
 - [ ] Works in both dark and light modes
 - [ ] Responsive (mobile-first approach)
 - [ ] Follows semantic HTML structure
+- [ ] No HTML entities in JavaScript strings (use regular characters with proper escaping)
 
 ---
 
