@@ -7,22 +7,23 @@ export function Footer({ className }: FooterProps) {
 
   return (
     <footer
-      className={`border-t border-border/60 pt-10 text-sm text-slate-400 ${className ?? ''}`}
+      className={`border-t border-border pt-10 pb-8 bg-surface ${className ?? ''}`}
     >
-      <div className="container flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-xs sm:text-sm">
-          © {year} Adrian Barkus. Fractional CTO & strategic technology partner.
-        </p>
-        <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm">
-          <span className="rounded-full bg-slate-900/60 px-3 py-1 text-slate-300">
-            Availability: Limited
-          </span>
-          <span className="text-slate-500">
-            Built with Next.js, TypeScript, Tailwind, and shadcn/ui.
-          </span>
+      <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-foreground-secondary">
+            © {year} Adrian Barkus. SaaS replacement & fractional CTO services.
+          </p>
+          <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm">
+            <span className="rounded-full bg-surface-elevated border border-border px-3 py-1 text-foreground-tertiary">
+              Availability: Limited
+            </span>
+            <span className="text-foreground-tertiary">
+              Built with Next.js, TypeScript, Tailwind, and shadcn/ui.
+            </span>
+          </div>
         </div>
       </div>
     </footer>
   );
 }
-

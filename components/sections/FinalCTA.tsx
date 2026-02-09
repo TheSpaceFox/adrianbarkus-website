@@ -16,61 +16,64 @@ export function FinalCTA({ className }: FinalCTAProps) {
   return (
     <section
       id="cta"
-      className={`rounded-2xl border border-border bg-surface px-6 py-10 sm:px-10 lg:px-12 ${className ?? ''}`}
+      className={`py-12 sm:py-16 lg:py-20 bg-background ${className ?? ''}`}
     >
-      {!showForm ? (
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between"
-        >
-          <div className="max-w-xl">
-            <h2 className="mb-2 text-balance text-2xl font-semibold text-foreground sm:text-3xl">
-              Ready to shape the next phase of your product?
-            </h2>
-            <p className="text-base text-foreground-secondary sm:text-lg" style={{ lineHeight: '1.6' }}>
-              Let&apos;s discuss how strategic technical leadership can accelerate your
-              roadmap and de-risk critical decisions.
-            </p>
-          </div>
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button
-              onClick={() => setShowForm(true)}
-              className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground shadow-lg shadow-primary/25 transition hover:-translate-y-[1px] hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            >
-              Request a strategy call
-            </Button>
-            <p className="text-xs text-foreground-tertiary">
-              No obligation. We&apos;ll simply assess fit and outline options.
-            </p>
-          </div>
-        </motion.div>
-      ) : (
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
-          className="space-y-4"
-        >
-          <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-semibold text-foreground sm:text-3xl">
-              Get in touch
-            </h2>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setShowForm(false)}
-              className="text-foreground/60 hover:text-foreground"
-            >
-              <X className="h-5 w-5" />
-            </Button>
-          </div>
-          <ContactForm defaultEngagementType="strategy_call" />
-        </motion.div>
-      )}
+      <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
+        {!showForm ? (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="rounded-2xl border border-border bg-surface p-8 sm:p-12 lg:p-16"
+          >
+            <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+              <div className="max-w-2xl space-y-4">
+                <h2 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
+                  Ready to Cut Your SaaS Bill by 70%?
+                </h2>
+                <p className="text-lg text-foreground-secondary sm:text-xl" style={{ lineHeight: '1.6' }}>
+                  Book a free 30-minute SaaS audit. I&apos;ll identify £100k+ in savings opportunities. If I can&apos;t, you don&apos;t pay. Zero risk.
+                </p>
+              </div>
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <Button
+                  onClick={() => setShowForm(true)}
+                  size="lg"
+                  className="bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 px-8 py-6 text-base font-medium rounded-full transition-all hover:-translate-y-[2px]"
+                >
+                  Book Free SaaS Audit
+                </Button>
+                <p className="text-sm text-foreground-tertiary text-center sm:text-left">
+                  No obligation. 30 minutes. £100k+ savings identified.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="rounded-2xl border border-border bg-surface p-8 sm:p-12 space-y-6"
+          >
+            <div className="flex items-center justify-between">
+              <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
+                Book Your Free SaaS Audit
+              </h2>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setShowForm(false)}
+                className="text-foreground-tertiary hover:text-foreground"
+              >
+                <X className="h-5 w-5" />
+              </Button>
+            </div>
+            <ContactForm defaultEngagementType="strategy_call" />
+          </motion.div>
+        )}
+      </div>
     </section>
   );
 }
-

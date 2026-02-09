@@ -1,51 +1,92 @@
+'use client';
+
 import { motion } from 'framer-motion';
+import { Card, CardContent } from '@/components/ui/card';
 
 export interface UrgencyProps {
   className?: string;
 }
 
+const urgencyPoints = [
+  {
+    headline: 'Every Month = £5k-£8k Wasted',
+    copy: 'While you wait for &quot;the right time&quot; to fix your SaaS stack, you&apos;re burning £5k-£8k every single month. That&apos;s £60k-£96k per year down the drain.',
+    emphasis: '£60k-£96k/year'
+  },
+  {
+    headline: 'Competitors Are Moving Faster',
+    copy: 'While you&apos;re managing 5 different SaaS platforms, your competitors are shipping custom solutions in weeks. They&apos;re faster, leaner, and more profitable.',
+    emphasis: 'Weeks vs Months'
+  }
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1] as const
+    }
+  }
+};
+
 export function Urgency({ className }: UrgencyProps) {
   return (
     <section
       id="urgency"
-      className={`rounded-2xl border border-border bg-surface px-6 py-10 sm:px-10 lg:px-12 ${className ?? ''}`}
+      className={`py-12 sm:py-16 lg:py-20 bg-surface ${className ?? ''}`}
     >
-      <motion.div
-        initial={{ opacity: 0, y: 18 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.35 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="space-y-4"
-      >
-        <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-foreground-tertiary">
-          WHY THIS MATTERS NOW
-        </h2>
-        <p className="max-w-2xl text-balance text-2xl font-semibold text-foreground sm:text-3xl lg:text-4xl">
-          Every quarter without strategic technical leadership compounds the cost of
-          future decisions.
-        </p>
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-lg border border-border bg-surface-elevated p-4">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-foreground-tertiary">
-              Missed Windows
-            </p>
-            <p className="text-sm text-foreground-secondary" style={{ lineHeight: '1.6' }}>
-              Market opportunities close while you&apos;re still debating technical
-              approaches. Competitors move faster with clearer technical strategy.
-            </p>
+      <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="space-y-8"
+        >
+          {/* Section Headline */}
+          <motion.h2
+            variants={itemVariants}
+            className="text-3xl font-bold text-foreground text-center sm:text-4xl lg:text-5xl"
+          >
+            Every Month You Wait Costs £5k-£8k
+          </motion.h2>
+
+          {/* Two Urgency Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {urgencyPoints.map((point, index) => (
+              <motion.div key={index} variants={itemVariants}>
+                <Card className="h-full border-border bg-surface-elevated hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                  <CardContent className="p-6 space-y-4">
+                    <h3 className="text-xl font-semibold text-foreground">
+                      {point.headline}
+                    </h3>
+                    <p className="text-base text-foreground-secondary leading-relaxed" style={{ lineHeight: '1.6' }}>
+                      {point.copy}
+                    </p>
+                    <p className="text-lg font-bold text-primary pt-2">
+                      {point.emphasis}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
-          <div className="rounded-lg border border-border bg-surface-elevated p-4">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-foreground-tertiary">
-              Compounding Debt
-            </p>
-            <p className="text-sm text-foreground-secondary" style={{ lineHeight: '1.6' }}>
-              Each feature built without architectural guidance adds to technical debt
-              that slows future development and increases maintenance costs.
-            </p>
-          </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 }
-
