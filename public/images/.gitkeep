@@ -1,0 +1,12 @@
+# Place images here
+# 
+# Recommended structure:
+# - hero/ - Hero section images
+# - logos/ - Company/client logos
+# - testimonials/ - Testimonial images
+# - case-studies/ - Case study images
+# 
+# All images should be optimized before adding:
+# - Use WebP format when possible
+# - Compress images (aim for <200KB for web)
+# - Use appropriate dimensions (Next.js will resize, but start with reasonable sizes)

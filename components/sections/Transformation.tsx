@@ -26,9 +26,9 @@ export function Transformation({ className }: TransformationProps) {
             compounds.
           </p>
           <p className="max-w-xl text-sm text-slate-300 sm:text-base">
-            This section will outline the before/after state of working with a
-            Fractional CTO: clearer architecture, sharper product velocity, and
-            predictable delivery. We&apos;ll refine this copy based on your positioning.
+            With strategic technical leadership, you move from reactive feature delivery
+            to building systems that scale. Your team gains clarity, velocity improves, and
+            technical decisions compound in your favor rather than creating future drag.
           </p>
         </div>
         <div className="grid gap-4 text-sm text-slate-200 sm:grid-cols-2">

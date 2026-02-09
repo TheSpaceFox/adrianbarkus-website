@@ -21,13 +21,29 @@ export function Urgency({ className }: UrgencyProps) {
           WHY THIS MATTERS NOW
         </h2>
         <p className="max-w-2xl text-balance text-2xl font-semibold text-slate-50 sm:text-3xl">
-          This section will crystallize the cost of waiting—missed windows, slower
-          learning, and compounding technical drag.
+          Every quarter without strategic technical leadership compounds the cost of
+          future decisions.
         </p>
-        <p className="max-w-2xl text-sm text-slate-300 sm:text-base">
-          We&apos;ll collaborate on sharper, specific urgency language here once we
-          define your ideal founder profile and buying triggers.
-        </p>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div className="rounded-lg border border-rose-500/20 bg-rose-500/5 p-4">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-rose-300">
+              Missed Windows
+            </p>
+            <p className="text-sm text-slate-300">
+              Market opportunities close while you&apos;re still debating technical
+              approaches. Competitors move faster with clearer technical strategy.
+            </p>
+          </div>
+          <div className="rounded-lg border border-amber-500/20 bg-amber-500/5 p-4">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-amber-300">
+              Compounding Debt
+            </p>
+            <p className="text-sm text-slate-300">
+              Each feature built without architectural guidance adds to technical debt
+              that slows future development and increases maintenance costs.
+            </p>
+          </div>
+        </div>
       </motion.div>
     </section>
   );

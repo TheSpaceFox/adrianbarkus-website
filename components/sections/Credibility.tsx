@@ -22,25 +22,42 @@ export function Credibility({ className }: CredibilityProps) {
             CREDIBILITY
           </h2>
           <p className="text-balance text-2xl font-semibold text-slate-50 sm:text-3xl">
-            This is where we showcase your track record, markets, and technical depth.
+            Built and scaled technical teams and products across multiple industries and
+            stages.
           </p>
           <p className="mt-3 text-sm text-slate-300 sm:text-base">
-            For now this section is a placeholder. We&apos;ll replace it with concrete
-            logos, case studies, and proof points that match your background.
+            From early-stage startups to growth companies, I&apos;ve helped founders
+            navigate technical complexity, build scalable systems, and make decisions that
+            compound over time.
           </p>
         </div>
         <div className="grid gap-4 text-sm text-slate-200 sm:grid-cols-3">
-          <div className="rounded-xl border border-slate-800/80 bg-slate-950/60 p-4">
-            <p className="text-xs font-medium text-slate-400">Sample metric</p>
-            <p className="mt-1 text-lg font-semibold text-slate-50">+X% delivery</p>
+          <div className="rounded-xl border border-slate-800/80 bg-slate-950/60 p-5">
+            <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
+              Experience
+            </p>
+            <p className="mt-2 text-2xl font-semibold text-slate-50">15+ years</p>
+            <p className="mt-1 text-xs text-slate-400">
+              Building and leading technical teams
+            </p>
           </div>
-          <div className="rounded-xl border border-slate-800/80 bg-slate-950/60 p-4">
-            <p className="text-xs font-medium text-slate-400">Sample metric</p>
-            <p className="mt-1 text-lg font-semibold text-slate-50">Y exits</p>
+          <div className="rounded-xl border border-slate-800/80 bg-slate-950/60 p-5">
+            <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
+              Focus Areas
+            </p>
+            <p className="mt-2 text-2xl font-semibold text-slate-50">SaaS & B2B</p>
+            <p className="mt-1 text-xs text-slate-400">
+              Product-led growth and enterprise platforms
+            </p>
           </div>
-          <div className="rounded-xl border border-slate-800/80 bg-slate-950/60 p-4">
-            <p className="text-xs font-medium text-slate-400">Sample metric</p>
-            <p className="mt-1 text-lg font-semibold text-slate-50">Z markets</p>
+          <div className="rounded-xl border border-slate-800/80 bg-slate-950/60 p-5">
+            <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
+              Approach
+            </p>
+            <p className="mt-2 text-2xl font-semibold text-slate-50">Pragmatic</p>
+            <p className="mt-1 text-xs text-slate-400">
+              Balance speed, quality, and long-term scalability
+            </p>
           </div>
         </div>
       </motion.div>

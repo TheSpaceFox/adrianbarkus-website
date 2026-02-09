@@ -22,31 +22,37 @@ export function Offers({ className }: OffersProps) {
             ENGAGEMENT MODELS
           </h2>
           <p className="text-balance text-2xl font-semibold text-slate-50 sm:text-3xl">
-            Placeholder for your core Fractional CTO offers and how you like to work.
+            Flexible engagement models designed for different stages and needs.
           </p>
           <p className="mt-3 text-sm text-slate-300 sm:text-base">
-            We&apos;ll convert this into clearly named offers (e.g. advisory retainer,
-            build/launch, technical due diligence) once we have your productized
-            services defined.
+            From strategic advisory to hands-on architecture and execution, choose the
+            level of engagement that matches your current priorities and growth stage.
           </p>
         </div>
         <div className="grid gap-4 text-sm text-slate-200 sm:grid-cols-3">
-          <div className="rounded-xl border border-slate-800/80 bg-slate-950/60 p-4">
-            <p className="text-xs font-semibold text-slate-200">Offer A</p>
-            <p className="mt-2 text-xs text-slate-400">
-              Short description of who this is for and the main outcome.
+          <div className="rounded-xl border border-sky-500/30 bg-sky-500/5 p-5">
+            <p className="mb-2 text-sm font-semibold text-sky-200">Strategic Advisory</p>
+            <p className="mt-2 text-xs leading-relaxed text-slate-300">
+              Retained guidance on architecture, technical strategy, and key decisions.
+              Ideal for founders who need a sounding board and strategic oversight.
             </p>
           </div>
-          <div className="rounded-xl border border-slate-800/80 bg-slate-950/60 p-4">
-            <p className="text-xs font-semibold text-slate-200">Offer B</p>
-            <p className="mt-2 text-xs text-slate-400">
-              Another structure—e.g. retained advisory or launch-focused engagement.
+          <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-5">
+            <p className="mb-2 text-sm font-semibold text-emerald-200">
+              Build & Launch
+            </p>
+            <p className="mt-2 text-xs leading-relaxed text-slate-300">
+              Hands-on architecture and execution for critical initiatives. Perfect when
+              you need to move fast on a specific product or technical milestone.
             </p>
           </div>
-          <div className="rounded-xl border border-slate-800/80 bg-slate-950/60 p-4">
-            <p className="text-xs font-semibold text-slate-200">Offer C</p>
-            <p className="mt-2 text-xs text-slate-400">
-              Optional: due diligence or technical audit for investors and boards.
+          <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-5">
+            <p className="mb-2 text-sm font-semibold text-amber-200">
+              Technical Audit
+            </p>
+            <p className="mt-2 text-xs leading-relaxed text-slate-300">
+              Due diligence, architecture reviews, and technical assessments for
+              investors, boards, or acquisition scenarios.
             </p>
           </div>
         </div>
