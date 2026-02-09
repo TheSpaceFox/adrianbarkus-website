@@ -16,7 +16,7 @@ export function FinalCTA({ className }: FinalCTAProps) {
   return (
     <section
       id="cta"
-      className={`rounded-2xl border border-foreground/20 bg-gradient-to-br from-background via-background to-foreground/5 px-6 py-10 sm:px-10 lg:px-12 ${className ?? ''}`}
+      className={`rounded-2xl border border-border bg-surface px-6 py-10 sm:px-10 lg:px-12 ${className ?? ''}`}
     >
       {!showForm ? (
         <motion.div
@@ -30,7 +30,7 @@ export function FinalCTA({ className }: FinalCTAProps) {
             <h2 className="mb-2 text-balance text-2xl font-semibold text-foreground sm:text-3xl">
               Ready to shape the next phase of your product?
             </h2>
-            <p className="text-sm text-foreground/80 sm:text-base">
+            <p className="text-base text-foreground-secondary sm:text-lg" style={{ lineHeight: '1.6' }}>
               Let&apos;s discuss how strategic technical leadership can accelerate your
               roadmap and de-risk critical decisions.
             </p>
@@ -38,11 +38,11 @@ export function FinalCTA({ className }: FinalCTAProps) {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <Button
               onClick={() => setShowForm(true)}
-              className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2.5 text-sm font-medium text-background shadow-lg shadow-foreground/20 transition hover:-translate-y-[1px] hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground shadow-lg shadow-primary/25 transition hover:-translate-y-[1px] hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               Request a strategy call
             </Button>
-            <p className="text-xs text-foreground/60">
+            <p className="text-xs text-foreground-tertiary">
               No obligation. We&apos;ll simply assess fit and outline options.
             </p>
           </div>

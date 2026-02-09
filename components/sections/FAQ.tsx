@@ -8,7 +8,7 @@ export function FAQ({ className }: FAQProps) {
   return (
     <section
       id="faq"
-      className={`rounded-2xl border border-border/80 bg-slate-950/60 px-6 py-10 sm:px-10 lg:px-12 ${className ?? ''}`}
+      className={`rounded-2xl border border-border bg-surface px-6 py-10 sm:px-10 lg:px-12 ${className ?? ''}`}
     >
       <motion.div
         initial={{ opacity: 0, y: 18 }}
@@ -33,33 +33,33 @@ export function FAQ({ className }: FAQProps) {
               needs.
             </p>
           </details>
-          <details className="group rounded-lg border border-slate-800/80 bg-slate-950/60 p-4">
-            <summary className="cursor-pointer text-sm font-medium text-slate-200 hover:text-slate-50">
+          <details className="group rounded-lg border border-border bg-surface-elevated p-4">
+            <summary className="cursor-pointer text-sm font-medium text-foreground hover:text-primary transition-colors">
               How do you work with existing engineering leaders?
             </summary>
-            <p className="mt-3 text-sm leading-relaxed text-slate-300">
+            <p className="mt-3 text-sm leading-relaxed text-foreground-secondary" style={{ lineHeight: '1.6' }}>
               I complement, never replace. I work alongside your engineering leads to
               provide strategic guidance, architectural oversight, and technical
               decision-making support. The goal is to elevate your team&apos;s execution,
               not to create dependencies.
             </p>
           </details>
-          <details className="group rounded-lg border border-slate-800/80 bg-slate-950/60 p-4">
-            <summary className="cursor-pointer text-sm font-medium text-slate-200 hover:text-slate-50">
+          <details className="group rounded-lg border border-border bg-surface-elevated p-4">
+            <summary className="cursor-pointer text-sm font-medium text-foreground hover:text-primary transition-colors">
               What does communication cadence look like?
             </summary>
-            <p className="mt-3 text-sm leading-relaxed text-slate-300">
+            <p className="mt-3 text-sm leading-relaxed text-foreground-secondary" style={{ lineHeight: '1.6' }}>
               Typically weekly or bi-weekly syncs depending on engagement type, plus
               async communication as needed. For advisory, expect regular check-ins and
               availability for key decisions. For build projects, daily standups and
               continuous collaboration.
             </p>
           </details>
-          <details className="group rounded-lg border border-slate-800/80 bg-slate-950/60 p-4">
-            <summary className="cursor-pointer text-sm font-medium text-slate-200 hover:text-slate-50">
+          <details className="group rounded-lg border border-border bg-surface-elevated p-4">
+            <summary className="cursor-pointer text-sm font-medium text-foreground hover:text-primary transition-colors">
               What&apos;s the typical engagement duration?
             </summary>
-            <p className="mt-3 text-sm leading-relaxed text-slate-300">
+            <p className="mt-3 text-sm leading-relaxed text-foreground-secondary" style={{ lineHeight: '1.6' }}>
               It varies by need. Some projects are 4-8 week sprints for specific
               milestones. Advisory relationships often run 3-6 months with the option to
               extend. We start focused and expand only if it makes sense for both sides.

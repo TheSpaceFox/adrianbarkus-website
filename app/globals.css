@@ -1,26 +1,44 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colors - Monochromatic Precision (Dark Mode Default) */
-  --color-background: #121212;
-  --color-foreground: #E0E0E0;
-  --color-primary: #FFFFFF;
-  --color-primary-foreground: #000000;
-  --color-accent: #888888;
-  --color-accent-foreground: #FFFFFF;
-  --color-success: #E0E0E0;
-  --color-success-foreground: #121212;
-  --color-warning: #E0E0E0;
-  --color-warning-foreground: #121212;
-  --color-muted: #1A1A1A;
-  --color-border: #2A2A2A;
+  /* Colors - Monochromatic Precision with Leica Brass (Dark Mode Default - Claude.ai style) */
+  /* Background Colors */
+  --color-background: #2D2D2D;
+  --color-surface: #373737;
+  --color-surface-elevated: #404040;
+  
+  /* Text Colors */
+  --color-foreground: #ECECEC;
+  --color-foreground-secondary: #A0A0A0;
+  --color-foreground-tertiary: #6B6B6B;
+  
+  /* Primary/Accent - Leica Brass */
+  --color-primary: #C9A962;
+  --color-primary-foreground: #2D2D2D;
+  --color-primary-hover: #D4B876;
+  --color-primary-dark: #B8995F;
+  
+  /* Accent */
+  --color-accent: #C9A962;
+  --color-accent-foreground: #2D2D2D;
+  --color-accent-hover: #D4B876;
+  
+  /* Muted & Border */
+  --color-muted: #373737;
+  --color-border: #404040;
+  
+  /* Success/Warning (using brass tones) */
+  --color-success: #C9A962;
+  --color-success-foreground: #2D2D2D;
+  --color-warning: #C9A962;
+  --color-warning-foreground: #2D2D2D;
 
-  /* Background Images - Minimal gradients */
-  --background-image-hero-radial: radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 60%);
-  --background-image-section-gradient: linear-gradient(to bottom right, rgba(18,18,18,1), rgba(18,18,18,0.98));
+  /* Background Images - Subtle gradients */
+  --background-image-hero-radial: radial-gradient(circle at top, rgba(201,169,98,0.08), transparent 60%);
+  --background-image-section-gradient: linear-gradient(to bottom right, rgba(45,45,45,1), rgba(55,55,55,0.95));
 
-  /* Shadows - Subtle */
-  --box-shadow-soft-xl: 0 22px 45px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.1);
+  /* Shadows - Soft and subtle */
+  --box-shadow-soft-xl: 0 22px 45px rgba(0,0,0,0.3), 0 0 0 1px rgba(64,64,64,0.5);
 
   /* Border Radius */
   --border-radius-xl: 1rem;
@@ -46,29 +64,55 @@
   --animate-fade-up: fade-up 0.6s ease-out both;
   --animate-fade-in: fade-in 0.4s ease-out both;
   --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
+  
+  /* Leica Brass color palette for Tailwind utilities */
+  --color-brass-light: #D4B876;
+  --color-brass: #C9A962;
+  --color-brass-dark: #B8995F;
+  --color-brass-darker: #A37F4A;
 }
 
 :root {
   color-scheme: dark;
 }
 
-/* Light mode - Monochromatic Precision */
+/* Light mode - Monochromatic Precision with Leica Brass */
 :root.light {
+  /* Background Colors */
   --color-background: #FAFAFA;
+  --color-surface: #FFFFFF;
+  --color-surface-elevated: #F5F5F5;
+  
+  /* Text Colors */
   --color-foreground: #000000;
-  --color-primary: #000000;
+  --color-foreground-secondary: #525252;
+  --color-foreground-tertiary: #6B6B6B;
+  
+  /* Primary/Accent - Leica Brass */
+  --color-primary: #B8995F;
   --color-primary-foreground: #FFFFFF;
-  --color-accent: #888888;
+  --color-primary-hover: #A37F4A;
+  --color-primary-dark: #A37F4A;
+  
+  /* Accent */
+  --color-accent: #B8995F;
   --color-accent-foreground: #FFFFFF;
-  --color-success: #000000;
-  --color-success-foreground: #FAFAFA;
-  --color-warning: #000000;
-  --color-warning-foreground: #FAFAFA;
-  --color-muted: #F0F0F0;
-  --color-border: #E0E0E0;
-  --background-image-hero-radial: radial-gradient(circle at top, rgba(0,0,0,0.03), transparent 60%);
-  --background-image-section-gradient: linear-gradient(to bottom right, rgba(250,250,250,1), rgba(250,250,250,0.98));
-  --box-shadow-soft-xl: 0 22px 45px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05);
+  --color-accent-hover: #A37F4A;
+  
+  /* Muted & Border */
+  --color-muted: #F5F5F5;
+  --color-border: #E5E5E5;
+  
+  /* Success/Warning */
+  --color-success: #B8995F;
+  --color-success-foreground: #FFFFFF;
+  --color-warning: #B8995F;
+  --color-warning-foreground: #FFFFFF;
+  
+  /* Background Images */
+  --background-image-hero-radial: radial-gradient(circle at top, rgba(184,153,95,0.06), transparent 60%);
+  --background-image-section-gradient: linear-gradient(to bottom right, rgba(250,250,250,1), rgba(255,255,255,0.98));
+  --box-shadow-soft-xl: 0 22px 45px rgba(0,0,0,0.08), 0 0 0 1px rgba(229,229,229,0.5);
   color-scheme: light;
 }
 
@@ -78,10 +122,17 @@ body {
   color: var(--color-foreground);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
 }
 
 body {
   font-feature-settings: 'rlig' 1, 'calt' 1;
+}
+
+code, pre {
+  font-family: var(--font-mono), 'Courier New', monospace;
 }
 
 main {
