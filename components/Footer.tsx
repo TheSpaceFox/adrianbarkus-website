@@ -1,4 +1,4 @@
-import { Download } from 'lucide-react';
+import { Download, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 
 export interface FooterProps {
@@ -30,8 +30,8 @@ export function Footer({ className }: FooterProps) {
             </div>
           </div>
           
-          {/* CV Download Link */}
-          <div className="flex items-center justify-center sm:justify-start pt-4 border-t border-border">
+          {/* Links Row */}
+          <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-4 pt-4 border-t border-border">
             <Link
               href={cvUrl}
               download="AdrianBarkus-CV-July-2025-FRACTIONAL-CTO-AI-POWERED-BUILDER.pdf"
@@ -41,6 +41,15 @@ export function Footer({ className }: FooterProps) {
             >
               <Download className="h-4 w-4" />
               <span>Download CV (PDF)</span>
+            </Link>
+            <Link
+              href="https://www.linkedin.com/in/adrianbarkus/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-foreground-secondary hover:text-primary transition-colors"
+            >
+              <Linkedin className="h-4 w-4" />
+              <span>LinkedIn</span>
             </Link>
           </div>
         </div>
