@@ -4,7 +4,6 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Zap, PiggyBank, Shield } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 
 export interface TransformationProps {
@@ -15,20 +14,17 @@ const benefits = [
   {
     icon: Zap,
     headline: '10x Velocity',
-    copy: 'AI-accelerated development means I build full-stack systems solo. No contractors. No delays. No overhead. Just speed.',
-    badge: 'Speed'
+    copy: 'Build full-stack systems solo. No contractors. No delays.'
   },
   {
     icon: PiggyBank,
-    headline: '70% Cost Reduction',
-    copy: "Replace £60k/year SaaS with £12k custom build. That's £420k saved over 3 years. Your CFO will love you.",
-    badge: 'Savings'
+    headline: '70% Savings',
+    copy: 'Replace £60k/year SaaS with £12k custom build.'
   },
   {
     icon: Shield,
-    headline: 'Strategic + Hands-On',
-    copy: 'You get CTO-level thinking AND execution. Not one or the other. Weekly strategy + daily building.',
-    badge: 'Leadership'
+    headline: 'Strategic Execution',
+    copy: 'CTO-level thinking plus hands-on building. Weekly strategy.'
   }
 ];
 
@@ -46,23 +42,23 @@ export function Transformation({ className }: TransformationProps) {
   return (
     <section
       id="transformation"
-      className={`py-12 sm:py-16 lg:py-20 bg-background ${className ?? ''}`}
+      className={`py-20 md:py-32 bg-background ${className ?? ''}`}
     >
-      <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-6xl mx-auto px-8 md:px-12">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="space-y-16"
+          className="space-y-16 md:space-y-24"
         >
           {/* Section Headline */}
-          <h2 className="text-3xl font-bold text-foreground text-center sm:text-4xl lg:text-5xl max-w-4xl mx-auto">
-            What If You Could Ship Custom Systems in 4 Weeks Instead of 6 Months?
+          <h2 className="text-4xl md:text-6xl font-bold text-foreground text-center tracking-tight">
+            Build Faster. Save More.
           </h2>
 
           {/* Three Benefits Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
@@ -72,25 +68,20 @@ export function Transformation({ className }: TransformationProps) {
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                   transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
                 >
-                  <Card className="h-full border-border bg-surface hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                    <CardContent className="p-6 space-y-4">
-                      {/* Icon and Badge */}
-                      <div className="flex items-start justify-between">
-                        <div className="p-3 rounded-lg bg-primary/10 border border-primary/20">
-                          <Icon className="h-6 w-6 text-primary" />
-                        </div>
-                        <Badge variant="outline" className="text-xs border-foreground-tertiary text-foreground-tertiary">
-                          {benefit.badge}
-                        </Badge>
+                  <Card className="h-full border border-[#404040] bg-surface hover:shadow-lg transition-all duration-300">
+                    <CardContent className="p-10 md:p-12 space-y-6">
+                      {/* Icon */}
+                      <div className="p-3 rounded-lg bg-primary/10 border border-primary/20 w-fit">
+                        <Icon className="h-6 w-6 text-primary" />
                       </div>
 
                       {/* Headline */}
-                      <h3 className="text-xl font-semibold text-foreground">
+                      <h3 className="text-lg md:text-xl font-semibold text-foreground">
                         {benefit.headline}
                       </h3>
 
                       {/* Copy */}
-                      <p className="text-base text-foreground-secondary leading-relaxed" style={{ lineHeight: '1.6' }}>
+                      <p className="text-base text-[#A0A0A0] leading-relaxed">
                         {benefit.copy}
                       </p>
                     </CardContent>
@@ -105,16 +96,16 @@ export function Transformation({ className }: TransformationProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
-            className="pt-8 border-t border-border"
+            className="mt-20 md:mt-32 pt-8 border-t border-[#404040]"
           >
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-12 md:gap-16">
               {proofMetrics.map((metric, index) => (
-                <div key={index} className="flex items-center gap-4 sm:gap-6">
-                  <div className="text-center sm:text-left">
+                <div key={index} className="flex items-center gap-12 md:gap-16">
+                  <div className="text-center">
                     <p className="text-2xl font-bold text-primary sm:text-3xl lg:text-4xl">
                       {metric.value}
                     </p>
-                    <p className="text-xs text-foreground-secondary sm:text-sm mt-1">
+                    <p className="text-xs text-[#A0A0A0] sm:text-sm mt-1">
                       {metric.label}
                     </p>
                   </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 
 export default function Header() {
@@ -24,9 +25,19 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Left: Name */}
-          <div className="text-lg font-semibold text-foreground">
-            Adrian Barkus
+          {/* Left: Logo + Name */}
+          <div className="flex items-center gap-3">
+            <Image
+              src="https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/AdrianBarkus%20LOGO.png"
+              alt="Adrian Barkus"
+              width={32}
+              height={32}
+              className="opacity-60 hover:opacity-100 transition-opacity duration-300"
+              unoptimized
+            />
+            <div className="text-lg font-semibold text-foreground">
+              Adrian Barkus
+            </div>
           </div>
 
           {/* Right: CTA Button */}

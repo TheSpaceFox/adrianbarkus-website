@@ -18,37 +18,34 @@ export function FinalCTA({ className }: FinalCTAProps) {
   return (
     <section
       id="cta"
-      className={`py-12 sm:py-16 lg:py-20 bg-background ${className ?? ''}`}
+      className={`py-20 md:py-32 bg-background ${className ?? ''}`}
     >
-      <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-6xl mx-auto px-8 md:px-12">
         {!showForm ? (
           <motion.div
             ref={ref}
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="rounded-2xl border border-border bg-surface p-8 sm:p-12 lg:p-16"
+            className="rounded-2xl border border-[#404040] bg-surface p-12 md:p-16"
           >
-            <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-              <div className="max-w-2xl space-y-4">
-                <h2 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
-                  Ready to Cut Your SaaS Bill by 70%?
+            <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
+              <div className="max-w-2xl space-y-6">
+                <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-tight">
+                  Ready to Start?
                 </h2>
-                <p className="text-lg text-foreground-secondary sm:text-xl" style={{ lineHeight: '1.6' }}>
-                  Book a free 30-minute SaaS audit. I'll identify £100k+ in savings opportunities. If I can't, you don't pay. Zero risk.
+                <p className="text-xl md:text-2xl font-normal text-[#A0A0A0] leading-relaxed">
+                  Book a free audit. Identify £100k+ in savings.
                 </p>
               </div>
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <div className="flex flex-col items-center lg:items-end gap-6">
                 <Button
                   onClick={() => window.open('https://calendar.app.google/koCBUPrhiwLc4zFv7', '_blank')}
                   size="lg"
-                  className="bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 px-8 py-6 text-base font-medium rounded-full transition-all hover:-translate-y-[2px] hover:scale-105"
+                  className="bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 px-8 py-4 text-base font-medium rounded-full transition-all hover:scale-105 my-8"
                 >
-                  Book Free SaaS Audit
+                  Book Free Audit
                 </Button>
-                <p className="text-sm text-foreground-tertiary text-center sm:text-left">
-                  No obligation. 30 minutes. £100k+ savings identified.
-                </p>
               </div>
             </div>
           </motion.div>

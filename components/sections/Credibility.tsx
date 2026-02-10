@@ -10,17 +10,17 @@ export interface CredibilityProps {
 }
 
 const background = [
-  'Thomson Reuters - Global enterprise architecture',
-  'Woolworths - Supply chain optimization',
-  'Soudal - Multi-market ERP strategy',
-  'Top Secret Security Clearance (expired)',
-  'Salesforce (19 years) | MS Dynamics 365 | SAP | Oracle'
+  'Thomson Reuters',
+  'Woolworths',
+  'Soudal',
+  'Top Secret Clearance',
+  'Salesforce, Dynamics, SAP, Oracle'
 ];
 
 const modernStack = [
   'Next.js, TypeScript, PostgreSQL',
   'Supabase, Azure, Vercel',
-  'Cursor AI + Claude (10x acceleration)',
+  'AI-accelerated development',
   'Built IndiFind.com solo'
 ];
 
@@ -38,25 +38,25 @@ export function Credibility({ className }: CredibilityProps) {
   return (
     <section
       id="credibility"
-      className={`py-12 sm:py-16 lg:py-20 bg-surface ${className ?? ''}`}
+      className={`py-20 md:py-32 bg-surface ${className ?? ''}`}
     >
-      <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-6xl mx-auto px-8 md:px-12">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="space-y-12"
+          className="space-y-16 md:space-y-24"
         >
           {/* Section Headline */}
-          <h2 className="text-3xl font-bold text-foreground text-center sm:text-4xl lg:text-5xl">
-            19 Years Turning Enterprise Chaos Into Profit
+          <h2 className="text-4xl md:text-6xl font-bold text-foreground text-center tracking-tight">
+            19 Years. Fortune 500. AI-Accelerated.
           </h2>
 
           {/* Two-Column Tabs Layout */}
           <div>
             <Tabs defaultValue="background" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 bg-surface-elevated border-border">
+              <TabsList className="grid w-full grid-cols-2 bg-surface-elevated border border-[#404040]">
                 <TabsTrigger value="background" className="data-[state=active]:bg-surface data-[state=active]:text-foreground">
                   Background
                 </TabsTrigger>
@@ -65,17 +65,17 @@ export function Credibility({ className }: CredibilityProps) {
                 </TabsTrigger>
               </TabsList>
 
-              <TabsContent value="background" className="mt-6 space-y-3">
+              <TabsContent value="background" className="mt-8 space-y-4">
                 {background.map((item, index) => (
-                  <div key={index} className="text-base text-foreground-secondary" style={{ lineHeight: '1.6' }}>
+                  <div key={index} className="text-base text-[#A0A0A0] leading-relaxed">
                     {item}
                   </div>
                 ))}
               </TabsContent>
 
-              <TabsContent value="modern" className="mt-6 space-y-3">
+              <TabsContent value="modern" className="mt-8 space-y-4">
                 {modernStack.map((item, index) => (
-                  <div key={index} className="text-base text-foreground-secondary" style={{ lineHeight: '1.6' }}>
+                  <div key={index} className="text-base text-[#A0A0A0] leading-relaxed">
                     {item}
                   </div>
                 ))}
