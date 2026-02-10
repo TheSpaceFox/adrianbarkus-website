@@ -2,7 +2,6 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import AnimatedNumber from '@/components/AnimatedNumber';
 
@@ -26,17 +25,14 @@ export function Hero({ className }: HeroProps) {
       className={`relative min-h-screen flex flex-col items-center justify-center bg-background overflow-hidden ${className ?? ''}`}
     >
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/WhatsApp%20Image%202026-02-10%20at%2011.07.15%20AM.jpeg"
-          alt=""
-          fill
-          className="object-cover opacity-20"
-          priority
-          unoptimized
-        />
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-50"
+        style={{
+          backgroundImage: `url('https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/WhatsApp%20Image%202026-02-10%20at%2011.07.15%20AM.jpeg')`
+        }}
+      >
         {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-background/80" />
+        <div className="absolute inset-0 bg-background/50" />
       </div>
 
       {/* Subtle gradient overlay */}
