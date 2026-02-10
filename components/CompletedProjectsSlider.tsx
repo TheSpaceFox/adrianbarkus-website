@@ -18,12 +18,12 @@ interface Project {
 const projects: Project[] = [
   {
     id: 'project-1',
-    title: 'IndiFind – AI Candidate Search',
-    subtitle: 'Replaced legacy ATS with a custom, AI-accelerated stack.',
+    title: 'Choice Australia',
+    subtitle: 'Replaced high-friction legacy workflows with a focused custom platform.',
     metricLabel: 'Software savings',
     metricValue: '£120k / yr',
     imageUrl:
-      'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/project-placeholder-1.jpeg',
+      'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/ChoiceProjectHero.jpeg',
     tech: ['Next.js', 'Supabase', 'OpenAI']
   },
   {
@@ -65,7 +65,7 @@ export function CompletedProjectsSlider({ className }: { className?: string }) {
 
   return (
     <section className={cn('w-full', className)}>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-4 md:mb-6">
         <div className="space-y-1">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-foreground-tertiary">
             Completed Projects
@@ -94,7 +94,7 @@ export function CompletedProjectsSlider({ className }: { className?: string }) {
         </div>
       </div>
 
-      <div className="relative">
+      <div className="relative max-w-4xl mx-auto">
         <AnimatePresence mode="wait">
           <motion.div
             key={active.id}
@@ -104,21 +104,21 @@ export function CompletedProjectsSlider({ className }: { className?: string }) {
             transition={{ duration: 0.5, ease: 'easeOut' }}
             className="overflow-hidden rounded-2xl border border-[#404040] bg-surface-elevated shadow-[0_22px_45px_rgba(0,0,0,0.3)]"
           >
-            <div className="relative w-full aspect-[16/9] bg-[#1f1f1f]">
+            <div className="relative w-full aspect-[4/3] md:aspect-[16/9] bg-[#1f1f1f]">
               <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url('${active.imageUrl}')` }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-                <div className="space-y-2">
-                  <h3 className="text-xl md:text-2xl font-semibold text-foreground tracking-tight">
+              <div className="absolute inset-x-0 bottom-0 p-5 md:p-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                <div className="space-y-1.5 md:space-y-2">
+                  <h3 className="text-lg md:text-2xl font-semibold text-foreground tracking-tight">
                     {active.title}
                   </h3>
                   <p className="text-sm md:text-base text-foreground-secondary">
                     {active.subtitle}
                   </p>
-                  <div className="flex flex-wrap items-center gap-2 text-xs text-foreground-tertiary">
+                  <div className="flex flex-wrap items-center gap-1.5 text-[11px] text-foreground-tertiary">
                     {active.tech.map((t) => (
                       <span
                         key={t}
@@ -129,11 +129,11 @@ export function CompletedProjectsSlider({ className }: { className?: string }) {
                     ))}
                   </div>
                 </div>
-                <div className="flex flex-col items-start md:items-end gap-1">
-                  <span className="text-xs uppercase tracking-[0.16em] text-foreground-tertiary">
+                <div className="flex flex-col items-start md:items-end gap-0.5 md:gap-1">
+                  <span className="text-[11px] md:text-xs uppercase tracking-[0.16em] text-foreground-tertiary">
                     {active.metricLabel}
                   </span>
-                  <span className="text-lg md:text-2xl font-semibold text-primary">
+                  <span className="text-base md:text-2xl font-semibold text-primary">
                     {active.metricValue}
                   </span>
                 </div>
