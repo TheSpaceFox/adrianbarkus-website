@@ -94,7 +94,7 @@ export function CompletedProjectsSlider({ className }: { className?: string }) {
         </div>
       </div>
 
-      <div className="relative max-w-4xl mx-auto">
+      <div className="relative w-full">
         <AnimatePresence mode="wait">
           <motion.div
             key={active.id}

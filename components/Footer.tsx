@@ -18,10 +18,10 @@ export function Footer({ className }: FooterProps) {
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex flex-col gap-10">
           {/* Completed Projects slider */}
-          <CompletedProjectsSlider />
+          <CompletedProjectsSlider className="max-w-4xl mx-auto" />
 
           {/* GitHub commits chart */}
-          <GithubCommitsChart />
+          <GithubCommitsChart className="max-w-4xl mx-auto" />
 
           {/* Top row: brand + nav columns */}
           <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
