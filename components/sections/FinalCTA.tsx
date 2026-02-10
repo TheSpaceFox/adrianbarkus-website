@@ -20,7 +20,7 @@ export function FinalCTA({ className }: FinalCTAProps) {
   return (
     <section
       id="cta"
-      className={`relative py-20 md:py-32 bg-background overflow-hidden ${className ?? ''}`}
+      className={`relative min-h-screen-dynamic snap-start flex flex-col justify-center bg-background overflow-hidden ${className ?? ''}`}
     >
       {/* Background Image */}
       <div 
@@ -33,7 +33,7 @@ export function FinalCTA({ className }: FinalCTAProps) {
         <div className="absolute inset-0 bg-background/70" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-8 md:px-12">
+      <div className="relative z-10 max-w-6xl mx-auto px-8 md:px-12 py-20 md:py-32">
         {!showForm ? (
           <motion.div
             ref={ref}

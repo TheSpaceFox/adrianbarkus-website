@@ -168,6 +168,19 @@ body {
   scroll-snap-align: center;
 }
 
+/* Dynamic viewport height utilities for better mobile support */
+.min-h-screen-dynamic {
+  min-height: 100vh; /* Fallback for older browsers */
+  min-height: 100dvh; /* Dynamic viewport height - accounts for mobile browser UI */
+}
+
+.h-screen-dynamic {
+  height: 100vh; /* Fallback for older browsers */
+  height: 100dvh; /* Dynamic viewport height - accounts for mobile browser UI */
+}
+
+/* Ensure sections can grow if content requires it - main container handles scrolling */
+
 body {
   font-feature-settings: 'rlig' 1, 'calt' 1;
 }
@@ -178,6 +191,7 @@ code, pre {
 
 main {
   min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile */
   background-image: var(--background-image-hero-radial);
 }
 

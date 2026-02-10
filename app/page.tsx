@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-background">
+      <main className="h-screen-dynamic overflow-y-scroll snap-y snap-proximity md:snap-mandatory bg-background">
         <Hero />
         <ProblemAgitation />
         <Transformation />

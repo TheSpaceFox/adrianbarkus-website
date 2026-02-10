@@ -48,9 +48,9 @@ export function FAQ({ className }: FAQProps) {
   return (
     <section
       id="faq"
-      className={`py-20 md:py-32 bg-surface ${className ?? ''}`}
+      className={`min-h-screen-dynamic snap-start flex flex-col justify-center bg-surface ${className ?? ''}`}
     >
-      <div className="max-w-6xl mx-auto px-8 md:px-12">
+      <div className="max-w-6xl mx-auto px-8 md:px-12 py-20 md:py-32">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
