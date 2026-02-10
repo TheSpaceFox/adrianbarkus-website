@@ -27,7 +27,10 @@ export default function Home() {
         <RiskReversal />
         <FAQ />
         <FinalCTA />
-        <Footer />
+        {/* Footer as its own snapping section */}
+        <section className="min-h-screen-dynamic snap-start flex flex-col justify-end bg-surface">
+          <Footer />
+        </section>
         <ThemeSwitcher />
       </main>
     </>
