@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { TrendingDown, Clock, AlertTriangle, LucideIcon } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -32,34 +32,25 @@ interface AnimatedCardProps {
   headline: string;
   copy: string;
   index: number;
-  sectionRef: React.RefObject<HTMLElement | null>;
 }
 
-function AnimatedCard({ icon: Icon, headline, copy, index, sectionRef }: AnimatedCardProps) {
-  const cardRef = useRef(null);
-  
-  // Track scroll progress for the section
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
+function AnimatedCard({ icon: Icon, headline, copy, index }: AnimatedCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const isCardInView = useInView(cardRef, { once: false, margin: '-50px' });
 
-  // Alternating directions: even indices from left (-100%), odd from right (100%)
+  // Alternating directions: even indices from left, odd from right
   const xOffset = index % 2 === 0 ? -100 : 100;
-  
-  // Map scroll progress to horizontal position
-  const x = useTransform(scrollYProgress, [0, 1], [`${xOffset}%`, '0%']);
-  
-  // Opacity: fade in as cards approach center
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 0, 1, 1]);
-  
-  // Scale: start smaller, reach full size when centered
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 0.95, 1]);
 
   return (
     <motion.div
       ref={cardRef}
-      style={{ x, opacity, scale }}
+      initial={{ opacity: 0, x: `${xOffset}%`, scale: 0.9 }}
+      animate={isCardInView ? { opacity: 1, x: '0%', scale: 1 } : { opacity: 0, x: `${xOffset}%`, scale: 0.9 }}
+      transition={{ 
+        duration: 0.8, 
+        delay: index * 0.15,
+        ease: [0.22, 1, 0.36, 1] // Custom easing for smooth swoop
+      }}
       className="flex-shrink-0 w-[85vw] md:w-auto snap-center"
     >
       <Card className="h-full border border-[#404040] bg-surface-elevated hover:shadow-lg hover:border-primary/30 transition-all duration-300">
@@ -123,7 +114,6 @@ export function ProblemAgitation({ className }: ProblemAgitationProps) {
                     headline={point.headline}
                     copy={point.copy}
                     index={index}
-                    sectionRef={sectionRef}
                   />
                 ))}
               </div>
