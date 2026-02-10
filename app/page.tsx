@@ -27,7 +27,10 @@ export default function Home() {
         <RiskReversal />
         <FAQ />
         <FinalCTA />
-        <Footer />
+        {/* Spacer to allow scrolling past last snap point */}
+        <div className="h-screen-dynamic flex items-end justify-center">
+          <Footer />
+        </div>
         <ThemeSwitcher />
       </main>
     </>

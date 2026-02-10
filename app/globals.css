@@ -181,6 +181,11 @@ body {
 
 /* Ensure sections can grow if content requires it - main container handles scrolling */
 
+/* Snap container wrapper - allows scrolling past last snap point */
+.snap-container {
+  /* No additional styles needed - children handle snap behavior */
+}
+
 body {
   font-feature-settings: 'rlig' 1, 'calt' 1;
 }
