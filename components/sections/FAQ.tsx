@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { useCurrency } from '@/hooks/useCurrency';
 
 export interface FAQProps {
   className?: string;
@@ -14,7 +15,7 @@ const faqs = [
   },
   {
     question: 'Am I wasting money on Software?',
-    answer: 'If you use less than 30% of features, you likely waste £50k-£100k per year.'
+    answer: 'If you use less than 30% of features, you likely waste {currency}50k-{currency}100k per year.'
   },
   {
     question: 'Can you build in 4 weeks?',
@@ -22,11 +23,11 @@ const faqs = [
   },
   {
     question: 'What if it doesn\'t work?',
-    answer: 'ROI Guarantee: If I can\'t identify £100k+ in savings, you don\'t pay.'
+    answer: 'ROI Guarantee: If I can\'t identify {currency}100k+ in savings, you don\'t pay.'
   },
   {
     question: 'How is this different?',
-    answer: 'Agencies charge £60k and take 6 months. I charge £18k-£45k and deliver in weeks.'
+    answer: 'Agencies charge {currency}60k and take 6 months. I charge {currency}18k-{currency}45k and deliver in weeks.'
   },
   {
     question: 'What about ongoing support?',
@@ -37,6 +38,12 @@ const faqs = [
 export function FAQ({ className }: FAQProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { currency } = useCurrency();
+
+  const faqsWithCurrency = faqs.map(faq => ({
+    ...faq,
+    answer: faq.answer.replace(/{currency}/g, currency)
+  }));
 
   return (
     <section
@@ -58,7 +65,7 @@ export function FAQ({ className }: FAQProps) {
 
           {/* FAQ Items */}
           <div className="space-y-4 max-w-3xl mx-auto">
-            {faqs.map((faq, index) => (
+            {faqsWithCurrency.map((faq, index) => (
               <motion.details
                 key={index}
                 initial={{ opacity: 0, y: 20 }}

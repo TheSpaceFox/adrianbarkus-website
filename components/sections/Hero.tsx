@@ -4,21 +4,23 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import AnimatedNumber from '@/components/AnimatedNumber';
+import { useCurrency } from '@/hooks/useCurrency';
 
 export interface HeroProps {
   className?: string;
 }
 
-const metrics = [
-  { value: 420, prefix: '£', suffix: 'k', label: 'Saved' },
-  { value: 2.5, prefix: '£', suffix: 'M', label: 'Generated' },
-  { value: 70, suffix: '%', label: 'Cost Cut' },
-  { value: 55, prefix: '£', suffix: 'M', label: 'Exit Enabled' }
-];
-
 export function Hero({ className }: HeroProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { currency } = useCurrency();
+
+  const metrics = [
+    { value: 420, prefix: currency, suffix: 'k', label: 'Saved' },
+    { value: 2.5, prefix: currency, suffix: 'M', label: 'Generated' },
+    { value: 70, suffix: '%', label: 'Cost Cut' },
+    { value: 55, prefix: currency, suffix: 'M', label: 'Exit Enabled' }
+  ];
 
   return (
     <section

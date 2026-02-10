@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import { useCurrency } from '@/hooks/useCurrency';
 
 export interface UrgencyProps {
   className?: string;
@@ -11,7 +12,7 @@ export interface UrgencyProps {
 const urgencyPoints = [
   {
     headline: 'Monthly Waste',
-    copy: 'Every month costs £5k-£8k. That\'s £60k-£96k per year.'
+    copy: 'Every month costs {currency}5k-{currency}8k. That\'s {currency}60k-{currency}96k per year.'
   },
   {
     headline: 'Competitors Win',
@@ -22,6 +23,12 @@ const urgencyPoints = [
 export function Urgency({ className }: UrgencyProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { currency } = useCurrency();
+
+  const urgencyPointsWithCurrency = urgencyPoints.map(point => ({
+    ...point,
+    copy: point.copy.replace(/{currency}/g, currency)
+  }));
 
   return (
     <section
@@ -43,7 +50,7 @@ export function Urgency({ className }: UrgencyProps) {
 
           {/* Two Urgency Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-            {urgencyPoints.map((point, index) => (
+            {urgencyPointsWithCurrency.map((point, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}

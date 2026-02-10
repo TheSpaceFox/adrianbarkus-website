@@ -5,6 +5,7 @@ import { useRef } from 'react';
 import { Zap, PiggyBank, Shield } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import { useCurrency } from '@/hooks/useCurrency';
 
 export interface TransformationProps {
   className?: string;
@@ -19,7 +20,7 @@ const benefits = [
   {
     icon: PiggyBank,
     headline: '70% Savings',
-    copy: 'Replace £60k/year Software with £12k custom build.'
+    copy: 'Replace {currency}60k/year Software with {currency}12k custom build.'
   },
   {
     icon: Shield,
@@ -28,16 +29,22 @@ const benefits = [
   }
 ];
 
-const proofMetrics = [
-  { value: '£420k', label: 'Saved (3yr Software replacement)' },
-  { value: '£2.5M', label: 'Revenue Generated' },
-  { value: '70%', label: 'Cost Optimization' },
-  { value: '£55M', label: 'Acquisition Enabled' }
-];
-
 export function Transformation({ className }: TransformationProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { currency } = useCurrency();
+
+  const benefitsWithCurrency = benefits.map(benefit => ({
+    ...benefit,
+    copy: benefit.copy.replace(/{currency}/g, currency)
+  }));
+
+  const proofMetrics = [
+    { value: `${currency}420k`, label: 'Saved (3yr Software replacement)' },
+    { value: `${currency}2.5M`, label: 'Revenue Generated' },
+    { value: '70%', label: 'Cost Optimization' },
+    { value: `${currency}55M`, label: 'Acquisition Enabled' }
+  ];
 
   return (
     <section
@@ -59,7 +66,7 @@ export function Transformation({ className }: TransformationProps) {
 
           {/* Three Benefits Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
-            {benefits.map((benefit, index) => {
+            {benefitsWithCurrency.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
                 <motion.div

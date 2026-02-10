@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Check } from 'lucide-react';
+import { useCurrency } from '@/hooks/useCurrency';
 
 export interface RiskReversalProps {
   className?: string;
@@ -12,7 +13,7 @@ export interface RiskReversalProps {
 const guarantees = [
   {
     headline: 'ROI Guarantee',
-    copy: "If I can't identify £100k+ in savings, you don't pay."
+    copy: "If I can't identify {currency}100k+ in savings, you don't pay."
   },
   {
     headline: '4-Week Delivery',
@@ -27,6 +28,12 @@ const guarantees = [
 export function RiskReversal({ className }: RiskReversalProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { currency } = useCurrency();
+
+  const guaranteesWithCurrency = guarantees.map(guarantee => ({
+    ...guarantee,
+    copy: guarantee.copy.replace(/{currency}/g, currency)
+  }));
 
   return (
     <section
@@ -48,7 +55,7 @@ export function RiskReversal({ className }: RiskReversalProps) {
 
           {/* Three Guarantee Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
-            {guarantees.map((guarantee, index) => (
+            {guaranteesWithCurrency.map((guarantee, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}

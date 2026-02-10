@@ -5,6 +5,7 @@ import { useRef } from 'react';
 import { Check } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { useCurrency } from '@/hooks/useCurrency';
 
 export interface OffersProps {
   className?: string;
@@ -27,6 +28,7 @@ const fractionalCTOItems = [
 export function Offers({ className }: OffersProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { currency } = useCurrency();
 
   return (
     <section
@@ -77,7 +79,7 @@ export function Offers({ className }: OffersProps) {
                   <div className="space-y-3 pt-6 border-t border-[#404040]">
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#A0A0A0]">Investment:</span>
-                      <span className="text-base font-semibold text-foreground">£18k-£45k</span>
+                      <span className="text-base font-semibold text-foreground">{currency}18k-{currency}45k</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#A0A0A0]">Timeline:</span>
@@ -88,7 +90,7 @@ export function Offers({ className }: OffersProps) {
                   {/* ROI Guarantee */}
                   <div className="bg-primary/10 border border-primary/30 rounded-lg p-4">
                     <p className="text-sm text-foreground">
-                      <strong className="text-primary">ROI Guarantee:</strong> If I can't identify £100k+ in savings, you don't pay.
+                      <strong className="text-primary">ROI Guarantee:</strong> If I can't identify {currency}100k+ in savings, you don't pay.
                     </p>
                   </div>
 
@@ -133,7 +135,7 @@ export function Offers({ className }: OffersProps) {
                   <div className="space-y-3 pt-6 border-t border-[#404040]">
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#A0A0A0]">Investment:</span>
-                      <span className="text-base font-semibold text-foreground">£17k-£28k/month</span>
+                      <span className="text-base font-semibold text-foreground">{currency}17k-{currency}28k/month</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#A0A0A0]">Minimum:</span>

@@ -5,6 +5,7 @@ import { useRef, useState } from 'react';
 import { ContactForm } from '@/components/ContactForm';
 import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
+import { useCurrency } from '@/hooks/useCurrency';
 
 export interface FinalCTAProps {
   className?: string;
@@ -14,6 +15,7 @@ export function FinalCTA({ className }: FinalCTAProps) {
   const [showForm, setShowForm] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { currency } = useCurrency();
 
   return (
     <section
@@ -46,7 +48,7 @@ export function FinalCTA({ className }: FinalCTAProps) {
                   Ready to Start?
                 </h2>
                 <p className="text-xl md:text-2xl font-normal text-[#A0A0A0] leading-relaxed">
-                  Book a free audit. Identify £100k+ in savings.
+                  Book a free audit. Identify {currency}100k+ in savings.
                 </p>
               </div>
               <div className="flex flex-col items-center lg:items-end gap-6">
