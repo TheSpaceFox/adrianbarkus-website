@@ -1,5 +1,7 @@
 import { Download, Linkedin } from 'lucide-react';
 import Link from 'next/link';
+import { CompletedProjectsSlider } from '@/components/CompletedProjectsSlider';
+import { GithubCommitsChart } from '@/components/GithubCommitsChart';
 
 export interface FooterProps {
   className?: string;
@@ -15,6 +17,12 @@ export function Footer({ className }: FooterProps) {
     >
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex flex-col gap-10">
+          {/* Completed Projects slider */}
+          <CompletedProjectsSlider />
+
+          {/* GitHub commits chart */}
+          <GithubCommitsChart />
+
           {/* Top row: brand + nav columns */}
           <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
             {/* Brand / summary */}
