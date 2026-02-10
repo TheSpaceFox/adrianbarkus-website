@@ -75,7 +75,7 @@ export function Hero({ className }: HeroProps) {
           >
             <Button
               size="lg"
-              onClick={() => window.open('https://calendar.app.google/koCBUPrhiwLc4zFv7', '_blank')}
+              onClick={() => window.open('https://calendar.app.google/qDskb7kUFgsNWwLh6', '_blank')}
               className="bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 px-8 py-4 text-base font-medium rounded-full transition-all hover:scale-105 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background my-8"
             >
               Book Free Audit

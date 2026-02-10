@@ -44,7 +44,7 @@ export default function Header() {
           <Button
             onClick={() =>
               window.open(
-                'https://calendar.app.google/koCBUPrhiwLc4zFv7',
+                'https://calendar.app.google/qDskb7kUFgsNWwLh6',
                 '_blank'
               )
             }

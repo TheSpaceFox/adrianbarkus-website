@@ -95,7 +95,7 @@ export function Offers({ className }: OffersProps) {
                   {/* CTA Button */}
                   <Button
                     size="lg"
-                    onClick={() => window.open('https://calendar.app.google/koCBUPrhiwLc4zFv7', '_blank')}
+                    onClick={() => window.open('https://calendar.app.google/qDskb7kUFgsNWwLh6', '_blank')}
                     className="w-full bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 transition-all hover:scale-105 px-8 py-4"
                   >
                     Book Audit Call
