@@ -20,6 +20,18 @@ const urgencyPoints = [
   }
 ];
 
+// Flying card positions reused from "The Real Cost" style
+const getUrgencyInitialPosition = (idx: number) => {
+  switch (idx) {
+    case 0: // left / top-left
+      return { x: -100, y: -80 };
+    case 1: // right / bottom-right
+      return { x: 100, y: 80 };
+    default:
+      return { x: 0, y: 100 };
+  }
+};
+
 export function Urgency({ className }: UrgencyProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
@@ -50,25 +62,36 @@ export function Urgency({ className }: UrgencyProps) {
 
           {/* Two Urgency Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-            {urgencyPointsWithCurrency.map((point, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
-              >
-                <Card className="h-full border border-[#404040] bg-surface-elevated hover:shadow-lg transition-all duration-300">
-                  <CardContent className="p-10 md:p-12 space-y-6">
-                    <h3 className="text-lg md:text-xl font-semibold text-foreground">
-                      {point.headline}
-                    </h3>
-                    <p className="text-base text-[#A0A0A0] leading-relaxed">
-                      {point.copy}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+            {urgencyPointsWithCurrency.map((point, index) => {
+              const initialPos = getUrgencyInitialPosition(index);
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: initialPos.x, y: initialPos.y, scale: 0.9 }}
+                  animate={
+                    isInView
+                      ? { opacity: 1, x: 0, y: 0, scale: 1 }
+                      : { opacity: 0, x: initialPos.x, y: initialPos.y, scale: 0.9 }
+                  }
+                  transition={{
+                    duration: 0.8,
+                    delay: index * 0.15,
+                    ease: [0.22, 1, 0.36, 1]
+                  }}
+                >
+                  <Card className="h-full border border-[#404040] bg-surface-elevated hover:shadow-lg transition-all duration-300">
+                    <CardContent className="p-10 md:p-12 space-y-6">
+                      <h3 className="text-lg md:text-xl font-semibold text-foreground">
+                        {point.headline}
+                      </h3>
+                      <p className="text-base text-[#A0A0A0] leading-relaxed">
+                        {point.copy}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
       </div>

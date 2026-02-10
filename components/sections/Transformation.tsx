@@ -29,6 +29,20 @@ const benefits = [
   }
 ];
 
+// Shared "flying in" positions (clock-face inspired)
+const getInitialPosition = (idx: number) => {
+  switch (idx) {
+    case 0: // 2:00 - bottom-right
+      return { x: 100, y: 100 };
+    case 1: // 10:00 - top-left
+      return { x: -100, y: -100 };
+    case 2: // 6:00 - bottom
+      return { x: 0, y: 100 };
+    default:
+      return { x: 0, y: 100 };
+  }
+};
+
 export function Transformation({ className }: TransformationProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
@@ -68,12 +82,21 @@ export function Transformation({ className }: TransformationProps) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
             {benefitsWithCurrency.map((benefit, index) => {
               const Icon = benefit.icon;
+              const initialPos = getInitialPosition(index);
               return (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                  transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
+                  initial={{ opacity: 0, x: initialPos.x, y: initialPos.y, scale: 0.9 }}
+                  animate={
+                    isInView
+                      ? { opacity: 1, x: 0, y: 0, scale: 1 }
+                      : { opacity: 0, x: initialPos.x, y: initialPos.y, scale: 0.9 }
+                  }
+                  transition={{
+                    duration: 0.8,
+                    delay: index * 0.15,
+                    ease: [0.22, 1, 0.36, 1]
+                  }}
                 >
                   <Card className="h-full border border-[#404040] bg-surface hover:shadow-lg transition-all duration-300">
                     <CardContent className="p-10 md:p-12 space-y-6">

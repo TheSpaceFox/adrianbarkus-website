@@ -25,6 +25,20 @@ const guarantees = [
   }
 ];
 
+// Flying card positions similar to "The Real Cost"
+const getRiskInitialPosition = (idx: number) => {
+  switch (idx) {
+    case 0: // 2:00 - bottom-right
+      return { x: 100, y: 100 };
+    case 1: // 10:00 - top-left
+      return { x: -100, y: -100 };
+    case 2: // 6:00 - bottom
+      return { x: 0, y: 100 };
+    default:
+      return { x: 0, y: 100 };
+  }
+};
+
 export function RiskReversal({ className }: RiskReversalProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
@@ -55,30 +69,41 @@ export function RiskReversal({ className }: RiskReversalProps) {
 
           {/* Three Guarantee Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
-            {guaranteesWithCurrency.map((guarantee, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
-              >
-                <Card className="h-full border border-[#404040] bg-surface hover:shadow-lg transition-all duration-300">
-                  <CardContent className="p-10 md:p-12 space-y-6">
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 rounded-lg bg-primary/10 border border-primary/20">
-                        <Check className="h-5 w-5 text-primary" />
+            {guaranteesWithCurrency.map((guarantee, index) => {
+              const initialPos = getRiskInitialPosition(index);
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: initialPos.x, y: initialPos.y, scale: 0.9 }}
+                  animate={
+                    isInView
+                      ? { opacity: 1, x: 0, y: 0, scale: 1 }
+                      : { opacity: 0, x: initialPos.x, y: initialPos.y, scale: 0.9 }
+                  }
+                  transition={{
+                    duration: 0.8,
+                    delay: index * 0.15,
+                    ease: [0.22, 1, 0.36, 1]
+                  }}
+                >
+                  <Card className="h-full border border-[#404040] bg-surface hover:shadow-lg transition-all duration-300">
+                    <CardContent className="p-10 md:p-12 space-y-6">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 rounded-lg bg-primary/10 border border-primary/20">
+                          <Check className="h-5 w-5 text-primary" />
+                        </div>
+                        <h3 className="text-lg md:text-xl font-semibold text-foreground">
+                          {guarantee.headline}
+                        </h3>
                       </div>
-                      <h3 className="text-lg md:text-xl font-semibold text-foreground">
-                        {guarantee.headline}
-                      </h3>
-                    </div>
-                    <p className="text-base text-[#A0A0A0] leading-relaxed">
-                      {guarantee.copy}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                      <p className="text-base text-[#A0A0A0] leading-relaxed">
+                        {guarantee.copy}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
       </div>
