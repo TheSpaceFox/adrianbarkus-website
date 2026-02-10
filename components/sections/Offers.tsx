@@ -11,7 +11,7 @@ export interface OffersProps {
 }
 
 const saasDetoxItems = [
-  'Complete SaaS audit',
+  'Complete Software audit',
   'Build custom replacement',
   'Team training + migration',
   'Go-live + documentation'
@@ -48,7 +48,7 @@ export function Offers({ className }: OffersProps) {
 
           {/* Two Cards Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Card 1 - SaaS Detox Sprint (Primary with brass border) */}
+            {/* Card 1 - Software Detox Sprint (Primary with brass border) */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -57,7 +57,7 @@ export function Offers({ className }: OffersProps) {
               <Card className="h-full border-2 border-primary bg-surface hover:shadow-lg transition-all duration-300">
                 <CardHeader className="space-y-4">
                   <CardTitle className="text-2xl md:text-3xl font-bold text-foreground">
-                    SaaS Detox Sprint
+                    Software Detox Sprint
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-8 p-10 md:p-12">

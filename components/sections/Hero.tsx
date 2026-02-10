@@ -53,7 +53,7 @@ export function Hero({ className }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
             className="text-6xl md:text-8xl font-bold text-foreground leading-tight tracking-tight"
           >
-            Escape the SaaS Tax
+            Escape the Software Tax
           </motion.h1>
 
           {/* Subheadline */}

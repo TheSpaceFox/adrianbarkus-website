@@ -19,7 +19,7 @@ const benefits = [
   {
     icon: PiggyBank,
     headline: '70% Savings',
-    copy: 'Replace £60k/year SaaS with £12k custom build.'
+    copy: 'Replace £60k/year Software with £12k custom build.'
   },
   {
     icon: Shield,
@@ -29,7 +29,7 @@ const benefits = [
 ];
 
 const proofMetrics = [
-  { value: '£420k', label: 'Saved (3yr SaaS replacement)' },
+  { value: '£420k', label: 'Saved (3yr Software replacement)' },
   { value: '£2.5M', label: 'Revenue Generated' },
   { value: '70%', label: 'Cost Optimization' },
   { value: '£55M', label: 'Acquisition Enabled' }

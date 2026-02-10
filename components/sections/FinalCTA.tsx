@@ -69,7 +69,7 @@ export function FinalCTA({ className }: FinalCTAProps) {
           >
             <div className="flex items-center justify-between">
               <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
-                Book Your Free SaaS Audit
+                Book Your Free Software Audit
               </h2>
               <Button
                 variant="ghost"
