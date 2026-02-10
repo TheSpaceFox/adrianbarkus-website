@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="h-screen-dynamic overflow-y-scroll snap-y snap-proximity md:snap-mandatory bg-background">
+      <main className="h-screen-dynamic overflow-y-scroll snap-y snap-proximity bg-background">
         <Hero />
         <ProblemAgitation />
         <Transformation />
@@ -28,7 +28,7 @@ export default function Home() {
         <FAQ />
         <FinalCTA />
         {/* Spacer to allow scrolling past last snap point */}
-        <div className="h-screen-dynamic flex items-end justify-center">
+        <div className="min-h-screen-dynamic flex items-end justify-center pb-20">
           <Footer />
         </div>
         <ThemeSwitcher />
