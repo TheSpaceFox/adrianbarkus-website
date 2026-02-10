@@ -54,9 +54,9 @@ export function ScrollingLogos({ items, logos, speed = 50 }: ScrollingLogosProps
               <Image
                 src={isDark ? logo.dark : logo.light}
                 alt={logo.alt}
-                width={120}
-                height={60}
-                className="object-contain max-h-12 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                width={216}
+                height={108}
+                className="object-contain max-h-[86px] w-auto opacity-80 hover:opacity-100 transition-opacity"
                 unoptimized
               />
             </div>
