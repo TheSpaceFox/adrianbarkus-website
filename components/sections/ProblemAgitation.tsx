@@ -38,14 +38,27 @@ function AnimatedCard({ icon: Icon, headline, copy, index }: AnimatedCardProps) 
   const cardRef = useRef<HTMLDivElement>(null);
   const isCardInView = useInView(cardRef, { once: false, margin: '-50px' });
 
-  // Alternating directions: even indices from left, odd from right
-  const xOffset = index % 2 === 0 ? -100 : 100;
+  // Clock positions: 2:00 (bottom-right), 10:00 (top-left), 6:00 (bottom)
+  const getInitialPosition = (idx: number) => {
+    switch (idx) {
+      case 0: // 2:00 - bottom-right
+        return { x: '100%', y: '100%' };
+      case 1: // 10:00 - top-left
+        return { x: '-100%', y: '-100%' };
+      case 2: // 6:00 - bottom
+        return { x: '0%', y: '100%' };
+      default:
+        return { x: '0%', y: '100%' };
+    }
+  };
+
+  const initialPos = getInitialPosition(index);
 
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0, x: `${xOffset}%`, scale: 0.9 }}
-      animate={isCardInView ? { opacity: 1, x: '0%', scale: 1 } : { opacity: 0, x: `${xOffset}%`, scale: 0.9 }}
+      initial={{ opacity: 0, x: initialPos.x, y: initialPos.y, scale: 0.9 }}
+      animate={isCardInView ? { opacity: 1, x: '0%', y: '0%', scale: 1 } : { opacity: 0, x: initialPos.x, y: initialPos.y, scale: 0.9 }}
       transition={{ 
         duration: 0.8, 
         delay: index * 0.15,
