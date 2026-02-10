@@ -1,7 +1,8 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
+import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
 import AnimatedNumber from '@/components/AnimatedNumber';
 import { useCurrency } from '@/hooks/useCurrency';
@@ -14,6 +15,15 @@ export function Hero({ className }: HeroProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const { currency } = useCurrency();
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const currentTheme = theme === 'system' ? systemTheme : theme;
+  const isDark = mounted ? (currentTheme === 'dark') : true; // Default to dark during SSR
 
   const metrics = [
     { value: 420, prefix: currency, suffix: 'k', label: 'Saved' },
@@ -28,13 +38,20 @@ export function Hero({ className }: HeroProps) {
     >
       {/* Background Image */}
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-50"
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/WhatsApp%20Image%202026-02-10%20at%2011.07.15%20AM.jpeg')`
+          backgroundImage: `url('https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Homepage-Hero-1.jpeg')`
         }}
       >
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-background/50" />
+        {/* Theme-aware overlay for readability */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundColor: isDark 
+              ? 'rgba(45, 45, 45, 0.5)' // Dark overlay: #2D2D2D at 50% opacity
+              : 'rgba(250, 250, 250, 0.5)' // Light overlay: #FAFAFA at 50% opacity
+          }}
+        />
       </div>
 
       {/* Subtle gradient overlay */}
