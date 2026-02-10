@@ -32,7 +32,7 @@ interface AnimatedCardProps {
   headline: string;
   copy: string;
   index: number;
-  sectionRef: React.RefObject<HTMLElement>;
+  sectionRef: React.RefObject<HTMLElement | null>;
 }
 
 function AnimatedCard({ icon: Icon, headline, copy, index, sectionRef }: AnimatedCardProps) {
