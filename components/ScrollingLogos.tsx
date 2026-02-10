@@ -49,8 +49,7 @@ export function ScrollingLogos({ items, logos, speed = 50 }: ScrollingLogosProps
           {duplicatedLogos.map((logo, index) => (
             <div
               key={index}
-              className="flex-shrink-0 px-6 py-4 rounded-lg border border-[#404040] bg-surface-elevated hover:border-primary/50 transition-colors flex items-center justify-center"
-              style={{ minHeight: '80px' }}
+              className="flex-shrink-0 flex items-center justify-center"
             >
               <Image
                 src={isDark ? logo.dark : logo.light}
