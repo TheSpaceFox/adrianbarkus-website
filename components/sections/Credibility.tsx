@@ -40,6 +40,21 @@ const backgroundLogos = [
     dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/WW%20Dark%20theme%20-%20373737.png',
     light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/WW%20Light%20Theme%20-%20FFFFFF.png',
     alt: 'Woolworths'
+  },
+  {
+    dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/LaunchTN%20Dark%20theme%20-%20373737.png',
+    light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/LaunchTN%20Light%20Theme%20-%20FFFFFF.png',
+    alt: 'LaunchTN'
+  },
+  {
+    dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/SiteMinder%20Dark%20theme%20-%20373737.png',
+    light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/SiteMinder%20Light%20Theme%20-%20FFFFFF.png',
+    alt: 'SiteMinder'
+  },
+  {
+    dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/ThomsonR%20Dark%20theme%20-%20373737.png',
+    light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/ThomsonR%20Light%20Theme%20-%20FFFFFF.png',
+    alt: 'Thomson Reuters'
   }
 ];
 
@@ -92,7 +107,7 @@ export function Credibility({ className }: CredibilityProps) {
               </TabsList>
 
               <TabsContent value="background" className="mt-8">
-                <ScrollingLogos logos={backgroundLogos} speed={60} />
+                <ScrollingLogos logos={backgroundLogos} speed={40} />
               </TabsContent>
 
               <TabsContent value="modern" className="mt-8">
