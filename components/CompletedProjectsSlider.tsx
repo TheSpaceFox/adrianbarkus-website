@@ -28,12 +28,12 @@ const projects: Project[] = [
   },
   {
     id: 'project-2',
-    title: 'Field Ops Automation',
-    subtitle: 'Unified dispatch, reporting, and billing into a single system.',
+    title: 'IndiFind.com Startup Launch',
+    subtitle: 'Launched in 3 months.',
     metricLabel: 'Time saved',
     metricValue: '3 days / week',
     imageUrl:
-      'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/project-placeholder-2.jpeg',
+      'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/IndiFind-Laptop-Phone.png',
     tech: ['React', 'Azure', 'PostgreSQL']
   },
   {
