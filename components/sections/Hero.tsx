@@ -27,12 +27,17 @@ export function Hero({ className }: HeroProps) {
       className={`relative min-h-screen flex flex-col items-center justify-center bg-background overflow-hidden ${className ?? ''}`}
     >
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-50"
-        style={{
-          backgroundImage: `url('https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/WhatsApp%20Image%202026-02-10%20at%2011.07.15%20AM.jpeg')`
-        }}
-      >
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <img
+          src="https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/WhatsApp%20Image%202026-02-10%20at%2011.07.15%20AM.jpeg"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover opacity-50"
+          style={{ minHeight: '100vh' }}
+          onError={(e) => {
+            // Fallback: hide image if it fails to load
+            e.currentTarget.style.display = 'none';
+          }}
+        />
         {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-background/50" />
       </div>
