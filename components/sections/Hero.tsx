@@ -34,7 +34,7 @@ export function Hero({ className }: HeroProps) {
 
   return (
     <section
-      className={`relative min-h-screen-dynamic snap-start flex flex-col items-center justify-center bg-background overflow-hidden ${className ?? ''}`}
+      className={`relative min-h-screen-dynamic snap-start flex flex-col items-center justify-start md:justify-center bg-background overflow-hidden ${className ?? ''}`}
     >
       {/* Background Image */}
       <div 
@@ -57,7 +57,7 @@ export function Hero({ className }: HeroProps) {
       {/* Subtle gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-background pointer-events-none z-[1]" />
 
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-8 md:px-12">
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-8 md:px-12 pt-24 md:pt-0">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}

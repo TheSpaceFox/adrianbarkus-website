@@ -75,19 +75,20 @@ export function GithubCommitsChart({ className }: { className?: string }) {
 
   return (
     <section className={cn('w-full', className)}>
-      <div className="mb-4 flex items-center justify-between">
-        <div className="space-y-1">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-foreground-tertiary">
-            GitHub Activity
-          </p>
-          <p className="text-sm text-foreground-secondary">
-            Weekly commits for <span className="font-medium text-foreground">TheSpaceFox</span>{' '}
-            (mock data).
-          </p>
+      <div className="max-w-4xl mx-auto">
+        <div className="mb-4 flex items-center justify-between">
+          <div className="space-y-1">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-foreground-tertiary">
+              GitHub Activity
+            </p>
+            <p className="text-sm text-foreground-secondary">
+              Weekly commits for <span className="font-medium text-foreground">TheSpaceFox</span>{' '}
+              (mock data).
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div className="w-full rounded-2xl border border-[#404040] bg-surface-elevated px-4 py-4 md:px-6 md:py-5">
+        <div className="w-full rounded-2xl border border-[#404040] bg-surface-elevated px-4 py-4 md:px-6 md:py-5">
         <svg
           viewBox={`0 0 ${VIEWBOX_WIDTH} ${VIEWBOX_HEIGHT}`}
           className="w-full h-48 md:h-56"
@@ -200,19 +201,20 @@ export function GithubCommitsChart({ className }: { className?: string }) {
           )}
         </svg>
 
-        {/* Tooltip */}
-        {activeData && (
-          <div className="mt-3 inline-flex items-center gap-3 rounded-full border border-[#404040] bg-background/80 px-4 py-2 text-xs text-foreground-secondary">
-            <span className="text-foreground-tertiary uppercase tracking-[0.16em]">
-              {activeData.label}
-            </span>
-            <span className="h-4 w-px bg-[#404040]" />
-            <span className="text-foreground">
-              {activeData.commits}{' '}
-              <span className="text-foreground-tertiary">commits</span>
-            </span>
-          </div>
-        )}
+          {/* Tooltip */}
+          {activeData && (
+            <div className="mt-3 inline-flex items-center gap-3 rounded-full border border-[#404040] bg-background/80 px-4 py-2 text-xs text-foreground-secondary">
+              <span className="text-foreground-tertiary uppercase tracking-[0.16em]">
+                {activeData.label}
+              </span>
+              <span className="h-4 w-px bg-[#404040]" />
+              <span className="text-foreground">
+                {activeData.commits}{' '}
+                <span className="text-foreground-tertiary">commits</span>
+              </span>
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );
