@@ -20,7 +20,7 @@ export function FinalCTA({ className }: FinalCTAProps) {
   return (
     <section
       id="cta"
-      className={`relative min-h-screen-dynamic snap-start flex flex-col justify-center bg-background overflow-hidden ${className ?? ''}`}
+      className={`relative min-h-screen-dynamic flex flex-col justify-center bg-background overflow-hidden ${className ?? ''}`}
     >
       {/* Background Image */}
       <div 
