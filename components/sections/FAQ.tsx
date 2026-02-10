@@ -9,6 +9,10 @@ export interface FAQProps {
 
 const faqs = [
   {
+    question: 'What is a fractional CTO?',
+    answer: 'A fractional CTO provides part-time tech leadership—strategy, execution, and team mentoring without full-time salary.'
+  },
+  {
     question: 'Am I wasting money on SaaS?',
     answer: 'If you use less than 30% of features, you likely waste £50k-£100k per year.'
   },

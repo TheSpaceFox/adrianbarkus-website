@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
+import { ScrollingLogos } from '@/components/ScrollingLogos';
 
 export interface CredibilityProps {
   className?: string;
@@ -65,20 +66,12 @@ export function Credibility({ className }: CredibilityProps) {
                 </TabsTrigger>
               </TabsList>
 
-              <TabsContent value="background" className="mt-8 space-y-4">
-                {background.map((item, index) => (
-                  <div key={index} className="text-base text-[#A0A0A0] leading-relaxed">
-                    {item}
-                  </div>
-                ))}
+              <TabsContent value="background" className="mt-8">
+                <ScrollingLogos items={background} speed={60} />
               </TabsContent>
 
-              <TabsContent value="modern" className="mt-8 space-y-4">
-                {modernStack.map((item, index) => (
-                  <div key={index} className="text-base text-[#A0A0A0] leading-relaxed">
-                    {item}
-                  </div>
-                ))}
+              <TabsContent value="modern" className="mt-8">
+                <ScrollingLogos items={modernStack} speed={50} />
               </TabsContent>
             </Tabs>
           </div>
