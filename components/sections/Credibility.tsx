@@ -10,12 +10,37 @@ export interface CredibilityProps {
   className?: string;
 }
 
-const background = [
-  'Thomson Reuters',
-  'Woolworths',
-  'Soudal',
-  'Top Secret Clearance',
-  'Salesforce, Dynamics, SAP, Oracle'
+const backgroundLogos = [
+  {
+    dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/AU%20GOV%20Dark%20theme%20-%20373737.png',
+    light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/AU-GOV%20Light%20Theme%20-%20FFFFFF.png',
+    alt: 'Australian Government'
+  },
+  {
+    dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Breville%20Dark%20theme%20-%20373737.png',
+    light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Breville%20Light%20Theme%20-%20FFFFFF.png',
+    alt: 'Breville'
+  },
+  {
+    dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Fairfax%20Dark%20theme%20-%20373737.png',
+    light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Fairfax%20Light%20Theme%20-%20FFFFFF.png',
+    alt: 'Fairfax'
+  },
+  {
+    dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/RXP%20Dark%20-%20373737.png',
+    light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/RXP%20Light%20-%20FFFFFF.png',
+    alt: 'RXP'
+  },
+  {
+    dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/SUEZ%20Dark%20theme%20-%20373737.png',
+    light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/SUEZ%20Light%20Theme%20-%20FFFFFF.png',
+    alt: 'SUEZ'
+  },
+  {
+    dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/WW%20Dark%20theme%20-%20373737.png',
+    light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/WW%20Light%20Theme%20-%20FFFFFF.png',
+    alt: 'Woolworths'
+  }
 ];
 
 const modernStack = [
@@ -67,7 +92,7 @@ export function Credibility({ className }: CredibilityProps) {
               </TabsList>
 
               <TabsContent value="background" className="mt-8">
-                <ScrollingLogos items={background} speed={60} />
+                <ScrollingLogos logos={backgroundLogos} speed={60} />
               </TabsContent>
 
               <TabsContent value="modern" className="mt-8">
