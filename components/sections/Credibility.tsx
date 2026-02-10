@@ -18,7 +18,7 @@ const backgroundLogos = [
   },
   {
     dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Breville%20Dark%20theme%20-%20373737.png',
-    light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Breville%20Light%20Theme%20-%20FFFFFF.png',
+    light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Breville%20Light%20Theme%20-%20FFFFFF%20(1).png',
     alt: 'Breville'
   },
   {
