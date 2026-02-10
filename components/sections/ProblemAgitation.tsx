@@ -118,7 +118,7 @@ export function ProblemAgitation({ className }: ProblemAgitationProps) {
           {/* Horizontal Scrolling Cards Container */}
           <div className="relative">
             {/* Scrollable Container */}
-            <div className="overflow-x-auto scrollbar-hide snap-x snap-mandatory -mx-8 md:-mx-12 px-8 md:px-12">
+            <div className="overflow-x-auto scrollbar-hide snap-x snap-mandatory md:-mx-12 px-6 sm:px-8 md:px-12">
               <div className="flex gap-8 md:gap-12 min-w-max md:min-w-0 md:grid md:grid-cols-3">
                 {painPoints.map((point, index) => (
                   <AnimatedCard

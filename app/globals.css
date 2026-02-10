@@ -118,6 +118,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 html,
@@ -129,6 +130,7 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
   font-size: 18px;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 /* Better scrollbar for dark theme */
@@ -198,6 +200,7 @@ main {
   min-height: 100vh;
   min-height: 100dvh; /* Dynamic viewport height for mobile */
   background-image: var(--background-image-hero-radial);
+  overflow-x: hidden;
 }
 
 .container {
