@@ -18,48 +18,45 @@ export function FinalCTA({ className }: FinalCTAProps) {
   return (
     <section
       id="cta"
-      className={`py-20 md:py-32 bg-background ${className ?? ''}`}
+      className={`relative py-20 md:py-32 bg-background overflow-hidden ${className ?? ''}`}
     >
-      <div className="max-w-6xl mx-auto px-8 md:px-12">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+        style={{
+          backgroundImage: `url('https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Cursor-Screenshot.jpeg')`
+        }}
+      >
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-background/70" />
+      </div>
+
+      <div className="relative z-10 max-w-6xl mx-auto px-8 md:px-12">
         {!showForm ? (
           <motion.div
             ref={ref}
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="relative rounded-2xl border border-[#404040] bg-surface p-12 md:p-16 overflow-hidden"
+            className="rounded-2xl border border-[#404040] bg-surface/80 backdrop-blur-sm p-12 md:p-16"
           >
-            {/* Background Image */}
-            <div 
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
-              style={{
-                backgroundImage: `url('https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Cursor-Screenshot.jpeg')`
-              }}
-            >
-              {/* Dark overlay for readability */}
-              <div className="absolute inset-0 bg-background/70" />
-            </div>
-
-            {/* Content */}
-            <div className="relative z-10">
-              <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
-                <div className="max-w-2xl space-y-6">
-                  <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-tight">
-                    Ready to Start?
-                  </h2>
-                  <p className="text-xl md:text-2xl font-normal text-[#A0A0A0] leading-relaxed">
-                    Book a free audit. Identify £100k+ in savings.
-                  </p>
-                </div>
-                <div className="flex flex-col items-center lg:items-end gap-6">
-                  <Button
-                    onClick={() => window.open('https://calendar.app.google/koCBUPrhiwLc4zFv7', '_blank')}
-                    size="lg"
-                    className="bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 px-8 py-4 text-base font-medium rounded-full transition-all hover:scale-105 my-8"
-                  >
-                    Book Free Audit
-                  </Button>
-                </div>
+            <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
+              <div className="max-w-2xl space-y-6">
+                <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-tight">
+                  Ready to Start?
+                </h2>
+                <p className="text-xl md:text-2xl font-normal text-[#A0A0A0] leading-relaxed">
+                  Book a free audit. Identify £100k+ in savings.
+                </p>
+              </div>
+              <div className="flex flex-col items-center lg:items-end gap-6">
+                <Button
+                  onClick={() => window.open('https://calendar.app.google/koCBUPrhiwLc4zFv7', '_blank')}
+                  size="lg"
+                  className="bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 px-8 py-4 text-base font-medium rounded-full transition-all hover:scale-105 my-8"
+                >
+                  Book Free Audit
+                </Button>
               </div>
             </div>
           </motion.div>
