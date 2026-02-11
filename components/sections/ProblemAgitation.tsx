@@ -12,18 +12,18 @@ export interface ProblemAgitationProps {
 const painPoints = [
   {
     icon: TrendingDown,
-    headline: 'Wasted Spend',
-    copy: 'You pay for 100% of features. Use 20%.'
-  },
-  {
-    icon: Clock,
-    headline: 'Slow Delivery',
-    copy: 'Agencies want 6 months. Needs change faster.'
+    headline: 'Rent Forever',
+    copy: 'You pay monthly. They own your data.'
   },
   {
     icon: AlertTriangle,
-    headline: 'Hiring Delay',
-    copy: 'CTO search takes 4-6 months. Opportunities slip away.'
+    headline: 'Dead Architecture',
+    copy: 'AI killed dashboards. You still pay for them.'
+  },
+  {
+    icon: Clock,
+    headline: 'Locked In',
+    copy: 'Migrations are impossible. Renewals are mandatory.'
   }
 ];
 
@@ -112,7 +112,7 @@ export function ProblemAgitation({ className }: ProblemAgitationProps) {
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
             className="text-4xl md:text-6xl font-bold text-foreground text-center tracking-tight"
           >
-            The Real Cost
+            The Addiction
           </motion.h2>
 
           {/* Horizontal Scrolling Cards Container */}

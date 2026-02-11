@@ -12,10 +12,10 @@ export interface OffersProps {
 }
 
 const saasDetoxItems = [
-  'Complete Software audit',
-  'Build custom replacement',
-  'Team training + migration',
-  'Go-live + documentation'
+  'AI-powered audit',
+  'Custom AI interface',
+  'Data migration + ownership',
+  'Cancel subscriptions'
 ];
 
 const fractionalCTOItems = [

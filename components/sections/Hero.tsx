@@ -72,7 +72,7 @@ export function Hero({ className }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
             className="text-6xl md:text-8xl font-bold text-foreground leading-tight tracking-tight"
           >
-            Escape the Software Tax
+            AI Killed Your Software Stack
           </motion.h1>
 
           {/* Subheadline */}
@@ -82,7 +82,7 @@ export function Hero({ className }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             className="text-xl md:text-2xl font-normal text-[#A0A0A0] mt-6 mb-0 leading-relaxed"
           >
-            Custom systems built in weeks, not months.
+            Rebuild with AI. Own it forever.
           </motion.h2>
 
           {/* CTAs */}

@@ -14,18 +14,18 @@ export interface TransformationProps {
 const benefits = [
   {
     icon: Zap,
-    headline: '10x Velocity',
-    copy: 'Build full-stack systems solo. No contractors. No delays.'
+    headline: 'Plain Language',
+    copy: 'Ask questions. Get answers. No dashboards.'
   },
   {
     icon: PiggyBank,
-    headline: '70% Savings',
-    copy: 'Replace {currency}60k/year Software with {currency}12k custom build.'
+    headline: 'Own It',
+    copy: 'One-time build. No recurring fees. Your data.'
   },
   {
     icon: Shield,
-    headline: 'Strategic Execution',
-    copy: 'CTO-level thinking plus hands-on building. Weekly strategy.'
+    headline: '10x Speed',
+    copy: 'AI builds in weeks. Agencies take months.'
   }
 ];
 
@@ -75,7 +75,7 @@ export function Transformation({ className }: TransformationProps) {
         >
           {/* Section Headline */}
           <h2 className="text-4xl md:text-6xl font-bold text-foreground text-center tracking-tight">
-            Build Faster. Save More.
+            AI Rebuilds It
           </h2>
 
           {/* Three Benefits Grid */}
