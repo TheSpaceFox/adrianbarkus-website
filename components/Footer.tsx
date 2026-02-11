@@ -1,6 +1,10 @@
+'use client';
+
 import { Download, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { useTheme } from 'next-themes';
 import { CompletedProjectsSlider } from '@/components/CompletedProjectsSlider';
 import { GithubCommitsChart } from '@/components/GithubCommitsChart';
 
@@ -9,9 +13,27 @@ export interface FooterProps {
 }
 
 export function Footer({ className }: FooterProps) {
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const currentTheme = theme === 'system' ? systemTheme : theme;
+  const isDark = mounted ? currentTheme === 'dark' : true; // default to dark during SSR
+
   const year = new Date().getFullYear();
   const cvUrl =
     'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/AdrianBarkus-CV-July-2025-FRACTIONAL-CTO-AI-POWERED-BUILDER.pdf';
+
+  const supabaseLogo = isDark
+    ? 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Supabase%20Dark%20theme%20-%20373737.png'
+    : 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Supabase%20Light%20Theme%20-%20FFFFFF.png';
+
+  const vercelLogo = isDark
+    ? 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Vercel%20Dark%20theme%20-%20373737.png'
+    : 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Vercel%20Light%20Theme%20-%20FFFFFF.png';
 
   return (
     <footer
@@ -93,7 +115,7 @@ export function Footer({ className }: FooterProps) {
               </span>
               <div className="flex items-center gap-2">
                 <Image
-                  src="https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Supabase%20Dark%20theme%20-%20373737.png"
+                  src={supabaseLogo}
                   alt="Supabase"
                   width={72}
                   height={24}
@@ -101,7 +123,7 @@ export function Footer({ className }: FooterProps) {
                   unoptimized
                 />
                 <Image
-                  src="https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Vercel%20Dark%20theme%20-%20373737.png"
+                  src={vercelLogo}
                   alt="Vercel"
                   width={72}
                   height={24}

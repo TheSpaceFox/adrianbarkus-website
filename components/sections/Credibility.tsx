@@ -67,6 +67,31 @@ const modernStackLogos = [
     dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Vercel%20Dark%20theme%20-%20373737.png',
     light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Vercel%20Light%20Theme%20-%20FFFFFF.png',
     alt: 'Vercel'
+  },
+  {
+    dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Typescript%20Dark%20theme%20-%20373737.png',
+    light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Typescript%20Light%20Theme%20-%20FFFFFF.png',
+    alt: 'TypeScript'
+  },
+  {
+    dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/NEXT%20Dark%20theme%20-%20373737.png',
+    light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/NEXT%20Light%20Theme%20-%20FFFFFF.png',
+    alt: 'Next.js'
+  },
+  {
+    dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Cursor%20Light%20Theme%20-%20FFFFFF.png',
+    light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Cursor%20Light%20Theme%20-%20FFFFFF.png',
+    alt: 'Cursor'
+  },
+  {
+    dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Claude%20Dark%20theme%20-%20373737.png',
+    light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Claude%20Light%20Theme%20-%20FFFFFF.png',
+    alt: 'Claude'
+  },
+  {
+    dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Azure%20Dark%20theme%20-%20373737.png',
+    light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Azure%20Light%20Theme%20-%20FFFFFF.png',
+    alt: 'Azure'
   }
 ];
 
