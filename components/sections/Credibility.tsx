@@ -2,7 +2,6 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { ScrollingLogos } from '@/components/ScrollingLogos';
 
@@ -58,11 +57,17 @@ const backgroundLogos = [
   }
 ];
 
-const modernStack = [
-  'Next.js, TypeScript, PostgreSQL',
-  'Supabase, Azure, Vercel',
-  'AI-accelerated development',
-  'Built IndiFind.com solo'
+const modernStackLogos = [
+  {
+    dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Supabase%20Dark%20theme%20-%20373737.png',
+    light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Supabase%20Light%20Theme%20-%20FFFFFF.png',
+    alt: 'Supabase'
+  },
+  {
+    dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Vercel%20Dark%20theme%20-%20373737.png',
+    light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Vercel%20Light%20Theme%20-%20FFFFFF.png',
+    alt: 'Vercel'
+  }
 ];
 
 const trustBadges = [
@@ -94,26 +99,21 @@ export function Credibility({ className }: CredibilityProps) {
             19 Years. Fortune 500. AI-Accelerated.
           </h2>
 
-          {/* Two-Column Tabs Layout */}
-          <div>
-            <Tabs defaultValue="background" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 bg-surface-elevated border border-[#404040]">
-                <TabsTrigger value="background" className="data-[state=active]:bg-surface data-[state=active]:text-foreground">
-                  Background
-                </TabsTrigger>
-                <TabsTrigger value="modern" className="data-[state=active]:bg-surface data-[state=active]:text-foreground">
-                  Modern Stack
-                </TabsTrigger>
-              </TabsList>
+          {/* Background + Modern Stack logos, both visible */}
+          <div className="space-y-10">
+            <div className="space-y-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-foreground-tertiary">
+                Background
+              </p>
+              <ScrollingLogos logos={backgroundLogos} speed={40} />
+            </div>
 
-              <TabsContent value="background" className="mt-8">
-                <ScrollingLogos logos={backgroundLogos} speed={40} />
-              </TabsContent>
-
-              <TabsContent value="modern" className="mt-8">
-                <ScrollingLogos items={modernStack} speed={50} />
-              </TabsContent>
-            </Tabs>
+            <div className="space-y-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-foreground-tertiary">
+                Modern Stack
+              </p>
+              <ScrollingLogos logos={modernStackLogos} speed={50} />
+            </div>
           </div>
 
           {/* Trust Badges Row */}

@@ -1,5 +1,6 @@
 import { Download, Linkedin } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { CompletedProjectsSlider } from '@/components/CompletedProjectsSlider';
 import { GithubCommitsChart } from '@/components/GithubCommitsChart';
 
@@ -9,7 +10,8 @@ export interface FooterProps {
 
 export function Footer({ className }: FooterProps) {
   const year = new Date().getFullYear();
-  const cvUrl = 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/AdrianBarkus-CV-July-2025-FRACTIONAL-CTO-AI-POWERED-BUILDER.pdf';
+  const cvUrl =
+    'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/AdrianBarkus-CV-July-2025-FRACTIONAL-CTO-AI-POWERED-BUILDER.pdf';
 
   return (
     <footer
@@ -31,7 +33,8 @@ export function Footer({ className }: FooterProps) {
                 © {year} Adrian Barkus. Software replacement & fractional CTO services.
               </p>
               <p className="text-sm text-foreground-tertiary">
-                Fractional CTO, AI-accelerated systems, and cost reduction for software-heavy businesses.
+                Fractional CTO, AI-accelerated systems, and cost reduction for software-heavy
+                businesses.
               </p>
             </div>
 
@@ -88,9 +91,24 @@ export function Footer({ className }: FooterProps) {
               <span className="rounded-full bg-surface-elevated border border-border px-3 py-1 text-foreground-tertiary">
                 Availability: Limited
               </span>
-              <span className="text-foreground-tertiary">
-                Built with Next.js, TypeScript, Tailwind, and shadcn/ui.
-              </span>
+              <div className="flex items-center gap-2">
+                <Image
+                  src="https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Supabase%20Dark%20theme%20-%20373737.png"
+                  alt="Supabase"
+                  width={72}
+                  height={24}
+                  className="opacity-80"
+                  unoptimized
+                />
+                <Image
+                  src="https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Vercel%20Dark%20theme%20-%20373737.png"
+                  alt="Vercel"
+                  width={72}
+                  height={24}
+                  className="opacity-80"
+                  unoptimized
+                />
+              </div>
             </div>
 
             <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm">
