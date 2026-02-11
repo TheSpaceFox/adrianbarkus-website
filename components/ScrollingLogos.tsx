@@ -12,10 +12,11 @@ interface ScrollingLogosProps {
     light: string;
     alt: string;
   }[];
-  speed?: number;
+  speed?: number; // duration in seconds for one loop
+  direction?: 'left' | 'right';
 }
 
-export function ScrollingLogos({ items, logos, speed = 50 }: ScrollingLogosProps) {
+export function ScrollingLogos({ items, logos, speed = 50, direction = 'left' }: ScrollingLogosProps) {
   const { theme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -35,7 +36,7 @@ export function ScrollingLogos({ items, logos, speed = 50 }: ScrollingLogosProps
         <motion.div
           className="flex gap-6 md:gap-8 items-center"
           animate={{
-            x: ['0%', '-50%'],
+            x: direction === 'right' ? ['-50%', '0%'] : ['0%', '-50%'],
           }}
           transition={{
             x: {
@@ -76,7 +77,7 @@ export function ScrollingLogos({ items, logos, speed = 50 }: ScrollingLogosProps
       <motion.div
         className="flex gap-6 md:gap-8"
         animate={{
-          x: ['0%', '-50%'],
+          x: direction === 'right' ? ['-50%', '0%'] : ['0%', '-50%'],
         }}
         transition={{
           x: {

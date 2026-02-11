@@ -105,14 +105,14 @@ export function Credibility({ className }: CredibilityProps) {
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-foreground-tertiary">
                 Background
               </p>
-              <ScrollingLogos logos={backgroundLogos} speed={40} />
+              <ScrollingLogos logos={backgroundLogos} speed={20} direction="left" />
             </div>
 
             <div className="space-y-3">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-foreground-tertiary">
                 Modern Stack
               </p>
-              <ScrollingLogos logos={modernStackLogos} speed={50} />
+              <ScrollingLogos logos={modernStackLogos} speed={25} direction="right" />
             </div>
           </div>
 
