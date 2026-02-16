@@ -134,7 +134,7 @@ export function Offers({ className }: OffersProps) {
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#A0A0A0]">Minimum:</span>
-                      <span className="text-base font-semibold text-foreground">1 day per month for 12 months</span>
+                      <span className="text-base font-semibold text-foreground">1 day p/m for 1 year</span>
                     </div>
                   </div>
 
