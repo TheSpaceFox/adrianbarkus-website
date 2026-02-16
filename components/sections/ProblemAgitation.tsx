@@ -32,54 +32,41 @@ interface AnimatedCardProps {
   headline: string;
   copy: string;
   index: number;
+  isSectionInView: boolean;
 }
 
-function AnimatedCard({ icon: Icon, headline, copy, index }: AnimatedCardProps) {
+function AnimatedCard({ icon: Icon, headline, copy, index, isSectionInView }: AnimatedCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
-  const isCardInView = useInView(cardRef, { once: false, margin: '-100px' });
+  const isCardInView = useInView(cardRef, { once: true, margin: '-50px' });
 
-  // Clock positions: 2:00 (bottom-right), 10:00 (top-left), 6:00 (bottom)
-  const getInitialPosition = (idx: number) => {
-    switch (idx) {
-      case 0: // 2:00 - bottom-right
-        return { x: 100, y: 100 };
-      case 1: // 10:00 - top-left
-        return { x: -100, y: -100 };
-      case 2: // 6:00 - bottom
-        return { x: 0, y: 100 };
-      default:
-        return { x: 0, y: 100 };
-    }
-  };
-
-  const initialPos = getInitialPosition(index);
+  // Mobile: fade-up only. Desktop: subtle fade-up with slight stagger (no flying from corners on mobile).
+  const initialPos = { x: 0, y: 24 };
 
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0, x: initialPos.x, y: initialPos.y, scale: 0.9 }}
-      animate={isCardInView ? { opacity: 1, x: 0, y: 0, scale: 1 } : { opacity: 0, x: initialPos.x, y: initialPos.y, scale: 0.9 }}
-      transition={{ 
-        duration: 0.8, 
-        delay: index * 0.15,
-        ease: [0.22, 1, 0.36, 1] // Custom easing for smooth swoop
+      initial={{ opacity: 0, x: initialPos.x, y: initialPos.y, scale: 0.98 }}
+      animate={
+        isCardInView && isSectionInView
+          ? { opacity: 1, x: 0, y: 0, scale: 1 }
+          : { opacity: 0, x: initialPos.x, y: initialPos.y, scale: 0.98 }
+      }
+      transition={{
+        duration: 0.6,
+        delay: index * 0.1,
+        ease: [0.22, 1, 0.36, 1]
       }}
-      className="flex-shrink-0 w-[85vw] md:w-auto snap-center"
+      className="w-full"
     >
-      <Card className="h-full border border-[#404040] bg-surface-elevated hover:shadow-lg hover:border-primary/30 transition-all duration-300">
-        <CardContent className="p-10 md:p-12 space-y-6">
-          {/* Icon */}
-          <div className="p-3 rounded-lg bg-foreground/5 border border-[#404040] w-fit">
-            <Icon className="h-6 w-6 text-foreground-secondary" />
+      <Card className="h-full border border-border bg-surface-elevated hover:shadow-lg hover:border-primary/30 transition-all duration-300">
+        <CardContent className="p-6 sm:p-8 md:p-10 lg:p-12 space-y-4 sm:space-y-5 md:space-y-6">
+          <div className="p-2.5 sm:p-3 rounded-lg bg-foreground/5 border border-border w-fit">
+            <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-foreground-secondary" />
           </div>
-
-          {/* Headline */}
-          <h3 className="text-lg md:text-xl font-semibold text-foreground">
+          <h3 className="text-base sm:text-lg md:text-xl font-semibold text-foreground">
             {headline}
           </h3>
-
-          {/* Copy */}
-          <p className="text-base text-[#A0A0A0] leading-relaxed">
+          <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed">
             {copy}
           </p>
         </CardContent>
@@ -90,7 +77,7 @@ function AnimatedCard({ icon: Icon, headline, copy, index }: AnimatedCardProps) 
 
 export function ProblemAgitation({ className }: ProblemAgitationProps) {
   const sectionRef = useRef<HTMLElement>(null);
-  const isSectionInView = useInView(sectionRef, { once: true, margin: '-100px' });
+  const isSectionInView = useInView(sectionRef, { once: true, margin: '-80px' });
 
   return (
     <section
@@ -98,49 +85,34 @@ export function ProblemAgitation({ className }: ProblemAgitationProps) {
       id="problems"
       className={`min-h-screen-dynamic snap-start flex flex-col justify-center bg-surface ${className ?? ''}`}
     >
-      <div className="max-w-6xl mx-auto px-8 md:px-12 py-20 md:py-32">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6 md:px-8 lg:px-12 py-14 sm:py-16 md:py-20 lg:py-32">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 32 }}
+          animate={isSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 32 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="space-y-16 md:space-y-24"
+          className="space-y-10 sm:space-y-12 md:space-y-16 lg:space-y-24"
         >
-          {/* Section Headline */}
           <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={isSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
-            className="text-4xl md:text-6xl font-bold text-foreground text-center tracking-tight"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, delay: 0.05, ease: 'easeOut' }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground text-center tracking-tight"
           >
             The Addiction
           </motion.h2>
 
-          {/* Horizontal Scrolling Cards Container */}
-          <div className="relative">
-            {/* Scrollable Container */}
-            <div className="overflow-x-auto scrollbar-hide snap-x snap-mandatory md:-mx-12 px-6 sm:px-8 md:px-12">
-              <div className="flex gap-8 md:gap-12 min-w-max md:min-w-0 md:grid md:grid-cols-3">
-                {painPoints.map((point, index) => (
-                  <AnimatedCard
-                    key={index}
-                    icon={point.icon}
-                    headline={point.headline}
-                    copy={point.copy}
-                    index={index}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Scroll Indicator (Mobile only) */}
-            <div className="md:hidden flex justify-center gap-2 mt-6">
-              {painPoints.map((_, index) => (
-                <div
-                  key={index}
-                  className="h-1 w-8 rounded-full bg-[#404040]"
-                />
-              ))}
-            </div>
+          {/* Mobile: vertical stack. Desktop: 3-column grid. */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-12 lg:gap-16">
+            {painPoints.map((point, index) => (
+              <AnimatedCard
+                key={index}
+                icon={point.icon}
+                headline={point.headline}
+                copy={point.copy}
+                index={index}
+                isSectionInView={isSectionInView}
+              />
+            ))}
           </div>
         </motion.div>
       </div>
