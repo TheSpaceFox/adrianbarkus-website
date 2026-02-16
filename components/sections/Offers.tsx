@@ -15,14 +15,16 @@ const saasDetoxItems = [
   'AI-powered audit',
   'Custom AI interface',
   'Data migration + ownership',
-  'Cancel subscriptions'
+  'Cancel subscriptions',
+  'Full handover'
 ];
 
 const fractionalCTOItems = [
-  '8 hours/week strategy',
-  '32-40 hours/month building',
-  'Weekly roadmap',
-  'Direct access'
+  'Strategy',
+  'Roadmap',
+  'Direct Access',
+  'Execution',
+  'Technical ownership'
 ];
 
 export function Offers({ className }: OffersProps) {
@@ -128,11 +130,11 @@ export function Offers({ className }: OffersProps) {
                   <div className="space-y-3 pt-6 border-t border-[#404040]">
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#A0A0A0]">Investment:</span>
-                      <span className="text-base font-semibold text-foreground">{currency}17k-{currency}28k/month</span>
+                      <span className="text-base font-semibold text-foreground">{currency}6,000/day</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#A0A0A0]">Minimum:</span>
-                      <span className="text-base font-semibold text-foreground">3 months</span>
+                      <span className="text-base font-semibold text-foreground">1 day per month for 12 months</span>
                     </div>
                   </div>
 
