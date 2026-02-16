@@ -79,19 +79,12 @@ export function Offers({ className }: OffersProps) {
                   <div className="space-y-3 pt-6 border-t border-[#404040]">
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#A0A0A0]">Investment:</span>
-                      <span className="text-base font-semibold text-foreground">{currency}18k-{currency}45k</span>
+                      <span className="text-base font-semibold text-foreground">{currency}100,000</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#A0A0A0]">Timeline:</span>
                       <span className="text-base font-semibold text-foreground">2-4 weeks</span>
                     </div>
-                  </div>
-
-                  {/* ROI Guarantee */}
-                  <div className="bg-primary/10 border border-primary/30 rounded-lg p-4">
-                    <p className="text-sm text-foreground">
-                      <strong className="text-primary">ROI Guarantee:</strong> If I can't identify {currency}100k+ in savings, you don't pay.
-                    </p>
                   </div>
 
                   {/* CTA Button */}
