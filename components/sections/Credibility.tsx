@@ -1,7 +1,8 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
+import { useTheme } from 'next-themes';
 import { Badge } from '@/components/ui/badge';
 import { ScrollingLogos } from '@/components/ScrollingLogos';
 
@@ -79,7 +80,7 @@ const modernStackLogos = [
     alt: 'Next.js'
   },
   {
-    dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Cursor%20Light%20Theme%20-%20FFFFFF.png',
+    dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Cursor%20Dark%20theme%20-%20373737.png',
     light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Cursor%20Light%20Theme%20-%20FFFFFF.png',
     alt: 'Cursor'
   },
@@ -104,11 +105,34 @@ const trustBadges = [
 
 export function Credibility({ className }: CredibilityProps) {
   const ref = useRef(null);
+  const preloadRef = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isPreloadZone = useInView(preloadRef, { once: true, margin: '800px 0px' });
+  const { resolvedTheme } = useTheme();
+  const preloadedRef = useRef(false);
+
+  // Preload logo images when section is ~800px away so they're cached by scroll time
+  useEffect(() => {
+    if (!isPreloadZone || preloadedRef.current) return;
+    const isDark = resolvedTheme === 'dark' || (resolvedTheme === 'system' && typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    const urls = [
+      ...backgroundLogos.map((l) => (isDark ? l.dark : l.light)),
+      ...modernStackLogos.map((l) => (isDark ? l.dark : l.light))
+    ];
+    urls.forEach((href) => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = href;
+      document.head.appendChild(link);
+    });
+    preloadedRef.current = true;
+  }, [isPreloadZone, resolvedTheme]);
 
   return (
     <section
       id="credibility"
+      ref={preloadRef}
       className={`min-h-screen-dynamic snap-start flex flex-col justify-center bg-surface ${className ?? ''}`}
     >
       <div className="max-w-6xl mx-auto px-8 md:px-12 py-20 md:py-32">

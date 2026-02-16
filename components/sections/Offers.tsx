@@ -85,7 +85,7 @@ export function Offers({ className }: OffersProps) {
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#A0A0A0]">Timeline:</span>
-                      <span className="text-base font-semibold text-foreground">2-4 weeks</span>
+                      <span className="text-base font-semibold text-foreground">4-6 weeks</span>
                     </div>
                   </div>
 
