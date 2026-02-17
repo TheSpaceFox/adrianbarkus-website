@@ -48,7 +48,7 @@ export function FinalCTA({ className }: FinalCTAProps) {
                   Stop Renting. Start Owning.
                 </h2>
                 <p className="text-xl md:text-2xl font-normal text-[#A0A0A0] leading-relaxed">
-                  Book a free audit. Identify {currency}100k+ in savings.
+                  To qualify for this service, {currency}100k+ in savings must be identified.
                 </p>
               </div>
               <div className="flex flex-col items-center lg:items-end gap-6">
