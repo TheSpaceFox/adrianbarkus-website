@@ -44,28 +44,31 @@ const row2Reviews = allTestimonials.slice(6, 12); // Priyanka Das → Andrew Zyb
 const row3Reviews = allTestimonials.slice(12, 18); // Yarlini Aravindan → Rachel de los Santos
 
 const CARD_WIDTH = 320;
+const MOBILE_CARD_WIDTH = 280;
 const ROW_DURATION = 45;
 
 function ReviewCard({
   name,
   handleOrRole,
   quote,
-  avatarUrl
+  avatarUrl,
+  width = CARD_WIDTH
 }: {
   name: string;
   handleOrRole?: string;
   quote: string;
   avatarUrl?: string;
+  width?: number;
 }) {
   const initial = name.split(' ').map((n) => n.charAt(0)).join('').slice(0, 2).toUpperCase();
 
   return (
     <div
       className="flex-shrink-0 rounded-xl border border-border bg-surface-elevated p-5 md:p-6 hover:shadow-lg transition-all duration-300 flex flex-col"
-      style={{ width: CARD_WIDTH }}
+      style={{ width }}
     >
-      <div className="flex items-start justify-between gap-2 mb-3">
-        <div className="flex items-center gap-3 min-w-0">
+      <div className="mb-3">
+        <div className="flex items-center gap-3 mb-2">
           {avatarUrl ? (
             <Image
               src={avatarUrl}
@@ -82,14 +85,14 @@ function ReviewCard({
               {initial}
             </div>
           )}
-          <div className="min-w-0">
+          <div className="min-w-0 flex-1">
             <p className="font-semibold text-foreground truncate">{name}</p>
             {handleOrRole && (
               <p className="text-xs text-foreground-tertiary truncate">{handleOrRole}</p>
             )}
           </div>
         </div>
-        <div className="flex gap-0.5 shrink-0" aria-label="5 out of 5 stars">
+        <div className="flex gap-0.5" aria-label="5 out of 5 stars">
           {[1, 2, 3, 4, 5].map((i) => (
             <Star key={i} className="h-4 w-4 fill-foreground-tertiary text-foreground-tertiary" />
           ))}
@@ -156,38 +159,52 @@ export function SocialProof({ className }: SocialProofProps) {
         aria-hidden
       />
 
-      <div className="relative max-w-6xl mx-auto px-8 md:px-12 py-20 md:py-32">
+      <div className="relative w-full max-w-6xl 2xl:max-w-none mx-auto px-4 sm:px-6 md:px-12 py-14 sm:py-20 md:py-32">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="space-y-12 md:space-y-16"
+          className="space-y-8 md:space-y-16"
         >
-          <div className="text-center space-y-4">
-            <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-tight">
+          <div className="text-center min-w-0">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground tracking-tight break-words">
               Loved by leaders
             </h2>
-            <p className="text-base md:text-lg text-foreground-secondary max-w-2xl mx-auto">
-              Hear from enterprise architects, CTOs, CFOs, and product leaders who trust Adrian to deliver.
-            </p>
           </div>
 
           {/* Rating summary - review style */}
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 md:gap-12">
             <div className="flex items-baseline gap-2">
-              <span className="text-3xl md:text-4xl font-bold text-foreground">5.0</span>
+              <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">5.0</span>
               <div className="flex gap-0.5" aria-hidden>
                 {[1, 2, 3, 4, 5].map((i) => (
-                  <Star key={i} className="h-5 w-5 fill-foreground-tertiary text-foreground-tertiary" />
+                  <Star key={i} className="h-4 w-4 sm:h-5 sm:w-5 fill-foreground-tertiary text-foreground-tertiary" />
                 ))}
               </div>
             </div>
-            <p className="text-sm text-foreground-tertiary">18 reviews</p>
+            <p className="text-sm text-foreground-tertiary">57 reviews</p>
           </div>
 
-          {/* 3 rows: each row has 6 unique reviews, no overlap */}
-          <div className="space-y-6 md:space-y-8">
+          {/* Mobile: single horizontal scroll row with snap */}
+          <div className="md:hidden -mx-4 px-4 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide">
+            <div className="flex gap-4 w-max pb-2">
+              {row1Reviews.map((t) => (
+                <div key={t.name} className="snap-center">
+                  <ReviewCard
+                    name={t.name}
+                    handleOrRole={t.handleOrRole}
+                    quote={t.quote}
+                    avatarUrl={t.avatarUrl}
+                    width={MOBILE_CARD_WIDTH}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop: 3 rows, each row has 6 unique reviews, no overlap */}
+          <div className="hidden md:block space-y-6 md:space-y-8">
             <CarouselRow reviews={row1Reviews} direction="ltr" />
             <CarouselRow reviews={row2Reviews} direction="rtl" />
             <CarouselRow reviews={row3Reviews} direction="ltr" />

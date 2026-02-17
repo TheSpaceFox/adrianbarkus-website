@@ -10,7 +10,7 @@ The Social Proof section uses a **review-style** layout:
 
 - **Header:** "Loved by leaders"
 - **Description:** "Hear from enterprise architects, CTOs, CFOs, and product leaders who trust Adrian to deliver."
-- **Rating summary:** 5.0 with five stars and "18 reviews"
+- **Rating summary:** 5.0 with five stars and "57 reviews"
 - **Three carousel rows** of review cards (each row has **6 unique reviews**; no review appears in more than one row, so users never see duplicate people):
   - **Top row:** scrolls left to right (reviews 1–6)
   - **Middle row:** scrolls right to left (reviews 7–12)
@@ -61,7 +61,7 @@ const row2Reviews = allTestimonials.slice(6, 12);
 const row3Reviews = allTestimonials.slice(12, 18);
 ```
 
-Use different index ranges so the same review never appears in two rows. Keep 6 reviews per row. If you add or remove entries in `allTestimonials`, update the slice ranges and the "18 reviews" label in the rating summary.
+Use different index ranges so the same review never appears in two rows. Keep 6 reviews per row. If you add or remove entries in `allTestimonials`, update the slice ranges and the "57 reviews" label in the rating summary.
 
 ---
 
