@@ -187,19 +187,49 @@ export function SocialProof({ className }: SocialProofProps) {
             <p className="text-sm text-foreground-tertiary">57 reviews</p>
           </div>
 
-          {/* Mobile: one testimonial per view, manual flick only (no auto-scroll) */}
-          <div className="md:hidden w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide">
-            <div className="flex w-[600%]">
-              {row1Reviews.map((t) => (
-                <div key={t.name} className="flex-shrink-0 w-1/6 snap-center px-3">
-                  <ReviewCard
-                    name={t.name}
-                    handleOrRole={t.handleOrRole}
-                    quote={t.quote}
-                    avatarUrl={t.avatarUrl}
-                  />
-                </div>
-              ))}
+          {/* Mobile: 3 rows (one 3-row column), one card per row in view, manual flick per row */}
+          <div className="md:hidden space-y-6">
+            <div className="w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide">
+              <div className="flex w-[600%]">
+                {row1Reviews.map((t) => (
+                  <div key={t.name} className="flex-shrink-0 w-1/6 snap-center px-3">
+                    <ReviewCard
+                      name={t.name}
+                      handleOrRole={t.handleOrRole}
+                      quote={t.quote}
+                      avatarUrl={t.avatarUrl}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide">
+              <div className="flex w-[600%]">
+                {row2Reviews.map((t) => (
+                  <div key={t.name} className="flex-shrink-0 w-1/6 snap-center px-3">
+                    <ReviewCard
+                      name={t.name}
+                      handleOrRole={t.handleOrRole}
+                      quote={t.quote}
+                      avatarUrl={t.avatarUrl}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide">
+              <div className="flex w-[600%]">
+                {row3Reviews.map((t) => (
+                  <div key={t.name} className="flex-shrink-0 w-1/6 snap-center px-3">
+                    <ReviewCard
+                      name={t.name}
+                      handleOrRole={t.handleOrRole}
+                      quote={t.quote}
+                      avatarUrl={t.avatarUrl}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
