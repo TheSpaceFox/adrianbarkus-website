@@ -44,7 +44,6 @@ const row2Reviews = allTestimonials.slice(6, 12); // Priyanka Das → Andrew Zyb
 const row3Reviews = allTestimonials.slice(12, 18); // Yarlini Aravindan → Rachel de los Santos
 
 const CARD_WIDTH = 320;
-const MOBILE_CARD_WIDTH = 280;
 const ROW_DURATION = 45;
 
 function ReviewCard({
@@ -52,7 +51,7 @@ function ReviewCard({
   handleOrRole,
   quote,
   avatarUrl,
-  width = CARD_WIDTH
+  width
 }: {
   name: string;
   handleOrRole?: string;
@@ -61,11 +60,12 @@ function ReviewCard({
   width?: number;
 }) {
   const initial = name.split(' ').map((n) => n.charAt(0)).join('').slice(0, 2).toUpperCase();
+  const isFullWidth = width == null;
 
   return (
     <div
-      className="flex-shrink-0 rounded-xl border border-border bg-surface-elevated p-5 md:p-6 hover:shadow-lg transition-all duration-300 flex flex-col"
-      style={{ width }}
+      className={`rounded-xl border border-border bg-surface-elevated p-5 md:p-6 hover:shadow-lg transition-all duration-300 flex flex-col ${isFullWidth ? 'w-full min-w-0' : 'flex-shrink-0'}`}
+      style={isFullWidth ? undefined : { width: width ?? CARD_WIDTH }}
     >
       <div className="mb-3">
         <div className="flex items-center gap-3 mb-2">
@@ -135,6 +135,7 @@ function CarouselRow({
             handleOrRole={t.handleOrRole}
             quote={t.quote}
             avatarUrl={t.avatarUrl}
+            width={CARD_WIDTH}
           />
         ))}
       </motion.div>
@@ -186,17 +187,16 @@ export function SocialProof({ className }: SocialProofProps) {
             <p className="text-sm text-foreground-tertiary">57 reviews</p>
           </div>
 
-          {/* Mobile: single horizontal scroll row with snap */}
-          <div className="md:hidden -mx-4 px-4 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide">
-            <div className="flex gap-4 w-max pb-2">
+          {/* Mobile: one testimonial per view, manual flick only (no auto-scroll) */}
+          <div className="md:hidden w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide">
+            <div className="flex w-[600%]">
               {row1Reviews.map((t) => (
-                <div key={t.name} className="snap-center">
+                <div key={t.name} className="flex-shrink-0 w-1/6 snap-center px-3">
                   <ReviewCard
                     name={t.name}
                     handleOrRole={t.handleOrRole}
                     quote={t.quote}
                     avatarUrl={t.avatarUrl}
-                    width={MOBILE_CARD_WIDTH}
                   />
                 </div>
               ))}
@@ -209,15 +209,6 @@ export function SocialProof({ className }: SocialProofProps) {
             <CarouselRow reviews={row2Reviews} direction="rtl" />
             <CarouselRow reviews={row3Reviews} direction="ltr" />
           </div>
-
-          <p className="text-center">
-            <a
-              href="#social-proof"
-              className="text-sm font-medium text-foreground-tertiary hover:text-foreground transition-colors"
-            >
-              Read more from clients
-            </a>
-          </p>
         </motion.div>
       </div>
     </section>
