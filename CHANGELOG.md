@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.1] - 2026-02-16
+
+### Changed
+
+- Offers: delivery timeframe updated from "4-6 weeks" to "4 weeks".
+
 ## [1.1.0] - 2026-02-16
 
 ### Added
