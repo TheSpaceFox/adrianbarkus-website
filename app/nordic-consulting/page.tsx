@@ -7,6 +7,7 @@ import { Transformation } from '@/components/sections/Transformation';
 import { Credibility } from '@/components/sections/Credibility';
 import { Offers } from '@/components/sections/Offers';
 import { Urgency } from '@/components/sections/Urgency';
+import { SocialProof } from '@/components/sections/SocialProof';
 import { FAQ } from '@/components/sections/FAQ';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import { Footer } from '@/components/Footer';
@@ -37,6 +38,7 @@ export default function NordicConsultingPage() {
       <Credibility />
       <Offers />
       <Urgency />
+      <SocialProof />
       <FAQ />
       <FinalCTA />
       <Footer />
