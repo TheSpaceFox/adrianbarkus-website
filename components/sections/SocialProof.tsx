@@ -184,7 +184,7 @@ export function SocialProof({ className }: SocialProofProps) {
                 ))}
               </div>
             </div>
-            <p className="text-sm text-foreground-tertiary">57 reviews</p>
+            <p className="text-sm text-foreground-tertiary">59 reviews</p>
           </div>
 
           {/* Mobile: 3 rows (one 3-row column), one card per row in view, manual flick per row */}

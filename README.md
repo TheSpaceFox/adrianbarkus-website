@@ -29,7 +29,8 @@ Fill in any `NEXT_PUBLIC_*` and `SUPABASE_*` values as needed.
 
 ### Documentation
 
-- [TESTIMONIALS.md](TESTIMONIALS.md) – Social Proof section: review-style testimonials, 3 carousel rows, how to update content and add avatar images (Supabase).
+- [TESTIMONIALS.md](TESTIMONIALS.md) – Social Proof section: review-style testimonials, layout (desktop: full width, 3 auto-scroll rows; mobile: 3 stacked rows, one card per row, manual flick), how to update content and add avatar images (Supabase).
+- [STYLE_GUIDE.md](STYLE_GUIDE.md) – Brand and style guide; includes **Social Proof section layout** as a locked-in pattern for reuse.
 
 ### Scripts
 

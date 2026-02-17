@@ -6,17 +6,28 @@ This document describes the **Social Proof** (testimonials) section on the Adria
 
 ## Overview
 
-The Social Proof section uses a **review-style** layout:
+The Social Proof section uses a **review-style** layout. **Layout is locked in** for consistency; see [STYLE_GUIDE.md § Social Proof section layout](STYLE_GUIDE.md#social-proof-section-layout) for the full pattern.
 
-- **Header:** "Loved by leaders"
-- **Description:** "Hear from enterprise architects, CTOs, CFOs, and product leaders who trust Adrian to deliver."
-- **Rating summary:** 5.0 with five stars and "57 reviews"
-- **Three carousel rows** of review cards (each row has **6 unique reviews**; no review appears in more than one row, so users never see duplicate people):
-  - **Top row:** scrolls left to right (reviews 1–6)
-  - **Middle row:** scrolls right to left (reviews 7–12)
-  - **Bottom row:** scrolls left to right (reviews 13–18)
+- **Header:** "Loved by leaders" (no subheading or description line)
+- **Rating summary:** 5.0 with five stars and "59 reviews"
+- **No bottom CTA** (no "Read more from clients" or similar link)
 
-Each card shows: avatar (or initials), name, role/title, 5-star rating, and a short quote (25 words or less). The carousels run continuously (infinite loop) within each row; across rows there is no overlap.
+**Desktop (md and up):**
+
+- Section is **full width** on 2xl viewports (`max-w-6xl` up to 2xl, then `max-w-none`).
+- **Three carousel rows** of review cards (each row has **6 unique reviews**; no review appears in more than one row):
+  - **Top row:** auto-scrolls left to right (reviews 1–6)
+  - **Middle row:** auto-scrolls right to left (reviews 7–12)
+  - **Bottom row:** auto-scrolls left to right (reviews 13–18)
+- Card width: 320px. Carousels run continuously (infinite loop).
+
+**Mobile (below md):**
+
+- **Three stacked rows** forming one **3-row column**. Each row shows **one full-width card in view** at a time.
+- **Manual flick only** — no auto-scroll. User swipes horizontally per row to see the next/previous testimonial in that row.
+- Same 6 reviews per row (row 1: 1–6, row 2: 7–12, row 3: 13–18).
+
+Each card shows: avatar (or initials), **name and role on one line**, **5-star rating on the line below** (so the name is never covered by stars), and a short quote (25 words or less).
 
 ---
 
@@ -61,7 +72,7 @@ const row2Reviews = allTestimonials.slice(6, 12);
 const row3Reviews = allTestimonials.slice(12, 18);
 ```
 
-Use different index ranges so the same review never appears in two rows. Keep 6 reviews per row. If you add or remove entries in `allTestimonials`, update the slice ranges and the "57 reviews" label in the rating summary.
+Use different index ranges so the same review never appears in two rows. Keep 6 reviews per row. If you add or remove entries in `allTestimonials`, update the slice ranges and the "59 reviews" label in the rating summary.
 
 ---
 
@@ -75,10 +86,11 @@ Use different index ranges so the same review never appears in two rows. Keep 6 
 
 ## Technical details
 
-- **Carousel:** Framer Motion `animate` with `x: ['0%', '-50%']` (or `['-50%', '0%']` for opposite direction). Content is duplicated so one full loop equals 50% translation for a seamless repeat.
-- **Card width:** 320px (`CARD_WIDTH`). Row loop duration: 45 seconds (`ROW_DURATION`). Both are constants at the top of the file.
-- **Theme:** Uses only theme tokens (`border-border`, `bg-surface-elevated`, `text-foreground`, `text-foreground-secondary`, `text-foreground-tertiary`) so the section works in light and dark mode.
-- **Stars:** Lucide React `Star` icon, filled; each card shows 5 stars. Rating summary at the top also shows 5 stars and "6 reviews".
+- **Desktop carousel:** Framer Motion `animate` with `x: ['0%', '-50%']` (or `['-50%', '0%']` for opposite direction). Content is duplicated so one full loop equals 50% translation. Card width: 320px (`CARD_WIDTH`). Row loop duration: 45 seconds (`ROW_DURATION`).
+- **Mobile:** Three independent horizontal scroll containers; each has `overflow-x-auto`, `snap-x snap-mandatory`, and a flex track at `w-[600%]` with six `w-1/6` snap slots. No Framer Motion on mobile — manual scroll only. Cards are full width within each slot (`ReviewCard` with no `width` prop).
+- **Card layout:** Name/role and stars are on separate rows so the name is never covered (avatar + name/role block, then star row, then quote).
+- **Theme:** Uses only theme tokens (`border-border`, `bg-surface-elevated`, `text-foreground`, etc.) so the section works in light and dark mode.
+- **Stars:** Lucide React `Star` icon, filled; each card and the rating summary show 5 stars. Rating label: "59 reviews".
 
 ---
 
@@ -88,7 +100,8 @@ Use different index ranges so the same review never appears in two rows. Keep 6 
 |------|--------|
 | Section name | Social Proof (testimonials) |
 | Component | `components/sections/SocialProof.tsx` |
-| Layout | Review style: header, description, 5.0 + 6 reviews, 3 carousel rows (L→R, R→L, L→R) |
+| Layout | Header only, 5.0 + 59 reviews, no bottom CTA. Desktop: full width on 2xl, 3 auto-scroll rows. Mobile: 3 stacked rows, one card per row in view, manual flick per row. |
 | Reviews shown | 18 total (6 per row, no overlap between rows) |
 | Avatars | Optional; set `avatarUrl` when Supabase images are ready |
 | Full testimonial list | In component as `allTestimonials`; extend for more names/quotes as needed |
+| Locked-in spec | See STYLE_GUIDE.md § Social Proof section layout for reuse in later parts of the build |
