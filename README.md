@@ -27,6 +27,10 @@ cp .env.local.example .env.local
 
 Fill in any `NEXT_PUBLIC_*` and `SUPABASE_*` values as needed.
 
+### Documentation
+
+- [TESTIMONIALS.md](TESTIMONIALS.md) – Social Proof section: review-style testimonials, 3 carousel rows, how to update content and add avatar images (Supabase).
+
 ### Scripts
 
 - `npm run dev` – start dev server
