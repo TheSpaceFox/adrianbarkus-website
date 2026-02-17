@@ -10,13 +10,13 @@ The Social Proof section uses a **review-style** layout:
 
 - **Header:** "Loved by leaders"
 - **Description:** "Hear from enterprise architects, CTOs, CFOs, and product leaders who trust Adrian to deliver."
-- **Rating summary:** 5.0 with five stars and "6 reviews"
-- **Three carousel rows** of review cards:
-  - **Top row:** scrolls left to right
-  - **Middle row:** scrolls right to left
-  - **Bottom row:** scrolls left to right
+- **Rating summary:** 5.0 with five stars and "18 reviews"
+- **Three carousel rows** of review cards (each row has **6 unique reviews**; no review appears in more than one row, so users never see duplicate people):
+  - **Top row:** scrolls left to right (reviews 1–6)
+  - **Middle row:** scrolls right to left (reviews 7–12)
+  - **Bottom row:** scrolls left to right (reviews 13–18)
 
-Each card shows: avatar (or initials), name, role/title, 5-star rating, and a short quote (25 words or less). The carousels run continuously (infinite loop) so the same 6 reviews scroll in each row.
+Each card shows: avatar (or initials), name, role/title, 5-star rating, and a short quote (25 words or less). The carousels run continuously (infinite loop) within each row; across rows there is no overlap.
 
 ---
 
@@ -32,16 +32,14 @@ Each card shows: avatar (or initials), name, role/title, 5-star rating, and a sh
 ### Data in the component
 
 1. **`allTestimonials`**  
-   Full list of testimonials (currently 10 entries) with: `name`, `handleOrRole`, `quote`, `avatarUrl` (optional), `verified` (optional). This is the source pool for the carousel and for reuse elsewhere (e.g. proposals, LinkedIn).
+   Full list of testimonials (18 entries) with: `name`, `handleOrRole`, `quote`, `avatarUrl` (optional), `verified` (optional). This is the source pool for the three rows and for reuse elsewhere (e.g. proposals, LinkedIn).
 
-2. **`sixReviews`**  
-   The 6 reviews shown in the three carousels. Currently:
-   - Dinny Evans (CFO, New Horizons – recent client)
-   - Tony Harrison (CPTO Digital Transformer – recent client)
-   - Priyanka Das (Senior Business Analyst)
-   - Kristoffer Ferrer (Complex Project Management)
-   - Mike Dudarenok (Chief Information and Digital Officer)
-   - Walter Nguyen (Integration Solution Engineer)
+2. **Row assignment (no duplicates across rows)**  
+   - **Row 1** (`row1Reviews`): indices 0–5 — David Freke, Andrew Fragias, Tony Fitzgibbon, Jason Keith, Dinny Evans, Tony Harrison  
+   - **Row 2** (`row2Reviews`): indices 6–11 — Priyanka Das, Kristoffer Ferrer, Mike Dudarenok, Walter Nguyen, Peter Jeans, Sally Montgomery  
+   - **Row 3** (`row3Reviews`): indices 12–17 — Anil Kumar, Henri Fanda, Andrew Zybenko, Yarlini Aravindan, Nikesh Lalchandani, Rachel de los Santos  
+
+   No review appears in more than one row, so users never see the same person twice.
 
 Quotes are punchy, 25-word-or-less statements drawn from longer client testimonials (Salesforce, enterprise architecture, PMO, delivery leadership).
 
@@ -53,22 +51,17 @@ Quotes are punchy, 25-word-or-less statements drawn from longer client testimoni
 
 ---
 
-## Changing which 6 reviews show
+## Changing which reviews show in each row
 
-Edit `sixReviews` in `SocialProof.tsx`. It’s an array of entries from `allTestimonials` (by index or by reference). Example:
+Edit `row1Reviews`, `row2Reviews`, and `row3Reviews` in `SocialProof.tsx`. Each is a slice of `allTestimonials` (6 reviews per row, no overlap). Example:
 
 ```ts
-const sixReviews = [
-  allTestimonials[4],  // Dinny Evans
-  allTestimonials[5],  // Tony Harrison
-  allTestimonials[0],  // David Freke
-  allTestimonials[1],  // Andrew Fragias
-  allTestimonials[2],  // Tony Fitzgibbon
-  allTestimonials[3]   // Jason Keith
-];
+const row1Reviews = allTestimonials.slice(0, 6);
+const row2Reviews = allTestimonials.slice(6, 12);
+const row3Reviews = allTestimonials.slice(12, 18);
 ```
 
-Reorder or swap in any of the `allTestimonials` entries. Keep the array length at 6 for the current three-row carousel layout.
+Use different index ranges so the same review never appears in two rows. Keep 6 reviews per row. If you add or remove entries in `allTestimonials`, update the slice ranges and the "18 reviews" label in the rating summary.
 
 ---
 
@@ -96,6 +89,6 @@ Reorder or swap in any of the `allTestimonials` entries. Keep the array length a
 | Section name | Social Proof (testimonials) |
 | Component | `components/sections/SocialProof.tsx` |
 | Layout | Review style: header, description, 5.0 + 6 reviews, 3 carousel rows (L→R, R→L, L→R) |
-| Reviews shown | 6 (subset of `allTestimonials`) |
+| Reviews shown | 18 total (6 per row, no overlap between rows) |
 | Avatars | Optional; set `avatarUrl` when Supabase images are ready |
 | Full testimonial list | In component as `allTestimonials`; extend for more names/quotes as needed |

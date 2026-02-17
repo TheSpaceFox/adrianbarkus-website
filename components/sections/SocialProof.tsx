@@ -9,8 +9,16 @@ export interface SocialProofProps {
   className?: string;
 }
 
-const allTestimonials = [
-  { name: 'David Freke', handleOrRole: 'Solution Architect', quote: 'Superb knowledge of Salesforce Architecture—develops strategies all stakeholders understand.', avatarUrl: undefined as string | undefined, verified: false },
+type Review = {
+  name: string;
+  handleOrRole?: string;
+  quote: string;
+  avatarUrl?: string;
+  verified?: boolean;
+};
+
+const allTestimonials: Review[] = [
+  { name: 'David Freke', handleOrRole: 'Solution Architect', quote: 'Superb knowledge of Salesforce Architecture—develops strategies all stakeholders understand.', avatarUrl: undefined, verified: false },
   { name: 'Andrew Fragias', handleOrRole: 'Principal Product Manager, Lumary', quote: 'Clear understanding of Salesforce CRM and architecture to implement and enhance business processes.', avatarUrl: undefined, verified: false },
   { name: 'Tony Fitzgibbon', handleOrRole: 'Head of Technology, Woolworths', quote: 'Exemplary platform knowledge with dynamic, thought-provoking approaches. Exactly what large enterprises need early in their Salesforce journey.', avatarUrl: undefined, verified: false },
   { name: 'Jason Keith', handleOrRole: 'Woolworths Head of Technology', quote: 'Highly professional architect—strong in technical and business engagement. Breaks down complexity, builds relationships.', avatarUrl: undefined, verified: false },
@@ -19,18 +27,21 @@ const allTestimonials = [
   { name: 'Priyanka Das', handleOrRole: 'Senior Business Analyst (direct report)', quote: 'Standout Enterprise Architect—vision and expertise invaluable for transforming software infrastructure. Meticulous diagrams gave crystal-clear roadmap.', avatarUrl: undefined, verified: false },
   { name: 'Kristoffer Ferrer', handleOrRole: 'Complex Project Management (direct report)', quote: 'Key to our transformation. Architecture diagrams gave clarity and roadmap. Strategic leadership brought executives together around common goal.', avatarUrl: undefined, verified: false },
   { name: 'Mike Dudarenok', handleOrRole: 'Chief Information and Digital Officer', quote: 'Tight-knit team delivered on tight timelines under pressure. Focused on getting right things done right—project shipped, users happy.', avatarUrl: undefined, verified: false },
-  { name: 'Walter Nguyen', handleOrRole: 'Integration Solution Engineer (direct report)', quote: 'Incredible leader and mentor—brings positive energy and motivation. Delivered project successfully on time with very positive client feedback.', avatarUrl: undefined, verified: false }
+  { name: 'Walter Nguyen', handleOrRole: 'Integration Solution Engineer (direct report)', quote: 'Incredible leader and mentor—brings positive energy and motivation. Delivered project successfully on time with very positive client feedback.', avatarUrl: undefined, verified: false },
+  { name: 'Peter Jeans', handleOrRole: 'Solution Architect', quote: 'In-depth architectural knowledge that bolstered the growing Salesforce practice. Key role developing architecture through the Salesforce guild.', avatarUrl: undefined, verified: false },
+  { name: 'Sally Montgomery', handleOrRole: 'Product Manager, Woolworths', quote: 'Instrumental in setup and running the Salesforce CoE during growth stage. People person who built strong relationships.', avatarUrl: undefined, verified: false },
+  { name: 'Anil Kumar', handleOrRole: 'CRM, AI, Digital Transformation', quote: 'Instrumental in setting up Salesforce COE at Woolworths. Easy to work with, keeps people informed, great sense of humour.', avatarUrl: undefined, verified: false },
+  { name: 'Henri Fanda', handleOrRole: 'Senior Data Analyst (direct report)', quote: 'One of the best project managers—calm, assuring, keeps team on track. Goes extra distance to remove roadblocks.', avatarUrl: undefined, verified: false },
+  { name: 'Andrew Zybenko', handleOrRole: 'Fire Safety / Business Operations', quote: 'Determined optimal roadmap for new Salesforce instance in complex corporate IT. Expertise imperative for viable, robust architecture.', avatarUrl: undefined, verified: false },
+  { name: 'Yarlini Aravindan', handleOrRole: 'Managing business/applications (direct manager)', quote: 'Exceptional professional—excels at big picture architecture and right tech solutions. Charismatic leadership elevates entire team.', avatarUrl: undefined, verified: false },
+  { name: 'Nikesh Lalchandani', handleOrRole: 'Payments / Fintech Author', quote: 'Highly knowledgeable, exceptionally positive. Combines technical depth with collaborative approach—pleasure to work with.', avatarUrl: undefined, verified: false },
+  { name: 'Rachel de los Santos', handleOrRole: 'Senior Test Analyst', quote: 'Truly valuable asset—immense energy, positive atmosphere. Vast Salesforce knowledge huge advantage to entire project.', avatarUrl: undefined, verified: false }
 ];
 
-// 6 reviews for the carousel (subset with recent clients and strong quotes)
-const sixReviews = [
-  allTestimonials[4],  // Dinny Evans
-  allTestimonials[5],  // Tony Harrison
-  allTestimonials[6],  // Priyanka Das
-  allTestimonials[7],  // Kristoffer Ferrer
-  allTestimonials[8],  // Mike Dudarenok
-  allTestimonials[9]   // Walter Nguyen
-];
+// Each row gets 6 unique reviews; no overlap so users never see the same review twice
+const row1Reviews = allTestimonials.slice(0, 6);   // David Freke → Tony Harrison
+const row2Reviews = allTestimonials.slice(6, 12); // Priyanka Das → Andrew Zybenko
+const row3Reviews = allTestimonials.slice(12, 18); // Yarlini Aravindan → Rachel de los Santos
 
 const CARD_WIDTH = 320;
 const ROW_DURATION = 45;
@@ -93,7 +104,7 @@ function CarouselRow({
   reviews,
   direction
 }: {
-  reviews: typeof sixReviews;
+  reviews: Review[];
   direction: 'ltr' | 'rtl';
 }) {
   const duplicated = [...reviews, ...reviews];
@@ -172,14 +183,14 @@ export function SocialProof({ className }: SocialProofProps) {
                 ))}
               </div>
             </div>
-            <p className="text-sm text-foreground-tertiary">6 reviews</p>
+            <p className="text-sm text-foreground-tertiary">18 reviews</p>
           </div>
 
-          {/* 3 rows: top L→R, middle R→L, bottom L→R */}
+          {/* 3 rows: each row has 6 unique reviews, no overlap */}
           <div className="space-y-6 md:space-y-8">
-            <CarouselRow reviews={sixReviews} direction="ltr" />
-            <CarouselRow reviews={sixReviews} direction="rtl" />
-            <CarouselRow reviews={sixReviews} direction="ltr" />
+            <CarouselRow reviews={row1Reviews} direction="ltr" />
+            <CarouselRow reviews={row2Reviews} direction="rtl" />
+            <CarouselRow reviews={row3Reviews} direction="ltr" />
           </div>
 
           <p className="text-center">
