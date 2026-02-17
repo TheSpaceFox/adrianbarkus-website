@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.2] - 2026-02-16
+
+### Changed
+
+- **Social Proof:** All carousel rows now scroll at the same card speed (rows 4 and 5 duration scaled to match rows 1–3).
+- **Social Proof:** Testimonials in rows 4 and 5 are interleaved by person so the same person never appears twice on screen.
+
 ## [1.1.1] - 2026-02-16
 
 ### Changed

@@ -97,15 +97,43 @@ const allTestimonials: Review[] = [
   { name: 'Nicole Watson', handleOrRole: 'Process Technician, Rio Tinto', quote: 'Absolute pleasure to work with - courteous, professional, will always go above and beyond', avatarUrl: undefined, verified: false }
 ];
 
-// Rows 1–3: original 18. Rows 4–5: new 58 (29 + 29)
+// Interleave by person so the same person never appears twice on screen (round-robin by name)
+function interleaveByPerson(reviews: Review[]): Review[] {
+  const byName = new Map<string, Review[]>();
+  const nameOrder: string[] = [];
+  for (const r of reviews) {
+    if (!byName.has(r.name)) {
+      byName.set(r.name, []);
+      nameOrder.push(r.name);
+    }
+    byName.get(r.name)!.push(r);
+  }
+  const result: Review[] = [];
+  let round = 0;
+  let hasMore = true;
+  while (hasMore) {
+    hasMore = false;
+    for (const name of nameOrder) {
+      const list = byName.get(name)!;
+      if (round < list.length) {
+        result.push(list[round]);
+        hasMore = true;
+      }
+    }
+    round++;
+  }
+  return result;
+}
+
+// Rows 1–3: original 18 (one per person). Rows 4–5: new 58, interleaved so one per person on screen
 const row1Reviews = allTestimonials.slice(0, 6);
 const row2Reviews = allTestimonials.slice(6, 12);
 const row3Reviews = allTestimonials.slice(12, 18);
-const row4Reviews = allTestimonials.slice(18, 47);
-const row5Reviews = allTestimonials.slice(47, 76);
+const row4Reviews = interleaveByPerson(allTestimonials.slice(18, 47));
+const row5Reviews = interleaveByPerson(allTestimonials.slice(47, 76));
 
 const CARD_WIDTH = 320;
-const ROW_DURATION = 45;
+const ROW_DURATION = 45; // base duration for 6-card row; longer rows scale so card speed matches
 
 function ReviewCard({
   name,
@@ -166,12 +194,16 @@ function ReviewCard({
 
 function CarouselRow({
   reviews,
-  direction
+  direction,
+  duration
 }: {
   reviews: Review[];
   direction: 'ltr' | 'rtl';
+  duration?: number;
 }) {
   const duplicated = [...reviews, ...reviews];
+  // Scale duration so all rows scroll at same card speed as 6-card rows (ROW_DURATION)
+  const scrollDuration = duration ?? ROW_DURATION * (reviews.length / 6);
 
   return (
     <div className="overflow-hidden w-full">
@@ -184,7 +216,7 @@ function CarouselRow({
           x: {
             repeat: Infinity,
             repeatType: 'loop',
-            duration: ROW_DURATION,
+            duration: scrollDuration,
             ease: 'linear'
           }
         }}
@@ -245,7 +277,7 @@ export function SocialProof({ className }: SocialProofProps) {
                 ))}
               </div>
             </div>
-            <p className="text-sm text-foreground-tertiary">76 reviews</p>
+            <p className="text-sm text-foreground-tertiary">117 reviews</p>
           </div>
 
           {/* Mobile: 3 rows (one 3-row column), one card per row in view, manual flick per row */}
