@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.3] - 2026-02-16
+
+### Changed
+
+- **Social Proof:** Avatar images added for all remaining testimonial contributors (Caroline Birch, Sally Turpin, Paul Reid, Lance Orsmond, Chris Franklin, Yanis Guzel, Alan Blair, Yassine El Jouaidi, Jurie Fourie, Dylan Byrne, Will Focus, Nicole Watson).
+
 ## [1.1.2] - 2026-02-16
 
 ### Changed
