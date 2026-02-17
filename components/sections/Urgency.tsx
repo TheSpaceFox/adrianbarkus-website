@@ -3,29 +3,65 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { useCurrency } from '@/hooks/useCurrency';
 
 export interface UrgencyProps {
   className?: string;
 }
 
-const urgencyPoints = [
+const urgencyCards = [
   {
-    headline: 'Monthly Waste',
-    copy: 'Every month costs {currency}5k-{currency}8k. That\'s {currency}60k-{currency}96k per year.'
+    headline: 'Software Detox Sprint',
+    copy: '5 slots for 2026. Book in advance; change to next available with 30 days notice or your slot is lost.',
+    slotsTotal: 5,
+    slotsTaken: 2,
+    slotLabel: '2026 slots'
   },
   {
-    headline: 'Competitors Win',
-    copy: 'They ship custom solutions in weeks. You wait months.'
+    headline: 'Fractional CTO',
+    copy: '3 slots total. 2 taken. One space left.',
+    slotsTotal: 3,
+    slotsTaken: 2,
+    slotLabel: '1 slot left'
   }
 ];
 
-// Flying card positions reused from "The Real Cost" style
+function SlotRow({
+  total,
+  taken,
+  label
+}: {
+  total: number;
+  taken: number;
+  label?: string;
+}) {
+  return (
+    <div className="space-y-2">
+      {label && (
+        <p className="text-xs font-medium uppercase tracking-[0.12em] text-foreground-tertiary">
+          {label}
+        </p>
+      )}
+      <div className="flex gap-2">
+        {Array.from({ length: total }).map((_, i) => (
+          <div
+            key={i}
+            className={`h-2.5 w-2.5 rounded-full shrink-0 ${
+              i < taken
+                ? 'bg-foreground-tertiary'
+                : 'border border-border bg-transparent'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 const getUrgencyInitialPosition = (idx: number) => {
   switch (idx) {
-    case 0: // left / top-left
+    case 0:
       return { x: -100, y: -80 };
-    case 1: // right / bottom-right
+    case 1:
       return { x: 100, y: 80 };
     default:
       return { x: 0, y: 100 };
@@ -35,12 +71,6 @@ const getUrgencyInitialPosition = (idx: number) => {
 export function Urgency({ className }: UrgencyProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const { currency } = useCurrency();
-
-  const urgencyPointsWithCurrency = urgencyPoints.map(point => ({
-    ...point,
-    copy: point.copy.replace(/{currency}/g, currency)
-  }));
 
   return (
     <section
@@ -55,14 +85,12 @@ export function Urgency({ className }: UrgencyProps) {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="space-y-16 md:space-y-24"
         >
-          {/* Section Headline */}
           <h2 className="text-4xl md:text-6xl font-bold text-foreground text-center tracking-tight">
-            The Cost of Waiting
+            Secure Your Slot
           </h2>
 
-          {/* Two Urgency Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-            {urgencyPointsWithCurrency.map((point, index) => {
+            {urgencyCards.map((card, index) => {
               const initialPos = getUrgencyInitialPosition(index);
               return (
                 <motion.div
@@ -79,14 +107,19 @@ export function Urgency({ className }: UrgencyProps) {
                     ease: [0.22, 1, 0.36, 1]
                   }}
                 >
-                  <Card className="h-full border border-[#404040] bg-surface-elevated hover:shadow-lg transition-all duration-300">
+                  <Card className="h-full border border-border bg-surface-elevated hover:shadow-lg transition-all duration-300">
                     <CardContent className="p-10 md:p-12 space-y-6">
                       <h3 className="text-lg md:text-xl font-semibold text-foreground">
-                        {point.headline}
+                        {card.headline}
                       </h3>
-                      <p className="text-base text-[#A0A0A0] leading-relaxed">
-                        {point.copy}
+                      <p className="text-base text-foreground-secondary leading-relaxed">
+                        {card.copy}
                       </p>
+                      <SlotRow
+                        total={card.slotsTotal}
+                        taken={card.slotsTaken}
+                        label={card.slotLabel}
+                      />
                     </CardContent>
                   </Card>
                 </motion.div>
