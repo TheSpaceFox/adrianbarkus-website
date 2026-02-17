@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.4] - 2026-02-16
+
+### Changed
+
+- **Credibility (19 Years. Fortune 500. AI-Accelerated.):** Logo images now preload on page load when theme is resolved so they are cached by the time users scroll to the section.
+
 ## [1.1.3] - 2026-02-16
 
 ### Changed

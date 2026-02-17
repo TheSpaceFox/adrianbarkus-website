@@ -105,15 +105,13 @@ const trustBadges = [
 
 export function Credibility({ className }: CredibilityProps) {
   const ref = useRef(null);
-  const preloadRef = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const isPreloadZone = useInView(preloadRef, { once: true, margin: '800px 0px' });
   const { resolvedTheme } = useTheme();
   const preloadedRef = useRef(false);
 
-  // Preload logo images when section is ~800px away so they're cached by scroll time
+  // Preload logo images on load once theme is resolved so they're cached by scroll time
   useEffect(() => {
-    if (!isPreloadZone || preloadedRef.current) return;
+    if (preloadedRef.current || resolvedTheme === undefined) return;
     const isDark = resolvedTheme === 'dark' || (resolvedTheme === 'system' && typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches);
     const urls = [
       ...backgroundLogos.map((l) => (isDark ? l.dark : l.light)),
@@ -127,12 +125,11 @@ export function Credibility({ className }: CredibilityProps) {
       document.head.appendChild(link);
     });
     preloadedRef.current = true;
-  }, [isPreloadZone, resolvedTheme]);
+  }, [resolvedTheme]);
 
   return (
     <section
       id="credibility"
-      ref={preloadRef}
       className={`min-h-screen-dynamic snap-start flex flex-col justify-center bg-surface ${className ?? ''}`}
     >
       <div className="max-w-6xl mx-auto px-8 md:px-12 py-20 md:py-32">
