@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import { UsageMeter } from '@/components/billingsdk/usage-meter';
 
 export interface UrgencyProps {
   className?: string;
@@ -24,38 +25,6 @@ const urgencyCards = [
     slotLabel: '1 slot left'
   }
 ];
-
-function SlotRow({
-  total,
-  taken,
-  label
-}: {
-  total: number;
-  taken: number;
-  label?: string;
-}) {
-  return (
-    <div className="space-y-2">
-      {label && (
-        <p className="text-xs font-medium uppercase tracking-[0.12em] text-foreground-tertiary">
-          {label}
-        </p>
-      )}
-      <div className="flex gap-2">
-        {Array.from({ length: total }).map((_, i) => (
-          <div
-            key={i}
-            className={`h-2.5 w-2.5 rounded-full shrink-0 ${
-              i < taken
-                ? 'bg-foreground-tertiary'
-                : 'border border-border bg-transparent'
-            }`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
 
 const getUrgencyInitialPosition = (idx: number) => {
   switch (idx) {
@@ -115,10 +84,20 @@ export function Urgency({ className }: UrgencyProps) {
                       <p className="text-base text-foreground-secondary leading-relaxed">
                         {card.copy}
                       </p>
-                      <SlotRow
-                        total={card.slotsTotal}
-                        taken={card.slotsTaken}
-                        label={card.slotLabel}
+                      <UsageMeter
+                        usage={[
+                          {
+                            name: card.headline,
+                            usage: card.slotsTaken,
+                            limit: card.slotsTotal
+                          }
+                        ]}
+                        title={card.slotLabel}
+                        description=""
+                        variant="circle"
+                        size="md"
+                        progressColor="default"
+                        className="w-full"
                       />
                     </CardContent>
                   </Card>
