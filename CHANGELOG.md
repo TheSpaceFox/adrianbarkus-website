@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.7] - 2026-02-16
+
+### Changed
+
+- **Hero:** Audit CTA now uses BOOK_AUDIT_URL (Cal.com) and label "Book Audit Session".
+- **Footer:** Nav link label "Book Audit" → "Book Audit Session" for consistency.
+
 ## [1.1.6] - 2026-02-16
 
 ### Changed
