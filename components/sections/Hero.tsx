@@ -2,11 +2,14 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
+import Image from 'next/image';
 import { useTheme } from 'next-themes';
+import { Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import AnimatedNumber from '@/components/AnimatedNumber';
 import { useCurrency } from '@/hooks/useCurrency';
 import { BOOK_AUDIT_URL } from '@/lib/constants';
+import { HERO_REVIEW_AVATARS, REVIEW_RATING, REVIEW_COUNT } from '@/components/sections/SocialProof';
 
 export interface HeroProps {
   className?: string;
@@ -83,7 +86,7 @@ export function Hero({ className }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             className="text-xl md:text-2xl font-normal text-[#A0A0A0] mt-6 mb-0 leading-relaxed"
           >
-            Rebuild with AI. Own it forever.
+            Rebuild with Adrian Barkus. Own it forever.
           </motion.h2>
 
           {/* CTAs */}
@@ -100,6 +103,39 @@ export function Hero({ className }: HeroProps) {
             >
               Book Audit Session
             </Button>
+          </motion.div>
+
+          {/* Social proof: avatars + star rating */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6, delay: 0.35, ease: 'easeOut' }}
+            className="mx-auto mt-10 flex w-fit flex-col items-center gap-4 sm:flex-row sm:gap-6"
+          >
+            <div className="inline-flex items-center -space-x-4">
+              {HERO_REVIEW_AVATARS.map((review, index) => (
+                <Image
+                  key={index}
+                  src={review.avatarUrl!}
+                  alt={review.name}
+                  width={40}
+                  height={40}
+                  className="h-10 w-10 shrink-0 rounded-full border-2 border-background object-cover"
+                  unoptimized
+                />
+              ))}
+            </div>
+            <div className="flex flex-col items-center sm:items-start">
+              <div className="flex items-center gap-1.5" aria-label="5 out of 5 stars">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                ))}
+                <span className="text-sm font-semibold text-foreground">{REVIEW_RATING}</span>
+              </div>
+              <p className="text-xs font-medium text-foreground-tertiary">
+                from {REVIEW_COUNT} reviews
+              </p>
+            </div>
           </motion.div>
 
           {/* Metrics Row */}

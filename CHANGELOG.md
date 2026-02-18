@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.12] - 2026-02-18
+
+### Changed
+
+- **Hero:** Subheadline updated to "Rebuild with Adrian Barkus. Own it forever."
+- **Hero:** Social proof block added below CTA—5 overlapping review headshots, 5 stars, 5.0, "from 117 reviews" (data from Social Proof section). @bundui registry added to components.json.
+
 ## [1.1.11] - 2026-02-18
 
 ### Added

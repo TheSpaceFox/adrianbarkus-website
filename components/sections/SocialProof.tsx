@@ -97,6 +97,10 @@ const allTestimonials: Review[] = [
   { name: 'Nicole Watson', handleOrRole: 'Process Technician, Rio Tinto', quote: 'Absolute pleasure to work with - courteous, professional, will always go above and beyond', avatarUrl: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/TestimonialImages/NicoleWatson.jpg', verified: false }
 ];
 
+export const HERO_REVIEW_AVATARS = allTestimonials.filter((r) => r.avatarUrl).slice(0, 5);
+export const REVIEW_RATING = 5.0;
+export const REVIEW_COUNT = 117;
+
 // Interleave by person so the same person never appears twice on screen (round-robin by name)
 function interleaveByPerson(reviews: Review[]): Review[] {
   const byName = new Map<string, Review[]>();

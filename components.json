@@ -9,9 +9,13 @@
     "baseColor": "slate",
     "cssVariables": true
   },
+  "iconLibrary": "lucide",
   "aliases": {
     "components": "@/components",
     "utils": "@/lib/utils"
+  },
+  "registries": {
+    "@billingsdk": "https://billingsdk.com/r/{name}.json",
+    "@bundui": "https://bundui.io/api/registry/{name}.json"
   }
 }
-
