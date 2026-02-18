@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.10] - 2026-02-18
+
+### Fixed
+
+- **Build:** Remove unused React import and mark unused progressColor in usage-meter for TypeScript strict build.
+
 ## [1.1.9] - 2026-02-18
 
 ### Added
