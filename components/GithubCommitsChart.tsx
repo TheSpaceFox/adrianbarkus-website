@@ -138,7 +138,7 @@ export function GithubCommitsChart({ className }: { className?: string }) {
               GitHub Activity
             </p>
             <p className="text-sm text-foreground-secondary">
-              Monthly commits across all GitHub projects for{' '}
+              Monthly GitHub contributions across all projects for{' '}
               <span className="font-medium text-foreground">{GITHUB_USER}</span>
               {loading && ' (loading…)'}
               {error && ` (${error})`}
@@ -160,7 +160,7 @@ export function GithubCommitsChart({ className }: { className?: string }) {
               viewBox={`0 0 ${VIEWBOX_WIDTH} ${VIEWBOX_HEIGHT}`}
               className="w-full h-48 md:h-56"
               role="img"
-              aria-label={`Monthly GitHub commits for user ${GITHUB_USER}`}
+              aria-label={`Monthly GitHub contributions for user ${GITHUB_USER}`}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
             >
@@ -283,7 +283,7 @@ export function GithubCommitsChart({ className }: { className?: string }) {
               <span className="h-4 w-px bg-border" />
               <span className="text-foreground">
                 {activeData.commits}{' '}
-                <span className="text-foreground-tertiary">commits</span>
+                <span className="text-foreground-tertiary">contributions</span>
               </span>
             </div>
           )}
