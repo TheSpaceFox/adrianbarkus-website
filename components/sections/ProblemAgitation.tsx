@@ -2,8 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { TrendingDown, Clock, AlertTriangle, LucideIcon } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
+import { TrendingDown, AlertTriangle, Lock, Receipt, GitMerge, LucideIcon } from 'lucide-react';
 
 export interface ProblemAgitationProps {
   className?: string;
@@ -13,17 +12,27 @@ const painPoints = [
   {
     icon: TrendingDown,
     headline: 'Rent Forever',
-    copy: 'You pay monthly. They own your data.'
+    copy: "Salesforce. HubSpot. Dynamics. You've paid £180k over 3 years. You own nothing. Cancel tomorrow — it's all gone."
   },
   {
     icon: AlertTriangle,
     headline: 'Dead Architecture',
-    copy: 'AI killed dashboards. You still pay for them.'
+    copy: "ChatGPT can query your entire database in plain English. You're still paying £2k/month for a dashboard to do what a prompt does in seconds."
   },
   {
-    icon: Clock,
+    icon: Lock,
     headline: 'Locked In',
-    copy: 'Migrations are impossible. Renewals are mandatory.'
+    copy: "Your data is in their schema, their format, their servers. They know you can't leave. So the price goes up — every single year."
+  },
+  {
+    icon: Receipt,
+    headline: 'The Hidden Tax',
+    copy: "10 tools at £300/month each. That's £36k/year — buried across 6 departments, 12 credit cards, and nobody's budget."
+  },
+  {
+    icon: GitMerge,
+    headline: 'Franken-Stack',
+    copy: "Zapier connects HubSpot to Slack to Notion to Airtable. One API change and the whole thing collapses. You're not running a business — you're babysitting integrations."
   }
 ];
 
@@ -58,19 +67,17 @@ function AnimatedCard({ icon: Icon, headline, copy, index, isSectionInView }: An
       }}
       className="w-full"
     >
-      <Card className="h-full border border-border bg-surface-elevated hover:shadow-lg hover:border-primary/30 transition-all duration-300">
-        <CardContent className="p-6 sm:p-8 md:p-10 lg:p-12 space-y-4 sm:space-y-5 md:space-y-6">
-          <div className="p-2.5 sm:p-3 rounded-lg bg-foreground/5 border border-border w-fit">
-            <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-foreground-secondary" />
-          </div>
-          <h3 className="text-base sm:text-lg md:text-xl font-semibold text-foreground">
-            {headline}
-          </h3>
-          <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed">
-            {copy}
-          </p>
-        </CardContent>
-      </Card>
+      <div className="h-full rounded-2xl bg-surface border border-border p-6 sm:p-8">
+        <div className="rounded-lg bg-surface-elevated p-2 w-fit">
+          <Icon className="h-5 w-5 text-foreground-secondary" aria-hidden />
+        </div>
+        <h3 className="font-semibold text-foreground mt-4 text-lg">
+          {headline}
+        </h3>
+        <p className="text-foreground-secondary text-sm mt-2 leading-relaxed">
+          {copy}
+        </p>
+      </div>
     </motion.div>
   );
 }
@@ -100,18 +107,30 @@ export function ProblemAgitation({ className }: ProblemAgitationProps) {
           >
             The Addiction
           </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={isSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+            className="text-foreground-secondary text-lg sm:text-xl max-w-2xl mx-auto text-center mt-4"
+          >
+            You're renting software you can't afford to lose and can't afford to keep.
+          </motion.p>
 
-          {/* Mobile: vertical stack. Desktop: 3-column grid. */}
+          {/* First row: 3 cards. Second row: 2 cards centered. */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-12 lg:gap-16">
             {painPoints.map((point, index) => (
-              <AnimatedCard
+              <div
                 key={index}
-                icon={point.icon}
-                headline={point.headline}
-                copy={point.copy}
-                index={index}
-                isSectionInView={isSectionInView}
-              />
+                className={index === 3 ? 'md:col-start-2' : index === 4 ? 'md:col-start-3' : ''}
+              >
+                <AnimatedCard
+                  icon={point.icon}
+                  headline={point.headline}
+                  copy={point.copy}
+                  index={index}
+                  isSectionInView={isSectionInView}
+                />
+              </div>
             ))}
           </div>
         </motion.div>
