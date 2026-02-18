@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.8] - 2026-02-16
+
+### Fixed
+
+- **Book Audit Session:** Cal.com booking URL updated to correct link (adrian-barkus-bbcvmp/systems-audit-session).
+
 ## [1.1.7] - 2026-02-16
 
 ### Changed
