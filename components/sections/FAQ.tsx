@@ -48,9 +48,9 @@ export function FAQ({ className }: FAQProps) {
   return (
     <section
       id="faq"
-      className={`min-h-screen-dynamic snap-start flex flex-col justify-center bg-surface ${className ?? ''}`}
+      className={`min-h-screen-dynamic snap-start flex flex-col justify-center bg-surface overflow-x-hidden ${className ?? ''}`}
     >
-      <div className="max-w-6xl mx-auto px-8 md:px-12 py-20 md:py-32">
+      <div className="max-w-6xl mx-auto w-full min-w-0 px-4 sm:px-6 md:px-12 py-20 md:py-32">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
@@ -59,7 +59,7 @@ export function FAQ({ className }: FAQProps) {
           className="space-y-16 md:space-y-24"
         >
           {/* Section Headline */}
-          <h2 className="text-4xl md:text-6xl font-bold text-foreground text-center tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground text-center tracking-tight break-words">
             Questions
           </h2>
 
@@ -74,8 +74,8 @@ export function FAQ({ className }: FAQProps) {
                 className="group rounded-lg border border-[#404040] bg-surface-elevated p-8 hover:bg-surface transition-colors"
               >
                 <summary className="cursor-pointer text-lg font-semibold text-foreground hover:text-primary transition-colors list-none">
-                  <span className="flex items-center justify-between">
-                    <span>{faq.question}</span>
+                  <span className="flex items-center justify-between gap-3">
+                    <span className="min-w-0 break-words text-left">{faq.question}</span>
                     <span className="text-[#A0A0A0] group-open:hidden">+</span>
                     <span className="text-[#A0A0A0] hidden group-open:inline">−</span>
                   </span>

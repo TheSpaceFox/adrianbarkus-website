@@ -117,7 +117,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
       </head>
-      <body className="bg-background text-foreground">
+      <body className="bg-background text-foreground overflow-x-hidden">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

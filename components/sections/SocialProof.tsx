@@ -243,7 +243,7 @@ export function SocialProof({ className }: SocialProofProps) {
   return (
     <section
       id="social-proof"
-      className={`min-h-screen-dynamic snap-start flex flex-col justify-center bg-background relative overflow-hidden ${className ?? ''}`}
+      className={`min-h-screen-dynamic snap-start flex flex-col justify-center bg-background relative overflow-hidden overflow-x-hidden ${className ?? ''}`}
     >
       <div
         className="absolute inset-0 pointer-events-none"
@@ -253,7 +253,7 @@ export function SocialProof({ className }: SocialProofProps) {
         aria-hidden
       />
 
-      <div className="relative w-full max-w-6xl 2xl:max-w-none mx-auto px-4 sm:px-6 md:px-12 py-14 sm:py-20 md:py-32">
+      <div className="relative w-full max-w-6xl 2xl:max-w-none mx-auto min-w-0 px-4 sm:px-6 md:px-12 py-14 sm:py-20 md:py-32">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}

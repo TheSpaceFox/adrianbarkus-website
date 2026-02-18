@@ -63,9 +63,9 @@ export function Transformation({ className }: TransformationProps) {
   return (
     <section
       id="transformation"
-      className={`min-h-screen-dynamic snap-start flex flex-col justify-center bg-background ${className ?? ''}`}
+      className={`min-h-screen-dynamic snap-start flex flex-col justify-center bg-background overflow-x-hidden ${className ?? ''}`}
     >
-      <div className="max-w-6xl mx-auto px-8 md:px-12 py-20 md:py-32">
+      <div className="max-w-6xl mx-auto w-full min-w-0 px-4 sm:px-6 md:px-12 py-20 md:py-32">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
@@ -74,7 +74,7 @@ export function Transformation({ className }: TransformationProps) {
           className="space-y-16 md:space-y-24"
         >
           {/* Section Headline */}
-          <h2 className="text-4xl md:text-6xl font-bold text-foreground text-center tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground text-center tracking-tight break-words">
             AI Rebuilds It
           </h2>
 

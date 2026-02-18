@@ -6,6 +6,7 @@ import { ContactForm } from '@/components/ContactForm';
 import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
 import { useCurrency } from '@/hooks/useCurrency';
+import { BOOK_AUDIT_URL } from '@/lib/constants';
 
 export interface FinalCTAProps {
   className?: string;
@@ -33,7 +34,7 @@ export function FinalCTA({ className }: FinalCTAProps) {
         <div className="absolute inset-0 bg-background/70" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-8 md:px-12 py-20 md:py-32">
+      <div className="relative z-10 max-w-6xl mx-auto w-full min-w-0 px-4 sm:px-6 md:px-12 py-20 md:py-32">
         {!showForm ? (
           <motion.div
             ref={ref}
@@ -44,20 +45,23 @@ export function FinalCTA({ className }: FinalCTAProps) {
           >
             <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
               <div className="max-w-2xl space-y-6">
-                <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-tight">
+                <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground tracking-tight break-words">
                   Stop Renting. Start Owning.
                 </h2>
                 <p className="text-xl md:text-2xl font-normal text-[#A0A0A0] leading-relaxed">
                   To qualify for this service, {currency}100k+ in savings must be identified.
                 </p>
+                <p className="text-lg font-normal text-[#A0A0A0]">
+                  Book a {currency}1,000 audit call.
+                </p>
               </div>
               <div className="flex flex-col items-center lg:items-end gap-6">
                 <Button
-                  onClick={() => window.open('https://calendar.app.google/qDskb7kUFgsNWwLh6', '_blank')}
+                  onClick={() => window.open(BOOK_AUDIT_URL, '_blank')}
                   size="lg"
                   className="bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 px-8 py-4 text-base font-medium rounded-full transition-all hover:scale-105 my-8"
                 >
-                  Book Free Audit
+                  Book Audit Session
                 </Button>
               </div>
             </div>
@@ -71,7 +75,7 @@ export function FinalCTA({ className }: FinalCTAProps) {
           >
             <div className="flex items-center justify-between">
               <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
-                Book Your Free Software Audit
+                Book Your Audit Session
               </h2>
               <Button
                 variant="ghost"

@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.6] - 2026-02-16
+
+### Changed
+
+- **Mobile:** Full mobile view alignment pass. Horizontal overflow prevented (body + main); Credibility section headline and trust badges no longer truncate; responsive padding (px-4 sm:px-6 md:px-12) and min-w-0 containment across sections; section headlines scale down and use break-words on small viewports; FAQ question text wraps correctly in accordions.
+
+## [1.1.5] - 2026-02-16
+
+### Changed
+
+- **Paid audit CTAs:** All audit booking links now use the paid Cal.com flow (systems-audit-session). Configurable via `NEXT_PUBLIC_BOOK_AUDIT_URL`.
+- **Copy:** "Book Free Audit" → "Book Audit Session"; form title "Book Your Audit Session"; Final CTA adds "Book a {currency}1,000 audit call." (Hero, Final CTA, Offers, Footer aligned).
+
 ## [1.1.4] - 2026-02-16
 
 ### Changed

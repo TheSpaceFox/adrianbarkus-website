@@ -130,31 +130,31 @@ export function Credibility({ className }: CredibilityProps) {
   return (
     <section
       id="credibility"
-      className={`min-h-screen-dynamic snap-start flex flex-col justify-center bg-surface ${className ?? ''}`}
+      className={`min-h-screen-dynamic snap-start flex flex-col justify-center bg-surface overflow-x-hidden ${className ?? ''}`}
     >
-      <div className="max-w-6xl mx-auto px-8 md:px-12 py-20 md:py-32">
+      <div className="max-w-6xl mx-auto w-full min-w-0 px-4 sm:px-6 md:px-12 py-20 md:py-32">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="space-y-16 md:space-y-24"
+          className="space-y-16 md:space-y-24 min-w-0 overflow-x-hidden"
         >
-          {/* Section Headline */}
-          <h2 className="text-4xl md:text-6xl font-bold text-foreground text-center tracking-tight">
+          {/* Section Headline - break-words so it wraps on narrow screens */}
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground text-center tracking-tight break-words">
             19 Years. Fortune 500. AI-Accelerated.
           </h2>
 
           {/* Background + Modern Stack logos, both visible */}
-          <div className="space-y-10">
-            <div className="space-y-3">
+          <div className="space-y-10 min-w-0 w-full">
+            <div className="space-y-3 min-w-0">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-foreground-tertiary">
                 Background
               </p>
               <ScrollingLogos logos={backgroundLogos} speed={20} direction="left" />
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-3 min-w-0">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-foreground-tertiary">
                 Modern Stack
               </p>
@@ -162,17 +162,17 @@ export function Credibility({ className }: CredibilityProps) {
             </div>
           </div>
 
-          {/* Trust Badges Row */}
+          {/* Trust Badges Row - wrap with safe gap so none truncate */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
-            className="flex flex-wrap items-center justify-center gap-4 pt-8"
+            className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 pt-8 min-w-0 max-w-full"
           >
             {trustBadges.map((badge, index) => (
               <Badge
                 key={index}
-                className="bg-primary/10 text-primary border-primary/30 px-4 py-2 text-sm font-medium"
+                className="bg-primary/10 text-primary border-primary/30 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium whitespace-nowrap shrink-0"
               >
                 {badge}
               </Badge>

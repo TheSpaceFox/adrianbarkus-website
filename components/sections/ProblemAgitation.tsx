@@ -83,7 +83,7 @@ export function ProblemAgitation({ className }: ProblemAgitationProps) {
     <section
       ref={sectionRef}
       id="problems"
-      className={`min-h-screen-dynamic snap-start flex flex-col justify-center bg-surface ${className ?? ''}`}
+      className={`min-h-screen-dynamic snap-start flex flex-col justify-center bg-surface overflow-x-hidden ${className ?? ''}`}
     >
       <div className="max-w-6xl mx-auto px-5 sm:px-6 md:px-8 lg:px-12 py-14 sm:py-16 md:py-20 lg:py-32">
         <motion.div

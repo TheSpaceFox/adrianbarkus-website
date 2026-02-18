@@ -6,6 +6,7 @@ import { Check } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useCurrency } from '@/hooks/useCurrency';
+import { BOOK_AUDIT_URL } from '@/lib/constants';
 
 export interface OffersProps {
   className?: string;
@@ -35,9 +36,9 @@ export function Offers({ className }: OffersProps) {
   return (
     <section
       id="offers"
-      className={`min-h-screen-dynamic snap-start flex flex-col justify-center bg-background ${className ?? ''}`}
+      className={`min-h-screen-dynamic snap-start flex flex-col justify-center bg-background overflow-x-hidden ${className ?? ''}`}
     >
-      <div className="max-w-6xl mx-auto px-8 md:px-12 py-20 md:py-32">
+      <div className="max-w-6xl mx-auto w-full min-w-0 px-4 sm:px-6 md:px-12 py-20 md:py-32">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
@@ -46,7 +47,7 @@ export function Offers({ className }: OffersProps) {
           className="space-y-16 md:space-y-24"
         >
           {/* Section Headline */}
-          <h2 className="text-4xl md:text-6xl font-bold text-foreground text-center tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground text-center tracking-tight break-words">
             Two Options
           </h2>
 
@@ -92,10 +93,10 @@ export function Offers({ className }: OffersProps) {
                   {/* CTA Button */}
                   <Button
                     size="lg"
-                    onClick={() => window.open('https://calendar.app.google/qDskb7kUFgsNWwLh6', '_blank')}
+                    onClick={() => window.open(BOOK_AUDIT_URL, '_blank')}
                     className="w-full bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 transition-all hover:scale-105 px-8 py-4"
                   >
-                    Book Audit Call
+                    Book Audit Session
                   </Button>
                 </CardContent>
               </Card>

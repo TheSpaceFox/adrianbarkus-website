@@ -57,20 +57,20 @@ export function Hero({ className }: HeroProps) {
       {/* Subtle gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-background pointer-events-none z-[1]" />
 
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-8 md:px-12 pt-24 md:pt-0">
+      <div className="relative z-10 w-full max-w-4xl mx-auto min-w-0 px-4 sm:px-6 md:px-12 pt-24 md:pt-0">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="text-center"
+          className="text-center min-w-0"
         >
           {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
-            className="text-6xl md:text-8xl font-bold text-foreground leading-tight tracking-tight"
+            className="text-4xl sm:text-5xl md:text-8xl font-bold text-foreground leading-tight tracking-tight break-words"
           >
             AI Killed Your Software Stack
           </motion.h1>
