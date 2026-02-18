@@ -12,27 +12,32 @@ const painPoints = [
   {
     icon: TrendingDown,
     headline: 'Rent Forever',
-    copy: "Salesforce. HubSpot. Dynamics. You've paid £180k over 3 years. You own nothing. Cancel tomorrow — it's all gone."
+    copy:
+      "Every month you pay. Every month they own a little more of your business. The moment you stop paying, your data, your workflows, your history — gone."
   },
   {
     icon: AlertTriangle,
     headline: 'Dead Architecture',
-    copy: "ChatGPT can query your entire database in plain English. You're still paying £2k/month for a dashboard to do what a prompt does in seconds."
+    copy:
+      "The tools your team logs into every day were built for a world before AI. You're paying for yesterday's solution to run today's business."
   },
   {
     icon: Lock,
     headline: 'Locked In',
-    copy: "Your data is in their schema, their format, their servers. They know you can't leave. So the price goes up — every single year."
+    copy:
+      "Your data lives in their system, in their format, on their terms. They know switching feels impossible. That's exactly how they want it."
   },
   {
     icon: Receipt,
     headline: 'The Hidden Tax',
-    copy: "10 tools at £300/month each. That's £36k/year — buried across 6 departments, 12 credit cards, and nobody's budget."
+    copy:
+      "Most businesses have no idea what they're actually spending on software. It's spread across departments, expense reports, and annual renewals nobody questions."
   },
   {
     icon: GitMerge,
     headline: 'Franken-Stack',
-    copy: "Zapier connects HubSpot to Slack to Notion to Airtable. One API change and the whole thing collapses. You're not running a business — you're babysitting integrations."
+    copy:
+      'One tool feeds into another, into another. Nobody fully understands how it all connects — until something breaks, and everything stops.'
   }
 ];
 
