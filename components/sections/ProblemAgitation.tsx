@@ -116,12 +116,11 @@ export function ProblemAgitation({ className }: ProblemAgitationProps) {
             You're renting software you can't afford to lose and can't afford to keep.
           </motion.p>
 
-          {/* First row: 3 cards. Second row: 2 cards centered. */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-12 lg:gap-16">
+          <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
             {painPoints.map((point, index) => (
               <div
                 key={index}
-                className={index === 3 ? 'md:col-start-2' : index === 4 ? 'md:col-start-3' : ''}
+                className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
               >
                 <AnimatedCard
                   icon={point.icon}
