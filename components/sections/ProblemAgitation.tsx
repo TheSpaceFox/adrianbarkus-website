@@ -111,7 +111,7 @@ export function ProblemAgitation({ className }: ProblemAgitationProps) {
             initial={{ opacity: 0, y: 16 }}
             animate={isSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
-            className="text-foreground-secondary text-lg sm:text-xl max-w-2xl mx-auto text-center mt-4"
+            className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground tracking-tight max-w-3xl mx-auto text-center mt-6 mb-12"
           >
             You're renting software you can't afford to lose and can't afford to keep.
           </motion.p>
