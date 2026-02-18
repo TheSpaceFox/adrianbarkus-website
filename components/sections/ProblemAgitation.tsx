@@ -100,21 +100,13 @@ export function ProblemAgitation({ className }: ProblemAgitationProps) {
           className="space-y-10 sm:space-y-12 md:space-y-16 lg:space-y-24"
         >
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={isSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, delay: 0.05, ease: 'easeOut' }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground text-center tracking-tight"
-          >
-            The Addiction
-          </motion.h2>
-          <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={isSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+            transition={{ duration: 0.6, delay: 0.05, ease: 'easeOut' }}
             className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground tracking-tight max-w-3xl mx-auto text-center mt-6 mb-12"
           >
             You're renting software you can't afford to lose and can't afford to keep.
-          </motion.p>
+          </motion.h2>
 
           <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
             {painPoints.map((point, index) => (
