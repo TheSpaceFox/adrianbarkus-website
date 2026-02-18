@@ -3,11 +3,15 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { UsageMeter } from '@/components/billingsdk/usage-meter';
+import { BOOK_AUDIT_URL } from '@/lib/constants';
 
 export interface UrgencyProps {
   className?: string;
 }
+
+const STRATEGY_CALL_URL = 'https://calendar.app.google/koCBUPrhiwLc4zFv7';
 
 const urgencyCards = [
   {
@@ -15,14 +19,18 @@ const urgencyCards = [
     copy: '5 slots for 2026. Book in advance; change to next available with 30 days notice or your slot is lost.',
     slotsTotal: 5,
     slotsTaken: 2,
-    slotLabel: '2026 slots'
+    slotLabel: '2026 slots',
+    ctaLabel: 'Book Audit Session',
+    ctaHref: BOOK_AUDIT_URL
   },
   {
     headline: 'Fractional CTO',
     copy: '3 slots total. 2 taken. One space left.',
     slotsTotal: 3,
     slotsTaken: 2,
-    slotLabel: '1 slot left'
+    slotLabel: '1 slot left',
+    ctaLabel: 'Book Strategy Call',
+    ctaHref: STRATEGY_CALL_URL
   }
 ];
 
@@ -99,6 +107,17 @@ export function Urgency({ className }: UrgencyProps) {
                         progressColor="default"
                         className="w-full"
                       />
+                      <Button
+                        size="lg"
+                        onClick={() => window.open(card.ctaHref, '_blank')}
+                        className={
+                          index === 0
+                            ? 'w-full bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 transition-all hover:scale-105 px-8 py-4'
+                            : 'w-full border border-border bg-surface hover:bg-surface-elevated text-foreground hover:scale-105 transition-transform duration-200 px-8 py-4'
+                        }
+                      >
+                        {card.ctaLabel}
+                      </Button>
                     </CardContent>
                   </Card>
                 </motion.div>
