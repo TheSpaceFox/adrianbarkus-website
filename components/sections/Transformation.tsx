@@ -2,56 +2,43 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Zap, PiggyBank, Shield } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
+import { Phone, Search, Zap, LucideIcon } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { useCurrency } from '@/hooks/useCurrency';
+import { BOOK_AUDIT_URL } from '@/lib/constants';
 
 export interface TransformationProps {
   className?: string;
 }
 
-const benefits = [
+const processSteps = [
   {
-    icon: Zap,
-    headline: 'Plain Language',
-    copy: 'Ask questions. Get answers. No dashboards.'
+    label: '01',
+    headline: 'Discovery Call',
+    priceTag: 'Free',
+    body: "A 45-minute conversation to understand your current stack, your costs, and whether I can save you money. No pitch. No obligation. If I can't find savings, I'll tell you.",
+    icon: Phone
   },
   {
-    icon: PiggyBank,
-    headline: 'Own It',
-    copy: 'One-time build. No recurring fees. Your data.'
+    label: '02',
+    headline: 'Software Review',
+    priceTag: '£6,750',
+    body: "A one-week deep-dive into your entire software estate. I interview your team, audit every active subscription, map every workflow, and identify exactly where you're haemorrhaging cash. You receive a written report with projected 3-year savings, replacement recommendations, and a clear ROI model — whether you work with me further or not.",
+    icon: Search
   },
   {
-    icon: Shield,
-    headline: '10x Speed',
-    copy: 'AI builds in weeks. Agencies take months.'
+    label: '03',
+    headline: 'SaaS Detox Sprint',
+    priceTag: 'Priced on findings',
+    body: 'Based on the Software Review, I build your custom replacement in 4–6 weeks. Fixed price, fixed scope, zero subscriptions on the other side. Priced at 10% of your projected 3-year savings — you keep the other 90%.',
+    icon: Zap
   }
 ];
-
-// Shared "flying in" positions (clock-face inspired)
-const getInitialPosition = (idx: number) => {
-  switch (idx) {
-    case 0: // 2:00 - bottom-right
-      return { x: 100, y: 100 };
-    case 1: // 10:00 - top-left
-      return { x: -100, y: -100 };
-    case 2: // 6:00 - bottom
-      return { x: 0, y: 100 };
-    default:
-      return { x: 0, y: 100 };
-  }
-};
 
 export function Transformation({ className }: TransformationProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const { currency } = useCurrency();
-
-  const benefitsWithCurrency = benefits.map(benefit => ({
-    ...benefit,
-    copy: benefit.copy.replace(/{currency}/g, currency)
-  }));
 
   const proofMetrics = [
     { value: `${currency}420k`, label: 'Saved (3yr Software replacement)' },
@@ -63,7 +50,7 @@ export function Transformation({ className }: TransformationProps) {
   return (
     <section
       id="transformation"
-      className={`min-h-screen-dynamic snap-start flex flex-col justify-center bg-background overflow-x-hidden ${className ?? ''}`}
+      className={`min-h-screen-dynamic snap-start flex flex-col justify-center bg-surface-elevated overflow-x-hidden ${className ?? ''}`}
     >
       <div className="max-w-6xl mx-auto w-full min-w-0 px-4 sm:px-6 md:px-12 py-20 md:py-32">
         <motion.div
@@ -73,60 +60,84 @@ export function Transformation({ className }: TransformationProps) {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="space-y-16 md:space-y-24"
         >
-          {/* Section Headline */}
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground text-center tracking-tight break-words">
-            AI Rebuilds It
+          {/* Section Label */}
+          <p className="text-primary text-xs tracking-[0.16em] uppercase font-medium text-center">
+            HOW IT WORKS
+          </p>
+
+          {/* Section Title */}
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-foreground text-center break-words">
+            Adrian Rebuilds It. With AI.
           </h2>
 
-          {/* Three Benefits Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
-            {benefitsWithCurrency.map((benefit, index) => {
-              const Icon = benefit.icon;
-              const initialPos = getInitialPosition(index);
+          {/* Section Subtitle */}
+          <p className="text-foreground-secondary text-lg max-w-2xl mx-auto text-center mt-4 mb-16">
+            No retainers until you've seen the savings. No surprises. Every step is designed so you can walk
+            away — until you don't want to.
+          </p>
+
+          {/* Process Steps: vertical timeline mobile, horizontal stepper desktop */}
+          <div className="flex flex-col md:flex-row md:items-start gap-10 md:gap-0">
+            {processSteps.map((step, index) => {
+              const Icon = step.icon as LucideIcon;
+              const isLast = index === processSteps.length - 1;
               return (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: initialPos.x, y: initialPos.y, scale: 0.9 }}
-                  animate={
-                    isInView
-                      ? { opacity: 1, x: 0, y: 0, scale: 1 }
-                      : { opacity: 0, x: initialPos.x, y: initialPos.y, scale: 0.9 }
-                  }
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
                   transition={{
-                    duration: 0.8,
+                    duration: 0.6,
                     delay: index * 0.15,
                     ease: [0.22, 1, 0.36, 1]
                   }}
+                  className={`flex-1 min-w-0 ${!isLast ? 'md:border-r md:border-dashed md:border-border md:pr-6 lg:pr-10' : ''}`}
                 >
-                  <Card className="h-full border border-[#404040] bg-surface hover:shadow-lg transition-all duration-300">
-                    <CardContent className="p-10 md:p-12 space-y-6">
-                      {/* Icon */}
-                      <div className="p-3 rounded-lg bg-primary/10 border border-primary/20 w-fit">
-                        <Icon className="h-6 w-6 text-primary" />
+                  <div className="flex gap-4 md:flex-col md:px-2">
+                    <div className="flex gap-3 md:flex-row md:items-center">
+                      <span className="text-primary text-4xl font-bold flex-shrink-0">{step.label}</span>
+                      <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 w-fit h-fit">
+                        <Icon className="h-5 w-5 text-primary" aria-hidden />
                       </div>
-
-                      {/* Headline */}
-                      <h3 className="text-lg md:text-xl font-semibold text-foreground">
-                        {benefit.headline}
-                      </h3>
-
-                      {/* Copy */}
-                      <p className="text-base text-[#A0A0A0] leading-relaxed">
-                        {benefit.copy}
+                    </div>
+                    <div>
+                      <h3 className="text-foreground font-semibold text-xl">{step.headline}</h3>
+                      <span className="inline-flex mt-2 bg-primary/10 text-primary border border-primary/30 rounded-full px-3 py-1 text-sm font-medium">
+                        {step.priceTag}
+                      </span>
+                      <p className="text-foreground-secondary text-sm leading-relaxed mt-3">
+                        {step.body}
                       </p>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </div>
                 </motion.div>
               );
             })}
           </div>
 
-          {/* Proof Metrics Row */}
+          {/* CTA above stats bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, delay: 0.45, ease: 'easeOut' }}
+            className="flex justify-center mb-12"
+          >
+            <a
+              href={BOOK_AUDIT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-primary text-primary-foreground rounded-full px-8 py-4 shadow-lg shadow-primary/25 hover:scale-105 hover:bg-primary-hover transition-all font-medium"
+            >
+              Book Your Free Discovery Call
+            </a>
+          </motion.div>
+
+          {/* Proof Metrics Row — unchanged */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
-            className="mt-20 md:mt-32 pt-8 border-t border-[#404040]"
+            transition={{ duration: 0.6, delay: 0.5, ease: 'easeOut' }}
+            className="pt-8 border-t border-border"
           >
             <div className="flex flex-col sm:flex-row items-center justify-center gap-12 md:gap-16">
               {proofMetrics.map((metric, index) => (
@@ -135,7 +146,7 @@ export function Transformation({ className }: TransformationProps) {
                     <p className="text-2xl font-bold text-primary sm:text-3xl lg:text-4xl">
                       {metric.value}
                     </p>
-                    <p className="text-xs text-[#A0A0A0] sm:text-sm mt-1">
+                    <p className="text-xs text-foreground-secondary sm:text-sm mt-1">
                       {metric.label}
                     </p>
                   </div>
