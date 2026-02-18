@@ -44,7 +44,7 @@ function UsageMeterCircle({
   title,
   description,
   size = 'md',
-  progressColor = 'default',
+  progressColor: _progressColor = 'default',
   className
 }: {
   items: UsageMeterItem[];
