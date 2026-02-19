@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
-import { GithubCommitsChart } from '@/components/GithubCommitsChart';
+import { GitHubHeatmap } from '@/components/GitHubHeatmap';
 
 export interface FooterProps {
   className?: string;
@@ -40,8 +40,8 @@ export function Footer({ className }: FooterProps) {
     >
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex flex-col gap-10">
-          {/* GitHub commits chart */}
-          <GithubCommitsChart className="max-w-4xl mx-auto" />
+          {/* GitHub contribution heatmap (full profile) */}
+          <GitHubHeatmap className="max-w-4xl mx-auto" />
 
           {/* Top row: brand + nav columns */}
           <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
