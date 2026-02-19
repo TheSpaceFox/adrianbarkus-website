@@ -5,7 +5,6 @@ import { useRef, useState } from 'react';
 import { ContactForm } from '@/components/ContactForm';
 import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
-import { useCurrency } from '@/hooks/useCurrency';
 import { BOOK_AUDIT_URL } from '@/lib/constants';
 
 export interface FinalCTAProps {
@@ -16,7 +15,6 @@ export function FinalCTA({ className }: FinalCTAProps) {
   const [showForm, setShowForm] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const { currency } = useCurrency();
 
   return (
     <section
