@@ -35,7 +35,7 @@ export function FounderSection() {
               width={400}
               height={400}
               alt="Adrian Barkus — Fractional CTO"
-              className="rounded-lg object-cover w-full grayscale hover:grayscale-0 transition-all duration-500"
+              className="rounded-lg object-cover w-full transition-all duration-500"
             />
           </div>
 
