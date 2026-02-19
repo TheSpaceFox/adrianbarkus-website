@@ -164,9 +164,14 @@ export function GitHubHeatmap({ className }: { className?: string }) {
         ) : (
           <>
             {totalContributions != null && (
-              <p className="text-sm text-foreground-secondary mb-3">
-                {totalContributions.toLocaleString()} contributions in the last year (all projects)
-              </p>
+              <div className="mb-3">
+                <p className="text-sm text-foreground-secondary">
+                  {totalContributions.toLocaleString()} contributions in the last year (all projects)
+                </p>
+                <p className="text-xs text-foreground-tertiary mt-0.5">
+                  Private repos included only when GITHUB_TOKEN has <code className="text-[10px] bg-surface-elevated px-1 rounded">repo</code> scope.
+                </p>
+              </div>
             )}
             <div className="relative rounded-lg bg-[#373737] p-4 border border-border overflow-x-auto">
               {/* Month labels row: one cell per column, label text only where month starts */}
