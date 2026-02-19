@@ -74,17 +74,17 @@ export function Hero({ className }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.05, ease: 'easeOut' }}
-            className="w-full bg-primary/10 border-b border-primary/20 py-2 px-4 text-center text-primary text-sm font-medium mb-6 -mx-4 sm:-mx-6 md:-mx-12"
+            className="w-full bg-[#373737] border-b border-[#404040] py-2 px-4 text-center text-white text-sm font-medium mb-6 -mx-4 sm:-mx-6 md:-mx-12"
           >
             $300 billion wiped from software stocks. The SaaSpocalypse is here. Is your stack next?
           </motion.div>
 
-          {/* Headline */}
+          {/* Headline — smaller breakpoints to avoid 4-line wrap */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
-            className="text-4xl sm:text-5xl md:text-8xl font-bold text-foreground leading-tight tracking-tight break-words"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight tracking-tight break-words max-w-4xl mx-auto"
           >
             Your Software Stack Just Became a Liability.
           </motion.h1>
@@ -94,7 +94,7 @@ export function Hero({ className }: HeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
-            className="text-xl md:text-2xl font-normal text-[#A0A0A0] mt-6 mb-0 leading-relaxed"
+            className="text-xl md:text-2xl font-normal text-white mt-6 mb-0 leading-relaxed"
           >
             Wall Street is repricing software. Your board will ask the question soon. I help you cut your exposure, own your systems, and move faster than the market.
           </motion.h2>
@@ -142,7 +142,7 @@ export function Hero({ className }: HeroProps) {
                 ))}
                 <span className="text-sm font-semibold text-foreground">{REVIEW_RATING}</span>
               </div>
-              <p className="text-xs font-medium text-foreground-tertiary">
+              <p className="text-xs font-medium text-white">
                 from {REVIEW_COUNT} reviews
               </p>
             </div>
