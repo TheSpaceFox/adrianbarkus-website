@@ -139,9 +139,9 @@ export function GitHubHeatmap({ className }: { className?: string }) {
 
   if (error) {
     return (
-      <section className={cn('w-full', className)} aria-label="GitHub activity">
+      <section className={cn('w-full', className)} aria-label="My coding activity">
         <p className="text-xs font-semibold uppercase tracking-wide text-foreground-tertiary mb-2">
-          GitHub activity (all projects)
+          My coding activity
         </p>
         <p className="text-sm text-foreground-secondary">{error}</p>
       </section>
@@ -149,9 +149,9 @@ export function GitHubHeatmap({ className }: { className?: string }) {
   }
 
   return (
-<section className={cn('w-full', className)} aria-label="GitHub activity">
+<section className={cn('w-full', className)} aria-label="My coding activity">
       <p className="text-xs font-semibold uppercase tracking-wide text-foreground-tertiary mb-2">
-          GitHub activity (all projects)
+          My coding activity
         </p>
       <a
         href={GITHUB_PROFILE_URL}
@@ -164,14 +164,9 @@ export function GitHubHeatmap({ className }: { className?: string }) {
         ) : (
           <>
             {totalContributions != null && (
-              <div className="mb-3">
-                <p className="text-sm text-foreground-secondary">
-                  {totalContributions.toLocaleString()} contributions in the last year (all projects)
-                </p>
-                <p className="text-xs text-foreground-tertiary mt-0.5">
-                  Private repos included only when GITHUB_TOKEN has <code className="text-[10px] bg-surface-elevated px-1 rounded">repo</code> scope.
-                </p>
-              </div>
+              <p className="text-sm text-foreground-secondary mb-3">
+                {totalContributions.toLocaleString()} contributions in the last year — commits, pull requests, and reviews across my projects.
+              </p>
             )}
             <div className="relative rounded-lg bg-[#373737] p-4 border border-border overflow-x-auto">
               {/* Month labels row: one cell per column, label text only where month starts */}

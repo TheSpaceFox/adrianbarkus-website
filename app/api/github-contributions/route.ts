@@ -3,8 +3,10 @@ import { NextResponse } from 'next/server';
 const GITHUB_USER = 'TheSpaceFox';
 const CACHE_SECONDS = 300; // 5 min so updated token scope is reflected quickly
 
-export async function GET() {
+export async function GET(request: Request) {
   const token = process.env.GITHUB_TOKEN;
+  const { searchParams } = new URL(request.url);
+  const nocache = searchParams.get('nocache') === '1';
 
   const headers: HeadersInit = {
     Accept: 'application/vnd.github+json',
@@ -47,7 +49,7 @@ export async function GET() {
         query,
         variables: { login: GITHUB_USER, from: fromISO, to: toISO }
       }),
-      next: { revalidate: CACHE_SECONDS }
+      next: nocache ? { revalidate: 0 } : { revalidate: CACHE_SECONDS }
     });
 
     if (!res.ok) {
@@ -87,7 +89,9 @@ export async function GET() {
       { weeks, totalContributions },
       {
         headers: {
-          'Cache-Control': `public, s-maxage=${CACHE_SECONDS}, stale-while-revalidate`
+          'Cache-Control': nocache
+            ? 'no-store, no-cache, must-revalidate'
+            : `public, s-maxage=${CACHE_SECONDS}, stale-while-revalidate`
         }
       }
     );
