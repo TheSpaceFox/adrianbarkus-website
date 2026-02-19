@@ -2,9 +2,6 @@
 
 import { Download, Linkedin } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import { useTheme } from 'next-themes';
 import { GitHubHeatmap } from '@/components/GitHubHeatmap';
 
 export interface FooterProps {
@@ -12,27 +9,9 @@ export interface FooterProps {
 }
 
 export function Footer({ className }: FooterProps) {
-  const { theme, systemTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const currentTheme = theme === 'system' ? systemTheme : theme;
-  const isDark = mounted ? currentTheme === 'dark' : true; // default to dark during SSR
-
   const year = new Date().getFullYear();
   const cvUrl =
     'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/AdrianBarkus-CV-July-2025-FRACTIONAL-CTO-AI-POWERED-BUILDER.pdf';
-
-  const supabaseLogo = isDark
-    ? 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Supabase%20Dark%20theme%20-%20373737.png'
-    : 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Supabase%20Light%20Theme%20-%20FFFFFF.png';
-
-  const vercelLogo = isDark
-    ? 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Vercel%20Dark%20theme%20-%20373737.png'
-    : 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Vercel%20Light%20Theme%20-%20FFFFFF.png';
 
   return (
     <footer
@@ -109,24 +88,6 @@ export function Footer({ className }: FooterProps) {
               <span className="rounded-full bg-surface-elevated border border-border px-3 py-1 text-foreground-tertiary">
                 Availability: Limited
               </span>
-              <div className="flex items-center gap-2">
-                <Image
-                  src={supabaseLogo}
-                  alt="Supabase"
-                  width={72}
-                  height={24}
-                  className="opacity-80"
-                  unoptimized
-                />
-                <Image
-                  src={vercelLogo}
-                  alt="Vercel"
-                  width={72}
-                  height={24}
-                  className="opacity-80"
-                  unoptimized
-                />
-              </div>
             </div>
 
             <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm">
