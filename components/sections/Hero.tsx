@@ -96,7 +96,7 @@ export function Hero({ className }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             className="text-xl md:text-2xl font-normal text-[#A0A0A0] mt-6 mb-0 leading-relaxed"
           >
-            Wall Street is repricing software. Your board will ask the question soon. Adrian Barkus helps businesses cut their exposure, own their systems, and move faster than the market.
+            Wall Street is repricing software. Your board will ask the question soon. I help you cut your exposure, own your systems, and move faster than the market.
           </motion.h2>
 
           {/* CTAs */}

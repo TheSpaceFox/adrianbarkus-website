@@ -76,6 +76,9 @@ export function Offers({ className }: OffersProps) {
             <p className="text-xl md:text-2xl text-foreground-secondary text-center">
               Secure Your Slot
             </p>
+            <p className="text-base text-foreground-secondary text-center max-w-2xl mx-auto">
+              Here&apos;s how I work with you.
+            </p>
           </div>
 
           {/* Two Cards Grid */}

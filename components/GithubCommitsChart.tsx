@@ -21,6 +21,7 @@ const GITHUB_USER = 'TheSpaceFox';
 export function GithubCommitsChart({ className }: { className?: string }) {
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
   const [weeklyCommits, setWeeklyCommits] = useState<WeeklyCommit[]>([]);
+  const [totalContributions, setTotalContributions] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -31,7 +32,7 @@ export function GithubCommitsChart({ className }: { className?: string }) {
     fetch(`/api/github/activity?username=${encodeURIComponent(GITHUB_USER)}`)
       .then(async (res) => {
         const body = (await res.json().catch(() => null)) as
-          | { data?: WeeklyCommit[]; error?: string }
+          | { data?: WeeklyCommit[]; totalContributions?: number; error?: string }
           | null;
         if (!res.ok) {
           const msg =
@@ -45,6 +46,9 @@ export function GithubCommitsChart({ className }: { className?: string }) {
         if (cancelled) return;
         if (body.error) throw new Error(body.error);
         setWeeklyCommits(Array.isArray(body.data) ? body.data : []);
+        setTotalContributions(
+          typeof body.totalContributions === 'number' ? body.totalContributions : null
+        );
       })
       .catch((err) => {
         if (!cancelled) setError(err instanceof Error ? err.message : 'Failed to load activity');
@@ -146,9 +150,17 @@ export function GithubCommitsChart({ className }: { className?: string }) {
               GitHub Activity
             </p>
             <p className="text-sm text-foreground-secondary">
-              Monthly GitHub contributions across all projects for{' '}
-              <span className="font-medium text-foreground">{GITHUB_USER}</span>
-              {loading && ' (loading…)'}
+              {totalContributions != null ? (
+                <>
+                  My GitHub activity — {totalContributions.toLocaleString()} contributions in the last year
+                </>
+              ) : (
+                <>
+                  Monthly GitHub contributions across all projects for{' '}
+                  <span className="font-medium text-foreground">{GITHUB_USER}</span>
+                  {loading && ' (loading…)'}
+                </>
+              )}
               {error && ` (${error})`}
             </p>
           </div>

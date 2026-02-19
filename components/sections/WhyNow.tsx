@@ -45,15 +45,15 @@ export function WhyNow() {
             </div>
             <div>
               <p className="text-primary text-xs tracking-[0.12em] uppercase font-medium mb-3">
-                Where Adrian Comes In
+                Where I Come In
               </p>
               <p className="text-foreground-secondary text-base leading-relaxed">
-                Adrian Barkus has spent 19 years inside the enterprise software world — implementing
-                the same platforms now under threat. He saw this shift coming before the market did.
+                I&apos;ve spent 19 years inside the enterprise software world — implementing
+                the same platforms now under threat. I saw this shift coming before the market did.
               </p>
               <p className="text-foreground-secondary text-base leading-relaxed mt-4">
-                He now uses that knowledge, combined with AI-accelerated development, to guide
-                businesses through the transition: auditing what to cut, building what to keep, and
+                I now use that knowledge, combined with AI-accelerated development, to guide
+                you through the transition: auditing what to cut, building what to keep, and
                 delivering custom systems that you own outright — with no subscriptions, no lock-in,
                 and no exposure to the next market shock.
               </p>

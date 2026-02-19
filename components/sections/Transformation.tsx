@@ -57,7 +57,7 @@ export function Transformation({ className }: TransformationProps) {
 
           {/* Section Title */}
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-foreground text-center break-words">
-            Adrian Rebuilds It. With AI.
+            I Rebuild It. With AI.
           </h2>
 
           {/* Section Subtitle */}

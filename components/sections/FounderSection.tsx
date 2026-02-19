@@ -42,7 +42,7 @@ export function FounderSection() {
           {/* Content — right on md+, below image on mobile */}
           <div className="flex-1 md:w-[60%]">
             <p className="text-xs uppercase tracking-[0.16em] text-[#C9A962] mb-3">
-              The Person Behind The Work
+              A bit about me
             </p>
             <h2 className="text-4xl font-bold text-[#ECECEC] tracking-tight">
               Adrian Barkus

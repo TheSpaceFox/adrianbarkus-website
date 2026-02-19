@@ -142,7 +142,7 @@ export function Credibility({ className }: CredibilityProps) {
         >
           {/* Section Headline - break-words so it wraps on narrow screens */}
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground text-center tracking-tight break-words">
-            19 Years. Fortune 500. AI-Accelerated.
+            My 19 Years. Fortune 500. Now I Build AI-Accelerated.
           </h2>
 
           {/* Background + Modern Stack logos, both visible */}

@@ -267,7 +267,7 @@ export function SocialProof({ className }: SocialProofProps) {
         >
           <div className="text-center min-w-0">
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground tracking-tight break-words">
-              Loved by leaders
+              What leaders say about working with me
             </h2>
           </div>
 

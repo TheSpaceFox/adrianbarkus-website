@@ -48,11 +48,11 @@ export function Footer({ className }: FooterProps) {
             {/* Brand / summary */}
             <div className="max-w-md space-y-3">
               <p className="text-sm text-foreground-secondary">
-                © {year} Adrian Barkus. Software replacement & fractional CTO services.
+                © {year} Adrian Barkus. I offer software replacement and fractional CTO services.
               </p>
               <p className="text-sm text-foreground-tertiary">
-                Fractional CTO, AI-accelerated systems, and cost reduction for software-heavy
-                businesses.
+                I help software-heavy businesses with fractional CTO work, AI-accelerated systems,
+                and cost reduction.
               </p>
             </div>
 

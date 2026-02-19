@@ -120,6 +120,14 @@ export function ProblemAgitation({ className }: ProblemAgitationProps) {
           >
             $300 billion in software stock value collapsed in days. The tools your business runs on are now a liability on your balance sheet — and your board knows it.
           </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={isSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+            className="text-sm text-foreground-tertiary text-center max-w-2xl mx-auto mb-8"
+          >
+            I&apos;ve seen this pattern everywhere.
+          </motion.p>
 
           <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
             {painPoints.map((point, index) => (
