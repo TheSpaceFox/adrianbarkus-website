@@ -29,11 +29,19 @@ export function GithubCommitsChart({ className }: { className?: string }) {
     setLoading(true);
     setError(null);
     fetch(`/api/github/activity?username=${encodeURIComponent(GITHUB_USER)}`)
-      .then((res) => {
-        if (!res.ok) throw new Error(res.status === 401 ? 'GitHub token required' : `HTTP ${res.status}`);
-        return res.json();
+      .then(async (res) => {
+        const body = (await res.json().catch(() => null)) as
+          | { data?: WeeklyCommit[]; error?: string }
+          | null;
+        if (!res.ok) {
+          const msg =
+            body?.error ||
+            (res.status === 401 ? 'GitHub auth error' : `HTTP ${res.status}`);
+          throw new Error(msg);
+        }
+        return body ?? { data: [] };
       })
-      .then((body: { data?: WeeklyCommit[]; error?: string }) => {
+      .then((body) => {
         if (cancelled) return;
         if (body.error) throw new Error(body.error);
         setWeeklyCommits(Array.isArray(body.data) ? body.data : []);

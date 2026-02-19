@@ -22,18 +22,14 @@ export async function GET(request: Request) {
   const username = searchParams.get('username') ?? GITHUB_USER;
 
   const token = process.env.GITHUB_TOKEN;
-  if (!token) {
-    return NextResponse.json(
-      { error: 'GITHUB_TOKEN is not configured on the server.' },
-      { status: 500 }
-    );
-  }
 
   const headers: HeadersInit = {
     Accept: 'application/vnd.github+json',
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${token}`
+    'Content-Type': 'application/json'
   };
+  if (token) {
+    (headers as Record<string, string>).Authorization = `Bearer ${token}`;
+  }
 
   const to = new Date();
   const from = new Date();
