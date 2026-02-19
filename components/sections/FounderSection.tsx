@@ -15,12 +15,12 @@ const credentials = [
 ];
 
 const bio =
-  "I've spent 19 years solving the technology problems that quietly drain companies dry. From cutting $3.5M in SaaS costs in 40 days, to architecting the systems that enabled a $55M acquisition — I've seen what broken tech costs, and exactly how to fix it. Now I do it faster than ever, using AI-accelerated development to turn 6-month builds into 4-week sprints.";
+  "I've spent 19 years solving the technology problems that quietly drain companies dry. From cutting $3.5M in SaaS costs in 40 days, to architecting the systems that enabled a $155M acquisition — I've seen what broken tech costs, and exactly how to fix it. Now I do it faster than ever, using AI-accelerated development to turn 6-month builds into 4-week sprints.";
 
 export function FounderSection() {
   return (
-    <section className="bg-[#2D2D2D] py-24 px-6">
-      <div className="max-w-5xl mx-auto">
+    <section className="min-h-screen-dynamic snap-start flex flex-col justify-center bg-[#2D2D2D] overflow-x-hidden">
+      <div className="max-w-5xl mx-auto w-full min-w-0 px-4 sm:px-6 md:px-12 py-20 md:py-32">
         <motion.div
           className="flex flex-col md:flex-row md:items-center gap-10 md:gap-12"
           initial={{ opacity: 0, y: 24 }}
@@ -65,9 +65,9 @@ export function FounderSection() {
               href="https://linkedin.com/in/adrianbarkus"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[#C9A962] hover:text-[#D4B876] transition-colors text-sm mt-6"
+              className="inline-flex items-center gap-3 text-[#C9A962] hover:text-[#D4B876] transition-colors text-base font-semibold mt-8 py-2"
             >
-              <Linkedin size={16} />
+              <Linkedin size={22} />
               Connect on LinkedIn
             </a>
           </div>
