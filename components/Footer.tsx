@@ -73,7 +73,7 @@ export function Footer({ className }: FooterProps) {
                     Offers
                   </Link>
                   <Link href="#cta" className="hover:text-primary transition-colors">
-                    Book Audit Session
+                    Book Your Free Software Review
                   </Link>
                 </div>
               </div>

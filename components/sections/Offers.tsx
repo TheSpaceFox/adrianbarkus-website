@@ -37,7 +37,7 @@ const offerSlots = [
     slotsTaken: 2,
     slotLabel: '2026 slots',
     slotCopy: '5 slots for 2026. Book in advance; change to next available with 30 days notice or your slot is lost.',
-    ctaLabel: 'Book Audit Session',
+    ctaLabel: 'Book Your Free Software Review',
     ctaHref: BOOK_AUDIT_URL
   },
   {

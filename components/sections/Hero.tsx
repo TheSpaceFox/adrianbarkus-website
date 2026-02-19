@@ -69,6 +69,16 @@ export function Hero({ className }: HeroProps) {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-center min-w-0"
         >
+          {/* Urgency banner */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, delay: 0.05, ease: 'easeOut' }}
+            className="w-full bg-primary/10 border-b border-primary/20 py-2 px-4 text-center text-primary text-sm font-medium mb-6 -mx-4 sm:-mx-6 md:-mx-12"
+          >
+            $300 billion wiped from software stocks. The SaaSpocalypse is here. Is your stack next?
+          </motion.div>
+
           {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -76,7 +86,7 @@ export function Hero({ className }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
             className="text-4xl sm:text-5xl md:text-8xl font-bold text-foreground leading-tight tracking-tight break-words"
           >
-            AI Killed Your Software Stack
+            Your Software Stack Just Became a Liability.
           </motion.h1>
 
           {/* Subheadline */}
@@ -86,7 +96,7 @@ export function Hero({ className }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             className="text-xl md:text-2xl font-normal text-[#A0A0A0] mt-6 mb-0 leading-relaxed"
           >
-            Rebuild with Adrian Barkus. Own it forever.
+            Wall Street is repricing software. Your board will ask the question soon. Adrian Barkus helps businesses cut their exposure, own their systems, and move faster than the market.
           </motion.h2>
 
           {/* CTAs */}
@@ -101,7 +111,7 @@ export function Hero({ className }: HeroProps) {
               onClick={() => window.open(BOOK_AUDIT_URL, '_blank')}
               className="bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 px-8 py-4 text-base font-medium rounded-full transition-all hover:scale-105 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background my-8"
             >
-              Book Audit Session
+              Book Your Free Software Review
             </Button>
           </motion.div>
 

@@ -41,10 +41,10 @@ export function Transformation({ className }: TransformationProps) {
   const { currency } = useCurrency();
 
   const proofMetrics = [
-    { value: `${currency}420k`, label: 'Saved (3yr Software replacement)' },
-    { value: `${currency}2.5M`, label: 'Revenue Generated' },
-    { value: '70%', label: 'Cost Optimization' },
-    { value: `${currency}55M`, label: 'Acquisition Enabled' }
+    { value: `${currency}155M`, label: 'Delivered Projects' },
+    { value: '74%', label: 'Costs Cut' },
+    { value: '92%', label: 'Faster AI Dev.' },
+    { value: `${currency}84B`, label: 'Transaction Per Year' }
   ];
 
   return (
@@ -62,7 +62,7 @@ export function Transformation({ className }: TransformationProps) {
         >
           {/* Section Label */}
           <p className="text-primary text-xs tracking-[0.16em] uppercase font-medium text-center">
-            HOW IT WORKS
+            THE RESPONSE
           </p>
 
           {/* Section Title */}

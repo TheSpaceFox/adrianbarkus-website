@@ -108,10 +108,18 @@ export function ProblemAgitation({ className }: ProblemAgitationProps) {
             initial={{ opacity: 0, y: 16 }}
             animate={isSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
             transition={{ duration: 0.6, delay: 0.05, ease: 'easeOut' }}
-            className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground tracking-tight max-w-3xl mx-auto text-center mt-6 mb-12"
+            className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground tracking-tight max-w-3xl mx-auto text-center"
           >
-            You're renting software you can't afford to lose and can't afford to keep.
+            The Addiction
           </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={isSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+            transition={{ duration: 0.6, delay: 0.08, ease: 'easeOut' }}
+            className="text-lg md:text-xl text-foreground-secondary leading-relaxed max-w-3xl mx-auto text-center mt-6 mb-12"
+          >
+            $300 billion in software stock value collapsed in days. The tools your business runs on are now a liability on your balance sheet — and your board knows it.
+          </motion.p>
 
           <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
             {painPoints.map((point, index) => (

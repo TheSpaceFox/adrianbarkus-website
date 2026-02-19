@@ -20,7 +20,7 @@ const urgencyCards = [
     slotsTotal: 5,
     slotsTaken: 2,
     slotLabel: '2026 slots',
-    ctaLabel: 'Book Audit Session',
+    ctaLabel: 'Book Your Free Software Review',
     ctaHref: BOOK_AUDIT_URL
   },
   {

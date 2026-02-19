@@ -46,13 +46,11 @@ export function FinalCTA({ className }: FinalCTAProps) {
             <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
               <div className="max-w-2xl space-y-6">
                 <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground tracking-tight break-words">
-                  Stop Renting. Start Owning.
+                  The Market Has Moved. Don&apos;t Wait for Your Next Renewal.
                 </h2>
                 <p className="text-xl md:text-2xl font-normal text-[#A0A0A0] leading-relaxed">
-                  To qualify for this service, {currency}100k+ in savings must be identified.
-                </p>
-                <p className="text-lg font-normal text-[#A0A0A0]">
-                  Book a {currency}1,000 audit call.
+                  Every week you delay is another week of exposure. A free Discovery Call takes 45
+                  minutes. The findings could change what you spend on software for the next decade.
                 </p>
               </div>
               <div className="flex flex-col items-center lg:items-end gap-6">
@@ -61,7 +59,7 @@ export function FinalCTA({ className }: FinalCTAProps) {
                   size="lg"
                   className="bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 px-8 py-4 text-base font-medium rounded-full transition-all hover:scale-105 my-8"
                 >
-                  Book Audit Session
+                  Book Your Free Software Review
                 </Button>
               </div>
             </div>

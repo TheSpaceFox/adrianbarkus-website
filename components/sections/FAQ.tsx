@@ -10,28 +10,34 @@ export interface FAQProps {
 
 const faqs = [
   {
-    question: 'What is a fractional CTO?',
-    answer: 'A fractional CTO provides part-time tech leadership—strategy, execution, and team mentoring without full-time salary.'
+    question: 'We already have an IT team. Why would we need you?',
+    answer:
+      "Your IT team keeps the lights on. That's their job and they're good at it. What they don't have is the strategic mandate to challenge your entire software estate, the enterprise architecture experience to redesign it, or the AI-accelerated development speed to rebuild it in weeks. I work alongside your team — not instead of them."
   },
   {
-    question: 'Am I wasting money on Software?',
-    answer: 'If you use less than 30% of features, you likely waste {currency}50k-{currency}100k per year.'
+    question: 'How do you justify the cost of the Software Review?',
+    answer:
+      'The Software Review costs £6,750. Every client so far has identified savings that exceed that within the first year — typically by a factor of 10 or more. If I can\'t find meaningful savings in your software estate, I\'ll tell you in the first session and we stop there. You keep the findings. No further obligation.'
   },
   {
-    question: 'Can you build in 4 weeks?',
-    answer: 'Yes. AI-accelerated development means full-stack systems in 2-4 weeks.'
+    question: 'Can you really build a replacement system in 4–6 weeks?',
+    answer:
+      "Yes — because I'm not building for a portfolio of clients or managing a team of contractors. I build solo, using AI-accelerated development tools that compress what used to take months into weeks. The scope is scoped tightly to what you actually use, not what your current vendor sells you. Smaller scope, faster delivery, lower cost."
   },
   {
-    question: 'What if it doesn\'t work?',
-    answer: 'ROI Guarantee: If I can\'t identify {currency}100k+ in savings, you don\'t pay.'
+    question: "What if we're locked into a long-term contract with our current vendors?",
+    answer:
+      "That's the most common situation I walk into. We plan around your renewal dates. The Software Review maps every contract expiry, so we sequence the replacements to coincide with natural exit points. You stop paying the moment the contract ends — not a day later than necessary."
   },
   {
-    question: 'How is this different?',
-    answer: 'Agencies charge {currency}60k and take 6 months. I charge {currency}18k-{currency}45k and deliver in weeks.'
+    question: "What happens to the system after you've built it? Are we dependent on you?",
+    answer:
+      "No — and that's by design. Every system I build is fully documented, hosted in your own repository, and built on widely used modern technology. Any competent developer can maintain or extend it. I can also help you hire someone to take it over internally. My goal is to make you independent, not reliant on another vendor — including me."
   },
   {
-    question: 'What about ongoing support?',
-    answer: 'Fractional CTO offer includes 8 hours/week strategy plus 32-40 hours/month building.'
+    question: 'How is this different from hiring a development agency?',
+    answer:
+      "Three ways. Speed — agencies take 3–6 months, I deliver in 4–6 weeks. Cost — agencies quote £60k–£100k for what I deliver at a fraction of that. Accountability — with an agency you get account managers and handoffs. With me you get the same senior architect from the first call to the final handover. No middlemen, no surprises."
   }
 ];
 
@@ -60,7 +66,7 @@ export function FAQ({ className }: FAQProps) {
         >
           {/* Section Headline */}
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground text-center tracking-tight break-words">
-            Questions
+            The Ones They Always Ask
           </h2>
 
           {/* FAQ Items */}
