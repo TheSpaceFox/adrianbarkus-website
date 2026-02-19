@@ -1,6 +1,8 @@
 'use client';
 
+import { useRef } from 'react';
 import Header from '@/components/Header';
+import { AnnouncementBar } from '@/components/AnnouncementBar';
 import { Hero } from '@/components/sections/Hero';
 import { ProblemAgitation } from '@/components/sections/ProblemAgitation';
 import { WhyNow } from '@/components/sections/WhyNow';
@@ -15,10 +17,16 @@ import { Footer } from '@/components/Footer';
 import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 
 export default function Home() {
+  const mainRef = useRef<HTMLElement | null>(null);
+
   return (
     <>
+      <AnnouncementBar scrollContainerRef={mainRef} />
       <Header />
-      <main className="h-screen-dynamic overflow-y-scroll overflow-x-hidden snap-y snap-proximity bg-background">
+      <main
+        ref={mainRef}
+        className="h-screen-dynamic overflow-y-scroll overflow-x-hidden snap-y snap-proximity bg-background"
+      >
         <Hero />
         <ProblemAgitation />
         <WhyNow />

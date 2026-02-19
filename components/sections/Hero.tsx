@@ -69,16 +69,6 @@ export function Hero({ className }: HeroProps) {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-center min-w-0"
         >
-          {/* Urgency banner */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, delay: 0.05, ease: 'easeOut' }}
-            className="w-full bg-[#373737] border-b border-[#404040] py-2 px-4 text-center text-white text-sm font-medium mb-6 -mx-4 sm:-mx-6 md:-mx-12"
-          >
-            $300 billion wiped from software stocks. The SaaSpocalypse is here. Is your stack next?
-          </motion.div>
-
           {/* Headline — smaller breakpoints to avoid 4-line wrap */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
