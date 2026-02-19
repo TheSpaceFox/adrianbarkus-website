@@ -61,56 +61,24 @@ export function GithubCommitsChart({ className }: { className?: string }) {
     };
   }, []);
 
-  // Aggregate weekly data into monthly totals so the chart shows months on the X-axis.
-  const monthlyCommits = useMemo<WeeklyCommit[]>(() => {
-    if (weeklyCommits.length === 0) return [];
-
-    const byMonth = new Map<
-      string,
-      {
-        date: Date;
-        commits: number;
-      }
-    >();
-
-    for (const w of weeklyCommits) {
-      const d = new Date(w.weekStart);
-      const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`; // YYYY-MM
-      const existing = byMonth.get(key);
-      if (existing) {
-        existing.commits += w.commits;
-      } else {
-        byMonth.set(key, { date: d, commits: w.commits });
-      }
-    }
-
-    return Array.from(byMonth.values())
-      .sort((a, b) => a.date.getTime() - b.date.getTime())
-      .map((m) => ({
-        weekStart: m.date.toISOString().slice(0, 10),
-        label: m.date.toLocaleDateString('en-GB', {
-          month: 'short',
-          year: '2-digit'
-        }),
-        commits: m.commits
-      }));
-  }, [weeklyCommits]);
+  // API returns 90-day weekly data; use it directly for the chart
+  const chartData = weeklyCommits;
 
   const { points, maxCommits, positions } = useMemo(() => {
-    if (monthlyCommits.length === 0) {
+    if (chartData.length === 0) {
       return { points: '', maxCommits: 0, positions: [] as { x: number; y: number }[] };
     }
 
-    const max = Math.max(1, ...monthlyCommits.map((d) => d.commits));
+    const max = Math.max(1, ...chartData.map((d) => d.commits));
     const usableWidth = VIEWBOX_WIDTH - PADDING_LEFT - PADDING_RIGHT;
     const usableHeight = VIEWBOX_HEIGHT - PADDING_TOP - PADDING_BOTTOM;
 
-    const pos = monthlyCommits.map((d, index) => {
+    const pos = chartData.map((d, index) => {
       const x =
         PADDING_LEFT +
-        (monthlyCommits.length === 1
+        (chartData.length === 1
           ? usableWidth / 2
-          : (index / (monthlyCommits.length - 1)) * usableWidth);
+          : (index / (chartData.length - 1)) * usableWidth);
       const y =
         VIEWBOX_HEIGHT - PADDING_BOTTOM - (d.commits / max) * (usableHeight || 1);
       return { x, y };
@@ -118,7 +86,7 @@ export function GithubCommitsChart({ className }: { className?: string }) {
 
     const pts = pos.map((p) => `${p.x},${p.y}`).join(' ');
     return { points: pts, maxCommits: max, positions: pos };
-  }, [monthlyCommits]);
+  }, [chartData]);
 
   const handleMouseMove = (event: React.MouseEvent<SVGSVGElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -139,7 +107,7 @@ export function GithubCommitsChart({ className }: { className?: string }) {
 
   const activeIndex = hoverIndex ?? positions.length - 1;
   const activePoint = positions[activeIndex];
-  const activeData = monthlyCommits[activeIndex];
+  const activeData = chartData[activeIndex];
 
   return (
     <section className={cn('w-full', className)}>
@@ -152,11 +120,11 @@ export function GithubCommitsChart({ className }: { className?: string }) {
             <p className="text-sm text-foreground-secondary">
               {totalContributions != null ? (
                 <>
-                  My GitHub activity — {totalContributions.toLocaleString()} contributions in the last year
+                  My GitHub activity — {totalContributions.toLocaleString()} contributions in the last 90 days
                 </>
               ) : (
                 <>
-                  Monthly GitHub contributions across all projects for{' '}
+                  Last 90 days across all projects for{' '}
                   <span className="font-medium text-foreground">{GITHUB_USER}</span>
                   {loading && ' (loading…)'}
                 </>
@@ -180,7 +148,7 @@ export function GithubCommitsChart({ className }: { className?: string }) {
               viewBox={`0 0 ${VIEWBOX_WIDTH} ${VIEWBOX_HEIGHT}`}
               className="w-full h-48 md:h-56"
               role="img"
-              aria-label={`Monthly GitHub contributions for user ${GITHUB_USER}`}
+              aria-label={`GitHub contributions in the last 90 days for ${GITHUB_USER}`}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
             >
@@ -256,14 +224,14 @@ export function GithubCommitsChart({ className }: { className?: string }) {
               {/* X axis labels */}
               {positions.map((p, index) => (
                 <text
-                  key={monthlyCommits[index].weekStart}
+                  key={chartData[index].weekStart}
                   x={p.x}
                   y={VIEWBOX_HEIGHT - PADDING_BOTTOM + 16}
                   textAnchor="middle"
                   fontSize={10}
                   className="fill-foreground-tertiary"
                 >
-                  {monthlyCommits[index].label}
+                  {chartData[index].label}
                 </text>
               ))}
 

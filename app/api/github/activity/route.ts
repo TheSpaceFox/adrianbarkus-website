@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 const GITHUB_USER = 'TheSpaceFox';
-const CACHE_SECONDS = 3600; // 1 hour
+const CACHE_SECONDS = 300; // 5 minutes so profile and graph stay in sync
 
 export interface WeeklyCommit {
   weekStart: string;
@@ -9,12 +9,9 @@ export interface WeeklyCommit {
   commits: number;
 }
 
-function toISO(date: Date): string {
-  return date.toISOString().slice(0, 10);
-}
-
-function formatMonthLabel(date: Date): string {
-  return date.toLocaleDateString('en-GB', { month: 'short', year: '2-digit' });
+function formatWeekLabel(dateStr: string): string {
+  const d = new Date(dateStr + 'T12:00:00Z');
+  return dateStr.slice(8, 10) + ' ' + d.toLocaleDateString('en-GB', { month: 'short' });
 }
 
 export async function GET(request: Request) {
@@ -31,9 +28,11 @@ export async function GET(request: Request) {
     (headers as Record<string, string>).Authorization = `Bearer ${token}`;
   }
 
-  const to = new Date();
-  const from = new Date();
-  from.setFullYear(to.getFullYear() - 1);
+  // Last 90 days in UTC
+  const now = new Date();
+  const to = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 23, 59, 59, 999));
+  const from = new Date(to.getTime() - 90 * 24 * 60 * 60 * 1000);
+  from.setUTCHours(0, 0, 0, 0);
 
   const query = `
     query ($login: String!, $from: DateTime!, $to: DateTime!) {
@@ -69,9 +68,20 @@ export async function GET(request: Request) {
     });
 
     if (!res.ok) {
-      const err = await res.text();
+      const errText = await res.text();
+      let errMessage = `GitHub GraphQL error: ${res.status}`;
+      if (res.status === 403) {
+        errMessage =
+          'GitHub returned 403. Add GITHUB_TOKEN to your Vercel project (Settings → Environment Variables) with a classic Personal Access Token (no scopes required for public data).';
+        try {
+          const errJson = JSON.parse(errText);
+          if (errJson?.message) errMessage += ` ${errJson.message}`;
+        } catch {
+          // use default message
+        }
+      }
       return NextResponse.json(
-        { error: `GitHub GraphQL error: ${res.status}`, details: err },
+        { error: errMessage, details: errText },
         { status: res.status }
       );
     }
@@ -90,40 +100,53 @@ export async function GET(request: Request) {
     const weeks: { contributionDays: { date: string; contributionCount: number }[] }[] =
       calendar.weeks ?? [];
 
-    // Flatten to daily contributions
-    const byMonth = new Map<
-      string,
-      {
-        date: Date;
-        contributions: number;
-      }
-    >();
+    // Week start = Monday. Get YYYY-MM-DD of Monday for each week (ISO week).
+    function getWeekStart(dateStr: string): string {
+      const d = new Date(dateStr + 'T12:00:00Z');
+      const day = d.getUTCDay();
+      const mondayOffset = day === 0 ? -6 : 1 - day;
+      d.setUTCDate(d.getUTCDate() + mondayOffset);
+      return d.toISOString().slice(0, 10);
+    }
+
+    const byWeek = new Map<string, number>();
 
     for (const week of weeks) {
       for (const day of week.contributionDays) {
-        const dt = new Date(day.date);
-        const key = `${dt.getFullYear()}-${String(dt.getMonth() + 1).padStart(2, '0')}`;
-        const existing = byMonth.get(key);
-        if (existing) {
-          existing.contributions += day.contributionCount;
-        } else {
-          byMonth.set(key, { date: dt, contributions: day.contributionCount });
-        }
+        const key = getWeekStart(day.date);
+        byWeek.set(key, (byWeek.get(key) ?? 0) + day.contributionCount);
       }
     }
 
-    const months = Array.from(byMonth.values()).sort(
-      (a, b) => a.date.getTime() - b.date.getTime()
+    // Fill missing weeks: from Monday on or before range start, step 7 days to end of range
+    const fromStr = from.toISOString().slice(0, 10);
+    const toStr = to.toISOString().slice(0, 10);
+    const cursor = new Date(fromStr + 'T12:00:00Z');
+    const end = new Date(toStr + 'T12:00:00Z');
+    const dayOfWeek = cursor.getUTCDay();
+    const mondayOffset = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+    cursor.setUTCDate(cursor.getUTCDate() + mondayOffset);
+    while (cursor <= end) {
+      const key = cursor.toISOString().slice(0, 10);
+      if (!byWeek.has(key)) byWeek.set(key, 0);
+      cursor.setUTCDate(cursor.getUTCDate() + 7);
+    }
+
+    const sortedWeeks = Array.from(byWeek.entries()).sort(([a], [b]) =>
+      a.localeCompare(b)
     );
 
-    const result: WeeklyCommit[] = months.map((m) => ({
-      weekStart: toISO(m.date),
-      label: formatMonthLabel(m.date),
-      commits: m.contributions
+    const result: WeeklyCommit[] = sortedWeeks.map(([weekStart]) => ({
+      weekStart,
+      label: formatWeekLabel(weekStart),
+      commits: byWeek.get(weekStart) ?? 0
     }));
 
+    // Use sum of displayed data so the total always matches the graph (avoids cache/API quirks)
+    const totalFromData = result.reduce((acc, r) => acc + r.commits, 0);
+
     return NextResponse.json(
-      { data: result, totalContributions: calendar.totalContributions },
+      { data: result, totalContributions: totalFromData },
       {
         headers: {
           'Cache-Control': `public, s-maxage=${CACHE_SECONDS}, stale-while-revalidate`
