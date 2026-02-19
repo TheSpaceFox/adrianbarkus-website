@@ -3,8 +3,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Phone, Search, Zap, LucideIcon } from 'lucide-react';
-import { Separator } from '@/components/ui/separator';
-import { useCurrency } from '@/hooks/useCurrency';
 import { BOOK_AUDIT_URL } from '@/lib/constants';
 
 export interface TransformationProps {
@@ -38,14 +36,6 @@ const processSteps = [
 export function Transformation({ className }: TransformationProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const { currency } = useCurrency();
-
-  const proofMetrics = [
-    { value: `${currency}155M`, label: 'Delivered Projects' },
-    { value: '74%', label: 'Costs Cut' },
-    { value: '92%', label: 'Faster AI Dev.' },
-    { value: `${currency}84B`, label: 'Transaction Per Year' }
-  ];
 
   return (
     <section
@@ -130,32 +120,6 @@ export function Transformation({ className }: TransformationProps) {
             >
               Book Your Free Discovery Call
             </a>
-          </motion.div>
-
-          {/* Proof Metrics Row — unchanged */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.5, ease: 'easeOut' }}
-            className="pt-8 border-t border-border"
-          >
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-12 md:gap-16">
-              {proofMetrics.map((metric, index) => (
-                <div key={index} className="flex items-center gap-12 md:gap-16">
-                  <div className="text-center">
-                    <p className="text-2xl font-bold text-primary sm:text-3xl lg:text-4xl">
-                      {metric.value}
-                    </p>
-                    <p className="text-xs text-foreground-secondary sm:text-sm mt-1">
-                      {metric.label}
-                    </p>
-                  </div>
-                  {index < proofMetrics.length - 1 && (
-                    <Separator orientation="vertical" className="h-12 hidden sm:block" />
-                  )}
-                </div>
-              ))}
-            </div>
           </motion.div>
         </motion.div>
       </div>
