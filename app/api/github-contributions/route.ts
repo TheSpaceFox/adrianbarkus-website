@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 const GITHUB_USER = 'TheSpaceFox';
-const CACHE_SECONDS = 3600; // 1 hour
+const CACHE_SECONDS = 300; // 5 min so updated token scope is reflected quickly
 
 export async function GET() {
   const token = process.env.GITHUB_TOKEN;
@@ -55,7 +55,7 @@ export async function GET() {
       let errMessage = `GitHub GraphQL error: ${res.status}`;
       if (res.status === 403) {
         errMessage =
-          'GitHub returned 403. Add GITHUB_TOKEN to your Vercel project (Settings → Environment Variables) with a classic Personal Access Token (read:user scope recommended for contribution data).';
+          'GitHub returned 403. Add GITHUB_TOKEN (classic PAT). For contributions from all repos including private, use a token with "repo" scope.';
         try {
           const errJson = JSON.parse(errText);
           if (errJson?.message) errMessage += ` ${errJson.message}`;
