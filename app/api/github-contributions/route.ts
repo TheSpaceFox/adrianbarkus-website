@@ -14,11 +14,16 @@ export async function GET() {
     (headers as Record<string, string>).Authorization = `Bearer ${token}`;
   }
 
-  // contributionsCollection with no repo filter = full profile, all repositories (same as github.com/username)
+  // Explicit last 365 days so we get the same "last year" as github.com/username (all repos, no filter)
+  const to = new Date();
+  const from = new Date(to.getTime() - 365 * 24 * 60 * 60 * 1000);
+  const fromISO = from.toISOString();
+  const toISO = to.toISOString();
+
   const query = `
-    query ($login: String!) {
+    query ($login: String!, $from: DateTime!, $to: DateTime!) {
       user(login: $login) {
-        contributionsCollection {
+        contributionsCollection(from: $from, to: $to) {
           contributionCalendar {
             totalContributions
             weeks {
@@ -40,7 +45,7 @@ export async function GET() {
       headers,
       body: JSON.stringify({
         query,
-        variables: { login: GITHUB_USER }
+        variables: { login: GITHUB_USER, from: fromISO, to: toISO }
       }),
       next: { revalidate: CACHE_SECONDS }
     });

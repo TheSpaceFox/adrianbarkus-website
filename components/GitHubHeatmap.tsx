@@ -139,7 +139,7 @@ export function GitHubHeatmap({ className }: { className?: string }) {
 
   if (error) {
     return (
-      <section className={cn('w-full max-w-4xl mx-auto', className)} aria-label="GitHub activity">
+      <section className={cn('w-full', className)} aria-label="GitHub activity">
         <p className="text-xs font-semibold uppercase tracking-wide text-foreground-tertiary mb-2">
           GitHub activity (all projects)
         </p>
@@ -149,8 +149,8 @@ export function GitHubHeatmap({ className }: { className?: string }) {
   }
 
   return (
-    <section className={cn('w-full max-w-4xl mx-auto', className)} aria-label="GitHub activity">
-<p className="text-xs font-semibold uppercase tracking-wide text-foreground-tertiary mb-2">
+<section className={cn('w-full', className)} aria-label="GitHub activity">
+      <p className="text-xs font-semibold uppercase tracking-wide text-foreground-tertiary mb-2">
           GitHub activity (all projects)
         </p>
       <a
