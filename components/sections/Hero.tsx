@@ -38,7 +38,7 @@ export function Hero({ className }: HeroProps) {
 
   return (
     <section
-      className={`relative min-h-screen-dynamic snap-start flex flex-col items-center justify-start md:justify-center bg-background overflow-hidden ${className ?? ''}`}
+      className={`relative min-h-screen-dynamic snap-start flex flex-col items-center justify-center bg-background overflow-hidden ${className ?? ''}`}
     >
       {/* Background Image */}
       <div 
