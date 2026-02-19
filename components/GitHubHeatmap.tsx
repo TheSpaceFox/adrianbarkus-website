@@ -165,7 +165,7 @@ export function GitHubHeatmap({ className }: { className?: string }) {
           <>
             {totalContributions != null && (
               <p className="text-sm text-foreground-secondary mb-3">
-                {totalContributions.toLocaleString()} contributions in the last year — commits, pull requests, and reviews across my projects.
+                {totalContributions.toLocaleString()} updates.
               </p>
             )}
             <div className="relative rounded-lg bg-[#373737] p-4 border border-border overflow-x-auto">
