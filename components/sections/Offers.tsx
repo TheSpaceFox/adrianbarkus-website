@@ -95,6 +95,9 @@ export function Offers({ className }: OffersProps) {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col space-y-8 p-10 md:p-12 min-h-0">
+                  <p className="text-foreground-secondary text-sm leading-relaxed">
+                    For established businesses that need to cut software spend without disrupting operations. I run a one-week audit of your entire software estate, then build your custom replacement in 4–6 weeks. You get a system you own outright — no subscriptions, no lock-in, no renewal negotiations. One engagement. Full handover.
+                  </p>
                   {/* Checklist */}
                   <ul className="space-y-4">
                     {saasDetoxItems.map((item, index) => (
