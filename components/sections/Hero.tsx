@@ -76,7 +76,7 @@ export function Hero({ className }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight tracking-tight break-words max-w-4xl mx-auto"
           >
-            AI Just Killed Your Software Stack.
+            Your Software Is Costing More Than You Think.
           </motion.h1>
 
           {/* Subheadline */}
@@ -86,7 +86,7 @@ export function Hero({ className }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             className="text-xl md:text-2xl font-normal text-white mt-6 mb-0 leading-relaxed"
           >
-            Wall Street is repricing software. Your board will ask the question soon. I help you cut your exposure, own your systems, and move faster than the market.
+            Most established businesses are spending £80k–£150k a year on software that was built up tool by tool, renewal by renewal. Nobody questioned it. Until now. I find exactly where the money is going, cut what you don't need, and build what you do — in weeks, not months.
           </motion.h2>
 
           {/* CTAs */}

@@ -97,7 +97,13 @@ const allTestimonials: Review[] = [
   { name: 'Nicole Watson', handleOrRole: 'Process Technician, Rio Tinto', quote: 'Absolute pleasure to work with - courteous, professional, will always go above and beyond', avatarUrl: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/TestimonialImages/NicoleWatson.jpg', verified: false }
 ];
 
-export const HERO_REVIEW_AVATARS = allTestimonials.filter((r) => r.avatarUrl).slice(0, 5);
+// Priority order for established-company ICP: CFO, Group HR, Heads of Technology first
+const PRIORITY_NAMES = ['Dinny Evans', 'Jurie Fourie', 'Tony Fitzgibbon', 'Jason Keith', 'Mike Dudarenok'];
+const priorityTestimonials = PRIORITY_NAMES.map((name) => allTestimonials.find((t) => t.name === name)).filter(Boolean) as Review[];
+const restTestimonials = allTestimonials.filter((t) => !PRIORITY_NAMES.includes(t.name));
+const reorderedTestimonials = [...priorityTestimonials, ...restTestimonials];
+
+export const HERO_REVIEW_AVATARS = reorderedTestimonials.filter((r) => r.avatarUrl).slice(0, 5);
 export const REVIEW_RATING = 5.0;
 export const REVIEW_COUNT = 117;
 
@@ -129,12 +135,12 @@ function interleaveByPerson(reviews: Review[]): Review[] {
   return result;
 }
 
-// Rows 1–3: original 18 (one per person). Rows 4–5: new 58, interleaved so one per person on screen
-const row1Reviews = allTestimonials.slice(0, 6);
-const row2Reviews = allTestimonials.slice(6, 12);
-const row3Reviews = allTestimonials.slice(12, 18);
-const row4Reviews = interleaveByPerson(allTestimonials.slice(18, 47));
-const row5Reviews = interleaveByPerson(allTestimonials.slice(47, 76));
+// Rows 1–3: reordered so priority testimonials first, then 6 per row. Rows 4–5: interleaved so one per person on screen
+const row1Reviews = reorderedTestimonials.slice(0, 6);
+const row2Reviews = reorderedTestimonials.slice(6, 12);
+const row3Reviews = reorderedTestimonials.slice(12, 18);
+const row4Reviews = interleaveByPerson(reorderedTestimonials.slice(18, 47));
+const row5Reviews = interleaveByPerson(reorderedTestimonials.slice(47, 76));
 
 const CARD_WIDTH = 320;
 const ROW_DURATION = 45; // base duration for 6-card row; longer rows scale so card speed matches

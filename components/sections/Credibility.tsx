@@ -152,8 +152,12 @@ export function Credibility({ className }: CredibilityProps) {
         >
           {/* Section Headline - break-words so it wraps on narrow screens */}
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground text-center tracking-tight break-words">
-            My 19 Years. Fortune 500. Now I Build AI-Accelerated.
+            19 Years Inside the Platforms Your Business Runs On.
           </h2>
+
+          <p className="text-foreground-secondary text-base md:text-lg leading-relaxed text-center max-w-3xl mx-auto">
+            I&apos;ve worked inside Woolworths, Thomson Reuters, the Australian Government, Breville, and SUEZ — implementing and optimising the same enterprise platforms that established businesses rely on. That experience means I don&apos;t just know how to build replacements. I know exactly what breaks, what&apos;s worth keeping, and what to walk away from.
+          </p>
 
           {/* Background + Modern Stack logos, both visible */}
           <div className="space-y-10 min-w-0 w-full">

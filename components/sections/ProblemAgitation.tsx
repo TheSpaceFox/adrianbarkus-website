@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import type { ComponentType } from 'react';
 import { useRef } from 'react';
+import { Network } from 'lucide-react';
 import { TrendingDownIcon } from '@/components/ui/trending-down';
 import { BadgeAlertIcon } from '@/components/ui/badge-alert';
 import { LockIcon } from '@/components/ui/lock';
@@ -18,13 +19,13 @@ const painPoints = [
     icon: TrendingDownIcon,
     headline: 'Rent Forever',
     copy:
-      "Every month you pay. Every month they own a little more of your business. The moment you stop paying, your data, your workflows, your history — gone."
+      "Every month you pay. Every year they raise the price. You can't leave because your entire operation is built around their system — and they know it. That's not software. That's a landlord who owns your data."
   },
   {
     icon: BadgeAlertIcon,
     headline: 'Dead Architecture',
     copy:
-      "The tools your team logs into every day were built for a world before AI. You're paying for yesterday's solution to run today's business."
+      "The platforms your team uses every day were built for a world before AI existed. Your team has built workarounds for the workarounds. You're paying enterprise prices to run a business that has outgrown the tool that was supposed to help it grow."
   },
   {
     icon: LockIcon,
@@ -36,13 +37,19 @@ const painPoints = [
     icon: DollarSignIcon,
     headline: 'The Hidden Tax',
     copy:
-      "Most businesses have no idea what they're actually spending on software. It's spread across departments, expense reports, and annual renewals nobody questions."
+      "Your SaaS spend is spread across 12 department budgets, 6 annual renewals, and a handful of expense reports nobody questions. Most businesses have no idea what their total number is until someone finally adds it up. When they do, it's rarely under £80k. Often it's over £150k. For software that covers maybe 20% of what you actually need."
   },
   {
     icon: WrenchIcon,
     headline: 'Franken-Stack',
     copy:
-      'One tool feeds into another, into another. Nobody fully understands how it all connects — until something breaks, and everything stops.'
+      "One tool feeds into another, into another. Nobody fully understands how it all connects — because it was never designed. It just grew. Your sales team enters data in three places. Finance exports reports manually. IT spends half their time keeping duct tape in place. You're not behind on technology. You're behind on decisions."
+  },
+  {
+    icon: Network,
+    headline: 'No One Owns It',
+    copy:
+      "You have an IT Manager who keeps the lights on. You have department heads who bought their own tools. But nobody is sitting at the table making strategic technology decisions for the business. Every year, the problem gets a little more expensive and a little harder to fix. Until someone finally does something about it."
   }
 ];
 
@@ -123,7 +130,7 @@ export function ProblemAgitation({ className }: ProblemAgitationProps) {
             transition={{ duration: 0.6, delay: 0.08, ease: 'easeOut' }}
             className="text-lg md:text-xl text-foreground-secondary leading-relaxed max-w-3xl mx-auto text-center mt-6 mb-12"
           >
-            $300 billion in software stock value collapsed in days. The tools your business runs on are now a liability on your balance sheet — and your board knows it.
+            Most businesses don&apos;t have a software strategy. They have a software history. A decade of reactive purchases, auto-renewed contracts, and tools approved by whoever needed them at the time.
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -131,7 +138,7 @@ export function ProblemAgitation({ className }: ProblemAgitationProps) {
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
             className="text-sm text-foreground-tertiary text-center max-w-2xl mx-auto mb-8"
           >
-            I&apos;ve seen this pattern everywhere.
+            I&apos;ve seen this pattern in every established business I&apos;ve worked with.
           </motion.p>
 
           <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">

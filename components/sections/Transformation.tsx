@@ -14,9 +14,9 @@ export interface TransformationProps {
 const processSteps = [
   {
     label: '01',
-    headline: 'Discovery Call',
+    headline: 'Software Review Call',
     priceTag: 'Free',
-    body: "A 45-minute conversation to understand your current stack, your costs, and whether I can save you money. No pitch. No obligation. If I can't find savings, I'll tell you.",
+    body: "A 45-minute conversation — no pitch, no agenda. I want to understand your current software situation, what it costs, and what it's failing to do. If I can't find meaningful savings, I'll tell you straight and you'll walk away with a clearer picture of your stack at no cost.",
     icon: Phone,
     isAnimated: false
   },
@@ -24,7 +24,7 @@ const processSteps = [
     label: '02',
     headline: 'Software Review',
     priceTag: '£6,750',
-    body: "A one-week deep-dive into your entire software estate. I interview your team, audit every active subscription, map every workflow, and identify exactly where you're haemorrhaging cash. You receive a written report with projected 3-year savings, replacement recommendations, and a clear ROI model — whether you work with me further or not.",
+    body: "A one-week deep-dive into your entire software estate. I interview your team, audit every active subscription, map every workflow, and find exactly where the money is going. You receive a written report with your total software spend, projected 3-year savings, what to cut immediately, what to replace, and a clear ROI model. This report is yours whether you work with me further or not. Most clients cover the cost of the review in the first month of changes they make from it alone.",
     icon: SearchIcon,
     isAnimated: true
   },
@@ -32,7 +32,7 @@ const processSteps = [
     label: '03',
     headline: 'SaaS Detox Sprint',
     priceTag: 'Priced on findings',
-    body: 'Based on the Software Review, I build your custom replacement in 4–6 weeks. Fixed price, fixed scope, zero subscriptions on the other side. Priced at 10% of your projected 3-year savings — you keep the other 90%.',
+    body: "Based on the Software Review findings, I build your custom replacement. Fixed price, fixed scope, delivered in 4–6 weeks. You get a system built specifically for how your business actually works — not a configuration of someone else's platform. Zero subscriptions on the other side. You own it outright. Priced at 10% of your projected 3-year savings, so the numbers make sense before we start.",
     icon: ZapIcon,
     isAnimated: true
   }
@@ -62,7 +62,7 @@ export function Transformation({ className }: TransformationProps) {
 
           {/* Section Title */}
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-foreground text-center break-words">
-            I Rebuild It. With AI.
+            How It Works. No Surprises.
           </h2>
 
           {/* Section Subtitle */}
@@ -127,7 +127,7 @@ export function Transformation({ className }: TransformationProps) {
               rel="noopener noreferrer"
               className="inline-block bg-primary text-primary-foreground rounded-full px-8 py-4 shadow-lg shadow-primary/25 hover:scale-105 hover:bg-primary-hover transition-all font-medium"
             >
-              Book Your Free Discovery Call
+              Book Your Free Software Review
             </a>
           </motion.div>
         </motion.div>

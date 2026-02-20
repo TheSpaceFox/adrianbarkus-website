@@ -5,11 +5,13 @@ import Header from '@/components/Header';
 import { AnnouncementBar } from '@/components/AnnouncementBar';
 import { Hero } from '@/components/sections/Hero';
 import { ProblemAgitation } from '@/components/sections/ProblemAgitation';
+import { WhoThisIsFor } from '@/components/sections/WhoThisIsFor';
 import { WhyNow } from '@/components/sections/WhyNow';
 import { Transformation } from '@/components/sections/Transformation';
 import { Credibility } from '@/components/sections/Credibility';
 import { CaseStudies } from '@/components/sections/CaseStudies';
 import { Offers } from '@/components/sections/Offers';
+import { WhoThisIsNotFor } from '@/components/sections/WhoThisIsNotFor';
 import { SocialProof } from '@/components/sections/SocialProof';
 import { FounderSection } from '@/components/sections/FounderSection';
 import { FAQ } from '@/components/sections/FAQ';
@@ -30,11 +32,13 @@ export default function Home() {
       >
         <Hero />
         <ProblemAgitation />
+        <WhoThisIsFor />
         <WhyNow />
         <Transformation />
         <Credibility />
         <CaseStudies />
         <Offers />
+        <WhoThisIsNotFor />
         <SocialProof />
         <FounderSection />
         <FAQ />

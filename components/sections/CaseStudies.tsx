@@ -25,34 +25,34 @@ const CASE_STUDY_IMAGE_HEIGHT = 500;
 
 const caseStudies: CaseStudyItem[] = [
   {
-    title: 'Replaced legacy stack for Fortune 500 retailer',
+    title: 'Legacy stack replacement — 40% cost reduction, one system instead of five',
     clientOrContext: 'Fortune 500 retailer',
     summary: 'Migrated core operations off ageing vendor stack onto a modern, AI-augmented system. Reduced annual software spend by 40% and cut time-to-insight from days to hours.',
     image: 'https://placehold.co/800x500/373737/ffffff?text=Case+Study+1',
     imageAlt: 'Legacy stack replacement for Fortune 500 retailer',
-    problem: 'Multiple legacy platforms, high renewal costs, and siloed data across regions.',
-    solution: 'Single replacement system built with modern stack; AI-assisted workflows for reporting and approvals.',
-    outcome: '40% reduction in software spend; same team now runs operations with one system instead of five.'
+    problem: 'A major retailer running multiple legacy platforms with high annual renewal costs and siloed data across regions. Reporting took days. Teams operated from different systems with no single source of truth. Every renewal was a negotiation nobody was winning.',
+    solution: 'Full software estate audit followed by a single replacement system built on a modern stack. AI-assisted workflows for reporting, approvals, and data consolidation across regions. Delivered in 6 weeks with full team handover and documentation.',
+    outcome: '40% reduction in annual software spend. The same operations team now runs the business from one system instead of five. Time-to-insight dropped from days to hours. No ongoing vendor contracts.'
   },
   {
-    title: 'Fractional CTO delivery for scale-up',
-    clientOrContext: 'B2B scale-up',
-    summary: 'Defined technical roadmap and led build of customer-facing platform. Delivered MVP in 6 weeks and handed over to internal team with full documentation.',
+    title: 'Fractional CTO — technology leadership without the full-time hire',
+    clientOrContext: 'Established professional services firm',
+    summary: 'Defined technology roadmap and led build of customer-facing platform. Delivered in 6 weeks and handed over to internal team with full documentation.',
     image: 'https://placehold.co/800x500/373737/ffffff?text=Case+Study+2',
-    imageAlt: 'Fractional CTO delivery for B2B scale-up',
-    problem: 'No in-house CTO; needed to ship a new product line without hiring a full-time lead.',
-    solution: 'Fixed-scope engagement: strategy, architecture, and hands-on build using AI-accelerated development.',
-    outcome: 'MVP live on schedule; internal team onboarded and maintaining the system without ongoing dependency.'
+    imageAlt: 'Fractional CTO delivery for established professional services firm',
+    problem: 'A 12-year-old professional services firm with strong revenue but no technology leadership. The MD was making all technical decisions. Two failed attempts to hire a full-time CTO. Meanwhile, the product roadmap had stalled and a competitor was pulling ahead.',
+    solution: 'Fractional CTO engagement: defined the technology roadmap, took ownership of technical decisions, and led the build of a new customer-facing platform using AI-accelerated development. The MD was removed from technical decision-making within two weeks.',
+    outcome: 'New platform live in 6 weeks. Internal team fully onboarded with documentation. The MD hasn\'t made a technical decision since. Business is now moving faster than the competitor that prompted the engagement.'
   },
   {
-    title: 'Software audit and replacement for professional services',
+    title: 'Six-figure SaaS spend eliminated — 20 subscriptions to one custom system',
     clientOrContext: 'Professional services firm',
     summary: 'Audited 20+ subscriptions, consolidated to a single custom system. Eliminated six-figure annual spend and gave the firm full ownership of data and workflows.',
     image: 'https://placehold.co/800x500/373737/ffffff?text=Case+Study+3',
     imageAlt: 'Software audit and replacement for professional services firm',
-    problem: 'Spend was spread across many tools; renewals were auto-approved; no single view of costs or usage.',
-    solution: 'Full software review, then a single replacement build covering CRM, projects, and reporting.',
-    outcome: 'Six-figure annual savings; one system to maintain; data and IP fully owned by the client.'
+    problem: 'A 15-year-old professional services firm had accumulated 20+ SaaS subscriptions over a decade of reactive purchasing. Total annual spend was over £120k. Renewals were auto-approved because nobody owned the review process. No single view of costs, usage, or data. The firm was locked into platforms it had long outgrown.',
+    solution: 'One-week software review identified £120k in annual spend with significant overlap and redundancy. Built a single custom system covering CRM, project tracking, client portal, and reporting — tailored to how the firm actually works, not how the SaaS vendor assumed it would.',
+    outcome: '£120k annual saving from year one. One system to maintain instead of twenty. All data and IP fully owned by the client — no vendor relationship to manage, no renewal to dread, no price increase to absorb. The Software Review paid for itself in the first week of changes.'
   }
 ];
 

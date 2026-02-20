@@ -24,7 +24,7 @@ export function WhyNow() {
             THE MOMENT
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-foreground text-center max-w-3xl mx-auto break-words">
-            The Market Just Changed. Your Software Strategy Should Too.
+            The Cost of Custom Software Just Collapsed. Your Renewal Invoice Didn&apos;t.
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 md:gap-x-16">
@@ -33,14 +33,10 @@ export function WhyNow() {
                 What Just Happened
               </p>
               <p className="text-foreground-secondary text-base leading-relaxed">
-                Wall Street is calling it the SaaSpocalypse. In a matter of days, $300 billion was wiped
-                from the value of software companies as investors concluded that AI has made the
-                traditional subscription software model obsolete.
+                AI has fundamentally changed what custom software costs to build and how long it takes to deliver. What used to require a development team of six and six months now takes one person with the right tools a matter of weeks.
               </p>
               <p className="text-foreground-secondary text-base leading-relaxed mt-4">
-                The businesses most exposed are those locked into expensive, inflexible platforms they
-                can&apos;t leave and can&apos;t afford to keep renewing. Your finance team will be asking
-                questions. Your board already is.
+                The businesses most exposed are those locked into expensive platforms they can&apos;t leave and can&apos;t justify renewing. The CFO is asking questions. The MD is frustrated. And the answer is no longer &quot;this is just the cost of doing business.&quot;
               </p>
             </div>
             <div>
@@ -48,14 +44,10 @@ export function WhyNow() {
                 Where I Come In
               </p>
               <p className="text-foreground-secondary text-base leading-relaxed">
-                I&apos;ve spent 19 years inside the enterprise software world — implementing
-                the same platforms now under threat. I saw this shift coming before the market did.
+                I&apos;ve spent 19 years inside the enterprise software world — at Woolworths, Thomson Reuters, the Australian Government, and a dozen established businesses in between. I&apos;ve implemented the platforms your business runs on, which means I know exactly where they&apos;re costing you money and how to replace them without disrupting your operations.
               </p>
               <p className="text-foreground-secondary text-base leading-relaxed mt-4">
-                I now use that knowledge, combined with AI-accelerated development, to guide
-                you through the transition: auditing what to cut, building what to keep, and
-                delivering custom systems that you own outright — with no subscriptions, no lock-in,
-                and no exposure to the next market shock.
+                I now combine that experience with AI-accelerated development to do what no agency can match: audit what to cut, build the replacement, migrate your data, and hand you a system you own outright — delivered in weeks, not months. No subscriptions on the other side. No lock-in. No vendor to negotiate with at renewal time.
               </p>
             </div>
           </div>

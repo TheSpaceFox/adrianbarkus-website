@@ -47,7 +47,7 @@ export function FinalCTA({ className }: FinalCTAProps) {
                   Don&apos;t Wait for Your Next Renewal.
                 </h2>
                 <p className="text-xl md:text-2xl font-normal text-[#A0A0A0] leading-relaxed">
-                  Every week you delay is another week of exposure. A free Discovery Call takes 45
+                  Every week you delay is another week of exposure. A free Software Review takes 45
                   minutes. The findings could change what you spend on software for the next decade.
                 </p>
               </div>
