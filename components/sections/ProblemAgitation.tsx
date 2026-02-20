@@ -120,7 +120,7 @@ export function ProblemAgitation({ className }: ProblemAgitationProps) {
             initial={{ opacity: 0, y: 16 }}
             animate={isSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
             transition={{ duration: 0.6, delay: 0.05, ease: 'easeOut' }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight max-w-3xl mx-auto text-center break-words line-clamp-2 pb-6 leading-normal"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight max-w-3xl mx-auto text-center break-words line-clamp-2 pb-6 leading-normal"
           >
             The Addiction
           </motion.h2>

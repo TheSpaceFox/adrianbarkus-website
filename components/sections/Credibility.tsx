@@ -151,7 +151,7 @@ export function Credibility({ className }: CredibilityProps) {
           className="space-y-16 md:space-y-24 min-w-0 overflow-x-hidden"
         >
           {/* Section Headline - break-words so it wraps on narrow screens */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground text-center tracking-tight break-words max-w-3xl mx-auto line-clamp-2 pb-6 leading-normal">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-center tracking-tight break-words max-w-3xl mx-auto line-clamp-2 pb-6 leading-normal">
             19 Years Inside the Platforms Your Business Runs On.
           </h2>
 
