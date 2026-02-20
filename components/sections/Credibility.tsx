@@ -37,6 +37,11 @@ const backgroundLogos = [
     alt: 'SUEZ'
   },
   {
+    dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Choice%20Dark%20theme%20-%20373737.png',
+    light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Choice%20Light%20Theme%20-%20FFFFFF.png',
+    alt: 'Choice'
+  },
+  {
     dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/WW%20Dark%20theme%20-%20373737.png',
     light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/WW%20Light%20Theme%20-%20FFFFFF.png',
     alt: 'Woolworths'
@@ -78,6 +83,11 @@ const modernStackLogos = [
     dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/NEXT%20Dark%20theme%20-%20373737.png',
     light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/NEXT%20Light%20Theme%20-%20FFFFFF.png',
     alt: 'Next.js'
+  },
+  {
+    dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Salesforce%20Dark%20theme%20-%20373737.png',
+    light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Salersforce%20Light%20Theme%20-%20FFFFFF.png',
+    alt: 'Salesforce'
   },
   {
     dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Cursor%20Dark%20theme%20-%20373737.png',
