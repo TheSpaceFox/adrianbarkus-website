@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
+import Image from 'next/image';
 import { useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -12,16 +13,23 @@ export interface CaseStudyItem {
   title: string;
   clientOrContext?: string;
   summary: string;
+  image?: string;
+  imageAlt?: string;
   problem?: string;
   solution?: string;
   outcome?: string;
 }
+
+const CASE_STUDY_IMAGE_WIDTH = 800;
+const CASE_STUDY_IMAGE_HEIGHT = 500;
 
 const caseStudies: CaseStudyItem[] = [
   {
     title: 'Replaced legacy stack for Fortune 500 retailer',
     clientOrContext: 'Fortune 500 retailer',
     summary: 'Migrated core operations off ageing vendor stack onto a modern, AI-augmented system. Reduced annual software spend by 40% and cut time-to-insight from days to hours.',
+    image: 'https://placehold.co/800x500/373737/ffffff?text=Case+Study+1',
+    imageAlt: 'Legacy stack replacement for Fortune 500 retailer',
     problem: 'Multiple legacy platforms, high renewal costs, and siloed data across regions.',
     solution: 'Single replacement system built with modern stack; AI-assisted workflows for reporting and approvals.',
     outcome: '40% reduction in software spend; same team now runs operations with one system instead of five.'
@@ -30,6 +38,8 @@ const caseStudies: CaseStudyItem[] = [
     title: 'Fractional CTO delivery for scale-up',
     clientOrContext: 'B2B scale-up',
     summary: 'Defined technical roadmap and led build of customer-facing platform. Delivered MVP in 6 weeks and handed over to internal team with full documentation.',
+    image: 'https://placehold.co/800x500/373737/ffffff?text=Case+Study+2',
+    imageAlt: 'Fractional CTO delivery for B2B scale-up',
     problem: 'No in-house CTO; needed to ship a new product line without hiring a full-time lead.',
     solution: 'Fixed-scope engagement: strategy, architecture, and hands-on build using AI-accelerated development.',
     outcome: 'MVP live on schedule; internal team onboarded and maintaining the system without ongoing dependency.'
@@ -38,6 +48,8 @@ const caseStudies: CaseStudyItem[] = [
     title: 'Software audit and replacement for professional services',
     clientOrContext: 'Professional services firm',
     summary: 'Audited 20+ subscriptions, consolidated to a single custom system. Eliminated six-figure annual spend and gave the firm full ownership of data and workflows.',
+    image: 'https://placehold.co/800x500/373737/ffffff?text=Case+Study+3',
+    imageAlt: 'Software audit and replacement for professional services firm',
     problem: 'Spend was spread across many tools; renewals were auto-approved; no single view of costs or usage.',
     solution: 'Full software review, then a single replacement build covering CRM, projects, and reporting.',
     outcome: 'Six-figure annual savings; one system to maintain; data and IP fully owned by the client.'
@@ -74,6 +86,20 @@ export function CaseStudies({ className }: CaseStudiesProps) {
                 transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
               >
                 <Card className="h-full flex flex-col border-border bg-surface overflow-hidden">
+                  {study.image ? (
+                    <div className="relative w-full aspect-[16/10] shrink-0 bg-muted overflow-hidden rounded-t-lg">
+                      <Image
+                        src={study.image}
+                        alt={study.imageAlt ?? study.title}
+                        width={CASE_STUDY_IMAGE_WIDTH}
+                        height={CASE_STUDY_IMAGE_HEIGHT}
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 336px"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-full aspect-[16/10] shrink-0 bg-muted rounded-t-lg" aria-hidden />
+                  )}
                   <CardHeader className="pb-2">
                     {study.clientOrContext && (
                       <p className="text-xs font-semibold uppercase tracking-[0.12em] text-foreground-tertiary mb-1">
