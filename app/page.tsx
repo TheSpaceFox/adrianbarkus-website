@@ -43,9 +43,10 @@ export default function Home() {
         <FounderSection />
         <FAQ />
         <FinalCTA />
-        {/* Footer as its own snapping section */}
-        <section className="min-h-screen-dynamic snap-start flex flex-col justify-end bg-surface">
+        {/* Footer as its own snapping section — content at top, empty space below */}
+        <section className="min-h-screen-dynamic snap-start flex flex-col justify-start bg-surface">
           <Footer />
+          <div className="flex-1 min-h-[40vh]" aria-hidden />
         </section>
         <ThemeSwitcher />
       </main>
