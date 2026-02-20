@@ -65,7 +65,7 @@ export function FAQ({ className }: FAQProps) {
           className="space-y-16 md:space-y-24"
         >
           {/* Section Headline */}
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground text-center tracking-tight break-words">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground text-center tracking-tight break-words line-clamp-2">
             The Questions I Get Asked Most
           </h2>
 

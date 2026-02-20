@@ -55,6 +55,10 @@
 ### Core Rules (Jeton.com-Inspired)
 
 **1. Headline Length: Maximum 5-7 words. No exceptions.**
+
+**1b. Headlines: 2 lines only.**  
+All main headlines (hero H1, section H2) must display in at most 2 lines. Use `line-clamp-2` on headline elements so longer copy is clamped with ellipsis, or keep copy short enough to wrap to 2 lines. No headline may run to 3+ lines.
+
 - ✅ "One app for all needs" (Jeton)
 - ✅ "Escape the SaaS Tax" (Your site)
 - ❌ "Your SaaS Bill Just Hit £80k/Year. You Use 20% of It." (Too long)
@@ -167,6 +171,7 @@
 - Weight: `font-bold`
 - Tracking: `tracking-tight`
 - Leading: `leading-tight`
+- **2 lines only:** use `line-clamp-2` so headlines never exceed 2 lines
 
 **H2 (Subheadlines):**
 - OLD: `text-2xl md:text-4xl`
@@ -180,6 +185,7 @@
 - NEW: `text-4xl md:text-6xl` (36px-60px)
 - Weight: `font-bold`
 - Tracking: `tracking-tight`
+- **2 lines only:** use `line-clamp-2` so section headlines never exceed 2 lines
 
 **Body Text:**
 - Size: `text-base md:text-lg` (16px-18px)
@@ -264,6 +270,9 @@ className="text-xs font-medium uppercase tracking-[0.16em] text-foreground-terti
 ---
 
 ## Visual Hierarchy Rules
+
+**0. Headlines: 2 lines only (site-wide).**  
+Hero H1 and every section H2 must be limited to 2 lines (e.g. `line-clamp-2`). This keeps rhythm consistent and avoids long stacks of text.
 
 **1. One Message Per Section:**
 - Each section should communicate ONE clear idea
