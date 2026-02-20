@@ -79,21 +79,22 @@ export function Offers({ className }: OffersProps) {
             </p>
           </div>
 
-          {/* Two Cards Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Two Cards Grid — equal height */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
             {/* Card 1 - Software Detox Sprint (Primary with brass border) */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+              className="h-full min-h-0 flex flex-col"
             >
-              <Card className="h-full border-2 border-primary bg-surface hover:shadow-lg transition-all duration-300">
-                <CardHeader className="space-y-4">
+              <Card className="h-full flex flex-col border-2 border-primary bg-surface hover:shadow-lg transition-all duration-300">
+                <CardHeader className="space-y-4 shrink-0">
                   <CardTitle className="text-2xl md:text-3xl font-bold text-foreground">
                     Software Detox Sprint
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-8 p-10 md:p-12">
+                <CardContent className="flex-1 flex flex-col space-y-8 p-10 md:p-12 min-h-0">
                   {/* Checklist */}
                   <ul className="space-y-4">
                     {saasDetoxItems.map((item, index) => (
@@ -118,34 +119,34 @@ export function Offers({ className }: OffersProps) {
                     </div>
                   </div>
 
-                  {/* Slot availability */}
-                  <p className="text-sm text-foreground-secondary leading-relaxed">
-                    {offerSlots[0].slotCopy}
-                  </p>
-                  <UsageMeter
-                    usage={[
-                      {
-                        name: 'Software Detox Sprint',
-                        usage: offerSlots[0].slotsTaken,
-                        limit: offerSlots[0].slotsTotal
-                      }
-                    ]}
-                    title={offerSlots[0].slotLabel}
-                    description=""
-                    variant="circle"
-                    size="md"
-                    progressColor="default"
-                    className="w-full"
-                  />
-
-                  {/* CTA Button */}
-                  <Button
-                    size="lg"
-                    onClick={() => window.open(offerSlots[0].ctaHref, '_blank')}
-                    className="w-full bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 transition-all hover:scale-105 px-8 py-4"
-                  >
-                    {offerSlots[0].ctaLabel}
-                  </Button>
+                  {/* Slot availability + CTA — pinned to bottom */}
+                  <div className="mt-auto space-y-4 pt-4">
+                    <p className="text-sm text-foreground-secondary leading-relaxed">
+                      {offerSlots[0].slotCopy}
+                    </p>
+                    <UsageMeter
+                      usage={[
+                        {
+                          name: 'Software Detox Sprint',
+                          usage: offerSlots[0].slotsTaken,
+                          limit: offerSlots[0].slotsTotal
+                        }
+                      ]}
+                      title={offerSlots[0].slotLabel}
+                      description=""
+                      variant="circle"
+                      size="md"
+                      progressColor="default"
+                      className="w-full"
+                    />
+                    <Button
+                      size="lg"
+                      onClick={() => window.open(offerSlots[0].ctaHref, '_blank')}
+                      className="w-full bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 transition-all hover:scale-105 px-8 py-4"
+                    >
+                      {offerSlots[0].ctaLabel}
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>
@@ -155,14 +156,15 @@ export function Offers({ className }: OffersProps) {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+              className="h-full min-h-0 flex flex-col"
             >
-              <Card className="h-full border border-[#404040] bg-surface hover:shadow-lg transition-all duration-300">
-                <CardHeader className="space-y-4">
+              <Card className="h-full flex flex-col border border-[#404040] bg-surface hover:shadow-lg transition-all duration-300">
+                <CardHeader className="space-y-4 shrink-0">
                   <CardTitle className="text-2xl md:text-3xl font-bold text-foreground">
                     Fractional CTO
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-8 p-10 md:p-12">
+                <CardContent className="flex-1 flex flex-col space-y-8 p-10 md:p-12 min-h-0">
                   <p className="text-foreground-secondary text-sm leading-relaxed">
                     For established businesses that need senior technology leadership without committing to a £150k+ full-time hire. I join your senior team on a structured basis — attending key meetings, owning the technology roadmap, and making the technical calls your MD shouldn&apos;t have to make. When we decide something needs to be built, I build it myself. Strategy and execution. One person. No handoff delays.
                   </p>
@@ -190,35 +192,35 @@ export function Offers({ className }: OffersProps) {
                     </div>
                   </div>
 
-                  {/* Slot availability */}
-                  <p className="text-sm text-foreground-secondary leading-relaxed">
-                    {offerSlots[1].slotCopy}
-                  </p>
-                  <UsageMeter
-                    usage={[
-                      {
-                        name: 'Fractional CTO',
-                        usage: offerSlots[1].slotsTaken,
-                        limit: offerSlots[1].slotsTotal
-                      }
-                    ]}
-                    title={offerSlots[1].slotLabel}
-                    description=""
-                    variant="circle"
-                    size="md"
-                    progressColor="default"
-                    className="w-full"
-                  />
-
-                  {/* CTA Button */}
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    onClick={() => window.open(offerSlots[1].ctaHref, '_blank')}
-                    className="w-full border border-[#404040] bg-surface-elevated hover:bg-surface text-foreground hover:scale-105 transition-transform duration-200 px-8 py-4"
-                  >
-                    {offerSlots[1].ctaLabel}
-                  </Button>
+                  {/* Slot availability + CTA — pinned to bottom */}
+                  <div className="mt-auto space-y-4 pt-4">
+                    <p className="text-sm text-foreground-secondary leading-relaxed">
+                      {offerSlots[1].slotCopy}
+                    </p>
+                    <UsageMeter
+                      usage={[
+                        {
+                          name: 'Fractional CTO',
+                          usage: offerSlots[1].slotsTaken,
+                          limit: offerSlots[1].slotsTotal
+                        }
+                      ]}
+                      title={offerSlots[1].slotLabel}
+                      description=""
+                      variant="circle"
+                      size="md"
+                      progressColor="default"
+                      className="w-full"
+                    />
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      onClick={() => window.open(offerSlots[1].ctaHref, '_blank')}
+                      className="w-full border border-[#404040] bg-surface-elevated hover:bg-surface text-foreground hover:scale-105 transition-transform duration-200 px-8 py-4"
+                    >
+                      {offerSlots[1].ctaLabel}
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>
