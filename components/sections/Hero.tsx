@@ -74,7 +74,7 @@ export function Hero({ className }: HeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight tracking-tight break-words max-w-4xl mx-auto line-clamp-2"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight tracking-tight break-words max-w-4xl mx-auto line-clamp-2 pb-4"
           >
             Your Software Is Costing More Than You Think.
           </motion.h1>

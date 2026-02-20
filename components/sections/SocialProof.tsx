@@ -272,7 +272,7 @@ export function SocialProof({ className }: SocialProofProps) {
           className="space-y-8 md:space-y-16"
         >
           <div className="text-center min-w-0">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground text-center tracking-tight break-words max-w-3xl mx-auto line-clamp-2">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground text-center tracking-tight break-words max-w-3xl mx-auto line-clamp-2 pb-4">
               What leaders say about working with me
             </h2>
           </div>
