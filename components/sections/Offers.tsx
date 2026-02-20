@@ -68,7 +68,7 @@ export function Offers({ className }: OffersProps) {
         >
           {/* Section Headline: Two Options + Secure Your Slot */}
           <div className="space-y-2">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground text-center tracking-tight break-words max-w-3xl mx-auto pb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground text-center tracking-tight break-words max-w-3xl mx-auto pb-6 leading-normal">
               Two Ways to Work Together
             </h2>
             <p className="text-xl md:text-2xl text-foreground-secondary text-center">

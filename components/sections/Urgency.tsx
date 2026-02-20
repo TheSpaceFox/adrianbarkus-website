@@ -62,7 +62,7 @@ export function Urgency({ className }: UrgencyProps) {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="space-y-16 md:space-y-24"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground text-center tracking-tight break-words max-w-3xl mx-auto line-clamp-2 pb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground text-center tracking-tight break-words max-w-3xl mx-auto line-clamp-2 pb-6 leading-normal">
             Secure Your Slot
           </h2>
 

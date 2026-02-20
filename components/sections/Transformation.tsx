@@ -61,7 +61,7 @@ export function Transformation({ className }: TransformationProps) {
           </p>
 
           {/* Section Title */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground text-center max-w-3xl mx-auto break-words line-clamp-2 pb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground text-center max-w-3xl mx-auto break-words line-clamp-2 pb-6 leading-normal">
             How It Works. No Surprises.
           </h2>
 

@@ -24,7 +24,7 @@ export function WhoThisIsNotFor() {
           <p className="text-primary text-xs tracking-[0.16em] uppercase font-medium text-center">
             THE FILTER
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground text-center max-w-3xl mx-auto break-words line-clamp-2 pb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground text-center max-w-3xl mx-auto break-words line-clamp-2 pb-6 leading-normal">
             This Isn&apos;t for Everyone.
           </h2>
           <div className="max-w-3xl mx-auto space-y-6 text-base md:text-lg leading-relaxed">

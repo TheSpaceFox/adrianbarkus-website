@@ -151,7 +151,7 @@ export function Credibility({ className }: CredibilityProps) {
           className="space-y-16 md:space-y-24 min-w-0 overflow-x-hidden"
         >
           {/* Section Headline - break-words so it wraps on narrow screens */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground text-center tracking-tight break-words max-w-3xl mx-auto line-clamp-2 pb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground text-center tracking-tight break-words max-w-3xl mx-auto line-clamp-2 pb-6 leading-normal">
             19 Years Inside the Platforms Your Business Runs On.
           </h2>
 
@@ -181,12 +181,12 @@ export function Credibility({ className }: CredibilityProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
-            className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 pt-8 min-w-0 max-w-full"
+            className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 pt-8 min-w-0 max-w-full overflow-visible"
           >
             {trustBadges.map((badge, index) => (
               <Badge
                 key={index}
-                className="bg-primary/10 text-primary border-primary/30 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium whitespace-nowrap shrink-0"
+                className="bg-primary/10 text-primary border-primary/30 px-3 py-1.5 sm:px-4 sm:py-2 pb-2 text-xs sm:text-sm font-medium whitespace-nowrap shrink-0 overflow-visible leading-normal"
               >
                 {badge}
               </Badge>
