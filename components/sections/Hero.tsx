@@ -86,7 +86,7 @@ export function Hero({ className }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             className="text-xl md:text-2xl font-normal text-white mt-6 mb-0 leading-relaxed"
           >
-            Most established businesses are spending £80k–£150k a year on software that was built up tool by tool, renewal by renewal. Nobody questioned it. Until now. I find exactly where the money is going, cut what you don't need, and build what you do — in weeks, not months.
+            Most established businesses are spending hundreds of thousands a year on software that was built up tool by tool, renewal by renewal. Nobody questioned it. Until now. I find exactly where the money is going, cut what you don't need, and build what you do — in weeks, not months.
           </motion.h2>
 
           {/* CTAs */}

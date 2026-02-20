@@ -41,7 +41,7 @@ export function AnnouncementBar({ scrollContainerRef }: AnnouncementBarProps) {
       className="fixed top-0 left-0 right-0 z-[60] bg-[#373737] border-b border-[#404040]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-3 text-center text-white text-sm sm:text-base font-medium">
-        The average established business wastes £80k–£150k a year on software nobody questioned. I help you find it, cut it, and replace it. In weeks.
+        The average established business wastes hundreds of thousands a year on software nobody questioned. I help you find it, cut it, and replace it. In weeks.
       </div>
     </motion.div>
   );
