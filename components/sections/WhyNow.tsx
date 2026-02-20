@@ -32,22 +32,16 @@ export function WhyNow() {
               <p className="text-primary text-xs tracking-[0.12em] uppercase font-medium mb-3">
                 What Just Happened
               </p>
-              <p className="text-foreground-secondary text-base leading-relaxed">
-                AI has fundamentally changed what custom software costs to build and how long it takes to deliver. What used to require a development team of six and six months now takes one person with the right tools a matter of weeks.
-              </p>
-              <p className="text-foreground-secondary text-base leading-relaxed mt-4">
-                The businesses most exposed are those locked into expensive platforms they can&apos;t leave and can&apos;t justify renewing. The CFO is asking questions. The MD is frustrated. And the answer is no longer &quot;this is just the cost of doing business.&quot;
+              <p className="text-foreground-secondary text-base leading-relaxed line-clamp-2 pb-1">
+                AI has changed what custom software costs and how long it takes — what used to need six people and six months now takes one person weeks. The businesses most exposed are locked into platforms they can&apos;t leave; the answer is no longer &quot;just the cost of doing business.&quot;
               </p>
             </div>
             <div>
               <p className="text-primary text-xs tracking-[0.12em] uppercase font-medium mb-3">
                 Where I Come In
               </p>
-              <p className="text-foreground-secondary text-base leading-relaxed">
-                I&apos;ve spent 19 years inside the enterprise software world — at Woolworths, Thomson Reuters, the Australian Government, and a dozen established businesses in between. I&apos;ve implemented the platforms your business runs on, which means I know exactly where they&apos;re costing you money and how to replace them without disrupting your operations.
-              </p>
-              <p className="text-foreground-secondary text-base leading-relaxed mt-4">
-                I now combine that experience with AI-accelerated development to do what no agency can match: audit what to cut, build the replacement, migrate your data, and hand you a system you own outright — delivered in weeks, not months. No subscriptions on the other side. No lock-in. No vendor to negotiate with at renewal time.
+              <p className="text-foreground-secondary text-base leading-relaxed line-clamp-2 pb-1">
+                19 years implementing the platforms your business runs on — Woolworths, Thomson Reuters, Australian Government and more. I now combine that with AI-accelerated development to audit, build and hand you a system you own in weeks. No subscriptions, no lock-in.
               </p>
             </div>
           </div>

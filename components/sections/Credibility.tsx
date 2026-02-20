@@ -155,8 +155,8 @@ export function Credibility({ className }: CredibilityProps) {
             19 Years Inside the Platforms Your Business Runs On.
           </h2>
 
-          <p className="text-foreground-secondary text-base md:text-lg leading-relaxed text-center max-w-3xl mx-auto">
-            I&apos;ve worked inside Woolworths, Thomson Reuters, the Australian Government, Breville, and SUEZ — implementing and optimising the same enterprise platforms that established businesses rely on. That experience means I don&apos;t just know how to build replacements. I know exactly what breaks, what&apos;s worth keeping, and what to walk away from.
+          <p className="text-foreground-secondary text-base md:text-lg leading-relaxed text-center max-w-3xl mx-auto line-clamp-2 pb-1">
+            I&apos;ve worked inside Woolworths, Thomson Reuters, the Australian Government, Breville and SUEZ — implementing the same enterprise platforms established businesses rely on. I know what breaks, what&apos;s worth keeping and what to walk away from.
           </p>
 
           {/* Background + Modern Stack logos, both visible */}
