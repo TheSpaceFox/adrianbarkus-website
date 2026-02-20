@@ -1,8 +1,13 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
+import type { ComponentType } from 'react';
 import { useRef } from 'react';
-import { TrendingDown, AlertTriangle, Lock, Receipt, GitMerge, LucideIcon } from 'lucide-react';
+import { TrendingDownIcon } from '@/components/ui/trending-down';
+import { BadgeAlertIcon } from '@/components/ui/badge-alert';
+import { LockIcon } from '@/components/ui/lock';
+import { DollarSignIcon } from '@/components/ui/dollar-sign';
+import { WrenchIcon } from '@/components/ui/wrench';
 
 export interface ProblemAgitationProps {
   className?: string;
@@ -10,31 +15,31 @@ export interface ProblemAgitationProps {
 
 const painPoints = [
   {
-    icon: TrendingDown,
+    icon: TrendingDownIcon,
     headline: 'Rent Forever',
     copy:
       "Every month you pay. Every month they own a little more of your business. The moment you stop paying, your data, your workflows, your history — gone."
   },
   {
-    icon: AlertTriangle,
+    icon: BadgeAlertIcon,
     headline: 'Dead Architecture',
     copy:
       "The tools your team logs into every day were built for a world before AI. You're paying for yesterday's solution to run today's business."
   },
   {
-    icon: Lock,
+    icon: LockIcon,
     headline: 'Locked In',
     copy:
       "Your data lives in their system, in their format, on their terms. They know switching feels impossible. That's exactly how they want it."
   },
   {
-    icon: Receipt,
+    icon: DollarSignIcon,
     headline: 'The Hidden Tax',
     copy:
       "Most businesses have no idea what they're actually spending on software. It's spread across departments, expense reports, and annual renewals nobody questions."
   },
   {
-    icon: GitMerge,
+    icon: WrenchIcon,
     headline: 'Franken-Stack',
     copy:
       'One tool feeds into another, into another. Nobody fully understands how it all connects — until something breaks, and everything stops.'
@@ -42,7 +47,7 @@ const painPoints = [
 ];
 
 interface AnimatedCardProps {
-  icon: LucideIcon;
+  icon: ComponentType<{ className?: string; size?: number; 'aria-hidden'?: boolean }>;
   headline: string;
   copy: string;
   index: number;
@@ -74,7 +79,7 @@ function AnimatedCard({ icon: Icon, headline, copy, index, isSectionInView }: An
     >
       <div className="h-full rounded-2xl bg-surface border border-border p-6 sm:p-8">
         <div className="rounded-lg bg-surface-elevated p-2 w-fit">
-          <Icon className="h-5 w-5 text-foreground-secondary" aria-hidden />
+          <Icon className="h-5 w-5 text-foreground-secondary" size={20} aria-hidden />
         </div>
         <h3 className="font-semibold text-foreground mt-4 text-lg">
           {headline}

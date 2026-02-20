@@ -1,6 +1,7 @@
 'use client';
 
-import { Download, Linkedin } from 'lucide-react';
+import { DownloadIcon } from '@/components/ui/download';
+import { LinkedinIcon } from '@/components/ui/linkedin';
 import Link from 'next/link';
 import { GitHubHeatmap } from '@/components/GitHubHeatmap';
 
@@ -98,7 +99,7 @@ export function Footer({ className }: FooterProps) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-foreground-secondary hover:text-primary transition-colors"
               >
-                <Download className="h-4 w-4" />
+                <DownloadIcon className="h-4 w-4" size={16} aria-hidden />
                 <span>Download CV (PDF)</span>
               </Link>
               <Link
@@ -107,7 +108,7 @@ export function Footer({ className }: FooterProps) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-foreground-secondary hover:text-primary transition-colors"
               >
-                <Linkedin className="h-4 w-4" />
+                <LinkedinIcon className="h-4 w-4" size={16} aria-hidden />
                 <span>LinkedIn</span>
               </Link>
             </div>

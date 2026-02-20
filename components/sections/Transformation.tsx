@@ -2,7 +2,9 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Phone, Search, Zap, LucideIcon } from 'lucide-react';
+import { Phone } from 'lucide-react';
+import { SearchIcon } from '@/components/ui/search';
+import { ZapIcon } from '@/components/ui/zap';
 import { BOOK_AUDIT_URL } from '@/lib/constants';
 
 export interface TransformationProps {
@@ -15,21 +17,24 @@ const processSteps = [
     headline: 'Discovery Call',
     priceTag: 'Free',
     body: "A 45-minute conversation to understand your current stack, your costs, and whether I can save you money. No pitch. No obligation. If I can't find savings, I'll tell you.",
-    icon: Phone
+    icon: Phone,
+    isAnimated: false
   },
   {
     label: '02',
     headline: 'Software Review',
     priceTag: '£6,750',
     body: "A one-week deep-dive into your entire software estate. I interview your team, audit every active subscription, map every workflow, and identify exactly where you're haemorrhaging cash. You receive a written report with projected 3-year savings, replacement recommendations, and a clear ROI model — whether you work with me further or not.",
-    icon: Search
+    icon: SearchIcon,
+    isAnimated: true
   },
   {
     label: '03',
     headline: 'SaaS Detox Sprint',
     priceTag: 'Priced on findings',
     body: 'Based on the Software Review, I build your custom replacement in 4–6 weeks. Fixed price, fixed scope, zero subscriptions on the other side. Priced at 10% of your projected 3-year savings — you keep the other 90%.',
-    icon: Zap
+    icon: ZapIcon,
+    isAnimated: true
   }
 ];
 
@@ -69,7 +74,7 @@ export function Transformation({ className }: TransformationProps) {
           {/* Process Steps: vertical timeline mobile, horizontal stepper desktop */}
           <div className="flex flex-col md:flex-row md:items-start gap-10 md:gap-0">
             {processSteps.map((step, index) => {
-              const Icon = step.icon as LucideIcon;
+              const Icon = step.icon;
               const isLast = index === processSteps.length - 1;
               return (
                 <motion.div
@@ -87,7 +92,11 @@ export function Transformation({ className }: TransformationProps) {
                     <div className="flex gap-3 md:flex-row md:items-center">
                       <span className="text-primary text-4xl font-bold flex-shrink-0">{step.label}</span>
                       <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 w-fit h-fit">
-                        <Icon className="h-5 w-5 text-primary" aria-hidden />
+                        {step.isAnimated ? (
+                          <Icon className="h-5 w-5 text-primary" size={20} aria-hidden />
+                        ) : (
+                          <Icon className="h-5 w-5 text-primary" aria-hidden />
+                        )}
                       </div>
                     </div>
                     <div>
