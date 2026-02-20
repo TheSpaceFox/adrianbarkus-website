@@ -141,12 +141,9 @@ export function ProblemAgitation({ className }: ProblemAgitationProps) {
             I&apos;ve seen this pattern in every established business I&apos;ve worked with.
           </motion.p>
 
-          <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {painPoints.map((point, index) => (
-              <div
-                key={index}
-                className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
-              >
+              <div key={index} className="min-w-0">
                 <AnimatedCard
                   icon={point.icon}
                   headline={point.headline}
