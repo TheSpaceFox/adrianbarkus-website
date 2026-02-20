@@ -88,7 +88,7 @@ function AnimatedCard({ icon: Icon, headline, copy, index, isSectionInView }: An
         <div className="rounded-lg bg-surface-elevated p-2 w-fit">
           <Icon className="h-5 w-5 text-foreground-secondary" size={20} aria-hidden />
         </div>
-        <h3 className="font-semibold text-foreground mt-4 text-lg">
+        <h3 className="font-semibold text-foreground mt-4 text-lg line-clamp-2">
           {headline}
         </h3>
         <p className="text-foreground-secondary text-sm mt-2 leading-relaxed">
@@ -120,7 +120,7 @@ export function ProblemAgitation({ className }: ProblemAgitationProps) {
             initial={{ opacity: 0, y: 16 }}
             animate={isSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
             transition={{ duration: 0.6, delay: 0.05, ease: 'easeOut' }}
-            className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground tracking-tight max-w-3xl mx-auto text-center line-clamp-2"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight max-w-3xl mx-auto text-center break-words line-clamp-2"
           >
             The Addiction
           </motion.h2>

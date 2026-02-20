@@ -44,7 +44,7 @@ export function FounderSection() {
             <p className="text-xs uppercase tracking-[0.16em] text-[#C9A962] mb-3">
               A bit about me
             </p>
-            <h2 className="text-4xl font-bold text-[#ECECEC] tracking-tight line-clamp-2">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight line-clamp-2">
               Adrian Barkus
             </h2>
             <p className="text-lg text-[#A0A0A0] mt-1 mb-6">

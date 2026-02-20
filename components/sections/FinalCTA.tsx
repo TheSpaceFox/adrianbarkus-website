@@ -43,7 +43,7 @@ export function FinalCTA({ className }: FinalCTAProps) {
           >
             <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
               <div className="max-w-2xl space-y-6">
-                <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground tracking-tight break-words line-clamp-2">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight break-words max-w-3xl line-clamp-2">
                   Don&apos;t Wait for Your Next Renewal.
                 </h2>
                 <p className="text-xl md:text-2xl font-normal text-[#A0A0A0] leading-relaxed">

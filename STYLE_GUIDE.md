@@ -165,13 +165,12 @@ All main headlines (hero H1, section H2) must display in at most 2 lines. Use `l
 
 ### Type Scale (Updated - Jeton.com Style)
 
-**H1 (Main Headlines):**
-- OLD: `text-5xl md:text-7xl` (60px-72px)
-- NEW: `text-6xl md:text-8xl` (60px-96px desktop)
+**H1 (Main Headlines) — same scale as section H2:**
+- Scale: `text-3xl sm:text-4xl md:text-5xl lg:text-6xl` (uniform site-wide)
 - Weight: `font-bold`
 - Tracking: `tracking-tight`
 - Leading: `leading-tight`
-- **2 lines only:** use `line-clamp-2` so headlines never exceed 2 lines
+- **2 lines only:** use `line-clamp-2`; constrain width with `max-w-4xl` (hero) or `max-w-3xl` (sections)
 
 **H2 (Subheadlines):**
 - OLD: `text-2xl md:text-4xl`
@@ -180,12 +179,12 @@ All main headlines (hero H1, section H2) must display in at most 2 lines. Use `l
 - Color: `text-[#A0A0A0]` (secondary color)
 - Leading: `leading-relaxed`
 
-**H3 (Section Headlines):**
-- OLD: `text-3xl md:text-5xl`
-- NEW: `text-4xl md:text-6xl` (36px-60px)
+**H2 (Section Headlines) — uniform site-wide:**
+- Scale: `text-3xl sm:text-4xl md:text-5xl lg:text-6xl` (same as H1)
 - Weight: `font-bold`
 - Tracking: `tracking-tight`
-- **2 lines only:** use `line-clamp-2` so section headlines never exceed 2 lines
+- **2 lines only:** use `line-clamp-2`; use `max-w-3xl mx-auto` for consistent wrap
+- Card headings (e.g. pain point titles): `text-lg font-semibold line-clamp-2`
 
 **Body Text:**
 - Size: `text-base md:text-lg` (16px-18px)
