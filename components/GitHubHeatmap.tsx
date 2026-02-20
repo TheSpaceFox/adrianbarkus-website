@@ -1,12 +1,14 @@
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
+import { useTheme } from 'next-themes';
 import { cn } from '@/lib/utils';
 
 const GITHUB_USER = 'TheSpaceFox';
 const GITHUB_PROFILE_URL = `https://github.com/${GITHUB_USER}`;
 
-const EMPTY_COLOR = '#1e1e1e';
+const EMPTY_COLOR_DARK = '#1e1e1e';
+const EMPTY_COLOR_LIGHT = '#ebedf0';
 const LOW_COLOR = '#5a4a1a';
 const HIGH_COLOR = '#C9A84C';
 
@@ -20,8 +22,9 @@ interface Week {
   contributionDays: ContributionDay[];
 }
 
-function getIntensityColor(count: number, maxCount: number): string {
-  if (count <= 0) return EMPTY_COLOR;
+function getIntensityColor(count: number, maxCount: number, isDark: boolean): string {
+  const emptyColor = isDark ? EMPTY_COLOR_DARK : EMPTY_COLOR_LIGHT;
+  if (count <= 0) return emptyColor;
   if (maxCount <= 0) return LOW_COLOR;
   const t = Math.min(1, count / maxCount);
   // Interpolate from LOW_COLOR to HIGH_COLOR
@@ -50,11 +53,16 @@ function formatDateLabel(dateStr: string): string {
 }
 
 export function GitHubHeatmap({ className }: { className?: string }) {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   const [weeks, setWeeks] = useState<Week[]>([]);
   const [totalContributions, setTotalContributions] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [tooltip, setTooltip] = useState<{ date: string; count: number; x: number; y: number } | null>(null);
+
+  useEffect(() => setMounted(true), []);
+  const isDark = !mounted || resolvedTheme === 'dark' || (resolvedTheme === 'system' && typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
   useEffect(() => {
     let cancelled = false;
@@ -168,7 +176,12 @@ export function GitHubHeatmap({ className }: { className?: string }) {
                 {totalContributions.toLocaleString()} updates.
               </p>
             )}
-            <div className="relative rounded-lg bg-[#373737] p-4 border border-border overflow-x-auto">
+            <div
+              className={cn(
+                'relative rounded-lg p-4 border border-border overflow-x-auto',
+                isDark ? 'bg-[#373737]' : 'bg-surface-elevated'
+              )}
+            >
               {/* Month labels row: one cell per column, label text only where month starts */}
               <div
                 className="grid gap-[3px] w-full mb-1 min-h-[14px]"
@@ -198,7 +211,7 @@ export function GitHubHeatmap({ className }: { className?: string }) {
                 {visibleGrid.flatMap((row, r) =>
                   row.map((cell, c) => {
                     const count = cell?.count ?? 0;
-                    const bg = getIntensityColor(count, Math.max(1, maxCount));
+                    const bg = getIntensityColor(count, Math.max(1, maxCount), isDark);
                     return (
                       <div
                         key={`${r}-${c}`}

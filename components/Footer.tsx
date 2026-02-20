@@ -52,6 +52,9 @@ export function Footer({ className }: FooterProps) {
                   <Link href="#offers" className="hover:text-primary transition-colors">
                     Offers
                   </Link>
+                  <Link href="#case-studies" className="hover:text-primary transition-colors">
+                    Case studies
+                  </Link>
                   <Link href="#cta" className="hover:text-primary transition-colors">
                     Book Your Free Software Review
                   </Link>

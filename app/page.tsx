@@ -8,6 +8,7 @@ import { ProblemAgitation } from '@/components/sections/ProblemAgitation';
 import { WhyNow } from '@/components/sections/WhyNow';
 import { Transformation } from '@/components/sections/Transformation';
 import { Credibility } from '@/components/sections/Credibility';
+import { CaseStudies } from '@/components/sections/CaseStudies';
 import { Offers } from '@/components/sections/Offers';
 import { SocialProof } from '@/components/sections/SocialProof';
 import { FounderSection } from '@/components/sections/FounderSection';
@@ -32,6 +33,7 @@ export default function Home() {
         <WhyNow />
         <Transformation />
         <Credibility />
+        <CaseStudies />
         <Offers />
         <SocialProof />
         <FounderSection />
