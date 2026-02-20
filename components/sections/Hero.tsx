@@ -76,7 +76,7 @@ export function Hero({ className }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight tracking-tight break-words max-w-4xl mx-auto"
           >
-            Your Software Stack Just Became a Liability.
+            AI Just Killed Your Software Stack.
           </motion.h1>
 
           {/* Subheadline */}
