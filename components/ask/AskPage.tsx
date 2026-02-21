@@ -169,7 +169,7 @@ export function AskPage() {
           )}
         </motion.div>
         {hasStarted && (
-          <div className="flex-1 overflow-y-auto min-h-0 px-4 py-6">
+          <div className="flex-1 overflow-y-auto min-h-0 px-4 py-6 pb-24">
             <div className="max-w-2xl mx-auto flex flex-col gap-6">
               {messages.map((msg, i) => (
                 <ChatMessage
@@ -190,13 +190,17 @@ export function AskPage() {
         )}
       </main>
 
-      {/* Input bar */}
-      <InputBar
-        value={input}
-        onChange={setInput}
-        onSubmit={() => sendMessage(input)}
-        disabled={isLoading}
-      />
+      {/* Spacer so content isn't hidden behind fixed input bar */}
+      <div className="h-[88px] flex-shrink-0 md:h-20" aria-hidden />
+      {/* Input bar — fixed to viewport so it's always visible */}
+      <div className="fixed bottom-0 left-0 right-0 z-10 bg-background border-t border-border/40">
+        <InputBar
+          value={input}
+          onChange={setInput}
+          onSubmit={() => sendMessage(input)}
+          disabled={isLoading}
+        />
+      </div>
     </div>
   );
 }
