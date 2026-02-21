@@ -16,27 +16,21 @@ export interface OffersProps {
 }
 
 const saasDetoxItems = [
-  'Full software estate audit',
+  'Full software audit',
   'Custom replacement built',
-  'Data migrated, fully owned',
-  'Subscriptions cancelled',
-  'Complete handover with documentation'
+  'Full handover — you own everything'
 ];
 
 const aiProcessSprintItems = [
   'Process audit included',
-  'Highest-value opportunity identified together',
   'AI solution built and deployed',
-  'Outcome agreed before work begins',
-  'Full code ownership — no ongoing licence'
+  'Pay on results — outcome agreed upfront'
 ];
 
 const fractionalCTOItems = [
-  'Technology strategy and roadmap',
-  'Architecture decisions owned',
+  'Strategy and roadmap owned',
   'Direct access — no account manager',
-  'Hands-on execution when needed',
-  'Full technical ownership'
+  'Hands-on execution included'
 ];
 
 const offerSlots = [
@@ -111,7 +105,7 @@ export function Offers({ className }: OffersProps) {
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col space-y-8 p-10 md:p-12 min-h-0">
                   <p className="text-foreground-secondary text-sm leading-relaxed">
-                    You&apos;ve accumulated software over years of reactive purchasing. Nobody questioned the renewals. Now the bill is significant and the systems are tangled. I audit your entire software estate, identify exactly where the money is going, and build custom replacements you own outright. No subscriptions on the other side. No lock-in. One engagement, full handover.
+                    Your software bill grew one renewal at a time. Nobody questioned it. I audit your entire stack, cut what you don&apos;t need, and build what you do — custom, owned outright, no subscriptions.
                   </p>
                   {/* Checklist */}
                   <ul className="space-y-4">
@@ -129,7 +123,7 @@ export function Offers({ className }: OffersProps) {
                   <div className="space-y-3 pt-6 border-t border-[#404040]">
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#A0A0A0]">Investment:</span>
-                      <span className="text-base font-semibold text-foreground">Priced on findings</span>
+                      <span className="text-base font-semibold text-foreground">Priced on Findings</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#A0A0A0]">Pricing model:</span>
@@ -138,10 +132,6 @@ export function Offers({ className }: OffersProps) {
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#A0A0A0]">Timeline:</span>
                       <span className="text-base font-semibold text-foreground">4–6 weeks</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-[#A0A0A0]">Minimum saving identified:</span>
-                      <span className="text-base font-semibold text-foreground">{currency}50,000</span>
                     </div>
                   </div>
 
@@ -195,7 +185,7 @@ export function Offers({ className }: OffersProps) {
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col space-y-8 p-10 md:p-12 min-h-0">
                   <p className="text-foreground-secondary text-sm leading-relaxed">
-                    Every business has processes that run on spreadsheets, email chains, and manual effort — things AI could handle in seconds. I identify your highest-value automation opportunities, build the solution, and charge based on what you save. You define success. I deliver it. You pay for results.
+                    Your team is doing manually what AI could handle in minutes. I find the highest-value processes, build the automation, and charge based on what you save.
                   </p>
                   {/* Checklist */}
                   <ul className="space-y-4">
@@ -275,7 +265,7 @@ export function Offers({ className }: OffersProps) {
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col space-y-8 p-10 md:p-12 min-h-0">
                   <p className="text-foreground-secondary text-sm leading-relaxed">
-                    You need someone to own the technology strategy, make the architecture decisions, and execute — without the cost or commitment of a full-time CTO. I embed in your senior team, attend key meetings, own the roadmap, and build what we decide needs to be built. Strategy and execution. One person. No handoff delays.
+                    Senior technology leadership without the {currency}150k hire. I own your tech strategy, make the architecture calls, and build what we decide needs building. One person. No handoffs.
                   </p>
                   {/* Checklist */}
                   <ul className="space-y-4">
