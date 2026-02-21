@@ -22,6 +22,14 @@ const saasDetoxItems = [
   'Full handover'
 ];
 
+const aiProcessSprintItems = [
+  'Process audit included',
+  'AI solution built and deployed',
+  'Outcome defined before work begins',
+  'Priced on savings, not hours',
+  'Full code ownership'
+];
+
 const fractionalCTOItems = [
   'Strategy',
   'Roadmap',
@@ -37,6 +45,14 @@ const offerSlots = [
     slotLabel: '2026 slots',
     slotCopy: 'Limited slots per quarter. Each engagement receives full focus — I don\'t run parallel sprints. Book early; your slot is held with a signed agreement.',
     ctaLabel: 'Book Your Free Software Review',
+    ctaHref: BOOK_AUDIT_URL
+  },
+  {
+    slotsTotal: 3,
+    slotsTaken: 1,
+    slotLabel: '2 / 3 left',
+    slotCopy: '3 sprints per quarter. Each sprint receives full focus — I don\'t run parallel builds.',
+    ctaLabel: 'Get Your Free Process Audit',
     ctaHref: BOOK_AUDIT_URL
   },
   {
@@ -66,21 +82,21 @@ export function Offers({ className }: OffersProps) {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="space-y-16 md:space-y-24"
         >
-          {/* Section Headline: Two Options + Secure Your Slot */}
+          {/* Section Headline: Three Options + Secure Your Slot */}
           <div className="space-y-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-center tracking-tight break-words max-w-3xl mx-auto pb-6 leading-normal">
-              Two Ways to Work Together
+              Three Ways to Work Together
             </h2>
             <p className="text-xl md:text-2xl text-foreground-secondary text-center">
               Secure Your Slot
             </p>
             <p className="text-base text-foreground-secondary text-center max-w-2xl mx-auto">
-              Here&apos;s how I work with you.
+              Three ways to work together — each designed around outcomes, not hours.
             </p>
           </div>
 
-          {/* Two Cards Grid — equal height */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+          {/* Three Cards Grid — equal height */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-stretch">
             {/* Card 1 - Software Detox Sprint (Primary with brass border) */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -154,7 +170,84 @@ export function Offers({ className }: OffersProps) {
               </Card>
             </motion.div>
 
-            {/* Card 2 - Fractional CTO */}
+            {/* Card 2 - AI Process Sprint */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
+              className="h-full min-h-0 flex flex-col"
+            >
+              <Card className="h-full flex flex-col border border-[#404040] bg-surface hover:shadow-lg transition-all duration-300">
+                <CardHeader className="space-y-4 shrink-0">
+                  <CardTitle className="text-2xl md:text-3xl font-bold text-foreground">
+                    AI Process Sprint
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="flex-1 flex flex-col space-y-8 p-10 md:p-12 min-h-0">
+                  <p className="text-foreground-secondary text-sm leading-relaxed">
+                    Most businesses have three to five processes bleeding time and money that AI can eliminate in weeks. I find them, build the solution, and charge based on what you save — not what I spend. No upfront budget risk. No vague deliverables. The outcome is defined and agreed before work begins.
+                  </p>
+                  {/* Checklist */}
+                  <ul className="space-y-4">
+                    {aiProcessSprintItems.map((item, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <Check className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-base text-[#A0A0A0] leading-relaxed">
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Investment, Timeline & Minimum */}
+                  <div className="space-y-3 pt-6 border-t border-[#404040]">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-[#A0A0A0]">Investment:</span>
+                      <span className="text-base font-semibold text-foreground">15% of first-year savings</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-[#A0A0A0]">Timeline:</span>
+                      <span className="text-base font-semibold text-foreground">2–3 weeks</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-[#A0A0A0]">Minimum:</span>
+                      <span className="text-base font-semibold text-foreground">£5,000 minimum</span>
+                    </div>
+                  </div>
+
+                  {/* Slot availability + CTA — pinned to bottom */}
+                  <div className="mt-auto space-y-4 pt-4">
+                    <p className="text-sm text-foreground-secondary leading-relaxed">
+                      {offerSlots[1].slotCopy}
+                    </p>
+                    <UsageMeter
+                      usage={[
+                        {
+                          name: 'AI Process Sprint',
+                          usage: offerSlots[1].slotsTaken,
+                          limit: offerSlots[1].slotsTotal
+                        }
+                      ]}
+                      title={offerSlots[1].slotLabel}
+                      description=""
+                      variant="circle"
+                      size="md"
+                      progressColor="default"
+                      className="w-full"
+                    />
+                    <Button
+                      size="lg"
+                      onClick={() => window.open(offerSlots[1].ctaHref, '_blank')}
+                      className="w-full bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 transition-all hover:scale-105 px-8 py-4"
+                    >
+                      {offerSlots[1].ctaLabel}
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Card 3 - Fractional CTO */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -198,17 +291,17 @@ export function Offers({ className }: OffersProps) {
                   {/* Slot availability + CTA — pinned to bottom */}
                   <div className="mt-auto space-y-4 pt-4">
                     <p className="text-sm text-foreground-secondary leading-relaxed">
-                      {offerSlots[1].slotCopy}
+                      {offerSlots[2].slotCopy}
                     </p>
                     <UsageMeter
                       usage={[
                         {
                           name: 'Fractional CTO',
-                          usage: offerSlots[1].slotsTaken,
-                          limit: offerSlots[1].slotsTotal
+                          usage: offerSlots[2].slotsTaken,
+                          limit: offerSlots[2].slotsTotal
                         }
                       ]}
-                      title={offerSlots[1].slotLabel}
+                      title={offerSlots[2].slotLabel}
                       description=""
                       variant="circle"
                       size="md"
@@ -218,10 +311,10 @@ export function Offers({ className }: OffersProps) {
                     <Button
                       size="lg"
                       variant="outline"
-                      onClick={() => window.open(offerSlots[1].ctaHref, '_blank')}
+                      onClick={() => window.open(offerSlots[2].ctaHref, '_blank')}
                       className="w-full border border-[#404040] bg-surface-elevated hover:bg-surface text-foreground hover:scale-105 transition-transform duration-200 px-8 py-4"
                     >
-                      {offerSlots[1].ctaLabel}
+                      {offerSlots[2].ctaLabel}
                     </Button>
                   </div>
                 </CardContent>
