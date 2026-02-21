@@ -17,7 +17,6 @@ import { FounderSection } from '@/components/sections/FounderSection';
 import { FAQ } from '@/components/sections/FAQ';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import { Footer } from '@/components/Footer';
-import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 
 export default function Home() {
   const mainRef = useRef<HTMLElement | null>(null);
@@ -48,7 +47,6 @@ export default function Home() {
           <Footer />
           <div className="flex-1 min-h-[40vh]" aria-hidden />
         </section>
-        <ThemeSwitcher />
       </main>
     </>
   );

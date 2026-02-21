@@ -10,7 +10,6 @@ import { SocialProof } from '@/components/sections/SocialProof';
 import { FAQ } from '@/components/sections/FAQ';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import { Footer } from '@/components/Footer';
-import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 
 const pageVariants = {
   hidden: { opacity: 0 },
@@ -40,7 +39,6 @@ export default function TechElectricPage() {
       <FAQ />
       <FinalCTA />
       <Footer />
-      <ThemeSwitcher />
     </motion.main>
   );
 }
