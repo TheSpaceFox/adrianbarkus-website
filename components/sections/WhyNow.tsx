@@ -23,7 +23,7 @@ export function WhyNow() {
           <p className="text-primary text-xs tracking-[0.16em] uppercase font-medium text-center">
             THE MOMENT
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground text-center max-w-3xl mx-auto break-words line-clamp-2 pb-6 leading-normal">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-foreground text-center max-w-3xl mx-auto break-words line-clamp-2 pb-6 leading-normal">
             The Cost of Custom Software Just Collapsed. Your Renewal Invoice Didn&apos;t.
           </h2>
 
