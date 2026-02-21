@@ -103,7 +103,7 @@ export function Footer({ className }: FooterProps) {
                     className="inline-flex items-center gap-2 text-foreground-secondary hover:text-primary transition-colors w-fit"
                   >
                     <DownloadIcon className="h-4 w-4" size={16} aria-hidden />
-                    <span>Download CV (PDF)</span>
+                    <span>Download CV</span>
                   </Link>
                 </div>
               </div>
