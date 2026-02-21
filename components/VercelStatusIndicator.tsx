@@ -76,10 +76,12 @@ export function VercelStatusIndicator() {
       href={STATUS_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 text-xs sm:text-sm text-foreground-secondary hover:text-primary transition-colors"
+      className="inline-flex items-center gap-2 text-xs sm:text-sm transition-colors group"
     >
       <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${dotClass}`} aria-hidden />
-      {label}
+      <span className="text-foreground-secondary group-hover:text-primary !text-foreground-secondary group-hover:!text-primary">
+        {label}
+      </span>
     </a>
   );
 }

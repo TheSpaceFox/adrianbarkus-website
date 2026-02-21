@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -103,6 +104,12 @@ export function Hero({ className }: HeroProps) {
             >
               Book Your Free Software Review
             </Button>
+            <Link
+              href="/ask"
+              className="text-foreground-secondary hover:text-primary text-sm font-medium mt-4 transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background rounded"
+            >
+              Talk to my AI →
+            </Link>
           </motion.div>
 
           {/* Social proof: avatars + star rating */}
