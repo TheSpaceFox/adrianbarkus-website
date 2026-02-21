@@ -40,7 +40,8 @@ export function Footer({ className }: FooterProps) {
             {/* Brand / summary */}
             <div className="max-w-md space-y-3">
               <p className="text-sm text-foreground-secondary">
-                © {year} Adrian Barkus. I offer software replacement and fractional CTO services.
+                © {year} Adrian Barkus. I help businesses cut software costs, automate with AI,
+                and access senior tech leadership — without the overhead.
               </p>
               <p className="text-sm text-foreground-tertiary">
                 I help software-heavy businesses with fractional CTO work, AI-accelerated systems,
@@ -64,6 +65,9 @@ export function Footer({ className }: FooterProps) {
                   <Link href="#offers" className="hover:text-primary transition-colors">
                     Offers
                   </Link>
+                  <Link href="#offers" className="hover:text-primary transition-colors">
+                    AI Process Sprint
+                  </Link>
                   <Link href="#case-studies" className="hover:text-primary transition-colors">
                     Case studies
                   </Link>
@@ -78,10 +82,9 @@ export function Footer({ className }: FooterProps) {
                   Services
                 </p>
                 <div className="flex flex-col gap-1.5 text-foreground-secondary">
-                  <span className="text-foreground-tertiary">Software audit</span>
-                  <span className="text-foreground-tertiary">Custom system build</span>
+                  <span className="text-foreground-tertiary">Software Detox Sprint</span>
+                  <span className="text-foreground-tertiary">AI Process Sprint</span>
                   <span className="text-foreground-tertiary">Fractional CTO</span>
-                  <span className="text-foreground-tertiary">AI-accelerated delivery</span>
                 </div>
               </div>
 
