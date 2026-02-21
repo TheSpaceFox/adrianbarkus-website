@@ -89,7 +89,9 @@ export function Footer({ className }: FooterProps) {
                   Resources
                 </p>
                 <div className="flex flex-col gap-1.5 text-foreground-secondary">
-                  <span className="text-foreground-tertiary">Style guide</span>
+                  <Link href="/style-guide" className="text-foreground-secondary hover:text-primary transition-colors w-fit">
+                    Style guide
+                  </Link>
                   <span className="text-foreground-tertiary">Case notes</span>
                   <span className="text-foreground-tertiary">Experiment log</span>
                   <Link
