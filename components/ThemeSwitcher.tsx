@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { Moon, Sun } from 'lucide-react';
+import { Moon, Sun, Monitor } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
 import {
@@ -27,8 +27,13 @@ export function ThemeSwitcher({ variant = 'floating' }: ThemeSwitcherProps) {
   if (!mounted) {
     if (variant === 'footer') {
       return (
-        <span className="text-xs sm:text-sm text-foreground-tertiary">
-          System · Light · Dark
+        <span
+          className="inline-flex rounded-md border border-border bg-surface-elevated p-0.5"
+          aria-hidden
+        >
+          <span className="h-6 w-6" />
+          <span className="h-6 w-6" />
+          <span className="h-6 w-6" />
         </span>
       );
     }
@@ -45,31 +50,42 @@ export function ThemeSwitcher({ variant = 'floating' }: ThemeSwitcherProps) {
   }
 
   if (variant === 'footer') {
-    const options: Array<{ value: 'system' | 'light' | 'dark'; label: string }> = [
-      { value: 'system', label: 'System' },
-      { value: 'light', label: 'Light' },
-      { value: 'dark', label: 'Dark' }
+    const options: Array<{
+      value: 'system' | 'light' | 'dark';
+      label: string;
+      Icon: React.ComponentType<{ className?: string; size?: number }>;
+    }> = [
+      { value: 'dark', label: 'Dark', Icon: Moon },
+      { value: 'light', label: 'Light', Icon: Sun },
+      { value: 'system', label: 'System', Icon: Monitor }
     ];
     return (
-      <span className="inline-flex flex-wrap items-center gap-1 text-xs sm:text-sm text-foreground-secondary">
-        {options.map((opt, i) => (
-          <React.Fragment key={opt.value}>
-            {i > 0 && <span className="text-foreground-tertiary">·</span>}
+      <span
+        className="inline-flex rounded-md border border-border bg-surface-elevated p-0.5 text-foreground-secondary"
+        role="group"
+        aria-label="Display theme"
+      >
+        {options.map((opt) => {
+          const isSelected = theme === opt.value;
+          const Icon = opt.Icon;
+          return (
             <button
+              key={opt.value}
               type="button"
               onClick={() => setTheme(opt.value)}
-              className={
-                theme === opt.value
-                  ? 'text-primary font-medium hover:underline'
-                  : 'hover:text-primary transition-colors'
-              }
-              aria-pressed={theme === opt.value}
+              className={`inline-flex h-7 w-7 items-center justify-center rounded transition-colors hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface ${
+                isSelected
+                  ? 'bg-background text-foreground shadow-sm'
+                  : 'hover:bg-background/50'
+              }`}
+              aria-pressed={isSelected}
               aria-label={`Set theme to ${opt.label}`}
+              title={opt.label}
             >
-              {opt.label}
+              <Icon className="h-4 w-4" />
             </button>
-          </React.Fragment>
-        ))}
+          );
+        })}
       </span>
     );
   }

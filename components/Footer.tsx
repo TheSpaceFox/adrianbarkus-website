@@ -93,8 +93,15 @@ export function Footer({ className }: FooterProps) {
                   <span className="text-foreground-tertiary">Style guide</span>
                   <span className="text-foreground-tertiary">Case notes</span>
                   <span className="text-foreground-tertiary">Experiment log</span>
-                  <VercelStatusIndicator />
-                  <ThemeSwitcher variant="footer" />
+                  <Link
+                    href="https://www.linkedin.com/in/adrianbarkus/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-foreground-secondary hover:text-primary transition-colors w-fit"
+                  >
+                    <LinkedinIcon className="h-4 w-4" size={16} aria-hidden />
+                    <span>LinkedIn</span>
+                  </Link>
                   <Link
                     href={cvUrl}
                     download="AdrianBarkus-CV-July-2025-FRACTIONAL-CTO-AI-POWERED-BUILDER.pdf"
@@ -144,16 +151,9 @@ export function Footer({ className }: FooterProps) {
               </TooltipProvider>
             </div>
 
-            <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm">
-              <Link
-                href="https://www.linkedin.com/in/adrianbarkus/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-foreground-secondary hover:text-primary transition-colors"
-              >
-                <LinkedinIcon className="h-4 w-4" size={16} aria-hidden />
-                <span>LinkedIn</span>
-              </Link>
+            <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm">
+              <VercelStatusIndicator />
+              <ThemeSwitcher variant="footer" />
             </div>
           </div>
         </div>
