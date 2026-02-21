@@ -15,27 +15,27 @@ export interface OffersProps {
 }
 
 const saasDetoxItems = [
-  'AI-powered audit',
-  'Custom AI interface',
-  'Data migration + ownership',
-  'Cancel subscriptions',
-  'Full handover'
+  'Full software estate audit',
+  'Custom replacement built',
+  'Data migrated, fully owned',
+  'Subscriptions cancelled',
+  'Complete handover with documentation'
 ];
 
 const aiProcessSprintItems = [
   'Process audit included',
+  'Highest-value opportunity identified together',
   'AI solution built and deployed',
-  'Outcome defined before work begins',
-  'Priced on savings, not hours',
-  'Full code ownership'
+  'Outcome agreed before work begins',
+  'Full code ownership — no ongoing licence'
 ];
 
 const fractionalCTOItems = [
-  'Strategy',
-  'Roadmap',
-  'Direct Access',
-  'Execution',
-  'Technical ownership'
+  'Technology strategy and roadmap',
+  'Architecture decisions owned',
+  'Direct access — no account manager',
+  'Hands-on execution when needed',
+  'Full technical ownership'
 ];
 
 const offerSlots = [
@@ -43,7 +43,7 @@ const offerSlots = [
     slotsTotal: 5,
     slotsTaken: 2,
     slotLabel: '2026 slots',
-    slotCopy: 'Limited slots per quarter. Each engagement receives full focus — I don\'t run parallel sprints. Book early; your slot is held with a signed agreement.',
+    slotCopy: 'Limited slots per quarter. Each engagement receives full focus — I don\'t run parallel sprints.',
     ctaLabel: 'Book Your Free Software Review',
     ctaHref: BOOK_AUDIT_URL
   },
@@ -51,7 +51,7 @@ const offerSlots = [
     slotsTotal: 3,
     slotsTaken: 1,
     slotLabel: '2 / 3 left',
-    slotCopy: '3 sprints per quarter. Each sprint receives full focus — I don\'t run parallel builds.',
+    slotCopy: '3 sprints per quarter. One slot currently available.',
     ctaLabel: 'Get Your Free Process Audit',
     ctaHref: BOOK_AUDIT_URL
   },
@@ -59,7 +59,7 @@ const offerSlots = [
     slotsTotal: 3,
     slotsTaken: 2,
     slotLabel: '1 slot left',
-    slotCopy: '3 slots total. 2 taken. One space left.',
+    slotCopy: '3 slots total. 2 taken. 1 space left.',
     ctaLabel: 'Book Strategy Call',
     ctaHref: STRATEGY_CALL_URL
   }
@@ -91,7 +91,7 @@ export function Offers({ className }: OffersProps) {
               Secure Your Slot
             </p>
             <p className="text-base text-foreground-secondary text-center max-w-2xl mx-auto">
-              Three ways to work together — each designed around outcomes, not hours.
+              Different problems. Different outcomes. One person.
             </p>
           </div>
 
@@ -106,13 +106,16 @@ export function Offers({ className }: OffersProps) {
             >
               <Card className="h-full flex flex-col border-2 border-primary bg-surface hover:shadow-lg transition-all duration-300">
                 <CardHeader className="space-y-4 shrink-0">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-foreground-tertiary">
+                    For businesses drowning in SaaS costs
+                  </p>
                   <CardTitle className="text-2xl md:text-3xl font-bold text-foreground">
                     Software Detox Sprint
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col space-y-8 p-10 md:p-12 min-h-0">
                   <p className="text-foreground-secondary text-sm leading-relaxed">
-                    For established businesses that need to cut software spend without disrupting operations. I run a one-week audit of your entire software estate, then build your custom replacement in 4–6 weeks. You get a system you own outright — no subscriptions, no lock-in, no renewal negotiations. One engagement. Full handover.
+                    You&apos;ve accumulated software over years of reactive purchasing. Nobody questioned the renewals. Now the bill is significant and the systems are tangled. I audit your entire software estate, identify exactly where the money is going, and build custom replacements you own outright. No subscriptions on the other side. No lock-in. One engagement, full handover.
                   </p>
                   {/* Checklist */}
                   <ul className="space-y-4">
@@ -126,15 +129,19 @@ export function Offers({ className }: OffersProps) {
                     ))}
                   </ul>
 
-                  {/* Investment & Timeline */}
+                  {/* Investment, Timeline & Minimum */}
                   <div className="space-y-3 pt-6 border-t border-[#404040]">
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#A0A0A0]">Investment:</span>
-                      <span className="text-base font-semibold text-foreground">Priced on Findings</span>
+                      <span className="text-base font-semibold text-foreground">Priced on findings (10% of 3-year savings)</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#A0A0A0]">Timeline:</span>
-                      <span className="text-base font-semibold text-foreground">4 weeks</span>
+                      <span className="text-base font-semibold text-foreground">4–6 weeks</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-[#A0A0A0]">Minimum saving identified:</span>
+                      <span className="text-base font-semibold text-foreground">£50,000</span>
                     </div>
                   </div>
 
@@ -179,13 +186,16 @@ export function Offers({ className }: OffersProps) {
             >
               <Card className="h-full flex flex-col border border-[#404040] bg-surface hover:shadow-lg transition-all duration-300">
                 <CardHeader className="space-y-4 shrink-0">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-foreground-tertiary">
+                    For businesses losing hours to manual work
+                  </p>
                   <CardTitle className="text-2xl md:text-3xl font-bold text-foreground">
                     AI Process Sprint
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col space-y-8 p-10 md:p-12 min-h-0">
                   <p className="text-foreground-secondary text-sm leading-relaxed">
-                    Most businesses have three to five processes bleeding time and money that AI can eliminate in weeks. I find them, build the solution, and charge based on what you save — not what I spend. No upfront budget risk. No vague deliverables. The outcome is defined and agreed before work begins.
+                    Every business has processes that run on spreadsheets, email chains, and manual effort — things AI could handle in seconds. I identify your highest-value automation opportunities, build the solution, and charge based on what you save. You define success. I deliver it. You pay for results.
                   </p>
                   {/* Checklist */}
                   <ul className="space-y-4">
@@ -210,8 +220,8 @@ export function Offers({ className }: OffersProps) {
                       <span className="text-base font-semibold text-foreground">2–3 weeks</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-[#A0A0A0]">Minimum:</span>
-                      <span className="text-base font-semibold text-foreground">£5,000 minimum</span>
+                      <span className="text-sm text-[#A0A0A0]">Minimum engagement:</span>
+                      <span className="text-base font-semibold text-foreground">£5,000</span>
                     </div>
                   </div>
 
@@ -256,13 +266,16 @@ export function Offers({ className }: OffersProps) {
             >
               <Card className="h-full flex flex-col border border-[#404040] bg-surface hover:shadow-lg transition-all duration-300">
                 <CardHeader className="space-y-4 shrink-0">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-foreground-tertiary">
+                    For businesses that need a tech leader, not a hire
+                  </p>
                   <CardTitle className="text-2xl md:text-3xl font-bold text-foreground">
                     Fractional CTO
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col space-y-8 p-10 md:p-12 min-h-0">
                   <p className="text-foreground-secondary text-sm leading-relaxed">
-                    For established businesses that need senior technology leadership without committing to a £150k+ full-time hire. I join your senior team on a structured basis — attending key meetings, owning the technology roadmap, and making the technical calls your MD shouldn&apos;t have to make. When we decide something needs to be built, I build it myself. Strategy and execution. One person. No handoff delays.
+                    You need someone to own the technology strategy, make the architecture decisions, and execute — without the cost or commitment of a full-time CTO. I embed in your senior team, attend key meetings, own the roadmap, and build what we decide needs to be built. Strategy and execution. One person. No handoff delays.
                   </p>
                   {/* Checklist */}
                   <ul className="space-y-4">
@@ -284,7 +297,7 @@ export function Offers({ className }: OffersProps) {
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#A0A0A0]">Minimum:</span>
-                      <span className="text-base font-semibold text-foreground">12 per year</span>
+                      <span className="text-base font-semibold text-foreground">12 days per year</span>
                     </div>
                   </div>
 
