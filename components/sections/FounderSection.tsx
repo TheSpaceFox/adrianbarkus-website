@@ -3,6 +3,8 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Linkedin } from 'lucide-react';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 import { ScrollingLogos } from '@/components/ScrollingLogos';
 import { backgroundLogos } from '@/components/sections/Credibility';
 
@@ -20,6 +22,17 @@ const bio =
   "I've spent 19 years solving the technology problems that quietly drain companies dry. From cutting $3.5M in SaaS costs in 40 days, to architecting the systems that enabled a $155M acquisition — I've seen what broken tech costs, and exactly how to fix it. Now I do it faster than ever, using AI-accelerated development to turn 6-month builds into 4-week sprints.";
 
 export function FounderSection() {
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const resolvedTheme = theme === 'system' ? systemTheme : theme;
+  const isDark = mounted ? (resolvedTheme === 'dark') : true;
+  const stripBg = isDark ? '#373737' : '#FFFFFF';
+
   return (
     <section className="min-h-screen-dynamic snap-start flex flex-col justify-center bg-[#2D2D2D] overflow-x-hidden">
       <div className="max-w-5xl mx-auto w-full min-w-0 px-4 sm:px-6 md:px-12 py-20 md:py-32">
@@ -72,16 +85,21 @@ export function FounderSection() {
               <Linkedin size={22} />
               Connect on LinkedIn
             </a>
-
-            {/* Background logo scroll */}
-            <div className="mt-10 space-y-3 min-w-0 w-full">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#C9A962]">
-                Background
-              </p>
-              <ScrollingLogos logos={backgroundLogos} speed={20} direction="left" />
-            </div>
           </div>
         </motion.div>
+      </div>
+
+      {/* Full-width Background logo strip — edge-to-edge, background matches logo tiles (#373737 / #FFFFFF) */}
+      <div
+        className="w-screen relative left-1/2 -translate-x-1/2 py-4"
+        style={{ backgroundColor: stripBg }}
+      >
+        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#C9A962] mb-3 px-4 sm:px-6 md:px-12 max-w-5xl mx-auto">
+          Background
+        </p>
+        <div className="w-full">
+          <ScrollingLogos logos={backgroundLogos} speed={10} direction="left" />
+        </div>
       </div>
     </section>
   );
