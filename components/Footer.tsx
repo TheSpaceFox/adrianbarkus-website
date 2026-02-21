@@ -3,7 +3,11 @@
 import { DownloadIcon } from '@/components/ui/download';
 import { LinkedinIcon } from '@/components/ui/linkedin';
 import Link from 'next/link';
+import Image from 'next/image';
 import { GitHubHeatmap } from '@/components/GitHubHeatmap';
+
+const AUTO_AI_IMAGE =
+  'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Auto-AI.png';
 
 export interface FooterProps {
   className?: string;
@@ -86,12 +90,23 @@ export function Footer({ className }: FooterProps) {
             </div>
           </div>
 
-          {/* Bottom row: status + tech + actions */}
+          {/* Bottom row: status + Auto avatar + actions */}
           <div className="flex flex-col gap-4 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm">
               <span className="rounded-full bg-surface-elevated border border-border px-3 py-1 text-foreground-tertiary">
                 Availability: Limited
               </span>
+            </div>
+
+            <div className="flex flex-1 justify-center">
+              <Image
+                src={AUTO_AI_IMAGE}
+                alt="Auto — AI pair programmer"
+                width={48}
+                height={48}
+                className="h-8 w-auto object-contain"
+                unoptimized
+              />
             </div>
 
             <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm">
