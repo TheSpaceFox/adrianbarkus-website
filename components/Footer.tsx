@@ -11,6 +11,8 @@ import {
   TooltipTrigger
 } from '@/components/ui/tooltip';
 import { GitHubHeatmap } from '@/components/GitHubHeatmap';
+import { VercelStatusIndicator } from '@/components/VercelStatusIndicator';
+import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 
 const AUTO_AI_IMAGE =
   'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/Auto-AI.png';
@@ -102,6 +104,7 @@ export function Footer({ className }: FooterProps) {
               <span className="rounded-full bg-surface-elevated border border-border px-3 py-1 text-foreground-tertiary">
                 Availability: Limited
               </span>
+              <VercelStatusIndicator />
             </div>
 
             <div className="flex flex-1 justify-center">
@@ -131,6 +134,7 @@ export function Footer({ className }: FooterProps) {
             </div>
 
             <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm">
+              <ThemeSwitcher variant="footer" />
               <Link
                 href={cvUrl}
                 download="AdrianBarkus-CV-July-2025-FRACTIONAL-CTO-AI-POWERED-BUILDER.pdf"

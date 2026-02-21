@@ -11,8 +11,12 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
 
-export function ThemeSwitcher() {
-  const { setTheme } = useTheme();
+export interface ThemeSwitcherProps {
+  variant?: 'floating' | 'footer';
+}
+
+export function ThemeSwitcher({ variant = 'floating' }: ThemeSwitcherProps) {
+  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
   // Avoid hydration mismatch
@@ -21,6 +25,13 @@ export function ThemeSwitcher() {
   }, []);
 
   if (!mounted) {
+    if (variant === 'footer') {
+      return (
+        <span className="text-xs sm:text-sm text-foreground-tertiary">
+          System · Light · Dark
+        </span>
+      );
+    }
     return (
       <Button
         variant="outline"
@@ -30,6 +41,36 @@ export function ThemeSwitcher() {
         <Sun className="h-4 w-4" />
         <span className="sr-only">Toggle theme</span>
       </Button>
+    );
+  }
+
+  if (variant === 'footer') {
+    const options: Array<{ value: 'system' | 'light' | 'dark'; label: string }> = [
+      { value: 'system', label: 'System' },
+      { value: 'light', label: 'Light' },
+      { value: 'dark', label: 'Dark' }
+    ];
+    return (
+      <span className="inline-flex flex-wrap items-center gap-1 text-xs sm:text-sm text-foreground-secondary">
+        {options.map((opt, i) => (
+          <React.Fragment key={opt.value}>
+            {i > 0 && <span className="text-foreground-tertiary">·</span>}
+            <button
+              type="button"
+              onClick={() => setTheme(opt.value)}
+              className={
+                theme === opt.value
+                  ? 'text-primary font-medium hover:underline'
+                  : 'hover:text-primary transition-colors'
+              }
+              aria-pressed={theme === opt.value}
+              aria-label={`Set theme to ${opt.label}`}
+            >
+              {opt.label}
+            </button>
+          </React.Fragment>
+        ))}
+      </span>
     );
   }
 
