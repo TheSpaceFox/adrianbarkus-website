@@ -84,29 +84,23 @@ export function Offers({ className }: OffersProps) {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="space-y-16 md:space-y-24"
         >
-          {/* Section Headline: Three Options + Secure Your Slot */}
+          {/* Section Headline */}
           <div className="space-y-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-center tracking-tight break-words max-w-3xl mx-auto pb-6 leading-normal">
               Three Ways to Work Together
             </h2>
-            <p className="text-xl md:text-2xl text-foreground-secondary text-center">
-              Secure Your Slot
-            </p>
-            <p className="text-base text-foreground-secondary text-center max-w-2xl mx-auto">
-              Different problems. Different outcomes. One person.
-            </p>
           </div>
 
           {/* Three Cards Grid — equal height */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-stretch">
-            {/* Card 1 - Software Detox Sprint (Primary with brass border) */}
+            {/* Card 1 - Software Detox Sprint */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
               className="h-full min-h-0 flex flex-col"
             >
-              <Card className="h-full flex flex-col border-2 border-primary bg-surface hover:shadow-lg transition-all duration-300">
+              <Card className="h-full flex flex-col border border-[#404040] bg-surface hover:shadow-lg transition-all duration-300">
                 <CardHeader className="space-y-4 shrink-0">
                   <p className="text-xs font-semibold uppercase tracking-wide text-foreground-tertiary">
                     For businesses drowning in SaaS costs
@@ -135,7 +129,11 @@ export function Offers({ className }: OffersProps) {
                   <div className="space-y-3 pt-6 border-t border-[#404040]">
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#A0A0A0]">Investment:</span>
-                      <span className="text-base font-semibold text-foreground">Priced on findings (10% of 3-year savings)</span>
+                      <span className="text-base font-semibold text-foreground">Priced on findings</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-[#A0A0A0]">Pricing model:</span>
+                      <span className="text-base font-semibold text-foreground">10% of 3-year savings</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#A0A0A0]">Timeline:</span>
@@ -179,14 +177,14 @@ export function Offers({ className }: OffersProps) {
               </Card>
             </motion.div>
 
-            {/* Card 2 - AI Process Sprint */}
+            {/* Card 2 - AI Process Sprint (Primary with brass border) */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
               className="h-full min-h-0 flex flex-col"
             >
-              <Card className="h-full flex flex-col border border-[#404040] bg-surface hover:shadow-lg transition-all duration-300">
+              <Card className="h-full flex flex-col border-2 border-primary bg-surface hover:shadow-lg transition-all duration-300">
                 <CardHeader className="space-y-4 shrink-0">
                   <p className="text-xs font-semibold uppercase tracking-wide text-foreground-tertiary">
                     For businesses losing hours to manual work
