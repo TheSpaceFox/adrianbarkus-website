@@ -4,6 +4,12 @@ import { DownloadIcon } from '@/components/ui/download';
 import { LinkedinIcon } from '@/components/ui/linkedin';
 import Link from 'next/link';
 import Image from 'next/image';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger
+} from '@/components/ui/tooltip';
 import { GitHubHeatmap } from '@/components/GitHubHeatmap';
 
 const AUTO_AI_IMAGE =
@@ -99,14 +105,29 @@ export function Footer({ className }: FooterProps) {
             </div>
 
             <div className="flex flex-1 justify-center">
-              <Image
-                src={AUTO_AI_IMAGE}
-                alt="Auto — AI pair programmer"
-                width={48}
-                height={48}
-                className="h-8 w-auto object-contain"
-                unoptimized
-              />
+              <TooltipProvider delayDuration={200}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <button
+                      type="button"
+                      className="inline-flex cursor-default focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface rounded"
+                      aria-label="Who is Auto?"
+                    >
+                      <Image
+                        src={AUTO_AI_IMAGE}
+                        alt="Auto — AI pair programmer"
+                        width={72}
+                        height={72}
+                        className="h-12 w-auto object-contain"
+                        unoptimized
+                      />
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent side="top">
+                    This is my pair AI programmer that helped build this site, who chose his own name as Auto and selected this image to represent himself
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </div>
 
             <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm">
