@@ -43,10 +43,6 @@ export function Footer({ className }: FooterProps) {
                 © {year} Adrian Barkus. I help businesses cut software costs, automate with AI,
                 and access senior tech leadership — without the overhead.
               </p>
-              <p className="text-sm text-foreground-tertiary">
-                I help software-heavy businesses with fractional CTO work, AI-accelerated systems,
-                and cost reduction.
-              </p>
             </div>
 
             {/* Link columns */}
