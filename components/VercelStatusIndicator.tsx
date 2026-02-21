@@ -6,7 +6,7 @@ const STATUS_URL = 'https://www.vercel-status.com/';
 
 export function VercelStatusIndicator() {
   const [state, setState] = React.useState<
-    'loading' | { ok: boolean; description?: string } | 'error'
+    'loading' | { ok: boolean; description?: string; indicator?: string } | 'error'
   >('loading');
 
   React.useEffect(() => {
@@ -15,7 +15,11 @@ export function VercelStatusIndicator() {
       .then((res) => res.json())
       .then((data) => {
         if (!cancelled && typeof data?.ok === 'boolean') {
-          setState({ ok: data.ok, description: data.description });
+          setState({
+            ok: data.ok,
+            description: data.description,
+            indicator: data.indicator
+          });
         } else {
           setState('error');
         }
@@ -58,24 +62,23 @@ export function VercelStatusIndicator() {
 
   const isOk = state.ok;
   const label = isOk ? 'All systems normal.' : 'Incidents reported.';
+  const indicator = state.indicator ?? (isOk ? 'none' : 'critical');
+
+  const dotClass =
+    isOk || indicator === 'none'
+      ? 'bg-primary'
+      : indicator === 'minor'
+        ? 'bg-orange-500'
+        : 'bg-destructive';
 
   return (
     <a
       href={STATUS_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className={
-        isOk
-          ? 'inline-flex items-center gap-2 text-xs sm:text-sm text-primary hover:underline transition-colors'
-          : 'inline-flex items-center gap-2 text-xs sm:text-sm text-destructive hover:underline transition-colors'
-      }
+      className="inline-flex items-center gap-2 text-xs sm:text-sm text-foreground-secondary hover:text-primary transition-colors"
     >
-      <span
-        className={`h-1.5 w-1.5 shrink-0 rounded-full ${
-          isOk ? 'bg-primary' : 'bg-destructive'
-        }`}
-        aria-hidden
-      />
+      <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${dotClass}`} aria-hidden />
       {label}
     </a>
   );

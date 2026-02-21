@@ -11,7 +11,7 @@ export async function GET() {
 
     if (!res.ok) {
       return NextResponse.json(
-        { ok: false, description: 'Status unavailable' },
+        { ok: false, description: 'Status unavailable', indicator: 'critical' },
         {
           status: 200,
           headers: {
@@ -28,7 +28,7 @@ export async function GET() {
     const ok = indicator === 'none';
 
     return NextResponse.json(
-      { ok, description },
+      { ok, description, indicator },
       {
         headers: {
           'Cache-Control': `public, s-maxage=${REVALIDATE_SECONDS}, stale-while-revalidate`
@@ -37,7 +37,7 @@ export async function GET() {
     );
   } catch {
     return NextResponse.json(
-      { ok: false, description: 'Status unavailable' },
+      { ok: false, description: 'Status unavailable', indicator: 'critical' },
       {
         status: 200,
         headers: {
