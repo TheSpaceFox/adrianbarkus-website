@@ -52,22 +52,22 @@ export function Footer({ className }: FooterProps) {
                   Navigation
                 </p>
                 <div className="flex flex-col gap-1.5 text-foreground-secondary">
-                  <Link href="#problems" className="hover:text-primary transition-colors">
+                  <Link href="/#problems" className="hover:text-primary transition-colors">
                     The Cost
                   </Link>
-                  <Link href="#transformation" className="hover:text-primary transition-colors">
+                  <Link href="/#transformation" className="hover:text-primary transition-colors">
                     Transformation
                   </Link>
-                  <Link href="#offers" className="hover:text-primary transition-colors">
+                  <Link href="/#offers" className="hover:text-primary transition-colors">
                     Offers
                   </Link>
-                  <Link href="#offers" className="hover:text-primary transition-colors">
+                  <Link href="/#offers" className="hover:text-primary transition-colors">
                     AI Process Sprint
                   </Link>
-                  <Link href="#case-studies" className="hover:text-primary transition-colors">
+                  <Link href="/#case-studies" className="hover:text-primary transition-colors">
                     Case studies
                   </Link>
-                  <Link href="#cta" className="hover:text-primary transition-colors">
+                  <Link href="/#cta" className="hover:text-primary transition-colors">
                     Book Your Free Software Review
                   </Link>
                 </div>
