@@ -10,7 +10,7 @@ export interface CredibilityProps {
   className?: string;
 }
 
-const backgroundLogos = [
+export const backgroundLogos = [
   {
     dark: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/AU%20GOV%20Dark%20theme%20-%20373737.png',
     light: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/AU-GOV%20Light%20Theme%20-%20FFFFFF.png',
@@ -159,15 +159,8 @@ export function Credibility({ className }: CredibilityProps) {
             I&apos;ve worked inside Woolworths, Thomson Reuters, the Australian Government, Breville, and SUEZ — implementing and optimising the same enterprise platforms that established businesses rely on. That experience means I don&apos;t just know how to build replacements. I know exactly what breaks, what&apos;s worth keeping, and what to walk away from.
           </p>
 
-          {/* Background + Modern Stack logos, both visible */}
+          {/* Modern Stack logos */}
           <div className="space-y-10 min-w-0 w-full">
-            <div className="space-y-3 min-w-0">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-foreground-tertiary">
-                Background
-              </p>
-              <ScrollingLogos logos={backgroundLogos} speed={20} direction="left" />
-            </div>
-
             <div className="space-y-3 min-w-0">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-foreground-tertiary">
                 Modern Stack

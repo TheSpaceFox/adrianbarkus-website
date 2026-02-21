@@ -3,6 +3,8 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Linkedin } from 'lucide-react';
+import { ScrollingLogos } from '@/components/ScrollingLogos';
+import { backgroundLogos } from '@/components/sections/Credibility';
 
 const HEADSHOT_SRC =
   'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/AdrianBarkus-Headshot-400x400.png';
@@ -70,6 +72,14 @@ export function FounderSection() {
               <Linkedin size={22} />
               Connect on LinkedIn
             </a>
+
+            {/* Background logo scroll */}
+            <div className="mt-10 space-y-3 min-w-0 w-full">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#C9A962]">
+                Background
+              </p>
+              <ScrollingLogos logos={backgroundLogos} speed={20} direction="left" />
+            </div>
           </div>
         </motion.div>
       </div>
