@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Phone } from 'lucide-react';
+import { useCurrency } from '@/hooks/useCurrency';
 import { SearchIcon } from '@/components/ui/search';
 import { ZapIcon } from '@/components/ui/zap';
 import { BOOK_AUDIT_URL } from '@/lib/constants';
@@ -23,7 +24,7 @@ const processSteps = [
   {
     label: '02',
     headline: 'Software Review',
-    priceTag: '£6,750',
+    priceTag: '{currency}6,750',
     body: "A one-week deep-dive into your entire software estate. I interview your team, audit every active subscription, map every workflow, and find exactly where the money is going. You receive a written report with your total software spend, projected 3-year savings, what to cut immediately, what to replace, and a clear ROI model. This report is yours whether you work with me further or not. Most clients cover the cost of the review in the first month of changes they make from it alone.",
     icon: SearchIcon,
     isAnimated: true
@@ -41,6 +42,7 @@ const processSteps = [
 export function Transformation({ className }: TransformationProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { currency } = useCurrency();
 
   return (
     <section
@@ -102,7 +104,7 @@ export function Transformation({ className }: TransformationProps) {
                     <div>
                       <h3 className="text-foreground font-semibold text-xl">{step.headline}</h3>
                       <span className="inline-flex mt-2 bg-primary/10 text-primary border border-primary/30 rounded-full px-3 py-1 text-sm font-medium">
-                        {step.priceTag}
+                        {step.priceTag.replace(/{currency}/g, currency)}
                       </span>
                       <p className="text-foreground-secondary text-sm leading-relaxed mt-3">
                         {step.body}

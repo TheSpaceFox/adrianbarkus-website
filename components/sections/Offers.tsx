@@ -6,6 +6,7 @@ import { Check } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { UsageMeter } from '@/components/billingsdk/usage-meter';
+import { useCurrency } from '@/hooks/useCurrency';
 import { BOOK_AUDIT_URL } from '@/lib/constants';
 
 const STRATEGY_CALL_URL = 'https://calendar.app.google/koCBUPrhiwLc4zFv7';
@@ -68,6 +69,7 @@ const offerSlots = [
 export function Offers({ className }: OffersProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { currency } = useCurrency();
 
   return (
     <section
@@ -141,7 +143,7 @@ export function Offers({ className }: OffersProps) {
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#A0A0A0]">Minimum saving identified:</span>
-                      <span className="text-base font-semibold text-foreground">£50,000</span>
+                      <span className="text-base font-semibold text-foreground">{currency}50,000</span>
                     </div>
                   </div>
 
@@ -221,7 +223,7 @@ export function Offers({ className }: OffersProps) {
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#A0A0A0]">Minimum engagement:</span>
-                      <span className="text-base font-semibold text-foreground">£5,000</span>
+                      <span className="text-base font-semibold text-foreground">{currency}5,000</span>
                     </div>
                   </div>
 
@@ -293,7 +295,7 @@ export function Offers({ className }: OffersProps) {
                   <div className="space-y-3 pt-6 border-t border-[#404040]">
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#A0A0A0]">Investment:</span>
-                      <span className="text-base font-semibold text-foreground">£6,250/day</span>
+                      <span className="text-base font-semibold text-foreground">{currency}6,250/day</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#A0A0A0]">Minimum:</span>

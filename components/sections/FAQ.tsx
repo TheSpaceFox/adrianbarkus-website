@@ -17,7 +17,7 @@ const faqs = [
   {
     question: 'How do you justify the cost of the Software Review?',
     answer:
-      'The Software Review costs £6,750. Every client so far has identified savings that exceed that within the first year — typically by a factor of 10 or more. If I can\'t find meaningful savings in your software estate, I\'ll tell you in the first session and we stop there. You keep the findings. No further obligation.'
+      'The Software Review costs {currency}6,750. Every client so far has identified savings that exceed that within the first year — typically by a factor of 10 or more. If I can\'t find meaningful savings in your software estate, I\'ll tell you in the first session and we stop there. You keep the findings. No further obligation.'
   },
   {
     question: 'Can you really build a replacement system in 4–6 weeks?',
@@ -37,7 +37,7 @@ const faqs = [
   {
     question: 'How is this different from hiring a development agency?',
     answer:
-      "Three ways. Speed — agencies take 3–6 months, I deliver in 4–6 weeks. Cost — agencies quote £60k–£100k for what I deliver at a fraction of that. Accountability — with an agency you get account managers and handoffs. With me you get the same senior architect from the first call to the final handover. No middlemen, no surprises."
+      "Three ways. Speed — agencies take 3–6 months, I deliver in 4–6 weeks. Cost — agencies quote {currency}60k–{currency}100k for what I deliver at a fraction of that. Accountability — with an agency you get account managers and handoffs. With me you get the same senior architect from the first call to the final handover. No middlemen, no surprises."
   }
 ];
 

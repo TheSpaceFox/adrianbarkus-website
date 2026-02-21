@@ -30,7 +30,7 @@ export function Hero({ className }: HeroProps) {
   const isDark = mounted ? (currentTheme === 'dark') : true; // Default to dark during SSR
 
   const metrics = [
-    { value: 42, prefix: '£', suffix: 'M+', label: 'Delivered Projects' },
+    { value: 42, prefix: currency, suffix: 'M+', label: 'Delivered Projects' },
     { value: 40, suffix: '%+ avg', label: 'Costs Cut' },
     { value: 10, suffix: 'x', label: 'Faster AI Dev' },
     { value: 19, prefix: '', suffix: '', label: 'Years Experience' }

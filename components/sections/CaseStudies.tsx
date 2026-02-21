@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 import { useRef } from 'react';
+import { useCurrency } from '@/hooks/useCurrency';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export interface CaseStudiesProps {
@@ -50,15 +51,16 @@ const caseStudies: CaseStudyItem[] = [
     summary: 'Audited 20+ subscriptions, consolidated to a single custom system. Eliminated six-figure annual spend and gave the firm full ownership of data and workflows.',
     image: 'https://placehold.co/800x500/373737/ffffff?text=Case+Study+3',
     imageAlt: 'Software audit and replacement for professional services firm',
-    problem: 'A 15-year-old professional services firm had accumulated 20+ SaaS subscriptions over a decade of reactive purchasing. Total annual spend was over £120k. Renewals were auto-approved because nobody owned the review process. No single view of costs, usage, or data. The firm was locked into platforms it had long outgrown.',
-    solution: 'One-week software review identified £120k in annual spend with significant overlap and redundancy. Built a single custom system covering CRM, project tracking, client portal, and reporting — tailored to how the firm actually works, not how the SaaS vendor assumed it would.',
-    outcome: '£120k annual saving from year one. One system to maintain instead of twenty. All data and IP fully owned by the client — no vendor relationship to manage, no renewal to dread, no price increase to absorb. The Software Review paid for itself in the first week of changes.'
+    problem: 'A 15-year-old professional services firm had accumulated 20+ SaaS subscriptions over a decade of reactive purchasing. Total annual spend was over {currency}120k. Renewals were auto-approved because nobody owned the review process. No single view of costs, usage, or data. The firm was locked into platforms it had long outgrown.',
+    solution: 'One-week software review identified {currency}120k in annual spend with significant overlap and redundancy. Built a single custom system covering CRM, project tracking, client portal, and reporting — tailored to how the firm actually works, not how the SaaS vendor assumed it would.',
+    outcome: '{currency}120k annual saving from year one. One system to maintain instead of twenty. All data and IP fully owned by the client — no vendor relationship to manage, no renewal to dread, no price increase to absorb. The Software Review paid for itself in the first week of changes.'
   }
 ];
 
 export function CaseStudies({ className }: CaseStudiesProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { currency } = useCurrency();
 
   return (
     <section
@@ -125,19 +127,19 @@ export function CaseStudies({ className }: CaseStudiesProps) {
                           {study.problem && (
                             <div>
                               <span className="font-medium text-foreground-secondary">Problem: </span>
-                              {study.problem}
+                              {study.problem.replace(/{currency}/g, currency)}
                             </div>
                           )}
                           {study.solution && (
                             <div>
                               <span className="font-medium text-foreground-secondary">Solution: </span>
-                              {study.solution}
+                              {study.solution.replace(/{currency}/g, currency)}
                             </div>
                           )}
                           {study.outcome && (
                             <div>
                               <span className="font-medium text-foreground-secondary">Outcome: </span>
-                              {study.outcome}
+                              {study.outcome.replace(/{currency}/g, currency)}
                             </div>
                           )}
                         </div>

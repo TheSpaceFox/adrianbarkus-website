@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useCurrency } from '@/hooks/useCurrency';
 import { cn } from '@/lib/utils';
 
 interface Project {
@@ -21,7 +22,7 @@ const projects: Project[] = [
     title: 'Choice Australia',
     subtitle: 'Replaced high-friction legacy workflows with a focused custom platform.',
     metricLabel: 'Software savings',
-    metricValue: '£120k / yr',
+    metricValue: '{currency}120k / yr',
     imageUrl:
       'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/ChoiceProjectHero.jpeg',
     tech: ['Next.js', 'Supabase', 'OpenAI']
@@ -50,6 +51,7 @@ const projects: Project[] = [
 
 export function CompletedProjectsSlider({ className }: { className?: string }) {
   const [index, setIndex] = useState(0);
+  const { currency } = useCurrency();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -134,7 +136,7 @@ export function CompletedProjectsSlider({ className }: { className?: string }) {
                     {active.metricLabel}
                   </span>
                   <span className="text-base md:text-2xl font-semibold text-primary">
-                    {active.metricValue}
+                    {active.metricValue.replace(/{currency}/g, currency)}
                   </span>
                 </div>
               </div>

@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Linkedin } from 'lucide-react';
+import { useCurrency } from '@/hooks/useCurrency';
 import { ScrollingLogos } from '@/components/ScrollingLogos';
 import { backgroundLogos } from '@/components/sections/Credibility';
 
@@ -16,12 +17,15 @@ const credentials = [
   'Top Secret Cleared (Former)',
 ];
 
-const bio =
-  "I've spent 19 years solving the technology problems that quietly drain companies dry. From cutting $3.5M in SaaS costs in 40 days, to architecting the systems that enabled a $155M acquisition — I've seen what broken tech costs, and exactly how to fix it. Now I do it faster than ever, using AI-accelerated development to turn 6-month builds into 4-week sprints.";
+const bioTemplate =
+  "I've spent 19 years solving the technology problems that quietly drain companies dry. From cutting {currency}3.5M in SaaS costs in 40 days, to architecting the systems that enabled a {currency}155M acquisition — I've seen what broken tech costs, and exactly how to fix it. Now I do it faster than ever, using AI-accelerated development to turn 6-month builds into 4-week sprints.";
 
 const SECTION_BG = '#2D2D2D';
 
 export function FounderSection() {
+  const { currency } = useCurrency();
+  const bio = bioTemplate.replace(/{currency}/g, currency);
+
   return (
     <section className="min-h-screen-dynamic snap-start flex flex-col justify-center bg-[#2D2D2D] overflow-x-hidden">
       <div className="max-w-5xl mx-auto w-full min-w-0 px-4 sm:px-6 md:px-12 py-20 md:py-32">

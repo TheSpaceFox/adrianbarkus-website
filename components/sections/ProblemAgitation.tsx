@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion';
 import type { ComponentType } from 'react';
 import { useRef } from 'react';
 import { Network } from 'lucide-react';
+import { useCurrency } from '@/hooks/useCurrency';
 import { TrendingDownIcon } from '@/components/ui/trending-down';
 import { BadgeAlertIcon } from '@/components/ui/badge-alert';
 import { LockIcon } from '@/components/ui/lock';
@@ -37,7 +38,7 @@ const painPoints = [
     icon: DollarSignIcon,
     headline: 'The Hidden Tax',
     copy:
-      "Your SaaS spend is spread across 12 department budgets, 6 annual renewals, and a handful of expense reports nobody questions. Most businesses have no idea what their total number is until someone finally adds it up. When they do, it's rarely under £80k. Often it's over £150k. For software that covers maybe 20% of what you actually need."
+      "Your SaaS spend is spread across 12 department budgets, 6 annual renewals, and a handful of expense reports nobody questions. Most businesses have no idea what their total number is until someone finally adds it up. When they do, it's rarely under {currency}80k. Often it's over {currency}150k. For software that covers maybe 20% of what you actually need."
   },
   {
     icon: WrenchIcon,
@@ -102,6 +103,7 @@ function AnimatedCard({ icon: Icon, headline, copy, index, isSectionInView }: An
 export function ProblemAgitation({ className }: ProblemAgitationProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const isSectionInView = useInView(sectionRef, { once: true, margin: '-80px' });
+  const { currency } = useCurrency();
 
   return (
     <section
@@ -147,7 +149,7 @@ export function ProblemAgitation({ className }: ProblemAgitationProps) {
                 <AnimatedCard
                   icon={point.icon}
                   headline={point.headline}
-                  copy={point.copy}
+                  copy={point.copy.replace(/{currency}/g, currency)}
                   index={index}
                   isSectionInView={isSectionInView}
                 />

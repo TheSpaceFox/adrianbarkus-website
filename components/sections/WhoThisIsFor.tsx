@@ -2,11 +2,21 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { useCurrency } from '@/hooks/useCurrency';
 import { BOOK_AUDIT_URL } from '@/lib/constants';
+
+const paragraphs = [
+  'I work with established businesses — typically 10 to 30 years old, {currency}5M to {currency}75M in revenue — that have grown through operational strength, not technology.',
+  'Companies where the MD still makes the technology decisions, or where nobody does. Where SaaS costs have crept up for a decade without anyone doing the full maths. Where a competitor is moving faster and the honest answer is: they have better systems.',
+  'If your finance director just pulled the software invoice report and it was an uncomfortable number — we should talk.',
+  "If you've tried to hire a CTO and it hasn't worked, or you're not ready to commit {currency}150k to a full-time hire — we should talk.",
+  "If your operations feel like a {currency}5M company even though you're turning over {currency}20M — we should talk."
+];
 
 export function WhoThisIsFor() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { currency } = useCurrency();
 
   return (
     <section
@@ -28,21 +38,9 @@ export function WhoThisIsFor() {
             Who This Is For
           </h2>
           <div className="max-w-3xl mx-auto space-y-6 text-foreground-secondary text-base md:text-lg leading-relaxed text-center">
-            <p>
-              I work with established businesses — typically 10 to 30 years old, £5M to £75M in revenue — that have grown through operational strength, not technology.
-            </p>
-            <p>
-              Companies where the MD still makes the technology decisions, or where nobody does. Where SaaS costs have crept up for a decade without anyone doing the full maths. Where a competitor is moving faster and the honest answer is: they have better systems.
-            </p>
-            <p>
-              If your finance director just pulled the software invoice report and it was an uncomfortable number — we should talk.
-            </p>
-            <p>
-              If you&apos;ve tried to hire a CTO and it hasn&apos;t worked, or you&apos;re not ready to commit £150k to a full-time hire — we should talk.
-            </p>
-            <p>
-              If your operations feel like a £5M company even though you&apos;re turning over £20M — we should talk.
-            </p>
+            {paragraphs.map((text, i) => (
+              <p key={i}>{text.replace(/{currency}/g, currency)}</p>
+            ))}
           </div>
           <div className="flex justify-center pt-4">
             <a
