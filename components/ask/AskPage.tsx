@@ -119,7 +119,7 @@ export function AskPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen w-full flex flex-col bg-background">
       {/* Top bar */}
       <header className="h-14 flex-shrink-0 flex items-center justify-between px-4 sm:px-6 max-w-4xl mx-auto w-full">
         <div className="flex items-center gap-2">
@@ -143,13 +143,13 @@ export function AskPage() {
       </header>
 
       {/* Main: orb + (empty state copy + chips | chat thread) */}
-      <main className="flex-1 flex flex-col min-h-0">
+      <main className="flex-1 flex flex-col min-h-0 w-full items-center">
         <motion.div
           layout
           className={
             hasStarted
-              ? 'flex justify-center pt-6'
-              : 'flex-1 flex flex-col items-center justify-center max-w-xl text-center px-4'
+              ? 'flex justify-center pt-6 w-full'
+              : 'flex-1 flex flex-col items-center justify-center w-full max-w-xl text-center px-4 min-w-0'
           }
         >
           <ChatAura state={orbState} size={hasStarted ? 'active' : 'empty'} />
