@@ -80,7 +80,7 @@ export function CompletedProjectsSlider({ className }: { className?: string }) {
           <button
             type="button"
             onClick={goPrev}
-            className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#404040] text-foreground-secondary hover:border-primary hover:text-primary transition-colors"
+            className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border text-foreground-secondary hover:border-primary hover:text-primary transition-colors"
             aria-label="Previous project"
           >
             <ChevronLeft className="h-4 w-4" />
@@ -88,7 +88,7 @@ export function CompletedProjectsSlider({ className }: { className?: string }) {
           <button
             type="button"
             onClick={goNext}
-            className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#404040] text-foreground-secondary hover:border-primary hover:text-primary transition-colors"
+            className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border text-foreground-secondary hover:border-primary hover:text-primary transition-colors"
             aria-label="Next project"
           >
             <ChevronRight className="h-4 w-4" />
@@ -104,9 +104,9 @@ export function CompletedProjectsSlider({ className }: { className?: string }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -24 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="overflow-hidden rounded-2xl border border-[#404040] bg-surface-elevated shadow-[0_22px_45px_rgba(0,0,0,0.3)]"
+            className="overflow-hidden rounded-2xl border border-border bg-surface-elevated shadow-[0_22px_45px_rgba(0,0,0,0.3)]"
           >
-            <div className="relative w-full aspect-[4/3] md:aspect-[16/9] bg-[#1f1f1f]">
+            <div className="relative w-full aspect-[4/3] md:aspect-[16/9] bg-surface-elevated">
               <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url('${active.imageUrl}')` }}
@@ -124,7 +124,7 @@ export function CompletedProjectsSlider({ className }: { className?: string }) {
                     {active.tech.map((t) => (
                       <span
                         key={t}
-                        className="rounded-full border border-[#404040] bg-background/60 px-3 py-1"
+                        className="rounded-full border border-border bg-background/60 px-3 py-1"
                       >
                         {t}
                       </span>
@@ -143,12 +143,12 @@ export function CompletedProjectsSlider({ className }: { className?: string }) {
             </div>
 
             {/* Mobile controls + dots */}
-            <div className="flex items-center justify-between px-4 py-3 border-t border-[#404040] md:hidden">
+            <div className="flex items-center justify-between px-4 py-3 border-t border-border md:hidden">
               <div className="flex items-center gap-2">
                 <button
                   type="button"
                   onClick={goPrev}
-                  className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#404040] text-foreground-secondary hover:border-primary hover:text-primary transition-colors"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border text-foreground-secondary hover:border-primary hover:text-primary transition-colors"
                   aria-label="Previous project"
                 >
                   <ChevronLeft className="h-4 w-4" />
@@ -156,7 +156,7 @@ export function CompletedProjectsSlider({ className }: { className?: string }) {
                 <button
                   type="button"
                   onClick={goNext}
-                  className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#404040] text-foreground-secondary hover:border-primary hover:text-primary transition-colors"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border text-foreground-secondary hover:border-primary hover:text-primary transition-colors"
                   aria-label="Next project"
                 >
                   <ChevronRight className="h-4 w-4" />
@@ -170,7 +170,7 @@ export function CompletedProjectsSlider({ className }: { className?: string }) {
                     onClick={() => setIndex(i)}
                     className={cn(
                       'h-1.5 w-4 rounded-full transition-colors',
-                      i === index ? 'bg-primary' : 'bg-[#404040]'
+                      i === index ? 'bg-primary' : 'bg-border'
                     )}
                     aria-label={`Show project ${project.title}`}
                   />
@@ -189,7 +189,7 @@ export function CompletedProjectsSlider({ className }: { className?: string }) {
               onClick={() => setIndex(i)}
               className={cn(
                 'h-1 w-6 rounded-full transition-colors',
-                i === index ? 'bg-primary' : 'bg-[#404040]'
+                i === index ? 'bg-primary' : 'bg-border'
               )}
               aria-label={`Show project ${project.title}`}
             />

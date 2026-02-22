@@ -77,16 +77,16 @@ export function FAQ({ className }: FAQProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: index * 0.05, ease: 'easeOut' }}
-                className="group rounded-lg border border-[#404040] bg-surface-elevated p-8 hover:bg-surface transition-colors"
+                className="group rounded-lg border border-border bg-surface-elevated p-8 hover:bg-surface transition-colors"
               >
                 <summary className="cursor-pointer text-lg font-semibold text-foreground hover:text-primary transition-colors list-none">
                   <span className="flex items-center justify-between gap-3">
                     <span className="min-w-0 break-words text-left">{faq.question}</span>
-                    <span className="text-[#A0A0A0] group-open:hidden">+</span>
-                    <span className="text-[#A0A0A0] hidden group-open:inline">−</span>
+                    <span className="text-foreground-secondary group-open:hidden">+</span>
+                    <span className="text-foreground-secondary hidden group-open:inline">−</span>
                   </span>
                 </summary>
-                <p className="mt-6 text-base leading-relaxed text-[#A0A0A0]">
+                <p className="mt-6 text-base leading-relaxed text-foreground-secondary">
                   {faq.answer}
                 </p>
               </motion.details>

@@ -151,6 +151,20 @@ body {
   background: #D4B876;
 }
 
+/* Light mode scrollbar */
+.light ::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: var(--color-foreground-tertiary);
+}
+
 /* Hide scrollbar for horizontal scroll containers */
 .scrollbar-hide {
   -ms-overflow-style: none;  /* IE and Edge */

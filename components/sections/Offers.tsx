@@ -94,7 +94,7 @@ export function Offers({ className }: OffersProps) {
               transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
               className="h-full min-h-0 flex flex-col"
             >
-              <Card className="h-full flex flex-col border border-[#404040] bg-surface hover:shadow-lg transition-all duration-300">
+              <Card className="h-full flex flex-col border border-border bg-surface hover:shadow-lg transition-all duration-300">
                 <CardHeader className="space-y-4 shrink-0">
                   <p className="text-xs font-semibold uppercase tracking-wide text-foreground-tertiary">
                     For businesses drowning in SaaS costs
@@ -112,7 +112,7 @@ export function Offers({ className }: OffersProps) {
                     {saasDetoxItems.map((item, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <Check className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-base text-[#A0A0A0] leading-relaxed">
+                        <span className="text-base text-foreground-secondary leading-relaxed">
                           {item}
                         </span>
                       </li>
@@ -120,17 +120,17 @@ export function Offers({ className }: OffersProps) {
                   </ul>
 
                   {/* Investment, Timeline & Minimum */}
-                  <div className="space-y-3 pt-6 border-t border-[#404040]">
+                  <div className="space-y-3 pt-6 border-t border-border">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-[#A0A0A0]">Investment:</span>
+                      <span className="text-sm text-foreground-secondary">Investment:</span>
                       <span className="text-base font-semibold text-foreground">Priced on Findings</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-[#A0A0A0]">Pricing model:</span>
+                      <span className="text-sm text-foreground-secondary">Pricing model:</span>
                       <span className="text-base font-semibold text-foreground">10% of 3-year savings</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-[#A0A0A0]">Timeline:</span>
+                      <span className="text-sm text-foreground-secondary">Timeline:</span>
                       <span className="text-base font-semibold text-foreground">4–6 weeks</span>
                     </div>
                   </div>
@@ -192,7 +192,7 @@ export function Offers({ className }: OffersProps) {
                     {aiProcessSprintItems.map((item, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <Check className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-base text-[#A0A0A0] leading-relaxed">
+                        <span className="text-base text-foreground-secondary leading-relaxed">
                           {item}
                         </span>
                       </li>
@@ -200,17 +200,17 @@ export function Offers({ className }: OffersProps) {
                   </ul>
 
                   {/* Investment, Timeline & Minimum */}
-                  <div className="space-y-3 pt-6 border-t border-[#404040]">
+                  <div className="space-y-3 pt-6 border-t border-border">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-[#A0A0A0]">Investment:</span>
+                      <span className="text-sm text-foreground-secondary">Investment:</span>
                       <span className="text-base font-semibold text-foreground">15% of first-year savings</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-[#A0A0A0]">Timeline:</span>
+                      <span className="text-sm text-foreground-secondary">Timeline:</span>
                       <span className="text-base font-semibold text-foreground">2–3 weeks</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-[#A0A0A0]">Minimum engagement:</span>
+                      <span className="text-sm text-foreground-secondary">Minimum engagement:</span>
                       <span className="text-base font-semibold text-foreground">{currency}5,000</span>
                     </div>
                   </div>
@@ -254,7 +254,7 @@ export function Offers({ className }: OffersProps) {
               transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
               className="h-full min-h-0 flex flex-col"
             >
-              <Card className="h-full flex flex-col border border-[#404040] bg-surface hover:shadow-lg transition-all duration-300">
+              <Card className="h-full flex flex-col border border-border bg-surface hover:shadow-lg transition-all duration-300">
                 <CardHeader className="space-y-4 shrink-0">
                   <p className="text-xs font-semibold uppercase tracking-wide text-foreground-tertiary">
                     For businesses that need a tech leader, not a hire
@@ -271,8 +271,8 @@ export function Offers({ className }: OffersProps) {
                   <ul className="space-y-4">
                     {fractionalCTOItems.map((item, index) => (
                       <li key={index} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-[#A0A0A0] mt-0.5 flex-shrink-0" />
-                        <span className="text-base text-[#A0A0A0] leading-relaxed">
+                        <Check className="h-5 w-5 text-foreground-secondary mt-0.5 flex-shrink-0" />
+                        <span className="text-base text-foreground-secondary leading-relaxed">
                           {item}
                         </span>
                       </li>
@@ -280,13 +280,13 @@ export function Offers({ className }: OffersProps) {
                   </ul>
 
                   {/* Investment & Terms */}
-                  <div className="space-y-3 pt-6 border-t border-[#404040]">
+                  <div className="space-y-3 pt-6 border-t border-border">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-[#A0A0A0]">Investment:</span>
+                      <span className="text-sm text-foreground-secondary">Investment:</span>
                       <span className="text-base font-semibold text-foreground">{currency}6,250/day</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-[#A0A0A0]">Minimum:</span>
+                      <span className="text-sm text-foreground-secondary">Minimum:</span>
                       <span className="text-base font-semibold text-foreground">12 days per year</span>
                     </div>
                   </div>
@@ -315,7 +315,7 @@ export function Offers({ className }: OffersProps) {
                       size="lg"
                       variant="outline"
                       onClick={() => window.open(offerSlots[2].ctaHref, '_blank')}
-                      className="w-full border border-[#404040] bg-surface-elevated hover:bg-surface text-foreground hover:scale-105 transition-transform duration-200 px-8 py-4"
+                      className="w-full border border-border bg-surface-elevated hover:bg-surface text-foreground hover:scale-105 transition-transform duration-200 px-8 py-4"
                     >
                       {offerSlots[2].ctaLabel}
                     </Button>

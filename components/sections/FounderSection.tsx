@@ -20,14 +20,12 @@ const credentials = [
 const bioTemplate =
   "I've spent 19 years solving the technology problems that quietly drain companies dry. From cutting {currency}3.5M in SaaS costs in 40 days, to architecting the systems that enabled a {currency}155M acquisition — I've seen what broken tech costs, and exactly how to fix it. Now I do it faster than ever, using AI-accelerated development to turn 6-month builds into 4-week sprints.";
 
-const SECTION_BG = '#2D2D2D';
-
 export function FounderSection() {
   const { currency } = useCurrency();
   const bio = bioTemplate.replace(/{currency}/g, currency);
 
   return (
-    <section className="min-h-screen-dynamic snap-start flex flex-col justify-center bg-[#2D2D2D] overflow-x-hidden">
+    <section className="min-h-screen-dynamic snap-start flex flex-col justify-center bg-surface overflow-x-hidden">
       <div className="max-w-5xl mx-auto w-full min-w-0 px-4 sm:px-6 md:px-12 py-20 md:py-32">
         <motion.div
           className="flex flex-col md:flex-row md:items-center gap-10 md:gap-12"
@@ -49,31 +47,31 @@ export function FounderSection() {
 
           {/* Content — right on md+, below image on mobile */}
           <div className="flex-1 md:w-[60%]">
-            <p className="text-xs uppercase tracking-[0.16em] text-[#C9A962] mb-3">
+            <p className="text-xs uppercase tracking-[0.16em] text-primary mb-3">
               A bit about me
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight line-clamp-2 pb-6 leading-normal">
               Adrian Barkus
             </h2>
-            <p className="text-lg text-[#A0A0A0] mt-1 mb-6">
+            <p className="text-lg text-foreground-secondary mt-1 mb-6">
               Fractional CTO · Enterprise Architect
             </p>
             <div className="flex flex-wrap gap-2">
               {credentials.map((label) => (
                 <span
                   key={label}
-                  className="rounded-full border border-[#C9A962]/30 text-[#C9A962] bg-[#C9A962]/5 text-xs px-3 py-1"
+                  className="rounded-full border border-primary/30 text-primary bg-primary/5 text-xs px-3 py-1"
                 >
                   {label}
                 </span>
               ))}
             </div>
-            <p className="mt-6 text-[#A0A0A0] leading-relaxed">{bio}</p>
+            <p className="mt-6 text-foreground-secondary leading-relaxed">{bio}</p>
             <a
               href="https://linkedin.com/in/adrianbarkus"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 text-[#C9A962] hover:text-[#D4B876] transition-colors text-base font-semibold mt-8 py-2"
+              className="inline-flex items-center gap-3 text-primary hover:text-primary-hover transition-colors text-base font-semibold mt-8 py-2"
             >
               <Linkedin size={22} />
               Connect on LinkedIn
@@ -82,12 +80,9 @@ export function FounderSection() {
         </motion.div>
       </div>
 
-      {/* Full-width Background logo strip — same colour as section background */}
-      <div
-        className="w-screen relative left-1/2 -translate-x-1/2 py-4"
-        style={{ backgroundColor: SECTION_BG }}
-      >
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#C9A962] mb-3 px-4 sm:px-6 md:px-12 max-w-5xl mx-auto">
+      {/* Full-width Background logo strip — theme-aligned */}
+      <div className="w-screen relative left-1/2 -translate-x-1/2 py-4 bg-surface-elevated">
+        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary mb-3 px-4 sm:px-6 md:px-12 max-w-5xl mx-auto">
           Background
         </p>
         <div className="w-full">

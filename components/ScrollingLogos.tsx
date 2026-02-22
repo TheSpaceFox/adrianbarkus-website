@@ -91,7 +91,7 @@ export function ScrollingLogos({ items, logos, speed = 50, direction = 'left' }:
         {duplicatedItems.map((item, index) => (
           <div
             key={index}
-            className="flex-shrink-0 px-6 py-3 rounded-lg border border-[#404040] bg-surface-elevated text-base font-medium text-foreground whitespace-nowrap hover:border-primary/50 transition-colors"
+            className="flex-shrink-0 px-6 py-3 rounded-lg border border-border bg-surface-elevated text-base font-medium text-foreground whitespace-nowrap hover:border-primary/50 transition-colors"
           >
             {item}
           </div>

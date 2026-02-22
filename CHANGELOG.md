@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.17] - 2026-02-18
+
+### Changed
+
+- **Light mode:** Hero subheadline and "from X reviews" use `text-foreground` (dark in light mode for readability). Hero metrics row uses theme tokens for border and labels.
+- **Light mode:** About me (FounderSection) uses `bg-surface` and theme-aligned logo strip; all text and accents use semantic tokens (primary, foreground-secondary).
+- **Header:** Scrolled state uses `bg-background/95` and `border-border` so it follows the active theme.
+- **Scrollbar:** Light mode scrollbar track/thumb use theme variables for visibility.
+
+### Fixed
+
+- **Theme alignment:** Replaced hardcoded `#404040` and `#A0A0A0` with `border-border` and `text-foreground-secondary` across Offers, FAQ, CaseStudies, FinalCTA, CompletedProjectsSlider, and ScrollingLogos so dark and light modes are consistent and readable.
+
 ## [1.1.16] - 2026-02-18
 
 ### Added

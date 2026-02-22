@@ -39,14 +39,14 @@ export function FinalCTA({ className }: FinalCTAProps) {
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="rounded-2xl border border-[#404040] bg-surface/80 backdrop-blur-sm p-12 md:p-16"
+            className="rounded-2xl border border-border bg-surface/80 backdrop-blur-sm p-12 md:p-16"
           >
             <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
               <div className="max-w-2xl space-y-6">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight break-words max-w-3xl line-clamp-2 pb-6 leading-normal">
                   Don&apos;t Wait for Your Next Renewal.
                 </h2>
-                <p className="text-xl md:text-2xl font-normal text-[#A0A0A0] leading-relaxed">
+                <p className="text-xl md:text-2xl font-normal text-foreground-secondary leading-relaxed">
                   Every week you delay is another week of exposure. A free Software Review takes 45
                   minutes. The findings could change what you spend on software for the next decade.
                 </p>

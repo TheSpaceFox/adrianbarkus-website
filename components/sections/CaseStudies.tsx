@@ -119,8 +119,8 @@ export function CaseStudies({ className }: CaseStudiesProps) {
                     {(study.problem ?? study.solution ?? study.outcome) && (
                       <details className="group mt-auto">
                         <summary className="cursor-pointer text-sm font-medium text-primary hover:text-primary/90 transition-colors list-none flex items-center gap-2">
-                          <span className="text-[#A0A0A0] group-open:hidden">+</span>
-                          <span className="text-[#A0A0A0] hidden group-open:inline">−</span>
+                          <span className="text-foreground-secondary group-open:hidden">+</span>
+                          <span className="text-foreground-secondary hidden group-open:inline">−</span>
                           <span>More detail</span>
                         </summary>
                         <div className="mt-4 space-y-3 text-sm text-foreground-tertiary border-t border-border pt-4">

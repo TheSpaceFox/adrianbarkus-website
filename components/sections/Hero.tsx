@@ -100,7 +100,7 @@ export function Hero({ className }: HeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
-            className="text-xl md:text-2xl font-normal text-white mt-6 mb-0 leading-relaxed"
+            className="text-xl md:text-2xl font-normal text-foreground mt-6 mb-0 leading-relaxed"
           >
             Most established businesses are spending hundreds of thousands a year on software that was built up tool by tool, renewal by renewal. Nobody questioned it. Until now. I find exactly where the money is going, cut what you don't need, and build what you do — in weeks, not months.
           </motion.h2>
@@ -155,7 +155,7 @@ export function Hero({ className }: HeroProps) {
                 ))}
                 <span className="text-sm font-semibold text-foreground">{REVIEW_RATING}</span>
               </div>
-              <p className="text-xs font-medium text-white">
+              <p className="text-xs font-medium text-foreground">
                 from {REVIEW_COUNT} reviews
               </p>
             </div>
@@ -166,7 +166,7 @@ export function Hero({ className }: HeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
-            className="mt-24 pt-12 border-t border-[#404040]"
+            className="mt-24 pt-12 border-t border-border"
           >
             <div className="grid grid-cols-2 gap-12 md:gap-16 sm:grid-cols-4">
               {metrics.map((metric, index) => (
@@ -179,7 +179,7 @@ export function Hero({ className }: HeroProps) {
                       duration={2000}
                     />
                   </p>
-                  <p className="text-sm text-[#A0A0A0] sm:text-base uppercase tracking-wide">
+                  <p className="text-sm text-foreground-secondary sm:text-base uppercase tracking-wide">
                     {metric.label}
                   </p>
                 </div>
