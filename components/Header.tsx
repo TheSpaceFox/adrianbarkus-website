@@ -26,7 +26,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo + Name */}
-          <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <Image
               src="https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/AdrianBarkus%20LOGO.png"
               alt="Adrian Barkus"
@@ -38,13 +38,21 @@ export default function Header() {
             <div className="text-lg font-semibold text-foreground">
               Adrian Barkus
             </div>
-          </div>
-          <Link
+          </Link>
+          <nav className="flex items-center gap-4">
+            <Link
+              href="/case-studies"
+              className="text-sm font-medium text-foreground-secondary hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background rounded-md"
+            >
+              Case Studies
+            </Link>
+            <Link
             href="/ask"
             className="text-sm font-medium text-foreground-secondary hover:text-primary border border-border hover:border-primary/50 rounded-full px-4 py-2 transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background"
           >
             Ask AI
           </Link>
+          </nav>
         </div>
       </div>
     </header>

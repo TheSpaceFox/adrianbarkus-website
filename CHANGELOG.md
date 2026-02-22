@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.19] - 2026-02-18
+
+### Added
+
+- **Case Studies blog:** Full case study section at `/case-studies` with index and detail pages. Eleven case studies (Salesforce replacement, 70% cost reduction, Moneyspot, Dynamics 365, Fairfax, IndiFind, WGEA, Woolworths, SUEZ, SiteMinder, New Horizons) with Problem/Solution/Outcome, result metrics, optional testimonials, and tech stack. Static generation and SEO metadata for all pages. Header updated with Case Studies link and logo links to home.
+
 ## [1.1.18] - 2026-02-18
 
 ### Changed
