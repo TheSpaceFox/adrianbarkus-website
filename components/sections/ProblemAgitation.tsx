@@ -42,15 +42,15 @@ const painPoints = [
   },
   {
     icon: WrenchIcon,
-    headline: 'Franken-Stack',
+    headline: 'The Manual Tax',
     copy:
-      "One tool feeds into another, into another. Nobody fully understands how it all connects — because it was never designed. It just grew. Your sales team enters data in three places. Finance exports reports manually. IT spends half their time keeping duct tape in place. You're not behind on technology. You're behind on decisions."
+      "Your team is doing things by hand that AI could handle in minutes. Reports built in spreadsheets. Quotes assembled from three systems. Data entered twice because the systems don't talk. You're not understaffed — you're under-automated. And the cost isn't in your software bill. It's in every hour your best people spend on work that shouldn't require a person."
   },
   {
     icon: Network,
     headline: 'No One Owns It',
     copy:
-      "You have an IT Manager who keeps the lights on. You have department heads who bought their own tools. But nobody is sitting at the table making strategic technology decisions for the business. Every year, the problem gets a little more expensive and a little harder to fix. Until someone finally does something about it."
+      "You have an IT Manager who keeps the lights on. You have department heads who bought their own tools. But nobody is sitting at the table making strategic technology decisions for the business. That's not an IT problem. It's a leadership gap — and it's the reason every other problem on this list is still here."
   }
 ];
 
@@ -132,7 +132,7 @@ export function ProblemAgitation({ className }: ProblemAgitationProps) {
             transition={{ duration: 0.6, delay: 0.08, ease: 'easeOut' }}
             className="text-lg md:text-xl text-foreground-secondary leading-relaxed max-w-3xl mx-auto text-center mt-6 mb-12"
           >
-            Most businesses don&apos;t have a software strategy. They have a software history. A decade of reactive purchases, auto-renewed contracts, and tools approved by whoever needed them at the time.
+            Most established businesses don&apos;t have a technology strategy. They have a technology history. A decade of reactive software purchases, manual processes nobody got around to fixing, and technology decisions made by whoever happened to be in the room.
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 16 }}

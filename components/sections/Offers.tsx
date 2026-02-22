@@ -39,7 +39,7 @@ const offerSlots = [
     slotsTaken: 2,
     slotLabel: '2026 slots',
     slotCopy: 'Limited slots per quarter. Each engagement receives full focus — I don\'t run parallel sprints.',
-    ctaLabel: 'Book Your Free Software Review',
+    ctaLabel: 'Book Your Free Discovery Call',
     ctaHref: BOOK_AUDIT_URL
   },
   {

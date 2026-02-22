@@ -22,16 +22,17 @@ export const metadata: Metadata = {
     template: '%s | Adrian Barkus'
   },
   description:
-    'Strategic Fractional CTO consulting for founders who need senior technical leadership without the full-time overhead. Advisory, architecture, and execution support for high-velocity startups.',
+    'Senior technical leadership for established businesses. Software Detox Sprints that cut SaaS costs, AI Process Sprints that eliminate manual work, and Fractional CTO engagements for businesses that need a tech strategy, not just IT support.',
   keywords: [
     'fractional CTO',
-    'CTO consulting',
-    'technical leadership',
-    'startup CTO',
-    'technology advisor',
-    'software architecture',
-    'technical strategy',
-    'engineering leadership'
+    'software cost reduction',
+    'SaaS audit',
+    'AI process automation',
+    'technology strategy',
+    'established business technology',
+    'software detox',
+    'custom software replacement',
+    'business automation'
   ],
   authors: [{ name: 'Adrian Barkus' }],
   creator: 'Adrian Barkus',
@@ -46,14 +47,14 @@ export const metadata: Metadata = {
     url: '/',
     title: 'Fractional CTO | Adrian Barkus',
     description:
-      'Strategic Fractional CTO consulting for founders who need senior technical leadership without the full-time overhead.',
+      'Senior tech leadership for established businesses. Cut software costs, automate manual processes, and get strategic technology decisions made — without a full-time CTO hire.',
     siteName: 'Adrian Barkus - Fractional CTO'
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Fractional CTO | Adrian Barkus',
     description:
-      'Strategic Fractional CTO consulting for founders who need senior technical leadership without the full-time overhead.'
+      'Senior tech leadership for established businesses. Cut software costs, automate manual processes, and get strategic technology decisions made — without a full-time CTO hire.'
   },
   robots: {
     index: true,
@@ -80,7 +81,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     '@type': 'ProfessionalService',
     name: 'Adrian Barkus - Fractional CTO',
     description:
-      'Strategic Fractional CTO consulting for founders who need senior technical leadership without the full-time overhead.',
+      'Senior technical leadership for established businesses — Software Detox Sprints, AI Process Sprints, and Fractional CTO engagements to cut costs, automate manual work, and provide strategic technology direction.',
     url: siteUrl,
     serviceType: 'Fractional CTO Consulting',
     areaServed: 'Worldwide',
@@ -101,7 +102,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     '@type': 'Person',
     name: 'Adrian Barkus',
     jobTitle: 'Fractional CTO',
-    description: 'Senior technical leader providing fractional CTO services to high-velocity startups.',
+    description: 'Senior technical leader providing Software Detox Sprints, AI Process Sprints, and Fractional CTO engagements to established businesses.',
     url: siteUrl
   };
 

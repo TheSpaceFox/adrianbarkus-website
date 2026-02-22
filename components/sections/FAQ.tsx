@@ -15,19 +15,19 @@ const faqs = [
       "Your IT team keeps the lights on. That's their job and they're good at it. What they don't have is the strategic mandate to challenge your entire software estate, the enterprise architecture experience to redesign it, or the AI-accelerated development speed to rebuild it in weeks. I work alongside your team — not instead of them."
   },
   {
-    question: 'How do you justify the cost of the Software Review?',
+    question: 'How do you justify the cost of the Diagnostic Review?',
     answer:
-      'The Software Review costs {currency}6,750. Every client so far has identified savings that exceed that within the first year — typically by a factor of 10 or more. If I can\'t find meaningful savings in your software estate, I\'ll tell you in the first session and we stop there. You keep the findings. No further obligation.'
+      'The Diagnostic Review costs {currency}6,750. Every client so far has identified savings that exceed that within the first year — typically by a factor of 10 or more. If I can\'t find meaningful savings in your software estate, I\'ll tell you in the first session and we stop there. You keep the findings. No further obligation.'
   },
   {
-    question: 'Can you really build a replacement system in 4–6 weeks?',
+    question: 'What does the AI Process Sprint actually look like?',
     answer:
-      "Yes — because I'm not building for a portfolio of clients or managing a team of contractors. I build solo, using AI-accelerated development tools that compress what used to take months into weeks. The scope is scoped tightly to what you actually use, not what your current vendor sells you. Smaller scope, faster delivery, lower cost."
+      "We start with a one-week process audit — I map the workflows where your team is spending the most time on manual work. The output is a ranked list of automation opportunities with projected time savings attached. You approve the target, I build the solution in 2–3 weeks using AI-accelerated development, and we deploy it into your operation. Pricing is 15% of first-year savings, with a minimum engagement of {currency}5,000. If I can't identify a process worth automating, we stop at the audit. No further obligation."
   },
   {
-    question: "What if we're locked into a long-term contract with our current vendors?",
+    question: 'How does the Fractional CTO engagement work?',
     answer:
-      "That's the most common situation I walk into. We plan around your renewal dates. The Software Review maps every contract expiry, so we sequence the replacements to coincide with natural exit points. You stop paying the moment the contract ends — not a day later than necessary."
+      "You get senior technology leadership on a day-rate — {currency}6,250/day, minimum 12 days per year. I attend your leadership meetings, own the technology roadmap, make the architecture and vendor decisions, and where it makes sense, build directly rather than outsourcing. No account manager, no handoffs. The same person from the first call to the last deliverable. Engagements typically run quarterly with a standing set of committed days, adjusted as needed. The starting point is a Diagnostic Review so we both know exactly what we're solving for."
   },
   {
     question: "What happens to the system after you've built it? Are we dependent on you?",

@@ -102,7 +102,7 @@ export function Hero({ className }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             className="text-xl md:text-2xl font-normal text-foreground mt-6 mb-0 leading-relaxed"
           >
-            Most established businesses are spending hundreds of thousands a year on software that was built up tool by tool, renewal by renewal. Nobody questioned it. Until now. I find exactly where the money is going, cut what you don't need, and build what you do — in weeks, not months.
+            Most established businesses are running on decisions made a decade ago. Software nobody questions. Processes nobody has automated. Technology strategies nobody owns. AI just changed what's possible — and what's inexcusable. I find exactly where the waste is, build what should exist, and make the calls that nobody has been making.
           </motion.h2>
 
           {/* CTAs */}
@@ -124,7 +124,7 @@ export function Hero({ className }: HeroProps) {
               rel="noopener noreferrer"
               className="text-foreground-secondary hover:text-primary text-sm font-medium mt-4 transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background rounded"
             >
-              Book Your Free Software Review
+              Book Your Free Discovery Call
             </Link>
           </motion.div>
 

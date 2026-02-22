@@ -49,7 +49,7 @@ export function WhoThisIsFor() {
               rel="noopener noreferrer"
               className="inline-block bg-primary text-primary-foreground rounded-full px-8 py-4 shadow-lg shadow-primary/25 hover:scale-105 hover:bg-primary-hover transition-all font-medium"
             >
-              Book Your Free Software Review
+              Book Your Free Discovery Call
             </a>
           </div>
         </motion.div>

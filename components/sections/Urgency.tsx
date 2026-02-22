@@ -15,17 +15,17 @@ const STRATEGY_CALL_URL = 'https://calendar.app.google/koCBUPrhiwLc4zFv7';
 
 const urgencyCards = [
   {
-    headline: 'Software Detox Sprint',
-    copy: '5 slots for 2026. Book in advance; change to next available with 30 days notice or your slot is lost.',
+    headline: 'Sprint Engagements',
+    copy: "Software Detox Sprint and AI Process Sprint slots for 2026. Sprints run 2–6 weeks. I don't run parallel engagements — each client gets full focus. Book in advance; 30 days notice required to change or your slot is forfeited.",
     slotsTotal: 5,
     slotsTaken: 2,
     slotLabel: '2026 slots',
-    ctaLabel: 'Book Your Free Software Review',
+    ctaLabel: 'Book Your Free Discovery Call',
     ctaHref: BOOK_AUDIT_URL
   },
   {
     headline: 'Fractional CTO',
-    copy: '3 slots total. 2 taken. One space left.',
+    copy: '3 client slots for ongoing Fractional CTO engagements. 2 are taken. One space currently available. Minimum 12 days per year. Engagements begin with a Diagnostic Review.',
     slotsTotal: 3,
     slotsTaken: 2,
     slotLabel: '1 slot left',

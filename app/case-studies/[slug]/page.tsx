@@ -122,7 +122,7 @@ export default async function CaseStudyPage({
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center bg-primary text-primary-foreground rounded-full px-8 py-4 text-base font-medium shadow-lg shadow-primary/25 hover:bg-primary-hover hover:scale-105 transition-all focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              Book Your Free Software Review
+              Book Your Free Discovery Call
             </a>
           </div>
         </section>

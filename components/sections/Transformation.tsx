@@ -15,25 +15,25 @@ export interface TransformationProps {
 const processSteps = [
   {
     label: '01',
-    headline: 'Software Review Call',
+    headline: 'Discovery Call',
     priceTag: 'Free',
-    body: "A 45-minute conversation — no pitch, no agenda. I want to understand your current software situation, what it costs, and what it's failing to do. If I can't find meaningful savings, I'll tell you straight and you'll walk away with a clearer picture of your stack at no cost.",
+    body: "A 45-minute conversation — no pitch, no agenda. I want to understand where your business is losing money or time, what technology decisions aren't being made, and which problem is most worth solving first. If I don't see a clear path to meaningful value, I'll tell you straight. You'll walk away with a clearer picture regardless.",
     icon: Phone,
     isAnimated: false
   },
   {
     label: '02',
-    headline: 'Software Review',
+    headline: 'Diagnostic Review',
     priceTag: '{currency}6,750',
-    body: "A one-week deep-dive into your entire software estate. I interview your team, audit every active subscription, map every workflow, and find exactly where the money is going. You receive a written report with your total software spend, projected 3-year savings, what to cut immediately, what to replace, and a clear ROI model. This report is yours whether you work with me further or not. Most clients cover the cost of the review in the first month of changes they make from it alone.",
+    body: "A one-week deep-dive into your business — covering your software estate, your manual processes, and your technology decision-making. I interview your team, audit what you spend, map what your people do by hand, and identify where strategic oversight is missing. You receive a written report with your total software spend, your highest-value automation opportunities, and a clear picture of the technology leadership gaps. This report is yours whether you work with me further or not. Most clients cover the cost of the diagnostic in the first month of changes they make from it.",
     icon: SearchIcon,
     isAnimated: true
   },
   {
     label: '03',
-    headline: 'SaaS Detox Sprint',
+    headline: 'Your Engagement',
     priceTag: 'Priced on findings',
-    body: "Based on the Software Review findings, I build your custom replacement. Fixed price, fixed scope, delivered in 4–6 weeks. You get a system built specifically for how your business actually works — not a configuration of someone else's platform. Zero subscriptions on the other side. You own it outright. Priced at 10% of your projected 3-year savings, so the numbers make sense before we start.",
+    body: "Based on the Diagnostic Review findings, we agree on the right engagement. That could be a Software Detox Sprint — custom replacement built in 4–6 weeks, priced at 10% of your projected 3-year savings. An AI Process Sprint — highest-value automation built in 2–3 weeks, charged on what you save. Or a Fractional CTO engagement — strategic technology leadership on a day-rate, starting from a clear roadmap. Fixed scope. No surprises. The engagement is sized to the opportunity, not a standard package.",
     icon: ZapIcon,
     isAnimated: true
   }
@@ -69,7 +69,7 @@ export function Transformation({ className }: TransformationProps) {
 
           {/* Section Subtitle */}
           <p className="text-foreground-secondary text-lg max-w-2xl mx-auto text-center mt-4 mb-16">
-            No retainers until you've seen the savings. No surprises. Every step is designed so you can walk
+            No retainers until you've seen the opportunity. No surprises. Every step is designed so you can walk
             away — until you don't want to.
           </p>
 
@@ -129,7 +129,7 @@ export function Transformation({ className }: TransformationProps) {
               rel="noopener noreferrer"
               className="inline-block bg-primary text-primary-foreground rounded-full px-8 py-4 shadow-lg shadow-primary/25 hover:scale-105 hover:bg-primary-hover transition-all font-medium"
             >
-              Book Your Free Software Review
+              Book Your Free Discovery Call
             </a>
           </motion.div>
         </motion.div>
