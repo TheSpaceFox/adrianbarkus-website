@@ -102,7 +102,7 @@ export function Hero({ className }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             className="text-xl md:text-2xl font-normal text-foreground mt-6 mb-0 leading-relaxed"
           >
-            Most established businesses are running on decisions made a decade ago. Software nobody questions. Processes nobody has automated. Technology strategies nobody owns. AI just changed what's possible — and what's inexcusable. I find exactly where the waste is, build what should exist, and make the calls that nobody has been making.
+            You run an established business — and the technology is costing you more than you know. Software nobody questions, processes nobody has automated, strategy nobody owns. I find exactly where the waste is, build what should exist, and make the calls that nobody has been making.
           </motion.h2>
 
           {/* CTAs */}
