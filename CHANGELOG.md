@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0](https://github.com/TheSpaceFox/adrianbarkus-website/compare/v1.1.19...v1.2.0) (2026-02-22)
+
+
+### Features
+
+* add animated Scroll to Explore indicator to Hero section ([6e97621](https://github.com/TheSpaceFox/adrianbarkus-website/commit/6e97621c5d18ffcc4b48c0b4ce7b2083f87eed44))
+* rebalance messaging to seed all three services from top of page ([e808946](https://github.com/TheSpaceFox/adrianbarkus-website/commit/e8089466df031c3306da53e9cad6a50b78dfee4e))
+
+
+### Bug Fixes
+
+* add padding and rounding to text-loop highlight box ([df65859](https://github.com/TheSpaceFox/adrianbarkus-website/commit/df6585952462268960eaa9257348fd38bf493ef6))
+* condense hero subheadline to 3 lines with client-first framing ([c16ab97](https://github.com/TheSpaceFox/adrianbarkus-website/commit/c16ab9758f51fd9aff0d3158e03da8913de18b24))
+* move 'avg' from metric suffix to Costs Cut label ([73b80a2](https://github.com/TheSpaceFox/adrianbarkus-website/commit/73b80a2a248e2be9b389d79cb2ec2e0fdd05b0e5))
+* replace invalid h1&gt;div nesting in Hero headline ([c4977b9](https://github.com/TheSpaceFox/adrianbarkus-website/commit/c4977b9f0f51431f711aa1d1ad45a414047b16e8))
+
 ## [1.1.19] - 2026-02-18
 
 ### Added
