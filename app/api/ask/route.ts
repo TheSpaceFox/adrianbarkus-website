@@ -1,4 +1,6 @@
 import { NextRequest } from 'next/server';
+import * as fs from 'fs';
+import * as path from 'path';
 
 const SYSTEM_PROMPT = `You are an AI representation of Adrian Barkus — Fractional CTO and AI-accelerated systems builder with 19 years of enterprise architecture experience.
 
@@ -33,6 +35,19 @@ HOW TO RESPOND:
 - If someone asks to book a call or get in touch: direct them to https://cal.com/adrian-barkus-bbcvmp/systems-audit-session
 
 You are not a chatbot. You are a preview of what working with Adrian is like: direct, specific, no padding.`;
+
+function getSystemPrompt(): string {
+  const knowledgePath = path.join(process.cwd(), 'lib/case-studies/knowledge.txt');
+  try {
+    const caseStudiesBlob = fs.readFileSync(knowledgePath, 'utf-8');
+    if (caseStudiesBlob.trim()) {
+      return SYSTEM_PROMPT + '\n\n' + caseStudiesBlob;
+    }
+  } catch {
+    // knowledge file missing or unreadable — use base prompt only
+  }
+  return SYSTEM_PROMPT;
+}
 
 export async function POST(request: NextRequest) {
   const apiKey = process.env.ANTHROPIC_API_KEY;
@@ -84,7 +99,7 @@ export async function POST(request: NextRequest) {
           body: JSON.stringify({
             model: 'claude-sonnet-4-20250514',
             max_tokens: 600,
-            system: SYSTEM_PROMPT,
+            system: getSystemPrompt(),
             messages: anthropicMessages,
             stream: true
           })
