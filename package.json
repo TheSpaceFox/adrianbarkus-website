@@ -1,6 +1,6 @@
 {
   "name": "adrianbarkus-website",
-  "version": "1.1.15",
+  "version": "1.1.16",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -24,13 +24,13 @@
     "clsx": "^2.1.1",
     "framer-motion": "^12.34.0",
     "lucide-react": "^0.563.0",
-    "motion": "^12.34.1",
+    "motion": "^12.34.3",
     "next": "^16.1.6",
     "next-themes": "^0.4.6",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-hook-form": "^7.71.1",
-    "tailwind-merge": "^3.4.1",
+    "tailwind-merge": "^3.5.0",
     "zod": "^4.3.6"
   },
   "devDependencies": {

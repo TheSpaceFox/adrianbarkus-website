@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.16] - 2026-02-18
+
+### Added
+
+- **Release automation:** Release Please workflow (`.github/workflows/release-please.yml`) for automatic version and changelog PRs from conventional commits.
+
+### Changed
+
+- **Hero:** Primary CTA "Ask AI About Me" → `/ask`; secondary "Book Your Free Software Review" → booking URL; header "Ask AI" CTA.
+- **Hero:** Headline replaced with Chamaac Text Loop ("For Software Detox Sprint / AI Process Sprint / Fractional CTO").
+
+### Fixed
+
+- **Build:** Remove unused `React` import in `components/text-loop.tsx` for TypeScript strict build.
+
 ## [1.1.12] - 2026-02-18
 
 ### Changed

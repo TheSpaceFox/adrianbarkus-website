@@ -6,8 +6,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { Star } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import AnimatedNumber from '@/components/AnimatedNumber';
+import TextLoop from '@/components/text-loop';
 import { useCurrency } from '@/hooks/useCurrency';
 import { BOOK_AUDIT_URL } from '@/lib/constants';
 import { HERO_REVIEW_AVATARS, REVIEW_RATING, REVIEW_COUNT } from '@/components/sections/SocialProof';
@@ -70,15 +70,30 @@ export function Hero({ className }: HeroProps) {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-center min-w-0"
         >
-          {/* Headline — smaller breakpoints to avoid 4-line wrap */}
-          <motion.h1
+          {/* Headline — Text Loop with three ways to work together */}
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-normal tracking-tight break-words max-w-4xl mx-auto line-clamp-2 pb-6"
+            className="flex justify-center pb-6"
           >
-            Your Software Is Costing More Than You Think.
-          </motion.h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-normal tracking-tight max-w-4xl mx-auto">
+              <TextLoop
+                staticText="For "
+                rotatingTexts={[
+                  'Software Detox Sprint',
+                  'AI Process Sprint',
+                  'Fractional CTO'
+                ]}
+                interval={4000}
+                className="justify-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold"
+                staticTextClassName="text-foreground"
+                rotatingTextClassName="text-primary bg-clip-text"
+                backgroundClassName="via-primary/20 to-primary/30 dark:via-primary/20 dark:to-primary/30"
+                cursorClassName="bg-primary"
+              />
+            </h1>
+          </motion.div>
 
           {/* Subheadline */}
           <motion.h2
@@ -97,18 +112,19 @@ export function Hero({ className }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
             className="flex flex-col items-center justify-center mt-12"
           >
-            <Button
-              size="lg"
-              onClick={() => window.open(BOOK_AUDIT_URL, '_blank')}
-              className="bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 px-8 py-4 text-base font-medium rounded-full transition-all hover:scale-105 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background my-8"
-            >
-              Book Your Free Software Review
-            </Button>
             <Link
               href="/ask"
+              className="inline-flex items-center justify-center bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 px-8 py-4 text-base font-medium rounded-full transition-all hover:scale-105 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background my-8"
+            >
+              Ask AI About Me
+            </Link>
+            <Link
+              href={BOOK_AUDIT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-foreground-secondary hover:text-primary text-sm font-medium mt-4 transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background rounded"
             >
-              Talk to my AI →
+              Book Your Free Software Review
             </Link>
           </motion.div>
 
