@@ -61,12 +61,12 @@ export default function TextLoop({
               animate={{ width: "auto", opacity: 1 }}
               exit={{ width: 0, opacity: 0 }}
               transition={transition}
-              className="overflow-hidden whitespace-nowrap relative"
+              className="overflow-hidden whitespace-nowrap relative px-3 py-1.5 rounded-md"
             >
-              {/* Background gradient box */}
+              {/* Background gradient box — padded so highlight isn't tight to text (Mac/Retina friendly) */}
               <div
                 className={cn(
-                  "absolute inset-0",
+                  "absolute inset-0 rounded-md",
                   "bg-gradient-to-r from-transparent via-purple-200/30 to-purple-200",
                   "dark:from-transparent dark:via-violet-950/30 dark:to-violet-950/60",
                   backgroundClassName
