@@ -5,7 +5,7 @@ import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
-import { Star } from 'lucide-react';
+import { Star, ChevronDown } from 'lucide-react';
 import AnimatedNumber from '@/components/AnimatedNumber';
 import TextLoop from '@/components/text-loop';
 import { useCurrency } from '@/hooks/useCurrency';
@@ -188,6 +188,24 @@ export function Hero({ className }: HeroProps) {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Scroll to Explore */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 1.2, ease: 'easeOut' }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
+      >
+        <span className="text-xs uppercase tracking-widest text-foreground-secondary">
+          Scroll to Explore
+        </span>
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <ChevronDown className="h-5 w-5 text-primary" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
