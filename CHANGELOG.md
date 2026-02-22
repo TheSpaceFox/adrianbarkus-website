@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.18] - 2026-02-18
+
+### Changed
+
+- **BACKGROUND logos:** Sliding logo strip uses transparent styling and theme-aware `mix-blend-mode` (lighten in dark mode, darken in light mode) so logo image backgrounds blend with the section; only the logo marks are visible for a floating effect. Strip container uses `bg-surface` to match the About me section.
+
 ## [1.1.17] - 2026-02-18
 
 ### Changed

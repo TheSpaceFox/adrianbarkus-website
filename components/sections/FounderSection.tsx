@@ -80,8 +80,8 @@ export function FounderSection() {
         </motion.div>
       </div>
 
-      {/* Full-width Background logo strip — theme-aligned */}
-      <div className="w-screen relative left-1/2 -translate-x-1/2 py-4 bg-surface-elevated">
+      {/* Full-width Background logo strip — same as section so logos float on one surface */}
+      <div className="w-screen relative left-1/2 -translate-x-1/2 py-4 bg-surface">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary mb-3 px-4 sm:px-6 md:px-12 max-w-5xl mx-auto">
           Background
         </p>

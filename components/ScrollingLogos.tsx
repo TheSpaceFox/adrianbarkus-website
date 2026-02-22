@@ -50,14 +50,17 @@ export function ScrollingLogos({ items, logos, speed = 50, direction = 'left' }:
           {duplicatedLogos.map((logo, index) => (
             <div
               key={index}
-              className="flex-shrink-0 flex items-center justify-center"
+              className="flex-shrink-0 flex items-center justify-center bg-transparent"
             >
               <Image
                 src={isDark ? logo.dark : logo.light}
                 alt={logo.alt}
                 width={216}
                 height={108}
-                className="object-contain max-h-[86px] w-auto opacity-80 hover:opacity-100 transition-opacity"
+                className="object-contain max-h-[86px] w-auto opacity-90 hover:opacity-100 transition-opacity bg-transparent"
+                style={{
+                  mixBlendMode: isDark ? 'lighten' : 'darken',
+                }}
                 unoptimized
               />
             </div>
