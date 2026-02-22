@@ -77,7 +77,7 @@ export function Hero({ className }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
             className="flex justify-center pb-6"
           >
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-normal tracking-tight max-w-4xl mx-auto">
+            <div role="heading" aria-level={1} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-normal tracking-tight max-w-4xl mx-auto">
               <TextLoop
                 staticText="For "
                 rotatingTexts={[
@@ -92,7 +92,7 @@ export function Hero({ className }: HeroProps) {
                 backgroundClassName="via-primary/20 to-primary/30 dark:via-primary/20 dark:to-primary/30"
                 cursorClassName="bg-primary"
               />
-            </h1>
+            </div>
           </motion.div>
 
           {/* Subheadline */}
