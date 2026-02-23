@@ -4,7 +4,6 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Check } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { UsageMeter } from '@/components/billingsdk/usage-meter';
 import { useCurrency } from '@/hooks/useCurrency';
 import { BOOK_AUDIT_URL } from '@/lib/constants';
@@ -154,13 +153,6 @@ export function Offers({ className }: OffersProps) {
                       progressColor="default"
                       className="w-full"
                     />
-                    <Button
-                      size="lg"
-                      onClick={() => window.open(offerSlots[0].ctaHref, '_blank')}
-                      className="w-full bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 transition-all hover:scale-105 px-8 py-4"
-                    >
-                      {offerSlots[0].ctaLabel}
-                    </Button>
                   </div>
                 </CardContent>
               </Card>
@@ -234,13 +226,6 @@ export function Offers({ className }: OffersProps) {
                       progressColor="default"
                       className="w-full"
                     />
-                    <Button
-                      size="lg"
-                      onClick={() => window.open(offerSlots[1].ctaHref, '_blank')}
-                      className="w-full bg-primary text-primary-foreground hover:bg-primary-hover shadow-lg shadow-primary/25 transition-all hover:scale-105 px-8 py-4"
-                    >
-                      {offerSlots[1].ctaLabel}
-                    </Button>
                   </div>
                 </CardContent>
               </Card>
@@ -310,18 +295,22 @@ export function Offers({ className }: OffersProps) {
                       progressColor="default"
                       className="w-full"
                     />
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      onClick={() => window.open(offerSlots[2].ctaHref, '_blank')}
-                      className="w-full border border-border bg-surface-elevated hover:bg-surface text-foreground hover:scale-105 transition-transform duration-200 px-8 py-4"
-                    >
-                      {offerSlots[2].ctaLabel}
-                    </Button>
                   </div>
                 </CardContent>
               </Card>
             </motion.div>
+          </div>
+
+          {/* Single section-level CTA */}
+          <div className="flex justify-center">
+            <a
+              href={BOOK_AUDIT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-primary text-primary-foreground rounded-full px-8 py-4 shadow-lg shadow-primary/25 hover:scale-105 hover:bg-primary-hover transition-all font-medium"
+            >
+              Book Your Free Discovery Call
+            </a>
           </div>
         </motion.div>
       </div>
