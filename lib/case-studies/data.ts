@@ -295,7 +295,7 @@ export const caseStudies: CaseStudy[] = [
     publishedAt: '2017-07-01',
     metaDescription:
       'SiteMinder Salesforce rescue: built 5-person team from scratch, integrated with custom in-house platform, delivered stable end-to-end executive reporting for 180 users.',
-    heroImage: PLACEHOLDER_HERO,
+    heroImage: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/Case%20Study%20Images/Siteminder(1).png',
     problem: `SiteMinder — a hotel booking platform with 180 users — had an unstable Salesforce implementation that wasn't doing what the business needed. User growth wasn't tracked. Sales performance wasn't visible. Financial data wasn't connected. The system wasn't integrated with SiteMinder's custom in-house software. No development team in place to fix it.`,
     solution: `Took over the implementation. Established a 5-person Salesforce development team from scratch. Integrated Salesforce with the custom in-house software to create a single view of user growth and sales performance. Built financial tracking to enable full end-to-end executive reporting. Stabilised the implementation and ran structured delivery across the two-year engagement.`,
     outcome: `Stable Salesforce system managing marketing, sales, and financial tracking — fully integrated with the in-house platform. End-to-end executive reporting operational. 180 users on a system that could be relied upon. A development team built from zero, operating consistently.`,
