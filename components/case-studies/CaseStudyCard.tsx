@@ -53,7 +53,7 @@ export function CaseStudyCard({ caseStudy, index = 0 }: CaseStudyCardProps) {
           </div>
           <p className="text-xs text-foreground-tertiary">
             {caseStudy.duration}
-            {!caseStudy.hideServiceType && (
+            {caseStudy.showServiceType && (
               <>
                 <span className="mx-2">·</span>
                 {caseStudy.serviceType}
