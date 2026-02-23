@@ -202,12 +202,16 @@ export function AskPage() {
       {hasStarted && (
         <>
           <div className="h-[88px] flex-shrink-0 md:h-20" aria-hidden />
-          <div className="fixed bottom-0 left-0 right-0 z-10 bg-background border-t border-border/40">
+          <div
+            className="fixed bottom-0 left-0 right-0 z-10 bg-background border-t border-border/40"
+            style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
+          >
             <InputBar
               value={input}
               onChange={setInput}
               onSubmit={() => sendMessage(input)}
               disabled={isLoading}
+              noBorder
             />
           </div>
         </>
