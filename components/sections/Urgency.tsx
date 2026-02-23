@@ -11,8 +11,6 @@ export interface UrgencyProps {
   className?: string;
 }
 
-const STRATEGY_CALL_URL = 'https://calendar.app.google/koCBUPrhiwLc4zFv7';
-
 const urgencyCards = [
   {
     headline: 'Sprint Engagements',
@@ -29,8 +27,8 @@ const urgencyCards = [
     slotsTotal: 3,
     slotsTaken: 2,
     slotLabel: '1 slot left',
-    ctaLabel: 'Book Strategy Call',
-    ctaHref: STRATEGY_CALL_URL
+    ctaLabel: 'Book Your Free Discovery Call',
+    ctaHref: BOOK_AUDIT_URL
   }
 ];
 

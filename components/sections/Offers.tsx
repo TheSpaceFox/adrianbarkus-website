@@ -9,7 +9,6 @@ import { UsageMeter } from '@/components/billingsdk/usage-meter';
 import { useCurrency } from '@/hooks/useCurrency';
 import { BOOK_AUDIT_URL } from '@/lib/constants';
 
-const STRATEGY_CALL_URL = 'https://calendar.app.google/koCBUPrhiwLc4zFv7';
 
 export interface OffersProps {
   className?: string;
@@ -47,7 +46,7 @@ const offerSlots = [
     slotsTaken: 1,
     slotLabel: '2 / 3 left',
     slotCopy: '3 sprints per quarter. One slot currently available.',
-    ctaLabel: 'Get Your Free Process Audit',
+    ctaLabel: 'Book Your Free Discovery Call',
     ctaHref: BOOK_AUDIT_URL
   },
   {
@@ -55,8 +54,8 @@ const offerSlots = [
     slotsTaken: 2,
     slotLabel: '1 slot left',
     slotCopy: '3 slots total. 2 taken. 1 space left.',
-    ctaLabel: 'Book Strategy Call',
-    ctaHref: STRATEGY_CALL_URL
+    ctaLabel: 'Book Your Free Discovery Call',
+    ctaHref: BOOK_AUDIT_URL
   }
 ];
 
