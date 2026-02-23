@@ -188,7 +188,7 @@ export const caseStudies: CaseStudy[] = [
     publishedAt: '2021-06-01',
     metaDescription:
       'WGEA government compliance portal: rescued from failure. Over budget and behind schedule — restructured with full stakeholder sign-off and delivered on time and on budget.',
-    heroImage: PLACEHOLDER_HERO,
+    heroImage: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/Case%20Study%20Images/WEGA.png',
     problem: `The Workplace Gender Equality Agency runs compliance reviews on every Australian company with more than 100 employees. A project to digitise their manual document processing had been commissioned and had since gone off the rails: over budget, behind schedule, without a credible delivery plan.`,
     solution: `Took over the project. Rebuilt the project plan from scratch: clear scope, defined deliverables, realistic timelines. Secured stakeholder signatures on the revised plan — establishing the accountability that had been missing. Rebuilt and led the development team with a structured Scrum cadence. The new portal automated document intake and processing, freeing the agency's staff from administration and into the customer support role they should have been in.`,
     outcome: `Delivered on time and on budget. A project that had been visibly failing became one that shipped. The department's operational capacity shifted from processing paperwork to supporting the employers they regulate.`,
