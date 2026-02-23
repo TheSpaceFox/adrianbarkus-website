@@ -47,14 +47,14 @@ export const metadata: Metadata = {
     url: '/',
     title: 'Fractional CTO | Adrian Barkus',
     description:
-      'Senior tech leadership for established businesses. Cut software costs, automate manual processes, and get strategic technology decisions made — without a full-time CTO hire.',
+      'I help businesses cut software costs, automate with AI, and access senior tech leadership. 19 years enterprise architecture experience.',
     siteName: 'Adrian Barkus - Fractional CTO'
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Fractional CTO | Adrian Barkus',
     description:
-      'Senior tech leadership for established businesses. Cut software costs, automate manual processes, and get strategic technology decisions made — without a full-time CTO hire.'
+      'I help businesses cut software costs, automate with AI, and access senior tech leadership. 19 years enterprise architecture experience.'
   },
   robots: {
     index: true,
@@ -103,7 +103,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
     name: 'Adrian Barkus',
     jobTitle: 'Fractional CTO',
     description: 'Senior technical leader providing Software Detox Sprints, AI Process Sprints, and Fractional CTO engagements to established businesses.',
-    url: siteUrl
+    url: siteUrl,
+    image: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/SiteImages/AdrianBarkus-Headshot-400x400.png'
   };
 
   return (
