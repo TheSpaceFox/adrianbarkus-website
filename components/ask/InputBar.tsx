@@ -9,6 +9,7 @@ export interface InputBarProps {
   onSubmit: () => void;
   disabled?: boolean;
   placeholder?: string;
+  noBorder?: boolean;
 }
 
 export function InputBar({
@@ -16,7 +17,8 @@ export function InputBar({
   onChange,
   onSubmit,
   disabled = false,
-  placeholder = 'Ask me anything about my work...'
+  placeholder = 'Ask me anything about my work...',
+  noBorder = false
 }: InputBarProps) {
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -26,7 +28,7 @@ export function InputBar({
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto px-4 py-4 border-t border-border/40 bg-background">
+    <div className={`w-full max-w-2xl mx-auto px-4 py-4 bg-background${noBorder ? '' : ' border-t border-border/40'}`}>
       <div className="flex items-end gap-2 w-full">
         <textarea
           value={value}

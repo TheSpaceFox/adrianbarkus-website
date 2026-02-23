@@ -163,7 +163,15 @@ export function AskPage() {
               <p className="text-foreground-tertiary text-xs uppercase tracking-[0.12em]">
                 Fractional CTO · 19 years enterprise architecture
               </p>
-              <div className="h-8" />
+              <div className="h-6" />
+              <InputBar
+                value={input}
+                onChange={setInput}
+                onSubmit={() => sendMessage(input)}
+                disabled={isLoading}
+                noBorder
+              />
+              <div className="h-6" />
               <StarterChips onSelect={handleChipSelect} />
             </>
           )}
@@ -190,17 +198,20 @@ export function AskPage() {
         )}
       </main>
 
-      {/* Spacer so content isn't hidden behind fixed input bar */}
-      <div className="h-[88px] flex-shrink-0 md:h-20" aria-hidden />
-      {/* Input bar — fixed to viewport so it's always visible */}
-      <div className="fixed bottom-0 left-0 right-0 z-10 bg-background border-t border-border/40">
-        <InputBar
-          value={input}
-          onChange={setInput}
-          onSubmit={() => sendMessage(input)}
-          disabled={isLoading}
-        />
-      </div>
+      {/* Fixed input bar + spacer — only shown once conversation has started */}
+      {hasStarted && (
+        <>
+          <div className="h-[88px] flex-shrink-0 md:h-20" aria-hidden />
+          <div className="fixed bottom-0 left-0 right-0 z-10 bg-background border-t border-border/40">
+            <InputBar
+              value={input}
+              onChange={setInput}
+              onSubmit={() => sendMessage(input)}
+              disabled={isLoading}
+            />
+          </div>
+        </>
+      )}
     </div>
   );
 }
