@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.0](https://github.com/TheSpaceFox/adrianbarkus-website/compare/v1.3.0...v1.4.0) (2026-02-23)
+
+
+### Features
+
+* add gallery images to IndiFind case study ([bdf330f](https://github.com/TheSpaceFox/adrianbarkus-website/commit/bdf330f64e560951f9cd398d5b609faf73b523f4))
+* apply locale-based currency to case study pages ([33190ec](https://github.com/TheSpaceFox/adrianbarkus-website/commit/33190ec7fb9e366752828bf4b06af93388bb89e4))
+* harden /ask system prompt against identity spoofing and off-topic requests ([213b961](https://github.com/TheSpaceFox/adrianbarkus-website/commit/213b961eed3a15fbb8cd8338846015f0b95699c6))
+
 ## [1.3.0](https://github.com/TheSpaceFox/adrianbarkus-website/compare/v1.2.0...v1.3.0) (2026-02-23)
 
 
