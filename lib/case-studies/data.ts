@@ -121,7 +121,7 @@ export const caseStudies: CaseStudy[] = [
     publishedAt: '2015-06-01',
     metaDescription:
       'Fairfax Media CRM rescue: stalled implementation across 800+ brands and 9,600 users. 24,971 improvements in 9 months. 100% user adoption. Development team built from zero.',
-    heroImage: PLACEHOLDER_HERO,
+    heroImage: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/Case%20Study%20Images/Fairfax.png',
     problem: `Fairfax Media — Australia's largest media company, with 800+ brands across Australia, New Zealand, and the Philippines — had a stalled CRM and customer contact systems project. No functioning development team, no consistent delivery cadence, no executive alignment across major business units. 9,600 users dependent on a system that wasn't moving.`,
     solution: `Took over the project with a mandate to rescue it. Set strategic direction for all customer contact systems at enterprise level. Established a dedicated Build team from scratch. Created a parallel Business as Usual team to handle administration separately from project delivery. Ran the development team as Scrum Master with a consistent cadence. Held three innovation sessions with key executives to align major business units and clear the organisational blockers that had stalled delivery.`,
     outcome: `24,971 system improvements delivered in 9 months. 100% user adoption across 9,600 Salesforce users. Development team built from zero and operating at full velocity within the first quarter. The system became the operational backbone for customer contact across the entire Fairfax estate.`,
