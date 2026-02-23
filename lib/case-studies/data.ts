@@ -65,7 +65,7 @@ export const caseStudies: CaseStudy[] = [
     publishedAt: '2018-01-01',
     metaDescription:
       'Moneyspot: fully automated online microloan business. Application through to funds transfer with only 2 manual steps remaining. Architecture, Equifax integration, digital signing, full delivery.',
-    heroImage: PLACEHOLDER_HERO,
+    heroImage: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/Case%20Study%20Images/HERO-MoneySpot.png',
     problem: `Moneyspot needed a fully online microloan business where the entire process from application to approval to funds transfer ran without a processing team handling each step. The commercial logic was clear: microloans require low operational cost per transaction to be viable. Every manual step was a cost multiplier and a speed bottleneck.`,
     solution: `Led architecture design and technical build. Integrated Equifax credit checking for real-time decisioning. Salesforce Commerce Portal for the customer-facing journey. CongaSign for automated digital agreement execution. Heroku as the integration platform. Designed the approval logic so that credit-approved applications moved through to funds transfer preparation without manual intervention — the system made the decision, prepared the transfer, and flagged only edge cases for human review.`,
     outcome: `A fully automated loan business with only two steps handled by staff: customer support queries and a single approval button for releasing funds to auto-approved applications. 12 users running a loan operation that could scale without adding headcount.`,
