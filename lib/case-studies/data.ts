@@ -89,7 +89,7 @@ export const caseStudies: CaseStudy[] = [
     publishedAt: '2025-03-01',
     metaDescription:
       'Dynamics 365 replacement: £94k annual cost eliminated. Custom workflow, job management and client portal built in 6 weeks. £87k year 1 saving. 9:1 ROI. 12 hours manual reporting eliminated weekly.',
-    heroImage: PLACEHOLDER_HERO,
+    heroImage: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/Case%20Study%20Images/RXP.png',
     problem: `The client was paying £94,000 a year for a Dynamics 365 setup that required three internal staff members to manage. Configured for a version of the business that no longer existed. Reporting required 12 hours of manual work per week — exporting, cleaning, and reformatting data that the platform couldn't surface automatically. The client portal was a shared inbox. Status updates went out by email.`,
     solution: `Full audit of the Dynamics 365 estate. Built a custom operations platform: job and workflow management system, a real-time client portal showing live project status, and automated reporting that replaced the 12 weekly manual hours entirely. Integrated with existing accounting software. Delivered in 6 weeks — solo, using AI-accelerated development.`,
     outcome: `£87,000 annual saving. ROI on the project fee: 9:1 in year one. The three internal staff managing Dynamics 365 were redeployed to revenue-generating work. Twelve hours of manual reporting per week eliminated from day one. The client portal replaced the shared inbox. The system is owned outright with no ongoing platform fee.`,
