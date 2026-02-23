@@ -259,7 +259,7 @@ export const caseStudies: CaseStudy[] = [
     publishedAt: '2019-08-01',
     metaDescription:
       'SUEZ Australia: mobile sales management with five enterprise integrations. Delivered on time, on budget, with additional automation beyond original scope. 150 field sales users.',
-    heroImage: PLACEHOLDER_HERO,
+    heroImage: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/Case%20Study%20Images/SUEZ.png',
     problem: `SUEZ's Australian sales team needed mobile management — but this wasn't a standard field service implementation. Requirements included multi-template contract sign-on-glass, progressive data enrichment through external APIs, real-time address validation, automated company name correction, and management reporting to Paris headquarters. The existing architecture contained SAP, Oracle, and multiple legacy systems.`,
     solution: `Designed and delivered a Salesforce Field Service implementation with custom API integrations across five systems: in-house finance, BVD external data providers, Google Address APIs, CongaSign for contract execution, and the Paris HQ reporting pipeline. Progressive data enrichment built directly into the sales workflow. Full delivery lifecycle run with structured Scrum cadence.`,
     outcome: `Delivered on time and on budget — with additional features and automation beyond the original specification. 150 field sales users operational on mobile from go-live. Full integration with a legacy enterprise architecture. Paris management reporting was live from day one.`,
