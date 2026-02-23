@@ -175,6 +175,11 @@ export const caseStudies: CaseStudy[] = [
       'React Leaflet',
       'CI/CD',
     ],
+    additionalImages: [
+      'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/Case%20Study%20Images/Indifind-DesktopVersion2.png',
+      'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/Case%20Study%20Images/Indifind-Location%20Comparison.png',
+      'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/Case%20Study%20Images/Indifind-RoutePlanner-App.png',
+    ],
   },
   // 7. WGEA Government Portal Rescue
   {
