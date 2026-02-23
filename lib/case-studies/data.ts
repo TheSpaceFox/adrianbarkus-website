@@ -1,6 +1,5 @@
 import type { CaseStudy } from './types';
 
-const PLACEHOLDER_HERO = 'https://placehold.co/1200x600/373737/ECECEC?text=Case+Study';
 
 export const caseStudies: CaseStudy[] = [
   // 1. Salesforce £420k Replacement
@@ -222,6 +221,7 @@ export const caseStudies: CaseStudy[] = [
     metaDescription:
       'Woolworths Centre of Excellence: governing a $1B AUD annual technology budget. Enterprise-wide best practices, Scrum of Scrums, and executive-level Salesforce representation.',
     heroImage: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/Case%20Study%20Images/Woolworths.png',
+    hideServiceType: true,
     problem: `Woolworths operates one of Australia's largest technology estates — $1,000,000,000 AUD annual budget. Enterprise architects and software developers across the organisation were operating without a unified framework or central coordinating body. Salesforce implementations across multiple business units were running independently with no alignment. No mechanism for cross-functional best practice at enterprise scale — every team solving the same problems separately.`,
     solution: `Established and operated a Centre of Excellence (COE) for the entire corporation. Implemented a Scrum of Scrums across business units to coordinate delivery across fragmented teams. Represented Woolworths to Salesforce at an executive level. Provided executive advisory on roadmap, priorities, and architectural direction. Delivered training and mentoring to embed capability, not just framework.`,
     outcome: `A functioning Centre of Excellence embedded across the enterprise. Salesforce practice standardised, coordinated, and represented at executive level for the first time. Cross-functional delivery alignment established where there had previously been silos.`,

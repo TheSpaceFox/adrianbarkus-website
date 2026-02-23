@@ -4,6 +4,7 @@ export interface CaseStudy {
   subtitle: string;
   industry: string;
   serviceType: 'Software Detox Sprint' | 'AI Process Sprint' | 'Fractional CTO';
+  hideServiceType?: boolean;
   duration: string;
   heroImage: string;
   additionalImages?: string[];

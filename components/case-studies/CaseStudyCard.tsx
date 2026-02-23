@@ -53,8 +53,12 @@ export function CaseStudyCard({ caseStudy, index = 0 }: CaseStudyCardProps) {
           </div>
           <p className="text-xs text-foreground-tertiary">
             {caseStudy.duration}
-            <span className="mx-2">·</span>
-            {caseStudy.serviceType}
+            {!caseStudy.hideServiceType && (
+              <>
+                <span className="mx-2">·</span>
+                {caseStudy.serviceType}
+              </>
+            )}
           </p>
           <p className="mt-3 text-sm font-medium text-primary group-hover:underline">
             Read Case Study →

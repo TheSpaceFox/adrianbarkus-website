@@ -26,9 +26,11 @@ export function CaseStudyHero({ caseStudy }: CaseStudyHeroProps) {
             <span className="rounded-full bg-primary/10 text-primary border border-primary/30 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide">
               {caseStudy.industry}
             </span>
-            <span className="rounded-full bg-primary/10 text-primary border border-primary/30 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide">
-              {caseStudy.serviceType}
-            </span>
+            {!caseStudy.hideServiceType && (
+              <span className="rounded-full bg-primary/10 text-primary border border-primary/30 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide">
+                {caseStudy.serviceType}
+              </span>
+            )}
           </div>
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight max-w-4xl">
             {caseStudy.title}
