@@ -328,7 +328,7 @@ export const caseStudies: CaseStudy[] = [
     publishedAt: '2023-01-01',
     metaDescription:
       'New Horizons: ongoing Enterprise Architect engagement. Practical tech stack consolidation design plus interim IT General Manager and GM Projects and Programs coverage during leadership transitions.',
-    heroImage: PLACEHOLDER_HERO,
+    heroImage: 'https://xpqqcxtpnbhggukhbysr.supabase.co/storage/v1/object/public/Case%20Study%20Images/NewHorizons.png',
     problem: `New Horizons needed enterprise architecture that translated into working systems, not theoretical frameworks. They also faced a recurring challenge common to mid-market organisations: leadership gaps. When the IT General Manager role became vacant, and later the GM for Projects and Programs, the business needed someone who could step in without a six-month handover.`,
     solution: `Embedded as Enterprise Architect with a brief to design solutions the organisation could actually build and operate — commercial constraints built in from the start. When senior roles became vacant, stepped in as interim IT General Manager and interim GM for Projects and Programs — maintaining strategic continuity and delivery momentum during transitions.`,
     outcome: `Ongoing engagement. Tech stack consolidation progressing with designs that get implemented. Three senior leadership roles covered without business disruption.`,
