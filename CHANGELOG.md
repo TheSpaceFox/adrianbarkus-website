@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0](https://github.com/TheSpaceFox/adrianbarkus-website/compare/v1.2.0...v1.3.0) (2026-02-23)
+
+
+### Features
+
+* add OG/Twitter image with headshot and update social share description ([7a47118](https://github.com/TheSpaceFox/adrianbarkus-website/commit/7a47118b6ba9ca8280c2a8edce996491a22d3456))
+
 ## [1.2.0](https://github.com/TheSpaceFox/adrianbarkus-website/compare/v1.1.19...v1.2.0) (2026-02-23)
 
 
