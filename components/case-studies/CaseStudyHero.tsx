@@ -2,12 +2,15 @@
 
 import Image from 'next/image';
 import type { CaseStudy } from '@/lib/case-studies/types';
+import { useCurrency } from '@/hooks/useCurrency';
 
 export interface CaseStudyHeroProps {
   caseStudy: CaseStudy;
 }
 
 export function CaseStudyHero({ caseStudy }: CaseStudyHeroProps) {
+  const { currency } = useCurrency();
+  const rc = (str: string) => str.replace(/£/g, currency);
   return (
     <div className="relative w-full max-h-[500px] overflow-hidden rounded-b-2xl">
       <div className="relative aspect-[21/9] min-h-[280px] w-full md:max-h-[500px]">
@@ -33,10 +36,10 @@ export function CaseStudyHero({ caseStudy }: CaseStudyHeroProps) {
             )}
           </div>
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight max-w-4xl">
-            {caseStudy.title}
+            {rc(caseStudy.title)}
           </h1>
           <p className="mt-3 text-lg md:text-xl text-foreground-secondary max-w-3xl">
-            {caseStudy.subtitle}
+            {rc(caseStudy.subtitle)}
           </p>
         </div>
       </div>

@@ -5,6 +5,7 @@ import { caseStudies, getCaseStudyBySlug } from '@/lib/case-studies/data';
 import { BOOK_AUDIT_URL } from '@/lib/constants';
 import { CaseStudyHero } from '@/components/case-studies/CaseStudyHero';
 import { CaseStudyMeta } from '@/components/case-studies/CaseStudyMeta';
+import { CaseStudyBody } from '@/components/case-studies/CaseStudyBody';
 import { CaseStudyGallery } from '@/components/case-studies/CaseStudyGallery';
 import { CaseStudyTestimonial } from '@/components/case-studies/CaseStudyTestimonial';
 import Header from '@/components/Header';
@@ -57,36 +58,7 @@ export default async function CaseStudyPage({
 
           <div className="mt-12 lg:grid lg:grid-cols-3 lg:gap-12">
             <div className="lg:col-span-2 space-y-12">
-              <section>
-                <h2 className="text-xs font-semibold uppercase tracking-wide text-foreground-secondary mb-3">
-                  Problem
-                </h2>
-                <div className="border-l-2 border-primary pl-6">
-                  <p className="text-foreground leading-relaxed whitespace-pre-line">
-                    {caseStudy.problem}
-                  </p>
-                </div>
-              </section>
-              <section>
-                <h2 className="text-xs font-semibold uppercase tracking-wide text-foreground-secondary mb-3">
-                  Solution
-                </h2>
-                <div className="border-l-2 border-primary pl-6">
-                  <p className="text-foreground leading-relaxed whitespace-pre-line">
-                    {caseStudy.solution}
-                  </p>
-                </div>
-              </section>
-              <section>
-                <h2 className="text-xs font-semibold uppercase tracking-wide text-foreground-secondary mb-3">
-                  Outcome
-                </h2>
-                <div className="border-l-2 border-primary pl-6">
-                  <p className="text-foreground leading-relaxed whitespace-pre-line">
-                    {caseStudy.outcome}
-                  </p>
-                </div>
-              </section>
+              <CaseStudyBody caseStudy={caseStudy} />
 
               {caseStudy.additionalImages && caseStudy.additionalImages.length > 0 && (
                 <CaseStudyGallery images={caseStudy.additionalImages} />

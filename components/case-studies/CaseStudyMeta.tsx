@@ -4,12 +4,15 @@ import { motion } from 'framer-motion';
 import { BOOK_AUDIT_URL } from '@/lib/constants';
 import { CaseStudyTestimonial } from './CaseStudyTestimonial';
 import type { CaseStudy } from '@/lib/case-studies/types';
+import { useCurrency } from '@/hooks/useCurrency';
 
 export interface CaseStudyMetaProps {
   caseStudy: CaseStudy;
 }
 
 export function CaseStudyMeta({ caseStudy }: CaseStudyMetaProps) {
+  const { currency } = useCurrency();
+  const rc = (str: string) => str.replace(/£/g, currency);
   return (
     <div className="space-y-6">
       <motion.div
@@ -25,7 +28,7 @@ export function CaseStudyMeta({ caseStudy }: CaseStudyMetaProps) {
           {caseStudy.results.map((r) => (
             <li key={r.label} className="border-b border-border last:border-0 pb-4 last:pb-0">
               <p className={r.highlight ? 'text-2xl font-bold text-primary' : 'text-2xl font-bold text-foreground'}>
-                {r.value}
+                {rc(r.value)}
               </p>
               <p className="text-sm text-foreground-secondary mt-0.5">{r.label}</p>
             </li>

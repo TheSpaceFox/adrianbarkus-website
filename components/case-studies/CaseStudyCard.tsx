@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import type { CaseStudy } from '@/lib/case-studies/types';
+import { useCurrency } from '@/hooks/useCurrency';
 
 export interface CaseStudyCardProps {
   caseStudy: CaseStudy;
@@ -11,6 +12,8 @@ export interface CaseStudyCardProps {
 }
 
 export function CaseStudyCard({ caseStudy, index = 0 }: CaseStudyCardProps) {
+  const { currency } = useCurrency();
+  const rc = (str: string) => str.replace(/£/g, currency);
   const highlightResults = caseStudy.results.filter((r) => r.highlight).slice(0, 3);
 
   return (
@@ -36,10 +39,10 @@ export function CaseStudyCard({ caseStudy, index = 0 }: CaseStudyCardProps) {
             {caseStudy.industry}
           </p>
           <h2 className="text-xl md:text-2xl font-bold text-foreground tracking-tight line-clamp-2 mb-2 group-hover:text-primary transition-colors">
-            {caseStudy.title}
+            {rc(caseStudy.title)}
           </h2>
           <p className="text-sm text-foreground-secondary line-clamp-2 mb-4">
-            {caseStudy.subtitle}
+            {rc(caseStudy.subtitle)}
           </p>
           <div className="flex flex-wrap gap-2 mb-4">
             {highlightResults.map((r) => (
@@ -47,7 +50,7 @@ export function CaseStudyCard({ caseStudy, index = 0 }: CaseStudyCardProps) {
                 key={r.label}
                 className="rounded-full bg-primary/10 text-primary border border-primary/30 px-3 py-1.5 text-xs font-medium"
               >
-                {r.value}
+                {rc(r.value)}
               </span>
             ))}
           </div>
