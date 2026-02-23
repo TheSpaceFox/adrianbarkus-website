@@ -201,9 +201,9 @@ export function AskPage() {
       {/* Fixed input bar + spacer — only shown once conversation has started */}
       {hasStarted && (
         <>
-          <div className="h-[88px] flex-shrink-0 md:h-20" aria-hidden />
+          <div className="h-[88px] flex-shrink-0 md:h-32" aria-hidden />
           <div
-            className="fixed bottom-0 left-0 right-0 z-10 bg-background border-t border-border/40"
+            className="fixed bottom-0 md:bottom-6 left-0 right-0 z-10 bg-background border-t border-border/40 md:border-none"
             style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
           >
             <InputBar
